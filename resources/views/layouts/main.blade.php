@@ -866,10 +866,10 @@
     
 
 
-<div class="content-wrapper">
+{{-- <div class="content-wrapper"> --}}
 @yield('content')
   
-  </div>
+  {{-- </div> --}}
     <!-- /.content-header -->
 
         <!-- /.row -->
@@ -1390,7 +1390,7 @@
 
 
   
-@yield('content')
+{{-- @yield('content') --}}
 
 
 </div><!-- /.container-fluid -->
