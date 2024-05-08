@@ -68,7 +68,24 @@
       <img src="{{ asset('image/beras.png') }}"  width="200" alt="Nama Gambar">
      
     <h1 class="display-4">JDA </h1>
-    <p class="lead styele text-align: center">Jabar Digital Akademi</p>
+    {{-- <p class="lead styele text-align: center">Jabar Digital Akademi</p> --}}
+    @if(auth()->check())
+    <p class="lead" style="text-align: center">Sudah Login</p>
+@else
+    <p class="lead" style="text-align: center">Jabar Digital Akademi</p>
+@endif
+@if(auth()->check())
+    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+        Exit
+    </a>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
+@endif
+
+<!-- Pengguna sedang login -->
+<p>Selamat datang, {{ Auth::user()->username }}!</p>
+
 </section>
 
     {{-- end --}}

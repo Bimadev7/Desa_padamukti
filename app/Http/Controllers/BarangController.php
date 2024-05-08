@@ -18,6 +18,12 @@ class BarangController extends Controller
         return view('backoffice.barang.index', compact('barang'));
     }
 
+    public function edit($id) {
+        // return $id;
+        $barang = Barang::findOrFail($id);
+        return view('backoffice.barang.edit')->with(compact('barang'));
+    }
+
 
 
     public function create() {
@@ -51,11 +57,7 @@ class BarangController extends Controller
         ]);
     }
 
-    public function edit($id) {
-        // return $id;
-        $barang = Barang::findOrFail($id);
-        return view('backoffice.barang.edit')->with(compact('barang'));
-    }
+  
 
     public function update(Request $request) {  
 

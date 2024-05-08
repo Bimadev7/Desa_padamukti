@@ -65,10 +65,27 @@
   {{-- jumbotron --}}
   <section class="jumbotron text-center">
      
-      <img src="{{ asset('image/beras.png') }}"  width="200" alt="Nama Gambar">
+      <img src="{{ asset('image/Logo_jda.png') }}"  width="200" alt="Nama Gambar">
      
     <h1 class="display-4">JDA </h1>
     <p class="lead styele text-align: center">Jabar Digital Akademi</p>
+ 
+@if(auth()->check())
+    <p>Sudah Login</p>
+@else
+    <p></p>
+@endif
+
+
+@if(auth()->check())
+    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+        Exit
+    </a>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
+@endif
+
 </section>
 
     {{-- end --}}
@@ -83,46 +100,6 @@
 <button type="button" href="bac" class="btn btn-primary btn-lg btn-block">pinjam Barang</button>
 <button type="button" class="btn btn-secondary btn-lg btn-block">kembali Barang</button>
 
-{{-- <button type="button" class="btn btn-secondary btn-lg btn-block">login</button> --}}
-
-{{-- <button type="button" class="btn btn-secondary btn-lg btn-block" data-toggle="modal" data-target="#loginModal">Login modal</button>
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="loginModalLabel">Login modal</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <!-- Isi form login disini -->
-        <form method="POST" action="{{ route('login') }}">
-          @csrf
-          <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-          </div>
-          <button type="submit" class="btn btn-primary">Login modal</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Bootstrap JavaScript -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-
-      --}}
-
-      <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

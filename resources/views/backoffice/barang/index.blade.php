@@ -1,4 +1,5 @@
 @extends('layouts.main')
+
 @section('content')
 
 
@@ -16,6 +17,12 @@
             </a>
         </div>
     </div>
+    <head><script src="adminlte/plugins/sweetalert2/sweetalert2.min.js"></script>
+        
+        <link rel="stylesheet" href="path/to/sweetalert2.min.css">
+    <link href="adminlte/plugins/sweetalert2/sweetalert2.min.css">
+
+        
     <div class="card-body table-responsive p-0">
         <table class="table table-striped table-valign-middle">
             <thead>
@@ -36,17 +43,55 @@
                         <td>{{ $barang->gambar }}</td>
                         <td>{{ $barang->level_teknologi }}</td>
                         <td>
-                            <!-- Tombol Update -->
-                            <a href="{{ route('barang.edit', $barang->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                           
+                            <a href="{{ route('backoffice.barang.edit', $barang->id) }}" class="btn btn-primary btn-sm">Edit</a>
                             
-                            <!-- Tombol Delete -->
-                            <form action="{{ route('barang.destroy', $barang->id) }}" method="POST" style="display: inline;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                            </form>
-                        </td>
-                    </tr>
+            
+
+<button class="btn btn-danger btn-sm" onclick="setDeleteItem({{ $barang->id }})" data-toggle="modal" data-target="#deleteModal">Hapus</button>
+
+
+{{--                 
+                            </div>
+                          </div>
+                        </div>
+                      </div> --}}
+                      <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="deleteModalLabel">Konfirmasi Hapus</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Apakah Anda yakin ingin menghapus item ini? Tindakan ini tidak dapat dibatalkan.
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                    <form id="deleteForm" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-primary btn-sm">Hapus</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Button untuk menghapus item -->
+                    
+                    <script>
+                        function setDeleteItem(itemId) {
+                            var deleteForm = document.getElementById('deleteForm');
+                            var actionUrl = '/delete-item/' + itemId; // Ganti dengan URL yang sesuai dengan endpoint penghapusan
+                    
+                            // Setel nilai action pada form penghapusan
+                            deleteForm.setAttribute('action', actionUrl);
+                        }
+                    </script>
+                    
                     @endforeach
                 @endisset
             </tbody>
@@ -56,4 +101,27 @@
 
 
 
+<div class="modal fade" id="modal-danger">
+    <div class="modal-dialog">
+      <div class="modal-content bg-danger">
+        <div class="modal-header">
+          <h4 class="modal-title">Danger Modal</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>One fine body&hellip;</p>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-outline-light">Save changes</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+    
 @endsection

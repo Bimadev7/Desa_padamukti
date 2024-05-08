@@ -11,6 +11,11 @@ class BackOfficeController extends Controller
         return view('backoffice.main');
     }
 
+    public function index2()
+    {
+        return view('backoffice.main2');
+    }
+
     public function show(Barang $barang)
 {
     return view('backoffice.main', compact('barang'));

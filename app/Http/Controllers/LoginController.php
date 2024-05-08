@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
@@ -58,5 +59,15 @@ class LoginController extends Controller
         // Jika autentikasi gagal, kembali ke halaman login dengan pesan kesalahan
         return back()->withErrors(['email' => 'Email atau password salah']);
     }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        // Redirect to the home page or any other page you want
+        return redirect('/');
     }
+
+    
 }
+

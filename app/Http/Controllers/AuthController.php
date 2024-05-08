@@ -30,12 +30,12 @@ class AuthController extends Controller
     
             switch ($user->role) {
                 case 'super_admin':
-                    return redirect()->route('backoffice.welcome');
+                    return redirect()->route('public.index');
                     break;
                 case 'user':
                     return redirect()->route('backoffice.barang.index');
                     case 'admin':
-                        return redirect()->route('layouts.index-1');
+                        return redirect()->route('backoffice.dashboard');
                     break;
                 default:
                     return redirect()->route('layouts.index-2');
@@ -58,7 +58,13 @@ class AuthController extends Controller
         return redirect('/')->with('logout_alert', 'Anda telah berhasil keluar.');
     }
 
-    
+    // public function logout(Request $request)
+    // {
+    //     Auth::logout();
+
+    //     // Redirect to the home page or any other page you want
+    //     return redirect('/');
+    // }
 }
 
 
