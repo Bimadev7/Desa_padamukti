@@ -794,63 +794,7 @@
 
   <!-- Template Main JS File -->
   <script src="public_view/assets/js/main.js"></script>
-{{-- 
-</body>
-<div class="modal fade" id="modal-primary">
-  <div class="modal-dialog">
-    <div class="modal-content bg-primary">
-      <div class="modal-header">
-        <h4 class="modal-title">Primary Modal</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>One fine body&hellip;</p>
-      </div>
-      <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-outline-light">Save changes</button>
-      </div>
-    </div>
-    <!-- /.modal-content -->
-  </div>
-  <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
 
-
-{{--  --}}
-<!-- Modal -->
-{{-- <div class="modal fade" id="modal-primary" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="modal-primary">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="modal-body">
-          <form method="POST" action="{{ route('login') }}">
-            @csrf
-            <div class="form-group">
-              <label for="password" style="float: left;">Email</label>
-              <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
-          </div>
-            <div class="form-group">
-              <label for="password" style="float: left;">Password</label>
-              <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-          </div>
-            <button type="submit" class="btn btn-primary">Login</button>
-          </form>
-        </div>
-      </div>
-      <div class="modal-footer">
-
-      </div>
-    </div>
-  </div>
-</div>  --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
