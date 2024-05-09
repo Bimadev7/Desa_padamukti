@@ -50,12 +50,16 @@
 
       <nav id="navbar" class="navbar">
         <ul>
+          <li type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modal-primary">Login</li>
           <li><a class="nav-link active" href="#">Home</a></li>
           <li><a class="nav-link" href="#">About</a></li>
           <li><a class="nav-link" href="#">Resume</a></li>
           <li><a class="nav-link" href="#">Services</a></li>
           <li><a class="nav-link" href="#">Portfolio</a></li>
           <li><a class="nav-link" href="#">Contact</a></li>
+       
+        </li>
+
         </ul>
 
         {{-- <li><a class="nav-link active" href="#header">Home</a></li>
@@ -790,7 +794,134 @@
 
   <!-- Template Main JS File -->
   <script src="public_view/assets/js/main.js"></script>
+{{-- 
+</body>
+<div class="modal fade" id="modal-primary">
+  <div class="modal-dialog">
+    <div class="modal-content bg-primary">
+      <div class="modal-header">
+        <h4 class="modal-title">Primary Modal</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>One fine body&hellip;</p>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-outline-light">Save changes</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+
+{{--  --}}
+<!-- Modal -->
+{{-- <div class="modal fade" id="modal-primary" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modal-primary">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-body">
+          <form method="POST" action="{{ route('login') }}">
+            @csrf
+            <div class="form-group">
+              <label for="password" style="float: left;">Email</label>
+              <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+            <div class="form-group">
+              <label for="password" style="float: left;">Password</label>
+              <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+          </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+
+      </div>
+    </div>
+  </div>
+</div>  --}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<!-- Your login form goes here -->
+
+<div class="modal fade" id="modal-primary">
+  <div class="modal-dialog">
+    <div class="modal-content bg-primary">
+      <div class="modal-header">
+        <h4 class="modal-title">Login</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="{{ route('login') }}">
+          @csrf
+          <div class="form-group">
+            <label for="password" style="float: left;">Email</label>
+            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+          <div class="form-group">
+            <label for="password" style="float: left;">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+        </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        
+    </div>
+      </div>
+
+
+     
+    
+    </div>
+
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+</form>
+
+<!-- /.modal -->
+
+
+
+
+
+<!-- Include Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // Show modal when the document is ready
+        $('#modal-primary').modal('show');
+    });
+</script>
 
 </body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 
 </html>
