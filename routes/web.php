@@ -11,13 +11,23 @@ use App\Http\Controllers\DasboardController;
 use App\Http\Controllers\LoginController;
 // use App\Http\Controllers\BarangController;
 
+// Tugas route dan view JDA
+// Route Public_view
 
-// Dibawa untuk route view public 
-// Tugas route dan view 
 Route::get('/', function () {
     return view('public_view');
 });
+
 // end route public view 
+
+
+
+
+
+
+
+
+
 
 
 // mengarahkan ke /backoffice/main yang dimana di cabarkan di conttoler 

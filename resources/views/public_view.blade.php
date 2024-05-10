@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Personal Bootstrap Template</title>
+  <title>JDA Project personal</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -36,6 +36,10 @@
   ======================================================== -->
 </head>
 
+{{-- Tugas JDA  --}}
+{{-- Bagian View   --}}
+
+
 <body>
 
   <!-- ======= Header ======= -->
@@ -44,17 +48,9 @@
 
       <h1><a href="index.html">Judul personal project</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
-       <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
+       <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> 
       <h2>Peminjaman <span>barang </span>pada instansi</h2>
      
-     
-     
-      {{-- <h2>Tugas Personal Project Layouting
-        <span>Project </span>Layouting</h2></P> --}}
-
-
-      <P>Jika ada pertanyaan whatsapp aja</P>
-
       <nav id="navbar" class="navbar">
         <ul>
           <li type="button" class="btn btn-block btn-primary" data-bs-toggle="modal" data-bs-target="#modal-primary">Login</li>
@@ -98,7 +94,8 @@
       </div> --}}
 
     </div>
-  </header><!-- End Header -->
+  </header>
+  <!-- End Header -->
 
   <!-- ======= About Section ======= -->
   <section id="about" class="about">
@@ -419,9 +416,11 @@
 
       </div>
 
-    </div><!-- End Testimonials  -->
+    </div>
+    <!-- End Testimonials  -->
 
-  </section><!-- End About Section -->
+  </section>
+  <!-- End About Section -->
 
   <!-- ======= Resume Section ======= -->
   <section id="resume" class="resume">
@@ -784,15 +783,13 @@
       </form>
 
     </div>
-  </section><!-- End Contact Section -->
+  </section>
+  <!-- End Contact Section -->
 
-  {{-- <div class="credits">
-    <!-- All the links in the footer should remain intact. -->
-    <!-- You can delete the links only if you purchased the pro version. -->
-    <!-- Licensing information: https://bootstrapmade.com/license/ -->
-    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/personal-free-resume-bootstrap-template/ -->
-    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-  </div> --}}
+  <div class="credits">
+ 
+     <a>whatsapp</a>
+  </div>
 
   <!-- Vendor JS Files -->
   <script src="public_view/assets/vendor/purecounter/purecounter_vanilla.js"></script>
