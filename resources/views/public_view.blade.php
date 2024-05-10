@@ -44,19 +44,30 @@
 
       <h1><a href="index.html">Judul personal project</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
+       <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
       <h2>Peminjaman <span>barang </span>pada instansi</h2>
+     
+     
+     
+      {{-- <h2>Tugas Personal Project Layouting
+        <span>Project </span>Layouting</h2></P> --}}
+
+
       <P>Jika ada pertanyaan whatsapp aja</P>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modal-primary">Login</li>
+          <li type="button" class="btn btn-block btn-primary" data-bs-toggle="modal" data-bs-target="#modal-primary">Login</li>
+
           <li><a class="nav-link active" href="#">Home</a></li>
           <li><a class="nav-link" href="#">About</a></li>
-          <li><a class="nav-link" href="#">Resume</a></li>
-          <li><a class="nav-link" href="#">Services</a></li>
-          <li><a class="nav-link" href="#">Portfolio</a></li>
-          <li><a class="nav-link" href="#">Contact</a></li>
+          <li><a class="nav-link" href="#">Form Peminjaman</a></li>
+          <li><a class="nav-link" href="#">Form kembali</a></li>
+          <li><a class="nav-link" href="#">-</a></li>
+          <li><a class="nav-link" href="#">-</a></li>
+          {{-- <li type="button" class="btn btn-warning toastrDefaultWarning">
+            Launch Warning Toast
+          </li> --}}
        
         </li>
 
@@ -74,7 +85,7 @@
 
       <div class="social-links">
         {{-- <a href="https://wa.me/6287741706965" class="whatsapp" target="_blank"><i class="bi bi-whatsapp"></i></a> --}}
-        <a href="https://api.whatsapp.com/send?phone=6287741706965" target="_blank">
+        <a href="https://api.whatsapp.com/send?phone=6287784510033v" target="_blank">
           <button style="background-color: #25D366; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">WhatsApp me</button>
       </a>
       </div>
@@ -775,13 +786,13 @@
     </div>
   </section><!-- End Contact Section -->
 
-  <div class="credits">
+  {{-- <div class="credits">
     <!-- All the links in the footer should remain intact. -->
     <!-- You can delete the links only if you purchased the pro version. -->
     <!-- Licensing information: https://bootstrapmade.com/license/ -->
     <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/personal-free-resume-bootstrap-template/ -->
     Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-  </div>
+  </div> --}}
 
   <!-- Vendor JS Files -->
   <script src="public_view/assets/vendor/purecounter/purecounter_vanilla.js"></script>
@@ -801,19 +812,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <!-- Include Bootstrap CSS -->
+  
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 
-<!-- Your login form goes here -->
+
 
 <div class="modal fade" id="modal-primary">
   <div class="modal-dialog">
     <div class="modal-content bg-primary">
       <div class="modal-header">
-        <h4 class="modal-title">Login</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <h4 class="modal-title">Form Login</h4>
+        {{-- <h4 class="modal-title">Tugas View dan Route /Rabu, 15 Mei 2024 23:59</h4> --}}
+        <button type="submit" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -829,21 +841,13 @@
             <input type="password" class="form-control" id="password" name="password" placeholder="Password">
         </div>
             <button type="submit" class="btn btn-primary">Login</button>
-        
+           
     </div>
+  </form>
       </div>
-
-
-     
-    
     </div>
-
-    <!-- /.modal-content -->
   </div>
-  <!-- /.modal-dialog -->
 </div>
-</form>
-
 <!-- /.modal -->
 
 
@@ -867,5 +871,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+<script src="../../plugins/toastr/toastr.min.js"></script>
 
 </html>
