@@ -35,7 +35,6 @@
   <!-- ======= Header ======= -->
   <header id="header">
     <div class="container">
-
       <h1><a href="index.html">Judul personal project</a></h1>
       <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> 
       <h2>Peminjaman <span>barang </span>pada sapras</h2>
@@ -80,8 +79,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   </head> 
   <body>
-
-
 
   <div class="modal fade" id="modal-primary">
   <div class="modal-dialog">
