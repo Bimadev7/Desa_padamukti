@@ -12,7 +12,7 @@ use App\Http\Controllers\LoginController;
 // use App\Http\Controllers\BarangController;
 
 // Tugas route dan view JDA
-// Route Public_view
+// Route Bagian Public_view
 
 Route::get('/', function () {
     return view('public_view');
