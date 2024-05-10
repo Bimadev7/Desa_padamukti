@@ -874,4 +874,3 @@
 
 <script src="../../plugins/toastr/toastr.min.js"></script>
 
-</html>
