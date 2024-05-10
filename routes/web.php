@@ -23,22 +23,11 @@ Route::get('/', function () {
 
 
 
-
-
-
-
-
-
-
-// mengarahkan ke /backoffice/main yang dimana di cabarkan di conttoler 
 Route::get('/backoffice', [BackOfficeController::class, 'index'])->name('backoffice.dashboard');
 Route::get('/dashboard', [AdminController::class, 'index'])->name('backoffice.dashboard.index');
-
 Route::get('/public', [peminjamanController::class, 'Form_pinjam'])->name('public.Form_pinjam');
-
 Route::get('/form-pinjam', [PeminjamanController::class, 'form_pinjam'])->name('form_pinjam');
 Route::resource('/form-pinjam', 'PeminjamanController');
-
 Route::resource('/public/form-pinjam', 'PeminjamanController@form-pinjam');  
 
 
@@ -50,11 +39,9 @@ Route::get('/backoffice.main', [BarangController::class, 'index']);
 
 
 
-// Route::get('/backoffice.barang.index', 'BarangController@index')->name('backoffice.barang.index');
 
 Route::get('/backoffice/barang', [BarangController::class, 'index'])->name('backoffice.barang.index');
 Route::get('/barang/{id}/edit', 'BarangController@edit')->name('barang.edit');
-// Route::delete('/barang/{id}', 'BarangController@destroy')->name('barang.destroy');
 Route::delete('/barang/{id}', [BarangController::class, 'destroy'])->name('barang.destroy');
 
 
@@ -80,23 +67,13 @@ Route::middleware(['auth', 'user'])->group(function () {
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
-// Route::post('/backoffice', [AuthController::class, 'welcome'])->name('welcome');
 
 
 Route::get('/backoffice/welcome', 'DasboardController@index')->name('welcome');
 Route::get('/public/index', 'DasboardController@index')->name('index');
-
-
 Route::get('/public/index', [DasboardController::class, 'index']);
-
-
 Route::post('/logout', [DasboardController::class, 'logout'])->name('logout');
-
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-
-// Route::resource('barang', BarangController::class);
-// Route::resource('barang', BarangController::class);
-
 Route::get('backoffice/barang/{barang}/edit', [BarangController::class, 'edit'])->name('backoffice.barang.edit');
 Route::put('barang/{barang}', [BarangController::class, 'update'])->name('barang.update');
 
