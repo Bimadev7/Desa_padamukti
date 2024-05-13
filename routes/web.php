@@ -9,19 +9,68 @@ use App\Http\Controllers\BarangController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DasboardController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\FormPinjamController;
 // use App\Http\Controllers\BarangController;
+Route::get('backoffice/barang/{id}', [BarangController::class, 'show'])->name('backoffice.barang.show');
+Route::get('backoffice/barang/index', [BarangController::class, 'index'])->name('backoffice.barang.index');
+
+Route::get('backoffice/barang/datatable', [Controllers\BarangController::class, 'datatable'])->name('backoffice.barang.datatable');
 
 // Tugas route dan view JDA
 // Route Bagian Public_view
+Route::get('barang', [BarangController::class, 'index'])->name('barang.index');
 
+Route::resource('barang', BarangController::class);
 Route::get('/', function () {
     return view('public_view');
 });
+Route::get('/backoffice/barang/datatable', [BarangController::class, 'datatable'])->name('backoffice.barang.datatable');
+Route::get('/backoffice/barang/datatable', [BarangController::class, 'datatable'])->name('backoffice.barang.datatable');
+Route::get('/backoffice/barang/create', 'Backoffice\BarangController@create')->name('backoffice.barang.create');
+Route::get('/backoffice/barang/create', 'Backoffice\BarangController@create')->name('backoffice.barang.create');
+
+Route::get('users', 'UserController@index')->name('users.index');
+
+
+Route::delete('/backoffice/barang/{barang}', [BarangController::class, 'destroy'])->name('backoffice.barang.destroy');
+
+// barang
+Route::get('/backoffice/barang', [BarangController::class, 'index'])->name('backoffice.barang.index');
+Route::get('/backoffice/barang', [BarangController::class, 'index'])->name('backoffice.barang.index');
+
+Route::get('backoffice/barang/datatable', [Controllers\BarangController::class, 'datatable'])->name('backoffice.barang.datatable');
+
+
+// Route::get('/backoffice/order/datatable', [BarangController::class, 'datatable'])->name('backoffice.order.datatable');
+
+
+
+
+
+
+Route::get('barang/datatable', [Controllers\BarangController::class, 'datatable'])->name('barang.datatable');
+
+
+Route::resources([
+    'barang'        => Controllers\BarangController::class,
+    
+
+]);
+
+
+
+
+
+
+
+
+
+
 
 // end route public view 
 
-
-
+Route::get('/public/form_pinjam', 'FormPinjamController@index')->name('form_pinjam');
+Route::get('/public/form_pinjam', [FormPinjamController::class, 'index'])->name('form_pinjam');
 
 Route::get('/backoffice', [BackOfficeController::class, 'index'])->name('backoffice.dashboard');
 Route::get('/dashboard', [AdminController::class, 'index'])->name('backoffice.dashboard.index');
@@ -40,7 +89,6 @@ Route::get('/backoffice.main', [BarangController::class, 'index']);
 
 
 
-Route::get('/backoffice/barang', [BarangController::class, 'index'])->name('backoffice.barang.index');
 Route::get('/barang/{id}/edit', 'BarangController@edit')->name('barang.edit');
 Route::delete('/barang/{id}', [BarangController::class, 'destroy'])->name('barang.destroy');
 

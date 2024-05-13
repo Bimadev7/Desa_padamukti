@@ -18,4 +18,7 @@ class UserController extends Controller
 
     // Response atau redirect sesuai kebutuhan
     }
+
+
+    
 }
