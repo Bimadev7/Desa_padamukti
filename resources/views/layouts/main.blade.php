@@ -87,16 +87,40 @@
         </div>
       </li>
 
+      {{-- <nav class="navbar navbar-expand navbar-light bg-light">
+        <ul class="navbar-nav mr-auto">
+         
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-th-large"></i> Menu
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+              <a class="dropdown-item" href="#" id="userName"></a>
+              <a class="dropdown-item" href="#" id="userName"></a>
+              <p>Selamat datang, {{ $username }}!</p>
+
+              <div class="dropdown-divider"></div>
+
+              <a class="dropdown-item" href="/" id="logout">Keluar</a>
+            </div>
+          </li>
+        </ul>
+      </nav> --}}
+
+        @yield('content_navbar')
+  
+
       <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
+      {{-- <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-comments"></i>
           <span class="badge badge-danger navbar-badge">3</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">
+          <a href="#" class="dropdown-item"> --}}
             <!-- Message Start -->
-            <div class="media">
+            {{-- <div class="media">
               <img src="{{('adminlte/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle')}}">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
@@ -106,13 +130,13 @@
                 <p class="text-sm">Call me whenever you can...</p>
                 <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
               </div>
-            </div>
+            </div> --}}
             <!-- Message End -->
-          </a>
+          {{-- </a>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
+          <a href="#" class="dropdown-item"> --}}
             <!-- Message Start -->
-            <div class="media">
+            {{-- <div class="media">
               <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
@@ -122,9 +146,9 @@
                 <p class="text-sm">I got your message bro</p>
                 <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
               </div>
-            </div>
+            </div> --}}
             <!-- Message End -->
-          </a>
+          {{-- </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
@@ -138,15 +162,15 @@
                 <p class="text-sm">The subject goes here</p>
                 <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
               </div>
-            </div>
+            </div> --}}
             <!-- Message End -->
-          </a>
+          {{-- </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
         </div>
-      </li>
+      </li> --}}
       <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
+      {{-- <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
           <span class="badge badge-warning navbar-badge">15</span>
@@ -171,19 +195,41 @@
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
-      </li>
-      <li class="nav-item">
+      </li> --}}
+      {{-- <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
-      </li>
-      <li class="nav-item">
+      </li> --}}
+
+
+      {{-- <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
           <i class="fas fa-th-large"></i>
         </a>
-      </li>
-    </ul>
-  </nav>
+      </li> --}}
+      {{-- <nav class="navbar navbar-expand navbar-light bg-light">
+        <ul class="navbar-nav mr-auto">
+          <!-- Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-th-large"></i> Menu
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <!-- Menampilkan nama yang sedang login -->
+              <a class="dropdown-item" href="#">Nama Anda</a>
+              <div class="dropdown-divider"></div>
+              <!-- Opsi untuk keluar -->
+              {{-- <a class="dropdown-item" href="#">Keluar</a> --}}
+              {{-- <a class="dropdown-item" href="/" id="logout">Keluar</a>
+            </div>
+          </li>
+        </ul>
+      </nav>  --}}
+
+
+    {{-- </ul>
+  </nav> --}}
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
@@ -229,7 +275,7 @@
               <li class="nav-item">
                 <a href="/backoffice" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard</p>
+                  <p>Dashboard </p>
                 </a>
               </li>
             </ul>
@@ -1491,5 +1537,26 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('adminlte/dist/js/pages/dashboard.js') }}"></script>
 
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
+<script>
+  $(document).ready(function(){
+    // Cek apakah pengguna sudah login atau belum
+    var isLoggedIn = true; // Ganti dengan logika Anda untuk menentukan apakah pengguna sudah login atau tidak
+
+    if (isLoggedIn) {
+      var userName = "Nama Pengguna"; // Ganti dengan nama pengguna yang sesuai
+      $("#userName").text(userName); // Menampilkan nama pengguna pada elemen dengan ID userName
+    } else {
+      $("#userName").hide(); // Sembunyikan elemen nama pengguna jika pengguna belum login
+    }
+
+    $("#logout").click(function(){
+      // Tambahkan logika logout di sini
+      alert("Anda telah keluar!");
+    });
+  });
+</script>
 </body>
 </html>

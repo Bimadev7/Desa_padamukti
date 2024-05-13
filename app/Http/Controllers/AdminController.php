@@ -16,5 +16,8 @@ class AdminController extends Controller
     {
     $barang = Barang::all(); // Mengambil semua data Barang dari database
         return view('backoffice.dasboard', ['barangs' => $barang]);
+        
     }  
+
+    
 }
