@@ -60,6 +60,11 @@ Route::resources([
 
 
 
+// Menampilkan halaman login
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+
+// Proses otentikasi pengguna
+Route::post('/login', [LoginController::class, 'login']);
 
 
 

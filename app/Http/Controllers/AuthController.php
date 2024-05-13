@@ -2,6 +2,7 @@
 // app/Http/Controllers/AuthController.php
 
 namespace App\Http\Controllers;
+namespace App\Http\AuthController;
 
 use Illuminate\Http\Request;
 use Auth;
