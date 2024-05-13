@@ -7,6 +7,7 @@ use App\Models\Barang;
 
 class BarangController extends Controller
 {
+<<<<<<< HEAD
     public function index(Request $request)
     {
 
@@ -73,7 +74,98 @@ class BarangController extends Controller
                 ->rawColumns(['action', 'deskripsi', 'statuz'])
                 ->toJson();
         }
+=======
+    // public function index(Request $request)
+    // {
+
+    //     $barang = Barang::all(); 
+    //     return view('backoffice.barang.index', compact('barang'));
+    //     if ($request->ajax()) {
+    //         $barang = Barang::latest()->get();
+    //         return DataTables::of($data)
+    //                 ->addIndexColumn()
+    //                 ->addColumn('action', function($row){
+    //                        $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">Edit</a>';
+    //                        $btn = $btn.'<a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
+    //                         return $btn;
+    //                 })
+    //                 ->rawColumns(['action'])
+    //                 ->make(true);
+    //     }
+    //     // return view('users');
+    //     return view('backoffice.barang.index', compact('barang'));
+
+    // }
+
+    // public function index(Request $request)
+    // {
+    //     $barang = Barang::all();
+    //     if ($request->ajax()) {
+    //         $data = Barang::latest()->get();
+    //         return DataTables::of($data)
+    //             ->make(true);
+    //     }
+    //     return view('backoffice.barang.index');
+    //     // return view('backoffice.barang.index', compact('barang'));
+
+    // }
+    public function index(Request $request)
+    {
+        $barang = Barang::all();
+
+        return view('backoffice.barang.index')->with(compact('barang'));
+    
+>>>>>>> 82cebd03199476dc16a60c3965066807cdd66ec9
     }
+    
+
+    //     public function index()
+    // {
+    //     // Mengambil semua data barang dari database
+    //     $barang = Barang::all();
+
+    //     // Mengirim data barang ke view
+    //     return view('backoffice.barang.index', compact('barang'));
+
+        
+    // }
+
+    public function datatable(Request $request)
+    {
+        if ($request->ajax()) {
+            $data  = Barang::query();
+            $data->select('id', 'nama', 'deskripsi', 'rasio_minimal', 'level_teknologi', 'level_keterampilan', 'status');
+            return datatables()->of($data)
+                ->addIndexColumn()
+                ->addColumn('statuz', function ($q) {
+                    if($q->status == 'done'){
+                        return '<span class="badge bg-success">Selesai</span>';
+                    } else if($q->status == 'process'){
+                        return '<span class="badge bg-primary">Proses</span>';
+                    }else if($q->status == 'draft'){
+                        return '<span class="badge bg-info">Draft</span>';
+                    }else if($q->status == 'read'){
+                        return '<span class="badge bg-warning">Baca</span>';
+                    } else{
+                        return '<span class="badge bg-danger">Tolak</span>';
+                    }
+                })
+              
+                ->addColumn('action', function ($q) {
+                    $actionBtn = 
+                    "<div class='d-flex justify-content-between'><a class='btn btn-link btn-sm text-primary' title='Edit' href='/backoffice/order/" . $q->id . "/edit'><i class='fas fa-pen-fancy'></i></a>
+                    <a class='btn btn-link btn-sm text-info' title='Lihat Detail' href='/backoffice/order/" . $q->id . "/'><i class='fas fa-eye'></i></a>
+                    <button class='btn btn-link btn-sm text-danger' title='Hapus' onclick='formHapus(" . $q->id . ")'><i class='fas fa-trash'></i></button></div>";
+                    
+                    return $actionBtn;
+                })
+                ->rawColumns(['action', 'deskripsi', 'statuz'])
+                ->toJson();
+        }
+    }
+
+
+
 
 
 
