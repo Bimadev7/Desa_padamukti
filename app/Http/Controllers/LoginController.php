@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\AuthController;
 
 use Illuminate\Http\Request;
 
@@ -11,7 +12,7 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('auth.public_view');
+        return view('login');
     }
 
     /**

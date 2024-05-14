@@ -6,13 +6,16 @@ use App\Http\Controllers\BackOfficeController;
 use App\Http\Controllers\peminjamanController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BarangController;
+// use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AuthController;
+
 use App\Http\Controllers\DasboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\FormPinjamController;
 // use App\Http\Controllers\BarangController;
 Route::get('backoffice/barang/{id}', [BarangController::class, 'show'])->name('backoffice.barang.show');
 Route::get('backoffice/barang/index', [BarangController::class, 'index'])->name('backoffice.barang.index');
+Route::get('/login', 'AuthController@showLoginForm')->name('login');
 
 Route::get('backoffice/barang/datatable', [Controllers\BarangController::class, 'datatable'])->name('backoffice.barang.datatable');
 
@@ -22,7 +25,7 @@ Route::get('barang', [BarangController::class, 'index'])->name('barang.index');
 
 Route::resource('barang', BarangController::class);
 Route::get('/', function () {
-    return view('public_view');
+    return view('login');
 });
 Route::get('/backoffice/barang/datatable', [BarangController::class, 'datatable'])->name('backoffice.barang.datatable');
 Route::get('/backoffice/barang/datatable', [BarangController::class, 'datatable'])->name('backoffice.barang.datatable');
@@ -67,7 +70,7 @@ Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 
 
-
+Route::get('/backoffice/main', [BackOfficeController::class, 'main'])->name('backoffice.main');
 
 
 
@@ -89,7 +92,12 @@ Route::get('/dashboard', function () {
     return view('backoffice.main');
 });
 
+
+Route::get('/backoffice', 'BackofficeController@index')->name('backoffice.main');
+
 Route::get('/backoffice.main', [BarangController::class, 'index']);
+Route::get('/backoffice', 'BackOfficeController@index')->name('backoffice.index');
+Route::get('/backoffice', [BackOfficeController::class, 'backoffice'])->name('backoffice.');
 
 
 

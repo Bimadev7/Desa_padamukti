@@ -16,11 +16,18 @@ class BackOfficeController extends Controller
             $username = Auth::user()->username;
             return view('backoffice.main', ['username' => $username]);
         } else {
-            return view('welcome');
+            return view('main');
         }
 
     }
 
+
+    public function main()
+    {
+        return view('backoffice.main');
+    }
+
+    
     public function index2()
     {
         return view('backoffice.main2');

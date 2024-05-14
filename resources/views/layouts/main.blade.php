@@ -1,14 +1,3 @@
-{{-- 
-1.UI_ELement
-2.chart
-3.Layout_option_dropdown
-4.form
-5.MISCELLANEOUS
-6.EXAMPLES
- --}}
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -256,8 +245,6 @@
           </div>
         </div>
       </div>
-      <!-- End SidebarSearch Form -->
-
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -275,11 +262,8 @@
               <li class="nav-item">
                 <a href="/backoffice" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard </p>
                 </a>
               </li>
-            </ul>
-          </li>
               {{-- <li class="nav-item">
                 <a href="adminlte/index2.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -292,8 +276,9 @@
                   <p>Dashboard v3</p>
                 </a>
               </li> --}}
-           
-          {{-- <li class="nav-item">
+            </ul>
+          </li>
+          <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
@@ -301,11 +286,8 @@
                 <span class="right badge badge-danger">New</span>
               </p>
             </a>
-          </li> --}}
-
-          {{-- Layout_option_dropdown --}}
-
-          {{-- <li class="nav-item">
+          </li>
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -364,10 +346,8 @@
                 </a>
               </li>
             </ul>
-          </li> --}}
-
-          {{-- chart --}}
-          {{-- <li class="nav-item">
+          </li>
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
@@ -401,11 +381,8 @@
                 </a>
               </li>
             </ul>
-          </li> --}}
-          {{-- endchart --}}
-
-          {{-- UI_ELement --}}
-          {{-- <li class="nav-item">
+          </li>
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tree"></i>
               <p>
@@ -463,12 +440,8 @@
                 </a>
               </li>
             </ul>
-          </li> --}}
-
-          {{-- end UI ELement --}}
-
-          {{-- form --}}
-          {{-- <li class="nav-item">
+          </li>
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
@@ -531,13 +504,8 @@
                 </a>
               </li>
             </ul>
-          </li> --}}
-
-          {{-- end form --}}
-
-
-          {{-- EXAMPLES --}}
-          {{-- <li class="nav-header">EXAMPLES</li>
+          </li>
+          <li class="nav-header">EXAMPLES</li>
           <li class="nav-item">
             <a href="adminlte/pages/calendar.html" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
@@ -547,7 +515,6 @@
               </p>
             </a>
           </li>
-
           <li class="nav-item">
             <a href="adminlte/pages/gallery.html" class="nav-link">
               <i class="nav-icon far fa-image"></i>
@@ -815,10 +782,8 @@
                 </a>
               </li>
             </ul>
-          </li> --}}
-
-          {{-- MISCELLANEOUS --}}
-          {{-- <li class="nav-header">MISCELLANEOUS</li>
+          </li>
+          <li class="nav-header">MISCELLANEOUS</li>
           <li class="nav-item">
             <a href="iframe.html" class="nav-link">
               <i class="nav-icon fas fa-ellipsis-h"></i>
@@ -889,18 +854,14 @@
                 </a>
               </li>
             </ul>
-          </li> --}}
-
-          {{--end MISCELLANEOUS --}}
-          {{-- <li class="nav-item">
+          </li>
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="fas fa-circle nav-icon"></i>
               <p>Level 1</p>
             </a>
-          </li> --}}
-
-          {{-- LABELS --}}
-          {{-- <li class="nav-header">LABELS</li>
+          </li>
+          <li class="nav-header">LABELS</li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-circle text-danger"></i>
@@ -920,7 +881,6 @@
             </a>
           </li>
         </ul>
-         --}}
       </nav>
       <!-- /.sidebar-menu -->
     </div> 

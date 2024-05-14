@@ -2,21 +2,19 @@
 // app/Http/Controllers/AuthController.php
 
 namespace App\Http\Controllers;
-namespace App\Http\AuthController;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
-use Auth;
+// use Auth;
 
 class AuthController extends Controller
 {
     public function showLoginForm()
     {
+        // arah pertama kita saat akses
         return view('login');
     }
-    public function tes()
-    {
-        return view('login');
-    }
+
 
     public function login(Request $request)
     {
@@ -27,22 +25,26 @@ class AuthController extends Controller
 
 
         if (Auth::attempt($credentials)) {
+            // Get the authenticated user
             $user = Auth::user();
     
+            // Redirect user based on their role
             switch ($user->role) {
                 case 'super_admin':
-                    return redirect()->route('public.index');
+                    return redirect()->route('backoffice.main');
                     break;
                 case 'user':
                     return redirect()->route('backoffice.barang.index');
                     case 'admin':
-                        return redirect()->route('backoffice.dashboard');
+                        return redirect()->route('backoffice.main');
                     break;
                 default:
                     return redirect()->route('layouts.index-2');
             }
+            // public_view/index.html
         }
 
+        // Authentication failed, redirect back to login with error
         return redirect()->route('login')->with('error', 'tidak valid');
     }
 
@@ -59,13 +61,7 @@ class AuthController extends Controller
         return redirect('/')->with('logout_alert', 'Anda telah berhasil keluar.');
     }
 
-    // public function logout(Request $request)
-    // {
-    //     Auth::logout();
-
-    //     // Redirect to the home page or any other page you want
-    //     return redirect('/');
-    // }
+    
 }
 
 
