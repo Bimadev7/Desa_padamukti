@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>JDA | Dashboard</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -261,7 +261,9 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="/backoffice" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+
+                  Dashboard
                 </a>
               </li>
               {{-- <li class="nav-item">
@@ -278,55 +280,44 @@
               </li> --}}
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Widgets
-                <span class="right badge badge-danger">New</span>
-              </p>
-            </a>
-          </li>
+        
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Layout Options
-                <i class="fas fa-angle-left right"></i>
+                backoffice
+                {{-- <i class="fas fa-angle-left right"></i> --}}
+               <i class="fa-sharp fa-light fa-file"></i>
+
                 <span class="badge badge-info right">6</span>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
+                <a href="user" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Top Navigation</p>
+                  <p>User</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="adminlte/pages/layout/top-nav-sidebar.html" class="nav-link">
+                <a href="barang" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Top Navigation + Sidebar</p>
+                  <p>Barang</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="adminlte/pages/layout/boxed.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Boxed</p>
+                  <p>Peminjaman</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="adminlte/pages/layout/fixed-sidebar.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Fixed Sidebar</p>
+                  <p>Pengembalian</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="adminlte/pages/layout/fixed-sidebar-custom.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fixed Sidebar <small>+ Custom Area</small></p>
-                </a>
-              </li>
+           
               <li class="nav-item">
                 <a href="adminlte/pages/layout/fixed-topnav.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -347,6 +338,8 @@
               </li>
             </ul>
           </li>
+
+          {{-- chart --}}
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>

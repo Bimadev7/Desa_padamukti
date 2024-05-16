@@ -1,9 +1,7 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Barang</title>
+    <title>Laravel 11 Yajra Datatables Tutorial - ItSolutionStuff.com</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -14,7 +12,7 @@
        
 <div class="container">
     <div class="card mt-5">
-        <h3 class="card-header p-3">Barang</h3>
+        <h3 class="card-header p-3">Laravel 11 Yajra Datatables Tutorial - ItSolutionStuff.com</h3>
         <div class="card-body">
             <table class="table table-bordered data-table">
                 <thead>
@@ -40,12 +38,12 @@
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('backoffice.barang.index') }}",
+        ajax: "{{ route('barang.index') }}",
         columns: [
             {data: 'id', name: 'id'},
-            {data: 'nama', name: 'nama'},
-            {data: 'deskripsi', name: 'deskripsi'},
-            {data: 'rasio_minimal', name: 'action', orderable: false, searchable: false},
+            {data: 'name', name: 'name'},
+            {data: 'email', name: 'email'},
+            {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
     });
         

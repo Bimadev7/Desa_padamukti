@@ -54,7 +54,11 @@
         </div>
   </header>
   <div class="credits">
-  <a href="https://api.whatsapp.com/send?phone=6287784510033" target="_blank">Kirim Pesan WhatsApp</a>
+
+  {{-- <a href="https://api.whatsapp.com/send?phone=6287784510033" target="_blank">Kirim Pesan WhatsApp</a> --}}
+  {{-- <a href="https://chat.whatsapp.com/KjQ7nLTJuf32DheUAzidJd" target="_blank">Bergabung dengan Grup WhatsApp</a> --}}
+  <a href="https://chat.whatsapp.com/CgDCCcWcQ7h1MXbl25Rxwv" target="_blank">Bergabung dengan Grup WhatsApp</a>
+
   </div>
 
   <!-- Vendor JS Files -->

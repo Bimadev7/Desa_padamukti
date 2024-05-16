@@ -15,6 +15,16 @@ return [
     | other UI elements where an application name needs to be displayed.
     |
     */
+    // 'providers' => [
+    //     // ...
+    //     Yajra\DataTables\DataTablesServiceProvider::class,
+    // ],
+    
+    // 'aliases' => [
+    //     // ...
+    //     'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+    // ],
+    
     
     'aliases' => [
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,

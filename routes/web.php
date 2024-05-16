@@ -7,12 +7,88 @@ use App\Http\Controllers\peminjamanController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BarangController;
 // use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
-
 use App\Http\Controllers\DasboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\FormPinjamController;
 // use App\Http\Controllers\BarangController;
+
+
+Route::get('/barang', [BarangController::class, 'index'])->name('barang.index');
+Route::post('/barang', [BarangController::class, 'index']);
+
+Route::post('barang', [BarangController::class, 'index'])->name('barang.index');
+
+Route::post('barang/datatable', [BarangController::class, 'getDataTable'])->name('barang.datatable');
+
+
+Route::post('barang', [BarangController::class, 'index'])->name('barang.index');
+Route::post('barang/datatable', [BarangController::class, 'data'])->name('barang.datatable');
+// barang ajax
+
+
+
+Route::get('barang', [BarangController::class, 'index'])->name('barang.index');
+Route::get('barang/data', [BarangController::class, 'data'])->name('barang.data');
+// barang ajax
+
+Route::get('/barang/data', [BarangController::class,'data']);
+
+Route::get('barang/data', [BarangController::class, 'data'])->name('barang.data');
+
+
+
+// end barang ajax
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Route::get('/backoffice/user', [UserController::class, 'index']);
+
+Route::resource('/backoffice/user', UserController::class);
+
+Route::resource('/backoffice/users', UserController::class);
+// Route::resources([
+//     'user'        => Controllers\UserController::class,
+
+// ]);
+Route::get('user/datatable', [Controllers\UserController::class, 'datatable'])->name('user.datatable');
+Route::get('users/datatable', [Controllers\UserController::class, 'datatable'])->name('users.datatable');
+
+
+Route::get('barang/datatable', [Controllers\BarangController::class, 'datatable'])->name('barang.datatable');
+Route::get('Barang/datatable', [Controllers\BarangController::class, 'datatable'])->name('Barang.datatable');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Route::get('backoffice/barang/{id}', [BarangController::class, 'show'])->name('backoffice.barang.show');
 Route::get('backoffice/barang/index', [BarangController::class, 'index'])->name('backoffice.barang.index');
 Route::get('/login', 'AuthController@showLoginForm')->name('login');
