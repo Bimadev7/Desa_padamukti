@@ -1,28 +1,24 @@
+@extends('layouts.main')
 
-
-<!DOCTYPE html>
-<html>
+@section('content')
 <head>
-    <title>Barang</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
 </head>
-<body>
-       
 <div class="container">
     <div class="card mt-5">
-        <h3 class="card-header p-3">Barang</h3>
+        <h3 class="card-header p-3">Data Barang</h3>
         <div class="card-body">
             <table class="table table-bordered data-table">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th width="100px">Action</th>
+                        <th>Nama</th>
+                        <th>Deskripsi</th>
+                        <th width="200px">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,12 +27,11 @@
         </div>
     </div>
 </div>
-       
-</body>
-       
+@endsection
+
+@push('script')
 <script type="text/javascript">
-  $(function () {
-        
+$(function () {
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: true,
@@ -45,10 +40,23 @@
             {data: 'id', name: 'id'},
             {data: 'nama', name: 'nama'},
             {data: 'deskripsi', name: 'deskripsi'},
-            {data: 'rasio_minimal', name: 'action', orderable: false, searchable: false},
+            {
+                data: 'id',
+                name: 'action',
+                orderable: false,
+                searchable: false,
+                render: function (data) {
+                    return '<a href="/barang/' + data + '" class="btn btn-info btn-sm">Show</a>' +
+                           '<a href="/barang/' + data + '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' +
+                           '<form action="/barang/' + data + '" method="POST" style="display:inline">' +
+                               '@csrf' +
+                               '@method("DELETE")' +
+                               '<button type="submit" class="btn btn-danger btn-sm mx-1">Delete</button>' +
+                           '</form>';
+                }
+            },
         ]
     });
-        
-  });
+});
 </script>
-</html>
+@endpush
