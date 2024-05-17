@@ -5,46 +5,59 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Yajra\DataTables\Facades\DataTables;
+
 class UserController extends Controller
 {
-    //
 
-
-    // public function index()
-    // {
-    //     $user = User::all();
-    //     return view('backoffice.users.index')->with(compact('user'));
-    // }
-    // public function index() {
-    //     return view('backoffice.user.index');
-    // }
-
-    public function index() {
-        $users = User::all();
-        return view('backoffice.users.index', ['users' => $users]);
+    public function index(Request $request) {
+        // $users = User::all();
+        // return view('backoffice.users.index', ['users' => $users]);
         // return view('backoffice.users.index');
+
+
+        if ($request->ajax()) {
+
+            $data = User::query();
+
+            return Datatables::of($data)
+                    ->addIndexColumn()
+                    ->addColumn('action', function($row){
+       
+                            $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
+      
+                            return $btn;
+                    })
+                    ->rawColumns(['action'])
+                    ->make(true);
+        }
+          
+        return view('backoffice.user.index');
+
+
+
     }
     
     public function datatable(Request $request)
     {
         if ($request->ajax()) {
-            $data  = User::query();
-            $data->select('id', 'username', 'email', 'telp', 'email', 'address', 'status');
-            return datatables()->of($data)
-                ->addIndexColumn()
-               
-                
-                ->addColumn('action', function ($q) {
-                    $actionBtn = 
-                    "<div class='d-flex justify-content-between'><a class='btn btn-link btn-sm text-primary' title='Edit' href='/backoffice/order/" . $q->id . "/edit'><i class='fas fa-pen-fancy'></i></a>
-                    <a class='btn btn-link btn-sm text-info' title='Lihat Detail' href='/backoffice/order/" . $q->id . "/'><i class='fas fa-eye'></i></a>
-                    <button class='btn btn-link btn-sm text-danger' title='Hapus' onclick='formHapus(" . $q->id . ")'><i class='fas fa-trash'></i></button></div>";
-                    
-                    return $actionBtn;
-                })
-                ->rawColumns(['action', 'lembaga_name', 'statuz'])
-                ->toJson();
+
+            $data = User::query();
+
+            return Datatables::of($data)
+                    ->addIndexColumn()
+                    ->addColumn('action', function($row){
+       
+                            $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
+      
+                            return $btn;
+                    })
+                    ->rawColumns(['action'])
+                    ->make(true);
         }
+          
+        return view('backoffice.user.index');
+
     }
 
 

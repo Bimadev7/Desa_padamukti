@@ -15,6 +15,15 @@ use App\Http\Controllers\FormPinjamController;
 // use App\Http\Controllers\BarangController;
 
 
+
+Route::get('/user', [UserController::class, 'index'])->name('user.index');
+Route::post('/user', [UserController::class, 'index']);
+Route::post('user', [UserController::class, 'index'])->name('user.index');
+Route::post('/user/datatable', [UserController::class, 'datatable'])->name('user.index');
+
+Route::get('users/datatable', [UserController::class, 'datatable'])->name('users.datatable');
+
+
 Route::get('/barang', [BarangController::class, 'index'])->name('barang.index');
 Route::post('/barang', [BarangController::class, 'index']);
 

@@ -36,21 +36,21 @@ $(function () {
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('backoffice.barang.index') }}",
+        ajax: "{{ route('user.index') }}",
         columns: [
             {data: 'id', name: 'id'},
-            {data: 'nama', name: 'nama'},
-            {data: 'stok_barang', name: 'stok_barang'},
-            {data: 'deskripsi', name: 'deskripsi'},
+            {data: 'username', name: 'username'},
+            {data: 'email', name: 'email'},
+            {data: 'role', name: 'role'},
             {
                 data: 'id',
                 name: 'action',
                 orderable: false,
                 searchable: false,
                 render: function (data) {
-                    return '<a href="/barang/' + data + '" class="btn btn-info btn-sm">Show</a>' +
-                           '<a href="/barang/' + data + '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' +
-                           '<form action="/barang/' + data + '" method="POST" style="display:inline">' +
+                    return '<a href="/user/' + data + '" class="btn btn-info btn-sm">Show</a>' +
+                           '<a href="/user/' + data + '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' +
+                           '<form action="/user/' + data + '" method="POST" style="display:inline">' +
                                '@csrf' +
                                '@method("DELETE")' +
                                '<button type="submit" class="btn btn-danger btn-sm mx-1">Delete</button>' +
