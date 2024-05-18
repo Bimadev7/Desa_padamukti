@@ -331,7 +331,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/backoffice" class="nav-link active">
+                <a href="/backoffice/main" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
 
                   Dashboard

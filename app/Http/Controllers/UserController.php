@@ -40,7 +40,7 @@ class UserController extends Controller
     
     public function datatable(Request $request)
     {
-        if ($request->ajax()) {
+            if ($request->ajax()) {
 
             $data = User::query();
 
@@ -67,11 +67,9 @@ class UserController extends Controller
 
     public function create()
     {
-        return view('backoffice.users.create');
+        return view('backoffice.user.create');
 
-        // return view('backoffice.users.create',[
-        //     'lembaga_id' => Lembaga::all(),
-        // ]);
+       
     }
 
 
@@ -86,13 +84,42 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-    $user = new User();
-    $user->name = $request->input('name');
-    $user->email = $request->input('email');
-    $user->password = Hash::make($request->input('password')); // Menggunakan Hash::make() untuk meng-hash kata sandi
-    $user->save();
+        // $request->validate([
+          
+        //     'username'              => ['required', 'string', 'max:2'],
+        //     'telp'              => ['required', 'string', 'min:11','max:14'],
+        //     'desc'              => ['required', 'string', 'max:255'],
+        // ], [
+        //     'name.required'     => 'Field nama wajib diisi!',
 
-    // Response atau redirect sesuai kebutuhan
+        //     'email.email'       => 'Email tidak valid!',
+        //     'email.unique'      => 'Email sudah terdaftar!',
+        // ]);
+
+        $data = new User;
+        $data->username            = strip_tags(ucfirst($request->username));
+        $data->email           = strip_tags($request->email);
+        $data->password         = strip_tags($request->password);
+        $data->role            = strip_tags($request->role);
+        $data->save();
+
+
+
+        return redirect()->route('backoffice.user.index')->with([
+            'alert-type' => 'success',
+            'message' => 'Data Order Berhasil Ditambahkan!'
+        ]);
+        // return redirect()->back()->with('success', 'Data has been successfully submitted!');
+        // return redirect()->route('backoffice.user.index')->with([
+        //     'alert-type'    => 'success',
+        //     'message'       => 'Data Order Berhasil Ditambahkan!'
+        // ]);
+    }
+
+    public function destroy($id)
+    {
+        User::findOrFail($id)->delete();
+        return redirect()->route('backoffice.order.index');
     }
 
 

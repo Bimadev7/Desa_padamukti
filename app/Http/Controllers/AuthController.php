@@ -34,8 +34,8 @@ class AuthController extends Controller
                     return redirect()->route('backoffice.main');
                     break;
                 case 'user':
-                    return redirect()->route('backoffice.barang.index');
-                    case 'admin':
+                    return redirect()->route('public.welcome');
+                case 'admin':
                         return redirect()->route('backoffice.main');
                     break;
                 default:
