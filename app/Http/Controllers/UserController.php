@@ -80,48 +80,87 @@ class UserController extends Controller
 
 
 
+public function store(Request $request)
+{
+    // $request->validate([
+
+    //     'email'             => ['email', 'unique:email'],
+    // ], [
 
 
-    public function store(Request $request)
-    {
-        // $request->validate([
-          
-        //     'username'              => ['required', 'string', 'max:2'],
-        //     'telp'              => ['required', 'string', 'min:11','max:14'],
-        //     'desc'              => ['required', 'string', 'max:255'],
-        // ], [
-        //     'name.required'     => 'Field nama wajib diisi!',
+    $data = new User;
+    $data->username            = strip_tags(ucfirst($request->username));
+    $data->email           = strip_tags($request->email);
+    $data->password         = strip_tags($request->password);
+    $data->role            = strip_tags($request->role);
+    $data->save();
+    return redirect()->route('backoffice.user.index')->with([
+        'alert-type' => 'success',
+        'message' => 'Data Order Berhasil Ditambahkan!'
+    ]);
+    
+  
+    // return redirect()->route('backoffice.user.index')->with([
+    //     'alert-type' => 'success',
+    //     'message' => 'Data Order Berhasil Ditambahkan!'
+    // ]);
 
-        //     'email.email'       => 'Email tidak valid!',
-        //     'email.unique'      => 'Email sudah terdaftar!',
-        // ]);
+    // return redirect()->route('backoffice.user.index')->with('success', 'Data has been successfully submitted!');
 
-        $data = new User;
-        $data->username            = strip_tags(ucfirst($request->username));
-        $data->email           = strip_tags($request->email);
-        $data->password         = strip_tags($request->password);
-        $data->role            = strip_tags($request->role);
-        $data->save();
+    // return redirect()->back()->with('success', 'Data has been successfully submitted!');
+    // return redirect()->route('backoffice.user.index')->with([
+    //     'alert-type'    => 'success',
+    //     'message'       => 'Data Order Berhasil Ditambahkan!'
+    // ]);
+        }
 
 
+    // public function store(Request $request)
+    // {
+    //     $request->validate([
 
-        return redirect()->route('backoffice.user.index')->with([
-            'alert-type' => 'success',
-            'message' => 'Data Order Berhasil Ditambahkan!'
-        ]);
-        // return redirect()->back()->with('success', 'Data has been successfully submitted!');
-        // return redirect()->route('backoffice.user.index')->with([
-        //     'alert-type'    => 'success',
-        //     'message'       => 'Data Order Berhasil Ditambahkan!'
-        // ]);
-    }
+    //         'email'             => ['email', 'unique:email'],
+    //     ], [
+
+    //         'email.email'       => 'Email tidak valid!',
+    //         'email.unique'      => 'Email sudah terdaftar!',
+    //     ]);
+
+    //     $data = new User;
+    //     $data->username            = strip_tags(ucfirst($request->username));
+    //     $data->email           = strip_tags($request->email);
+    //     $data->password         = strip_tags($request->password);
+    //     $data->role            = strip_tags($request->role);
+    //     $data->save();
+
+
+
+    //     return redirect()->route('backoffice.user.index')->with([
+    //         'alert-type' => 'success',
+    //         'message' => 'Data Order Berhasil Ditambahkan!'
+    //     ]);
+    //     // return redirect()->back()->with('success', 'Data has been successfully submitted!');
+    //     // return redirect()->route('backoffice.user.index')->with([
+    //     //     'alert-type'    => 'success',
+    //     //     'message'       => 'Data Order Berhasil Ditambahkan!'
+    //     // ]);
+    // }
 
     public function destroy($id)
     {
         User::findOrFail($id)->delete();
-        return redirect()->route('backoffice.order.index');
+        return redirect()->route('backoffice.user.index');
     }
 
-
+    public function edit($id)
+    {
+        $user = User::findOrFail($id);
+        return view('backoffice.user.edit')->with(compact('user'));
+    }
     
+    public function show($id)
+    {
+        $user = User::findOrFail($id);
+        return view('backoffice.user.show')->with(compact('user'));
+    }
 }

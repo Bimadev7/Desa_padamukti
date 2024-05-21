@@ -17,8 +17,11 @@
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
-                        <th>Stok Barang</th>
-                        <th>Deskripsi</th>
+                        <th>Description</th>
+                        <th>stock_of_goods</th>
+                        <th>stock_of_goods</th>
+                        <th>stock_of_goods</th>
+                        <th>stock_of_goods</th>
                         <th width="200px">Action</th>
                     </tr>
                 </thead>
@@ -39,9 +42,12 @@ $(function () {
         ajax: "{{ route('backoffice.barang.index') }}",
         columns: [
             {data: 'id', name: 'id'},
-            {data: 'nama', name: 'nama'},
-            {data: 'stok_barang', name: 'stok_barang'},
-            {data: 'deskripsi', name: 'deskripsi'},
+            {data: 'name', name: 'name'},
+            {data: 'description', name: 'description'},
+            {data: 'stock_of_goods', name: 'stock_of_goods'},
+            {data: 'good_stuf', name: 'good_stuf'},
+            {data: 'bad_stuf', name: 'bad_stuf'},
+            {data: 'department', name: 'department'},
             {
                 data: 'id',
                 name: 'action',

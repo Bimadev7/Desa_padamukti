@@ -12,15 +12,17 @@ class Barang extends Model
 
     protected $fillable = [
         'id',
-        'nama',
-        'deskripsi',
-        'rasio_minimal',
-        'gambar',
-        'level_teknologi',
-        'level_keterampilan',
-        'stok_barang',
-        'barang_baik',
-        'barang_rusak',
-        'jurusan'
+        'name',
+        'description',
+        'img',
+        'stock_of_goods',
+        'good_stuf',
+        'bad_stuf',
+        'department'
     ];
+
+    public function peminjaman()
+    {
+        return $this->hasMany(Peminjaman::class);
+    }
 }

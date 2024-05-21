@@ -9,10 +9,81 @@ use Yajra\DataTables\Facades\DataTables;
 
 class BarangController extends Controller
 {
+
+    public function borrow(Request $request, $barangId)
+    {
+        $barang = Barang::find($barangId);
+        $quantity = $request->input('quantity');
+
+        if ($quantity > $barang->stock_of_goods) {
+            return redirect()->back()->with('error', 'Jumlah barang melebihi stok.');
+        }
+
+        Peminjaman::create([
+            'user_id' => Auth::id(),
+            'barang_id' => $barang->id,
+            'quantity' => $quantity,
+            'status' => 'dipinjam',
+            'borrow_date' => now()
+        ]);
+
+        $barang->stock_of_goods -= $quantity;
+        $barang->save();
+
+        return redirect()->back()->with('success', 'Barang berhasil dipinjam');
+    }
    
+    // public function Form_pinjam(Request $request)
+    // {
+
+    //     // $barang = Barang::all();
+    //     // return view('backoffice.barang.index')->with(compact('barang'));
+
+    //     if ($request->ajax()) {
+
+    //         $data = Barang::query();
+
+    //         return Datatables::of($data)
+    //                 ->addIndexColumn()
+    //                 ->addColumn('action', function($row){
+       
+    //                         $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
+      
+    //                         return $btn;
+    //                 })
+    //                 ->rawColumns(['action'])
+    //                 ->make(true);
+    //     }
+          
+    //     return view('barangs.Form_pinjam');
+    
+    // }
+
+    public function borrowedItems()
+    {
+        $userId = Auth::id();
+        $borrowedItems = Peminjaman::where('user_id', $userId)->with('barang')->get();
+        
+        return view('peminjaman.index', compact('borrowedItems'));
+    }
+
+    // public function showBorrowedItems()
+    // {
+    //     $userId = auth()->user()->id;
+    //     $borrowedItems = Peminjaman::where('user_id', $userId)->with('barang')->get();
+        
+    //     return view('borrowed_items', ['borrowedItems' => $borrowedItems]);
+    // }
+
+
+
+
+
+
+
     public function index(Request $request)
     {
-    
+
         // $barang = Barang::all();
         // return view('backoffice.barang.index')->with(compact('barang'));
 
@@ -34,61 +105,88 @@ class BarangController extends Controller
           
         return view('backoffice.barang.index');
     
+    }
 
 
+    public function form_pinjam()
+    {
+        $barangs = Barang::all();
+        return view('barangs.form_pinjam', compact('barangs'));
+    } 
+    public function kembali()
+    {
+        $barangs = Barang::all();
+        return view('barangs.kembali', compact('barangs'));
+    }
 
-        
+    public function history()
+    {
+        $barangs = Barang::all();
+        return view('barangs.kembali', compact('barangs'));
+    }
+
+
+    public function return(Request $request, $id)
+    {
+    $barang = Barang::findOrFail($id);
+
+    $request->validate([
+        'quantity' => 'required|integer|min:1',
+    ]);
+
+    $barang->stock_of_goods += $request->quantity;
+    $barang->save();
+
+    return redirect()->route('barangs.kembali')->with('success', 'Barang berhasil dikembalikan!');
     }
 
     
 
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+    // public function borrow(Request $request, $id)
+    // {
+    //     $barang = Barang::findOrFail($id);
+
+    //     $request->validate([
+    //         'quantity' => 'required|integer|min:1|max:' . $barang->stock_of_goods,
+    //     ]);
+
+    //     $barang->stock_of_goods -= $request->quantity;
+    //     $barang->save();
+
+    //     return redirect()->route('barangs.index')->with('success', 'Barang berhasil dipinjam!');
+    // }
+
+
+    
+
+
+
+
+    // public function index()
+    // {
+    //     $userId = Auth::id();
+    //     $borrowedItems = Peminjaman::where('user_id', $userId)->with('barang')->get();
+        
+    //     return view('peminjaman.index', compact('borrowedItems'));
+    // }
+
+
+
+     
+    public function show(Barang $barang) {
+        $peminjaman = Peminjaman::all();
+
+        // Mengirim data barang ke view 'peminjaman.create'
+        return view('barangs.show', compact('barang'));
+
+    }
+    
+    
+
+    public function showBarang(Barang $barang) {
+        $barang = Barang::find(1); // Mengambil record tertentu, misalnya
+        return view('public.form_pinjam', compact('barang'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        Barang::findOrFail($id)->delete();
-        return redirect()->route('backoffice.barang.index');
-    }
 }

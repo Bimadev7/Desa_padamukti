@@ -13,6 +13,86 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\FormPinjamController;
 
 
+
+
+Route::get('/barangs/show/', [BarangController::class, 'show'])->name('barangs.show');
+
+Route::get('/barangs', [BarangController::class, 'index'])->name('barangs.index');
+Route::get('/barangs/show/{id}', [BarangController::class, 'show'])->name('barangs.show');
+Route::post('/barangs/borrow/{id}', [BarangController::class, 'borrow'])->name('barangs.borrow');
+// routes/web.php
+Route::post('/peminjaman/showBorrowedItems/{barang}', [PeminjamanController::class, 'borrow'])->name('peminjaman.borrow');
+Route::post('/barangs/show/{barang}', [BarangController::class, 'show'])->name('barangs.show');
+
+
+// use App\Http\Controllers\PeminjamanController;
+
+Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
+Route::post('/peminjaman/borrow/{barang}', [PeminjamanController::class, 'borrow'])->name('peminjaman.borrow');
+Route::post('/peminjaman/return/{peminjaman}', [PeminjamanController::class, 'return'])->name('peminjaman.return');
+
+
+Route::post('/barangs/borrow/{id}', [BarangController::class, 'borrow'])->name('barangs.borrow');
+Route::post('/barangs/return/{id}', [BarangController::class, 'return'])->name('barangs.return');
+Route::get('/barangs/showBorrowedItems', [BarangController::class, 'showBorrowedItems'])->name('barangs.showBorrowedItems');
+
+
+Route::get('/peminjamans/history', [BarangController::class, 'history'])->name('peminjamans.history');
+Route::get('/barangs/history', [BarangController::class, 'history'])->name('barangs.history');
+
+
+
+Route::get('/barangs/kembali', [BarangController::class, 'kembali'])->name('barangs.kembali');
+Route::get('/barangs/form_pinjam', [BarangController::class, 'form_pinjam'])->name('barangs.form_pinjam');
+Route::post('/barangs/{id}/borrow', [BarangController::class, 'borrow'])->name('barangs.borrow');
+Route::post('/barangs/{id}/return', [BarangController::class, 'return'])->name('barangs.return');
+
+
+Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
+Route::get('/peminjaman/create', [PeminjamanController::class, 'create'])->name('peminjaman.create');
+Route::post('/peminjaman', [PeminjamanController::class, 'store'])->name('peminjaman.store');
+Route::post('/peminjaman/return/{id}', [PeminjamanController::class, 'return'])->name('peminjaman.return');
+// start route 
+Route::get('/barangs', 'BarangController@index');
+Route::get('/peminjaman/index', [BarangController::class, 'index'])->name('peminjaman.index');
+
+
+Route::get('/peminjaman/index', [PeminjamanController::class, 'index'])->name('peminjaman.index');
+Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
+Route::get('/peminjaman/create', [PeminjamanController::class, 'create'])->name('peminjaman.create');
+Route::post('/peminjaman', [PeminjamanController::class, 'store'])->name('peminjaman.store');
+Route::post('/peminjaman/return/{id}', [PeminjamanController::class, 'return'])->name('peminjaman.return');
+
+
+
+
+
+//  end Route peminjaman logika  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::get('/backoffice/user/edit', [UserController::class, 'edit'])->name('backoffice.user.edit');
+
 Route::get('/backoffice/users', 'Backoffice\UserController@index')->name('backoffice.user.index');
 
 Route::get('/backoffice/user', 'Backoffice\UserController@index')->name('backoffice.user.index');
