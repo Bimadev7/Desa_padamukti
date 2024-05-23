@@ -3,35 +3,78 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\Barang;
+use App\Models\Peminjaman;
 use Yajra\DataTables\Facades\DataTables;
 
 class BarangController extends Controller
 {
+    public function borrow(Request $request, $id) {
+        // Validasi input
+        $request->validate([
+            'quantity' => 'required|numeric|min:1',
+        ]);
+        $barangIds = $request->input('barang_ids');
+        $quantities = $request->input('quantities');
+        // public function yourControllerMethod()
+{
+    $barangs = Barang::all(); // Mengasumsikan Anda mengambil barangs dari sebuah model
+    return view('barangs.form_pinjam', ['barangs' => $barangs]);
+}
+        // Dapatkan data user yang sedang login
+        $user = Auth::user();
 
-    public function borrow(Request $request, $barangId)
-    {
-        $barang = Barang::find($barangId);
-        $quantity = $request->input('quantity');
+        // Dapatkan data barang berdasarkan ID
+        $barang = Barang::findOrFail($id);
 
-        if ($quantity > $barang->stock_of_goods) {
-            return redirect()->back()->with('error', 'Jumlah barang melebihi stok.');
+        // Pastikan stok barang mencukupi
+        if ($barang->stock_of_goods < $request->quantity) {
+            return redirect()->back()->with('error', 'Stok barang tidak mencukupi');
         }
 
+        // Simpan data peminjaman ke dalam tabel peminjaman
         Peminjaman::create([
-            'user_id' => Auth::id(),
+            'user_id' => $user->id,
             'barang_id' => $barang->id,
-            'quantity' => $quantity,
-            'status' => 'dipinjam',
-            'borrow_date' => now()
+            'quantity' => $request->quantity,
         ]);
 
-        $barang->stock_of_goods -= $quantity;
+        // Kurangi stok barang
+        $barang->stock_of_goods -= $request->quantity;
         $barang->save();
 
-        return redirect()->back()->with('success', 'Barang berhasil dipinjam');
+        return redirect()->route('barangs.index')->with('success', 'Barang berhasil dipinjam');
     }
+    // public function show(Peminjaman $id )
+    // {
+    //     $barang = Barang::findOrFail($id);
+    //     $peminjaman = Peminjaman::where('barang_id', $id)->with('user')->get();
+
+    //     return view('barangs.show', compact('barang', 'peminjaman'));
+    // }
+    // public function borrow(Request $request, $barangId)
+    // {
+    //     $barang = Barang::find($barangId);
+    //     $quantity = $request->input('quantity');
+
+    //     if ($quantity > $barang->stock_of_goods) {
+    //         return redirect()->back()->with('error', 'Jumlah barang melebihi stok.');
+    //     }
+
+    //     Peminjaman::create([
+    //         'user_id' => Auth::id(),
+    //         'barang_id' => $barang->id,
+    //         'quantity' => $quantity,
+    //         'status' => 'dipinjam',
+    //         'borrow_date' => now()
+    //     ]);
+
+    //     $barang->stock_of_goods -= $quantity;
+    //     $barang->save();
+
+    //     return redirect()->back()->with('success', 'Barang berhasil dipinjam');
+    // }
    
     // public function Form_pinjam(Request $request)
     // {
@@ -67,14 +110,44 @@ class BarangController extends Controller
         return view('peminjaman.index', compact('borrowedItems'));
     }
 
-    // public function showBorrowedItems()
+ 
+    // public function borrow(Request  $request, $barangId,  $barang)
     // {
-    //     $userId = auth()->user()->id;
-    //     $borrowedItems = Peminjaman::where('user_id', $userId)->with('barang')->get();
-        
-    //     return view('borrowed_items', ['borrowedItems' => $borrowedItems]);
-    // }
+    //     // Validasi input
+    //     $request->validate([
+    //         'quantity' => 'required|numeric|min:1',
+    //     ]);
 
+    //     // Dapatkan data user yang sedang login
+    //     $user = Auth::user();
+
+    //     // Dapatkan data barang berdasarkan ID
+    //     $barang = Barang::findOrFail($barangId);
+
+    //     // Pastikan stok barang mencukupi
+    //     if ($barang->stock_of_goods < $request->quantity) {
+    //         return redirect()->back()->with('error', 'Stok barang tidak mencukupi');
+    //     }
+
+     
+
+    //     // Simpan data peminjaman ke dalam tabel peminjaman
+    //     Peminjaman::create([
+    //         'user_id' => $user->id,
+    //         'barang_id' => $barang->id,
+    //         'quantity' => $request->quantity,
+    //         // 'status' => 'draft', // Set default status to 'draft'
+    //         // 'status' => $request->status,
+
+    //         // 'status' => 'dipinjam',
+    //     ]);
+
+    //     // Kurangi stok barang
+    //     $barang->stock_of_goods -= $request->quantity;
+    //     $barang->save();
+
+    //     return redirect()->route('barangs.index')->with('success', 'Barang berhasil dipinjam');
+    // }
 
 
 
@@ -108,7 +181,19 @@ class BarangController extends Controller
     }
 
 
-    public function form_pinjam()
+    public function show(Peminjaman $id)
+    {
+        $peminjaman = Peminjaman::all();
+        return view('barangs.show', compact('peminjaman'));
+    } 
+
+    public function show_peminjaman(Peminjaman $id)
+    {
+        $peminjaman = Peminjaman::all();
+        return view('backoffice.peminjaman.show_peminjaman', compact('peminjaman'));
+    } 
+
+    public function form_pinjam(Barang $id )
     {
         $barangs = Barang::all();
         return view('barangs.form_pinjam', compact('barangs'));
@@ -126,8 +211,8 @@ class BarangController extends Controller
     }
 
 
-    public function return(Request $request, $id)
-    {
+    public function return(Request $request, $id){
+
     $barang = Barang::findOrFail($id);
 
     $request->validate([
@@ -143,44 +228,18 @@ class BarangController extends Controller
     
 
 
-    // public function borrow(Request $request, $id)
-    // {
-    //     $barang = Barang::findOrFail($id);
-
-    //     $request->validate([
-    //         'quantity' => 'required|integer|min:1|max:' . $barang->stock_of_goods,
-    //     ]);
-
-    //     $barang->stock_of_goods -= $request->quantity;
-    //     $barang->save();
-
-    //     return redirect()->route('barangs.index')->with('success', 'Barang berhasil dipinjam!');
-    // }
-
-
     
 
 
 
-
-    // public function index()
-    // {
-    //     $userId = Auth::id();
-    //     $borrowedItems = Peminjaman::where('user_id', $userId)->with('barang')->get();
-        
-    //     return view('peminjaman.index', compact('borrowedItems'));
-    // }
-
-
-
      
-    public function show(Barang $barang) {
-        $peminjaman = Peminjaman::all();
+    // public function show(Barang $barang) {
+    //     $peminjaman = Peminjaman::all();
 
-        // Mengirim data barang ke view 'peminjaman.create'
-        return view('barangs.show', compact('barang'));
+    //     // Mengirim data barang ke view 'peminjaman.create'
+    //     return view('barangs.show', compact('barang'));
 
-    }
+    // }
     
     
 

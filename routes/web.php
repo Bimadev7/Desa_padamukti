@@ -12,7 +12,110 @@ use App\Http\Controllers\DasboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\FormPinjamController;
 
+// news
 
+
+
+
+
+// $url = route('peminjaman.store', ['barang' =>]);
+
+Route::post('peminjaman/{barang}', 'PeminjamanController@store')->name('peminjaman.store');
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
+    Route::get('peminjaman/create', [PeminjamanController::class, 'create'])->name('peminjaman.create');
+    Route::post('peminjaman', [PeminjamanController::class, 'store'])->name('peminjaman.store');
+});
+
+// news
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::get('backoffice/peminjaman/show_peminjaman/{id}', [BarangController::class, 'show_peminjaman'])->name('backoffice.peminjaman.show_peminjaman');
+
+// news
+Route::get('/barangs/show/{id}', [BarangController::class, 'show'])->name('barangs.show');
+Route::post('/barangs/borrow/{id}', [PeminjamanController::class, 'store'])->name('barangs.borrow');
+
+Route::get('/barangs/show/{id}', [BarangController::class, 'show'])->name('barangs.show');
+Route::get('/barangs/{id}/show', [BarangController::class, 'show'])->name('barangs.show');
+
+
+
+Route::get('/barangs', [BarangController::class, 'index'])->name('barangs.index');
+Route::get('/barangs/show/{id}', [BarangController::class, 'show'])->name('barangs.show');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/backoffice/peminjaman/show_peminjaman', [BarangController::class, 'show'])->name('peminjaman.show');
+    Route::post('/barangs/show/{id}', [PeminjamanController::class, 'store'])->name('barangs.show');
+    Route::post('/barangs/borrow/{id}', [PeminjamanController::class, 'store'])->name('barangs.borrow');
+    // Route::post('/barangs/show/{id}', [PeminjamanController::class, 'show'])->name('barangs.show');
+    Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
+    Route::post('/peminjaman/return/{id}', [PeminjamanController::class, 'return'])->name('peminjaman.return');
+});
+
+
+
+
+
+// end news
+
+
+
+
+
+
+
+
+
+
+// 
+
+
+
+Route::get('/barangs', [BarangController::class, 'index'])->name('barangs.index');
+Route::get('/barangs/show/{id}', [BarangController::class, 'show'])->name('barangs.show');
+Route::post('/barangs/borrow/{id}', [BarangController::class, 'borrow'])->name('barangs.borrow');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
+    Route::post('/peminjaman/{barang}', [PeminjamanController::class, 'store'])->name('peminjaman.store');
+    Route::post('/peminjaman/return/{id}', [PeminjamanController::class, 'return'])->name('peminjaman.return');
+});
+
+
+
+
+
+
+
+// 
 
 
 Route::get('/barangs/show/', [BarangController::class, 'show'])->name('barangs.show');
@@ -112,7 +215,7 @@ Route::get('/backoffice/user/create', 'UserController@create')->name('backoffice
 Route::get('/backoffice/user/create', 'UserController@create')->name('backoffice.user.create');
 
 Route::get('/', function () {
-    return view('login');
+    // return view('login');
     return view('welcome');
 
 });

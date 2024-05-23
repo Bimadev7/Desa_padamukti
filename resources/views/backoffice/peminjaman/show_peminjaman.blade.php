@@ -1,3 +1,7 @@
+@extends('layouts.main')
+
+@section('peminjaman')
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,3 +59,5 @@
 </div>
 </body>
 </html>
+
+@endsection

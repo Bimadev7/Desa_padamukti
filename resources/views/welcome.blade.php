@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>JDA Project personal</title>
+  <title>JDA  personal</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -43,8 +43,8 @@
           <li type="button" class="btn btn-block btn-primary" data-bs-toggle="modal" data-bs-target="#modal-primary">Login</li>
           <li><a class="nav-link active" href="#">Home</a></li>
           <li><a class="nav-link" href="#">About</a></li>
-          <li><a class="nav-link" href="public/form_pinjam">Form Peminjaman</a></li>
-          <li><a class="nav-link" href="#">Form kembali</a></li>
+          <li><a class="nav-link" href="barangs/form_pinjam">Form Peminjaman</a></li>
+          <li><a class="nav-link" href="barangs/kembali">Form kembali</a></li>
           <li><a class="nav-link" href="#">-</a></li>
           <li><a class="nav-link" href="#">-</a></li>
               </li>

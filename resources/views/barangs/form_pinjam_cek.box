@@ -22,6 +22,7 @@
         <table id="barangTable" class="table table-bordered mt-3">
             <thead>
                 <tr>
+                    <th>Pilih</th>
                     <th>ID</th>
                     <th>Nama</th>
                     <th>Deskripsi</th>
@@ -30,12 +31,15 @@
                     <th>Bagus</th>
                     <th>Jelek</th>
                     <th>Departemen</th>
-                    <th>Jumlah Peminjaman</th>
+                    <th>Jumlah</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($barangs as $barang)
                     <tr>
+                        <td>
+                            <input type="checkbox" name="barang_ids[]" value="{{ $barang->id }}" class="barang-checkbox">
+                        </td>
                         <td>{{ $barang->id }}</td>
                         <td>{{ $barang->name }}</td>
                         <td>{{ $barang->description }}</td>
@@ -45,19 +49,28 @@
                         <td>{{ $barang->bad_stuf }}</td>
                         <td>{{ $barang->department }}</td>
                         <td>
-                            <input type="number" name="borrowQuantities[{{ $barang->id }}]" class="form-control" placeholder="Jumlah" min="1" max="{{ $barang->stock_of_goods }}">
+                            <input type="number" name="quantities[{{ $barang->id }}]" class="form-control quantity-input" placeholder="Jumlah" disabled>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
-        <button type="submit" class="btn btn-primary">Pinjam yang Dipilih</button>
+        <a href="{{ route('barangs.borrow', ['id' => $barang->id]) }}">Borrow</a>
+
+        {{-- <button type="submit" class="btn btn-primary mt-2">Pinjam</button> --}}
     </form>
 </div>
 
 <script>
     $(document).ready(function() {
         $('#barangTable').DataTable();
+
+        // Enable/disable quantity input based on checkbox state
+        $('.barang-checkbox').change(function() {
+            var $row = $(this).closest('tr');
+            var $quantityInput = $row.find('.quantity-input');
+            $quantityInput.prop('disabled', !this.checked);
+        });
     });
 </script>
 </body>

@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peminjaman Barang</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-pJAg2UR+b8+1r78Q3E3e5xO+n3zexl/IsuAQtC7crM6zk9ENzCWJf6KeNqdDlRld" crossorigin="anonymous">
+    <title>Daftar Barang</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 </head>
 <body>
+<div class="container">
+    <h1 class="mt-5">Daftar Barang</h1>
 
-<div class="container mt-5">
-    <h1 class="mb-4">Form Peminjaman Barang</h1>
-    @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
     @endif
-    @if($errors->any())
+
+    @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -22,33 +26,63 @@
             </ul>
         </div>
     @endif
+
     <form action="{{ route('peminjaman.store') }}" method="POST">
         @csrf
-        <div class="mb-3">
-            <label for="user_id" class="form-label">User</label>
-            <select class="form-select" name="user_id" id="user_id" required>
-                <option selected disabled>-- Pilih User --</option>
-                @foreach($users as $user)
-                    <option value="{{ $user->id }}">{{ $user->username }}</option>
+        <table id="barangTable" class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>Checkbox</th>
+                    <th>ID</th>
+                    <th>Nama</th>
+                    <th>Deskripsi</th>
+                    <th>Gambar</th>
+                    <th>Stok</th>
+                    <th>Bagus</th>
+                    <th>Jelek</th>
+                    <th>Departemen</th>
+                    <th>Jumlah Peminjaman</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($barang as $item)
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="barang_id[]" value="{{ $item->id }}" id="barang_{{ $item->id }}" onchange="toggleQuantity({{ $item->id }})">
+                        </td>
+                        <td>{{ $item->id }}</td>
+                        <td>{{ $item->name }}</td>
+                        <td>{{ $item->description }}</td>
+                        <td><img src="{{ $item->img }}" alt="{{ $item->name }}" width="50"></td>
+                        <td>{{ $item->stock_of_goods }}</td>
+                        <td>{{ $item->good_stuf }}</td>
+                        <td>{{ $item->bad_stuf }}</td>
+                        <td>{{ $item->department }}</td>
+                        <td>
+                            <input type="number" name="quantity[{{ $item->id }}]" id="quantity_{{ $item->id }}" class="form-control" placeholder="Jumlah" min="1" max="{{ $item->stock_of_goods }}" style="display:none;">
+                        </td>
+                    </tr>
                 @endforeach
-            </select>
-        </div>
-        <div class="mb-3">
-            <label for="barang_id" class="form-label">Barang</label>
-            <select class="form-select" name="barang_id" id="barang_id" required>
-                <option selected disabled>-- Pilih Barang --</option>
-                @foreach($barangs as $barang)
-                    <option value="{{ $barang->id }}">{{ $barang->name }} (Stok: {{ $barang->stock_of_goods }})</option>
-                @endforeach
-            </select>
-        </div>
-        <div class="mb-3">
-            <label for="quantity" class="form-label">Quantity</label>
-            <input type="number" class="form-control" id="quantity" name="quantity" min="1" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+            </tbody>
+        </table>
+        <button type="submit" class="btn btn-primary">Pinjam yang Dipilih</button>
     </form>
 </div>
 
+<script>
+    $(document).ready(function() {
+        $('#barangTable').DataTable();
+    });
+
+    function toggleQuantity(id) {
+        var quantityInput = document.getElementById('quantity_' + id);
+        if (document.getElementById('barang_' + id).checked) {
+            quantityInput.style.display = 'block';
+        } else {
+            quantityInput.style.display = 'none';
+            quantityInput.value = ''; // Clear the quantity input if unchecked
+        }
+    }
+</script>
 </body>
 </html>
