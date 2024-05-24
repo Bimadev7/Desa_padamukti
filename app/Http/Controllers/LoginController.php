@@ -12,7 +12,7 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('login');
+        return view('error');
     }
 
     /**
@@ -39,14 +39,6 @@ class LoginController extends Controller
         return back()->withInput($request->only('email'))->withErrors([
             'email' => 'Email atau password salah.',
         ]);
-
-    //     public function login(Request $request)
-    // {
-    //     // Validasi request
-    //     $request->validate([
-    //         'email' => 'required|email',
-    //         'password' => 'required',
-    //     ]);
 
         // Ambil kredensial dari request
         $credentials = $request->only('email', 'password');

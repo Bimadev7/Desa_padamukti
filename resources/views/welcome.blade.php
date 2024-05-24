@@ -1,11 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Modal Welcome -->
+<div class="modal fade" id="modalWelcome" tabindex="-1" aria-labelledby="modalWelcomeLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalWelcomeLabel">Welcome</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Welcome to our website! Enjoy your stay.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Got it!</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>JDA  personal</title>
+  <title>JDA Personal</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -14,7 +31,7 @@
   <link href="public_view/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="public_view/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -28,38 +45,35 @@
   <link href="public_view/assets/css/style.css" rel="stylesheet">
 </head>
 
-{{-- Tugas JDA --}}
-{{-- View --}}
-
 <body>
   <!-- ======= Header ======= -->
   <header id="header">
     <div class="container">
-      <h1><a href="index.html">Judul personal project</a></h1>
+      <h1><a href="index.html">Judul Personal Project</a></h1>
       <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> 
       <h2>Peminjaman <span>barang </span>pada sapras</h2>
-          <nav id="navbar" class="navbar">
+      <nav id="navbar" class="navbar">
         <ul>
-          <li type="button" class="btn btn-block btn-primary" data-bs-toggle="modal" data-bs-target="#modal-primary">Login</li>
           <li><a class="nav-link active" href="#">Home</a></li>
-          <li><a class="nav-link" href="#">About</a></li>
-          <li><a class="nav-link" href="barangs/form_pinjam">Form Peminjaman</a></li>
-          <li><a class="nav-link" href="barangs/kembali">Form kembali</a></li>
-          <li><a class="nav-link" href="#">-</a></li>
-          <li><a class="nav-link" href="#">-</a></li>
-              </li>
+          <li><a class="nav-link" href="peminjaman/about">About</a></li>
+          <li><a class="nav-link" href="peminjaman/create">Form Peminjaman</a></li>
+          <li><a class="nav-link" href="peminjaman/index">Form Kembali</a></li>
+          {{-- <li><a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
+          <li><a class="nav-link logout-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li> --}}
+<li><a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color: red;">Logout</a></li>
+
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
-        </div>
+    </div>
   </header>
-  <div class="credits">
 
-  {{-- <a href="https://api.whatsapp.com/send?phone=6287784510033" target="_blank">Kirim Pesan WhatsApp</a> --}}
-  {{-- <a href="https://chat.whatsapp.com/KjQ7nLTJuf32DheUAzidJd" target="_blank">Bergabung dengan Grup WhatsApp</a> --}}
-  <a href="https://chat.whatsapp.com/CgDCCcWcQ7h1MXbl25Rxwv" target="_blank">Bergabung dengan Grup WhatsApp</a>
+  <!-- Hidden logout form -->
+  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+      @csrf
+  </form>
 
-  </div>
+  <!-- Main content here -->
 
   <!-- Vendor JS Files -->
   <script src="public_view/assets/vendor/purecounter/purecounter_vanilla.js"></script>
@@ -72,58 +86,11 @@
 
   <!-- Template Main JS File -->
   <script src="public_view/assets/js/main.js"></script>
+</body>
 
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-  
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  </head> 
-  <body>
+</html>
 
-  <div class="modal fade" id="modal-primary">
-  <div class="modal-dialog">
-    <div class="modal-content bg-primary">
-      <div class="modal-header">
-        <h4 class="modal-title">Form Login</h4>
-        <button type="submit" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form method="POST" action="{{ route('login') }}">
-          @csrf
-          <div class="form-group">
-            <label for="password" style="float: left;">Email</label>
-            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
-        </div>
-          <div class="form-group">
-            <label for="password" style="float: left;">Password</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-        </div>
-            <button type="submit" class="btn btn-primary">Login</button>
-              </div>
-  </form>
-      </div>
-    </div>
-  </div>
-  </div>
-  </body>
-  <!-- /.modal -->
+<style>
 
-  <!-- Include Bootstrap JS and jQuery -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script>
-    $(document).ready(function () {
-        $('#modal-primary').modal('show');
-    });
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-  <script src="../../plugins/toastr/toastr.min.js"></script>
 
+</style>

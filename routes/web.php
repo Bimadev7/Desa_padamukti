@@ -11,23 +11,138 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DasboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\FormPinjamController;
+use App\Http\Controllers\Auth\RegisterController;
+
+
+
+// start Route Register 
+
+
+Route::get('/register', [UserController::class, 'register']);
+Route::get('/register', [RegisterController::class, 'register'])->name('register');
+Route::post('/register', [RegisterController::class, 'register']);
+Route::get('/register', function () {
+    return view('auth.register');
+});
+Route::get('/register', [App\Http\Controllers\UserController::class, 'showRegistrationForm'])->name('peminjaman.about');
+
+// end Route Register 
+
+
+
+Route::get('peminjaman/about', [PeminjamanController::class, 'about'])->name('peminjaman.about');
+
+
+
+Route::post('/register', [PeminjamanController::class, 'register'])->name('/register');
+
+
+Route::get('/register', [PeminjamanController::class, 'register'])->name('/register');
+
+
+Route::group(['middleware' => ['auth']], function () {
+
+
+    // Tampilan_Role_user
+    Route::get('/welcome', [PeminjamanController::class, 'welcome'])->name('/welcome');
+
+
+
+    // Peminjaman_barang
+
+    Route::post('/peminjaman/{barang}', [PeminjamanController::class, 'store'])->name('peminjaman.store');
+    Route::post('/peminjaman', [PeminjamanController::class, 'store'])->name('peminjaman.store');
+    Route::post('/peminjaman', [PeminjamanController::class, 'store'])->name('peminjaman.store');
+    Route::post('peminjaman', [PeminjamanController::class, 'store'])->name('peminjaman.store');
+
+
+
+    // backoffice_barang
+
+    Route::get('backoffice/barang/{barang}/edit', [BarangController::class, 'edit'])->name('backoffice.barang.edit');
+    Route::delete('/backoffice/barang/{barang}', [BarangController::class, 'destroy'])->name('backoffice.barang.destroy');
+    Route::get('/backoffice/barang', [BarangController::class, 'index'])->name('backoffice.barang.index');
+    Route::get('/backoffice/main', [BackOfficeController::class, 'main'])->name('backoffice.main');
+
+
+    // Data Peminjaman transaksi
+
+    Route::get('peminjaman/indexdata', [PeminjamanController::class, 'indexData'])->name('peminjaman.indexdata');
+    Route::post('peminjaman/indexdata', [PeminjamanController::class, 'indexData'])->name('peminjaman.indexdata'); 
+
+
+    // Data Peminjaman transaksi
+
+    Route::get('peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
+    Route::get('peminjaman/create', [PeminjamanController::class, 'create'])->name('peminjaman.create');
+    Route::get('/peminjaman/create', [PeminjamanController::class, 'create'])->name('peminjaman.create');
+    Route::get('/peminjaman/create', [PeminjamanController::class, 'create'])->name('peminjaman.create');
+
+
+    // backoffice_create
+
+    Route::resource('/backoffice/create', UserController::class);
+
+
+
+
+    
+
+ 
+   // peminjaman_index_tidak_diperlukan
+    Route::get('/peminjaman/index', [BarangController::class, 'index'])->name('peminjaman.index');
+    Route::get('/peminjaman/index', [PeminjamanController::class, 'index'])->name('peminjaman.index');
+   // end_peminjaman_index_tidak_diperlukans
+});
+
+
+
+
+
+
+
+
+
+
+
+
+// Route::get('/', function () {
+//     return view('/welcome');
+// })->middleware('auth');
+
+
+
+Route::get('/public/welcome', [PeminjamanController::class, 'welcome'])->name('public.welcome');
+
+Route::get('/', function () {
+    // return view('login');
+    return view('/register');
+
+});
+
+
+Route::get('/', function () {
+    // return view('login');
+    return view('public.welcome');
+
+});
+
+Route::get('/', function () {
+    return view('index');
+})->name('public.index');
 
 // news
 
+// tampilan data keseluruhan 
 
 
 
 
-// $url = route('peminjaman.store', ['barang' =>]);
-
-Route::post('peminjaman/{barang}', 'PeminjamanController@store')->name('peminjaman.store');
 
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
-    Route::get('peminjaman/create', [PeminjamanController::class, 'create'])->name('peminjaman.create');
-    Route::post('peminjaman', [PeminjamanController::class, 'store'])->name('peminjaman.store');
-});
+
+
+
 
 // news
 
@@ -105,7 +220,6 @@ Route::post('/barangs/borrow/{id}', [BarangController::class, 'borrow'])->name('
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
-    Route::post('/peminjaman/{barang}', [PeminjamanController::class, 'store'])->name('peminjaman.store');
     Route::post('/peminjaman/return/{id}', [PeminjamanController::class, 'return'])->name('peminjaman.return');
 });
 
@@ -152,21 +266,12 @@ Route::post('/barangs/{id}/return', [BarangController::class, 'return'])->name('
 
 
 Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
-Route::get('/peminjaman/create', [PeminjamanController::class, 'create'])->name('peminjaman.create');
-Route::post('/peminjaman', [PeminjamanController::class, 'store'])->name('peminjaman.store');
 Route::post('/peminjaman/return/{id}', [PeminjamanController::class, 'return'])->name('peminjaman.return');
 // start route 
-Route::get('/barangs', 'BarangController@index');
-Route::get('/peminjaman/index', [BarangController::class, 'index'])->name('peminjaman.index');
 
 
-Route::get('/peminjaman/index', [PeminjamanController::class, 'index'])->name('peminjaman.index');
 Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
-Route::get('/peminjaman/create', [PeminjamanController::class, 'create'])->name('peminjaman.create');
-Route::post('/peminjaman', [PeminjamanController::class, 'store'])->name('peminjaman.store');
 Route::post('/peminjaman/return/{id}', [PeminjamanController::class, 'return'])->name('peminjaman.return');
-
-
 
 
 
@@ -196,27 +301,22 @@ Route::post('/peminjaman/return/{id}', [PeminjamanController::class, 'return'])-
 
 Route::get('/backoffice/user/edit', [UserController::class, 'edit'])->name('backoffice.user.edit');
 
-Route::get('/backoffice/users', 'Backoffice\UserController@index')->name('backoffice.user.index');
 
-Route::get('/backoffice/user', 'Backoffice\UserController@index')->name('backoffice.user.index');
-Route::get('/backoffice/user', 'Backoffice\UserController@index')->name('backoffice.user.index');
 
 
 Route::get('/backoffice/user/index', [UserController::class, 'index'])->name('backoffice.user.index');
 Route::get('/backoffice/user/create', [UserController::class, 'create'])->name('backoffice.user.create');
 Route::post('/backoffice/user/store', [UserController::class, 'store'])->name('backoffice.user.store');
 // $url = route('backoffice.user.create');
-Route::resource('/backoffice/create', UserController::class);
 
 
 Route::get('/backoffice/user/create', [UserController::class, 'create'])->name('backoffice.user.create');
 
-Route::get('/backoffice/user/create', 'UserController@create')->name('backoffice.user.create');
-Route::get('/backoffice/user/create', 'UserController@create')->name('backoffice.user.create');
+
 
 Route::get('/', function () {
     // return view('login');
-    return view('welcome');
+    return view('home');
 
 });
 
@@ -235,38 +335,24 @@ Route::middleware(['auth', 'user'])->group(function () {
     // Rute untuk user
 });
 
-// End_Route_User
 
 
 
 
 
 
-// Route::get('/barang', [BarangController::class, 'index'])->name('barang.index');
-// Route::post('/barang', [BarangController::class, 'index']);
 
-// Route::post('barang', [BarangController::class, 'index'])->name('barang.index');
 
-// Route::post('barang/datatable', [BarangController::class, 'getDataTable'])->name('barang.datatable');
 
 
-// Route::post('barang', [BarangController::class, 'index'])->name('barang.index');
-// Route::post('barang/datatable', [BarangController::class, 'data'])->name('barang.datatable');
-// barang ajax
 
 
 
-// Route::get('barang', [BarangController::class, 'index'])->name('barang.index');
-// Route::get('barang/data', [BarangController::class, 'data'])->name('barang.data');
-// barang ajax
 
-// Route::get('/barang/data', [BarangController::class,'data']);
 
-// Route::get('barang/data', [BarangController::class, 'data'])->name('barang.data');
 
 
 
-// end barang ajax
 
 
 
@@ -282,66 +368,8 @@ Route::middleware(['auth', 'user'])->group(function () {
 
 
 
-// Route::get('barang/datatable', [Controllers\BarangController::class, 'datatable'])->name('barang.datatable');
-// Route::get('Barang/datatable', [Controllers\BarangController::class, 'datatable'])->name('Barang.datatable');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Route::get('backoffice/barang/{id}', [BarangController::class, 'show'])->name('backoffice.barang.show');
-// Route::get('backoffice/barang/index', [BarangController::class, 'index'])->name('backoffice.barang.index');
-Route::get('/login', 'AuthController@showLoginForm')->name('login');
-
-// Route::get('backoffice/barang/datatable', [Controllers\BarangController::class, 'datatable'])->name('backoffice.barang.datatable');
-
-// Tugas route dan view JDA
-// Route Bagian Public_view
-// Route::get('barang', [BarangController::class, 'index'])->name('barang.index');
-
-// Route::resource('barang', BarangController::class);
-
-
-// Route::get('/backoffice/barang/datatable', [BarangController::class, 'datatable'])->name('backoffice.barang.datatable');
-// Route::get('/backoffice/barang/datatable', [BarangController::class, 'datatable'])->name('backoffice.barang.datatable');
-// Route::get('/backoffice/barang/create', 'Backoffice\BarangController@create')->name('backoffice.barang.create');
-// Route::get('/backoffice/barang/create', 'Backoffice\BarangController@create')->name('backoffice.barang.create');
-
-
-
-Route::delete('/backoffice/barang/{barang}', [BarangController::class, 'destroy'])->name('backoffice.barang.destroy');
-
-
-
-// barang
-// Route::get('/backoffice/barang', [BarangController::class, 'index'])->name('backoffice.barang.index');
-Route::get('/backoffice/barang', [BarangController::class, 'index'])->name('backoffice.barang.index');
-
-// Route::get('backoffice/barang/datatable', [Controllers\BarangController::class, 'datatable'])->name('backoffice.barang.datatable');
-
-
-// Route::get('/backoffice/order/datatable', [BarangController::class, 'datatable'])->name('backoffice.order.datatable');
-
-
-
-
-
-
-// Route::get('barang/datatable', [Controllers\BarangController::class, 'datatable'])->name('barang.datatable');
+;
 
 
 Route::resources([
@@ -360,14 +388,13 @@ Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 
 
-Route::get('/backoffice/main', [BackOfficeController::class, 'main'])->name('backoffice.main');
+
 
 
 
 
 // end route public view 
 
-Route::get('/public/form_pinjam', 'FormPinjamController@index')->name('form_pinjam');
 Route::get('/public/form_pinjam', [FormPinjamController::class, 'index'])->name('form_pinjam');
 
 Route::get('/backoffice', [BackOfficeController::class, 'index'])->name('backoffice.dashboard');
@@ -375,7 +402,6 @@ Route::get('/dashboard', [AdminController::class, 'index'])->name('backoffice.da
 Route::get('/public', [peminjamanController::class, 'Form_pinjam'])->name('public.Form_pinjam');
 Route::get('/form-pinjam', [PeminjamanController::class, 'form_pinjam'])->name('form_pinjam');
 Route::resource('/form-pinjam', 'PeminjamanController');
-Route::resource('/public/form-pinjam', 'PeminjamanController@form-pinjam');  
 
 
 Route::get('/dashboard', function () {
@@ -383,27 +409,15 @@ Route::get('/dashboard', function () {
 });
 
 
-Route::get('/backoffice', 'BackofficeController@index')->name('backoffice.main');
 
-Route::get('/backoffice', 'BackOfficeController@index')->name('backoffice.index');
 Route::get('/backoffice', [BackOfficeController::class, 'backoffice'])->name('backoffice.');
 
-
-
-// Route::get('/backoffice.main', [BarangController::class, 'index']);
-
-// Route::get('/barang/{id}/edit', 'BarangController@edit')->name('barang.edit');
-// Route::delete('/barang/{id}', [BarangController::class, 'destroy'])->name('barang.destroy');
 
 
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
 
 
-Route::post('/login', 'Auth\LoginController@login')->name('login');
 
-
-Route::post('/login', 'AuthController@authenticate')->name('login');
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 
 
@@ -417,11 +431,26 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 
 
-Route::get('/backoffice/welcome', 'DasboardController@index')->name('welcome');
-Route::get('/public/index', 'DasboardController@index')->name('index');
 Route::get('/public/index', [DasboardController::class, 'index']);
 Route::post('/logout', [DasboardController::class, 'logout'])->name('logout');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::get('backoffice/barang/{barang}/edit', [BarangController::class, 'edit'])->name('backoffice.barang.edit');
 Route::put('barang/{barang}', [BarangController::class, 'update'])->name('barang.update');
 
+
+
+// Route::get('/backoffice/welcome', 'DasboardController@index')->name('welcome');
+// Route::get('/public/index', 'DasboardController@index')->name('index');
+// Route::post('/login', 'Auth\LoginController@login')->name('login');
+// Route::post('/login', 'AuthController@authenticate')->name('login');
+// Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+// Route::get('/backoffice', 'BackofficeController@index')->name('backoffice.main');
+// Route::get('/backoffice', 'BackOfficeController@index')->name('backoffice.index');
+// Route::get('/backoffice/user', 'Backoffice\UserController@index')->name('backoffice.user.index');
+// Route::get('/backoffice/user', 'Backoffice\UserController@index')->name('backoffice.user.index');
+// Route::get('/backoffice/user/create', 'UserController@create')->name('backoffice.user.create');
+// Route::get('/backoffice/user/create', 'UserController@create')->name('backoffice.user.create');
+// Route::resource('/public/form-pinjam', 'PeminjamanController@form-pinjam');  
+// Route::get('/public/form_pinjam', 'FormPinjamController@index')->name('form_pinjam');
+// Route::get('/login', 'AuthController@showLoginForm')->name('login');
+// Route::get('/backoffice/users', 'Backoffice\UserController@index')->name('backoffice.user.index');
+// Route::get('/barangs', 'BarangController@index');

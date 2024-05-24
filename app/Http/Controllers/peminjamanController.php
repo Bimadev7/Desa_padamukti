@@ -4,14 +4,90 @@
 
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Peminjaman;
 use App\Models\Barang;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+// use Illuminate\Support\Facades\Auth;
 
 class PeminjamanController extends Controller
 { 
+
+
+    public function register(  )
+    { 
+
+        return view('/register');
+    }
+    // public function register(  )
+    // { 
+
+    //     return view('register');
+    // }
+
+
+    public function checkBorrowedStatus()
+{
+    // Periksa apakah masih ada barang yang memiliki status "borrowed" untuk pengguna yang sedang login
+    $borrowedItemsExist = Peminjaman::where('status', 'borrowed')
+        ->where('user_id', auth()->id())
+        ->exists();
+
+    // Kembalikan respons JSON berisi informasi status peminjaman
+    return response()->json(['borrowed' => $borrowedItemsExist]);
+}
+
+
+    public function create()
+    {
+        // Periksa apakah masih ada barang yang memiliki status "borrowed" untuk pengguna saat ini
+$borrowedItemsExist = Peminjaman::where('status', 'borrowed')
+->where('user_id', auth()->id())
+->exists();
+
+// Jika ada barang yang masih dipinjam, tampilkan pesan kesalahan
+if ($borrowedItemsExist) {
+return redirect()->back()->with('error', 'Tidak dapat melakukan peminjaman karena masih ada barang yang sedang dipinjam.');
+}
+
+// Periksa apakah status peminjaman terakhir pengguna adalah "return", sehingga pengguna dapat melakukan peminjaman lagi
+$lastPeminjamanStatus = Peminjaman::where('user_id', auth()->id())
+->orderBy('created_at', 'desc')
+->first();
+
+if ($lastPeminjamanStatus && $lastPeminjamanStatus->status === 'returned') {
+$barang = Barang::all();
+return view('peminjaman.create', compact('barang'));
+}
+
+// Jika status peminjaman terakhir pengguna bukan "return", berikan pesan kesalahan
+return redirect()->back()->with('error', 'Anda tidak dapat melakukan peminjaman karena masih ada barang yang belum dikembalikan.');
+
+    }
+    
+
+    // public function welcome()
+    // { 
+    //     // $user = Auth::user();
+    //     return view('public.welcome');
+    // }
+
+    public function about(  )
+    { 
+
+        return view('peminjaman/about');
+    }
+
+
+    public function welcome(  )
+    { 
+
+        return view('/welcome');
+    }
+    
+
+
     public function return(Request $request, $id)
         {
             $peminjaman = Peminjaman::findOrFail($id);
@@ -118,11 +194,12 @@ class PeminjamanController extends Controller
     // edit baru
 
 
-    public function create()
-    {
-        $barang = Barang::all();
-        return view('peminjaman.create', compact('barang'));
-    }
+    // public function create()
+    // {
+
+    //     $barang = Barang::all();
+    //     return view('peminjaman.create', compact('barang'));
+    // }
 
     // public function store(Request $request)
     // {
@@ -148,6 +225,28 @@ class PeminjamanController extends Controller
         $peminjaman = Peminjaman::where('user_id', Auth::id())->get();
         return view('peminjaman.index', compact('peminjaman'));
     }
+
+       // Ambil data return and borrow
+       public function indexdata()
+       {
+           $borrowedPeminjaman = Peminjaman::where('status', 'borrowed')->get();
+           $returnedPeminjaman = Peminjaman::where('status', 'returned')->get();
+   
+           return view('peminjaman.indexdata', compact('borrowedPeminjaman', 'returnedPeminjaman'));
+       }
+
+    // public function index()
+    // {
+    //     $borrowedPeminjaman = Peminjaman::where('status', 'borrowed')->get();
+    //     $returnedPeminjaman = Peminjaman::where('status', 'returned')->get();
+
+    //     return view('peminjaman.index', compact('borrowedPeminjaman', 'returnedPeminjaman'));
+    // }
+
+
+ 
+
+    
 
 
 

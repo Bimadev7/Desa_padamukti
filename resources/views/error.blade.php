@@ -1,3 +1,18 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +24,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <title>JDA  personal</title>
+  <title>Errorr</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -29,7 +44,7 @@
   <link href="public_view/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="public_view/assets/css/style.css" rel="stylesheet">
+  {{-- <link href="public_view/assets/css/style.css" rel="stylesheet"> --}}
 </head>
 
 {{-- Tugas JDA --}}
@@ -37,58 +52,10 @@
 
 <body>
   <!-- ======= Header ======= -->
-  <header id="header">
-    <div class="container">
-      <h1><a href="index.html">Judul personal project</a></h1>
-      <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> 
-      <h2>Peminjaman <span>barang </span>pada sapras</h2>
-          <nav id="navbar" class="navbar">
-        <ul>
-          <li type="button" class="btn btn-block btn-primary" data-bs-toggle="modal" data-bs-target="#modal-primary">Login</li>
-          <li><a class="nav-link active" href="#">Home</a></li>
-          <li><a class="nav-link" href="peminjaman/about">About</a></li>
-          <li><a class="nav-link" href="#">Form Peminjaman</a></li>
-          <li><a class="nav-link" href="#">Form kembali</a></li>
-          <li><a class="nav-link" href="https://discord.com/invite/dYXcy954" style="color:Cyan;"> JOIN DISCORD</a></li>
-          <li><a class="nav-link" href="#">-</a></li>
-              </li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav>
-        </div>
-  </header>
-  <div class="credits">
-
-  {{-- <a href="https://api.whatsapp.com/send?phone=6287784510033" target="_blank">Kirim Pesan WhatsApp</a> --}}
-  {{-- <a href="https://chat.whatsapp.com/KjQ7nLTJuf32DheUAzidJd" target="_blank">Bergabung dengan Grup WhatsApp</a> --}}
-  {{-- <a href="https://chat.whatsapp.com/CgDCCcWcQ7h1MXbl25Rxwv" target="_blank">WhatsApp</a>
-  <a href="https://t.me/+fCZarSbCwWZkNTA1" target="_blank">Telegram</a>
-  <a href="https://discord.com/invite/dYXcy954" target="_blank">Discordf</a> --}}
-  {{-- <a href="https://discord.com/invite/dYXcy954" target="_blank">
-  <i class="fa-brands fa-discord"></i> Discord
-</a> --}}
-{{-- <a href="https://chat.whatsapp.com/CgDCCcWcQ7h1MXbl25Rxwv" target="_blank">
-  <i class="fa fa-whatsapp"></i> WhatsApp
-</a>
-
-<a href="https://t.me/+fCZarSbCwWZkNTA1" target="_blank">
-  <i class="fa fa-telegram"></i> Telegram
-</a> --}}
+  
 
 
-
-
-  </div>
-
-  <!-- Vendor JS Files -->
-  <script src="public_view/assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="public_view/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="public_view/assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="public_view/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="public_view/assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="public_view/assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="public_view/assets/vendor/php-email-form/validate.js"></script>
-
+ 
   <!-- Template Main JS File -->
   <script src="public_view/assets/js/main.js"></script>
 
@@ -108,6 +75,7 @@
     <div class="modal-content bg-primary">
       <div class="modal-header">
         <h4 class="modal-title">Form Login</h4>
+  
         <button type="submit" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -129,10 +97,8 @@
             </div>
             <div class="col">
               <button type="submit" class="btn btn-primary btn-block">Register</button>
-           {{-- <button type="button" class="btn btn-primary" onclick="location.href='{{ route('register') }}'">
-  Register
-</button> --}}
-
+            </div>
+          </div>
               </div>
               
   </form>
@@ -156,3 +122,157 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
   <script src="../../plugins/toastr/toastr.min.js"></script>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Alert Example</title>
+    <style>
+        /* Basic styling for the alert box */
+        .alert {
+            padding: 20px;
+            background-color: #f44336; /* Red */
+            color: white;
+            margin-bottom: 15px;
+            opacity: 1;
+            transition: opacity 0.6s; /* 600ms to fade out */
+            border-radius: 5px;
+        }
+
+        /* The close button */
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .closebtn:hover {
+            color: black;
+        }
+
+        /* Hidden by default */
+        .alert.hidden {
+            opacity: 0;
+            pointer-events: none; /* Prevents interaction */
+        }
+    </style>
+</head>
+<body>
+ <script src="public_view/assets/js/main.js"></script>
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  </head> 
+  <body>
+
+  <div class="modal fade" id="modal-primary">
+  <div class="modal-dialog">
+    <div class="modal-content bg-primary">
+      <div class="modal-header">
+        <h4 class="modal-title">Form Login</h4>
+        <button type="submit" class="close" data-dismiss="modal" aria-label="Close">
+        
+        <button type="submit" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="{{ route('login') }}">
+          @csrf
+          <div class="form-group">
+            <label for="password" style="float: left;">Email</label>
+            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+          <div class="form-group">
+            <label for="password" style="float: left;">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+        </div>
+           <div class="row">
+            <div class="col">
+              <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </div>
+            <div class="col">
+              <button type="submit" class="btn btn-primary btn-block">Register</button>
+            </div>
+          </div>
+              </div>
+              
+  </form>
+      </div>
+    </div>
+  </div>
+  </div>
+  </body>
+  <!-- /.modal -->
+    <div class="alert error-alert" id="errorAlert">
+        <span class="closebtn" onclick="closeAlert()">&times;</span>
+        <strong>Error!</strong> This is an error message.
+    </div>
+    <div class="alert error-alert" id="errorAlert">
+        <span class="closebtn" onclick="closeAlert()">&times;</span>
+        <strong>Error!!!</strong> Anda belum login 
+      <span  onclick="closeAlert()">&times;</span>
+        <strong>Back to</strong> Dasboard
+        
+    </div>
+    
+    <script>
+        function closeAlert() {
+            var alertBox = document.getElementById('errorAlert');
+            alertBox.classList.add('hidden');
+        }
+
+        // Show alert when the page loads
+        window.onload = function() {
+            var alertBox = document.getElementById('errorAlert');
+            alertBox.classList.remove('hidden');
+        };
+    </script>
+</body>
+</html> 

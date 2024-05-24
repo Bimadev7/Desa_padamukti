@@ -34,12 +34,12 @@ class AuthController extends Controller
                     return redirect()->route('backoffice.main');
                     break;
                 case 'user':
-                    return redirect()->route('public.welcome');
+                    return redirect()->route('/welcome');
                 case 'admin':
                         return redirect()->route('backoffice.main');
                     break;
                 default:
-                    return redirect()->route('layouts.index-2');
+                    return redirect()->route('login');
             }
             // public_view/index.html
         }

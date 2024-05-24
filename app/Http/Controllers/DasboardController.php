@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Barang; 
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
@@ -14,14 +15,18 @@ class DasboardController extends Controller
 
     // return view('public.index');
     // }  
+    public function welcome()
+    {
+        return view('/welcome'); // Misalnya, kita mengembalikan view 'dashboard.index'
+    }
+
+
     public function index()
     {
         return view('public.index'); // Misalnya, kita mengembalikan view 'dashboard.index'
     }
-    public function welcome()
-    {
-        return view('public.welcome'); // Misalnya, kita mengembalikan view 'dashboard.index'
-    }
+
+  
     public function dasboard()
     {
     $barang = Barang::all(); // Mengambil semua data Barang dari database

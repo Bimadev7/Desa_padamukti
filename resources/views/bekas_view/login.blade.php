@@ -2,14 +2,10 @@
 <html lang="en">
 
 <head>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-bfLT5UetKDbL+eWVqqfRQK21Xp9hH5l7Kl8Oz2dktDI5pY/15cC1xXeXkmF8xqnv2psu21y2uVrFsXcsEpWIlw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <title>JDA  personal</title>
+
+  <title>JDA Project </title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -46,10 +42,10 @@
         <ul>
           <li type="button" class="btn btn-block btn-primary" data-bs-toggle="modal" data-bs-target="#modal-primary">Login</li>
           <li><a class="nav-link active" href="#">Home</a></li>
-          <li><a class="nav-link" href="peminjaman/about">About</a></li>
+          <li><a class="nav-link" href="#">About</a></li>
           <li><a class="nav-link" href="#">Form Peminjaman</a></li>
           <li><a class="nav-link" href="#">Form kembali</a></li>
-          <li><a class="nav-link" href="https://discord.com/invite/dYXcy954" style="color:Cyan;"> JOIN DISCORD</a></li>
+          <li><a class="nav-link" href="#">-</a></li>
           <li><a class="nav-link" href="#">-</a></li>
               </li>
         </ul>
@@ -61,22 +57,7 @@
 
   {{-- <a href="https://api.whatsapp.com/send?phone=6287784510033" target="_blank">Kirim Pesan WhatsApp</a> --}}
   {{-- <a href="https://chat.whatsapp.com/KjQ7nLTJuf32DheUAzidJd" target="_blank">Bergabung dengan Grup WhatsApp</a> --}}
-  {{-- <a href="https://chat.whatsapp.com/CgDCCcWcQ7h1MXbl25Rxwv" target="_blank">WhatsApp</a>
-  <a href="https://t.me/+fCZarSbCwWZkNTA1" target="_blank">Telegram</a>
-  <a href="https://discord.com/invite/dYXcy954" target="_blank">Discordf</a> --}}
-  {{-- <a href="https://discord.com/invite/dYXcy954" target="_blank">
-  <i class="fa-brands fa-discord"></i> Discord
-</a> --}}
-{{-- <a href="https://chat.whatsapp.com/CgDCCcWcQ7h1MXbl25Rxwv" target="_blank">
-  <i class="fa fa-whatsapp"></i> WhatsApp
-</a>
-
-<a href="https://t.me/+fCZarSbCwWZkNTA1" target="_blank">
-  <i class="fa fa-telegram"></i> Telegram
-</a> --}}
-
-
-
+  <a href="https://chat.whatsapp.com/CgDCCcWcQ7h1MXbl25Rxwv" target="_blank">Bergabung dengan Grup WhatsApp</a>
 
   </div>
 
@@ -123,18 +104,8 @@
             <label for="password" style="float: left;">Password</label>
             <input type="password" class="form-control" id="password" name="password" placeholder="Password">
         </div>
-           <div class="row">
-            <div class="col">
-              <button type="submit" class="btn btn-primary btn-block">Login</button>
-            </div>
-            <div class="col">
-              <button type="submit" class="btn btn-primary btn-block">Register</button>
-           {{-- <button type="button" class="btn btn-primary" onclick="location.href='{{ route('register') }}'">
-  Register
-</button> --}}
-
+            <button type="submit" class="btn btn-primary">Login</button>
               </div>
-              
   </form>
       </div>
     </div>

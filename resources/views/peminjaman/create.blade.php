@@ -10,7 +10,7 @@
 <body>
 <div class="container">
     <h1 class="mt-5">Daftar Barang</h1>
-
+  
     @if (session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
@@ -53,7 +53,9 @@
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->description }}</td>
-                        <td><img src="{{ $item->img }}" alt="{{ $item->name }}" width="50"></td>
+                        {{-- MANGGIL IMG PAKE NAMA JUGA --}}
+                        {{-- <td><img src="{{ $item->img }}" alt="{{ $item->name }}" width="50"></td> --}}
+                        <td><img src="{{ $item->img }}"  width="50"></td>
                         <td>{{ $item->stock_of_goods }}</td>
                         <td>{{ $item->good_stuf }}</td>
                         <td>{{ $item->bad_stuf }}</td>
@@ -65,8 +67,18 @@
                 @endforeach
             </tbody>
         </table>
-        <button type="submit" class="btn btn-primary">Pinjam yang Dipilih</button>
+   <div style="text-align: center;">
+    <a href="{{ route('/welcome') }}" class="btn btn-secondary btn-lg active">BACK TO DASHBOARD</a>
+</div>
+<div style="text-align: center;">
+    <a href="{{ route('/welcome') }}" style="position: absolute; top: 430px; left: 300px;" class="btn btn-primary"> <= BACK</a>
+</div>
+        {{-- <button style="position: absolute; top: 450px; left: 300px;" type="submit" class="btn btn-dark">BACK</button> --}}
+<button style="position: absolute; top: 430px; right: 300px;" type="submit" class="btn btn-success">SUBMIT</button>
+{{-- <button style="position: absolute; top: 430px; left: 300px;" type="submit" class="btn btn-outline-dark">BACK</button> --}}
+
     </form>
+ 
 </div>
 
 <script>
