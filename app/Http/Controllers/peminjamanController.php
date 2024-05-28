@@ -14,6 +14,8 @@ use Illuminate\Http\Request;
 class PeminjamanController extends Controller
 { 
 
+    
+
 
     public function register(  )
     { 
@@ -42,24 +44,26 @@ class PeminjamanController extends Controller
     public function create()
     {
         // Periksa apakah masih ada barang yang memiliki status "borrowed" untuk pengguna saat ini
-$borrowedItemsExist = Peminjaman::where('status', 'borrowed')
-->where('user_id', auth()->id())
-->exists();
+    $borrowedItemsExist = Peminjaman::where('status', 'borrowed')
+    ->where('user_id', auth()->id())
+    ->exists();
 
-// Jika ada barang yang masih dipinjam, tampilkan pesan kesalahan
-if ($borrowedItemsExist) {
-return redirect()->back()->with('error', 'Tidak dapat melakukan peminjaman karena masih ada barang yang sedang dipinjam.');
-}
+    // Jika ada barang yang masih dipinjam, tampilkan pesan kesalahan
+    if ($borrowedItemsExist) {
+    return redirect()->back()->with('error', 'Tidak dapat melakukan peminjaman karena masih ada barang yang sedang dipinjam.');
+    }
 
-// Periksa apakah status peminjaman terakhir pengguna adalah "return", sehingga pengguna dapat melakukan peminjaman lagi
-$lastPeminjamanStatus = Peminjaman::where('user_id', auth()->id())
-->orderBy('created_at', 'desc')
-->first();
+    // Periksa apakah status peminjaman terakhir pengguna adalah "return", sehingga pengguna dapat melakukan peminjaman lagi
+    $lastPeminjamanStatus = Peminjaman::where('user_id', auth()->id())
+    ->orderBy('created_at', 'desc')
+    ->first();
 
-if ($lastPeminjamanStatus && $lastPeminjamanStatus->status === 'returned') {
-$barang = Barang::all();
-return view('peminjaman.create', compact('barang'));
-}
+    // status boleh pinjam tidak di sini jika status semua retuned berarti boleh minjam
+    // jadi jika status ada yang belum retuned semua maka akan di kembalikan 
+    if ($lastPeminjamanStatus && $lastPeminjamanStatus->status === 'finish') {
+    $barang = Barang::all();
+    return view('peminjaman.create', compact('barang'));
+    }
 
 // Jika status peminjaman terakhir pengguna bukan "return", berikan pesan kesalahan
 return redirect()->back()->with('error', 'Anda tidak dapat melakukan peminjaman karena masih ada barang yang belum dikembalikan.');
@@ -85,26 +89,74 @@ return redirect()->back()->with('error', 'Anda tidak dapat melakukan peminjaman 
 
         return view('/welcome');
     }
-    
 
 
-    public function return(Request $request, $id)
-        {
-            $peminjaman = Peminjaman::findOrFail($id);
+    public function returnadmin(Request $request, $id) {
+        $peminjaman = Peminjaman::findOrFail($id);
     
-            if ($peminjaman->status == 'returned') {
-                return redirect()->back()->withErrors(['msg' => 'Item already returned']);
-            }
+        if ($peminjaman->status == 'returned') {
+            return redirect()->back()->withErrors(['msg' => 'Item already returned']);
+        }
+         $barang = Barang::find($peminjaman->barang_id);
+            $barang->stock_of_goods += $peminjaman->quantity;
+            $barang->save();
     
+        $peminjaman->status = 'finish';
+        $peminjaman->save();
+    
+        return redirect()->route('peminjaman.index')->with('success', 'Item returned successfully');
+
+        
+    }
+    
+    
+
+    // public function return(Request $request, $id){
+
+    //         $peminjaman = Peminjaman::findOrFail($id);
+    
+    //         if ($peminjaman->status == 'finish') {
+    //             return redirect()->back()->withErrors(['msg' => 'Item already returned']);
+    //         }
+    
+    //         $barang = Barang::find($peminjaman->barang_id);
+    //         $barang->stock_of_goods += $peminjaman->quantity;
+    //         $barang->save();
+    
+    //         $peminjaman->status = 'returned';
+    //         $peminjaman->save();
+    
+    //         return redirect()->route('peminjaman.index')->with('success', 'Item returned successfully');
+    //     }
+
+    public function return(Request $request, $id){
+
+        $peminjaman = Peminjaman::findOrFail($id);
+    
+        if ($peminjaman->status == 'finish') {
+            return redirect()->back()->withErrors(['msg' => 'Item already returned']);
+        }
+    
+        // Jika status berubah dari 'borrowed' ke 'returned'
+        if ($peminjaman->status == 'borrowed') {
+            $peminjaman->status = 'returned';
+            $peminjaman->save();
+            return redirect()->route('peminjaman.index')->with('success', 'Item returned successfully');
+        }
+    
+        // Jika status berubah dari 'returned' ke 'finish'
+        if ($peminjaman->status == 'returned') {
             $barang = Barang::find($peminjaman->barang_id);
             $barang->stock_of_goods += $peminjaman->quantity;
             $barang->save();
     
-            $peminjaman->status = 'returned';
+            $peminjaman->status = 'finish';
             $peminjaman->save();
     
-            return redirect()->route('peminjaman.index')->with('success', 'Item returned successfully');
+            return redirect()->route('peminjaman.index')->with('success', 'Item marked as finished');
         }
+    }
+    
 
         public function store(Request $request)
         {
@@ -229,40 +281,20 @@ return redirect()->back()->with('error', 'Anda tidak dapat melakukan peminjaman 
        // Ambil data return and borrow
        public function indexdata()
        {
+           $finishPeminjaman = Peminjaman::where('status', 'finish')->get();
            $borrowedPeminjaman = Peminjaman::where('status', 'borrowed')->get();
            $returnedPeminjaman = Peminjaman::where('status', 'returned')->get();
    
-           return view('peminjaman.indexdata', compact('borrowedPeminjaman', 'returnedPeminjaman'));
+           return view('peminjaman.indexdata', compact('borrowedPeminjaman', 'returnedPeminjaman', 'finishPeminjaman'));
        }
 
-    // public function index()
-    // {
-    //     $borrowedPeminjaman = Peminjaman::where('status', 'borrowed')->get();
-    //     $returnedPeminjaman = Peminjaman::where('status', 'returned')->get();
-
-    //     return view('peminjaman.index', compact('borrowedPeminjaman', 'returnedPeminjaman'));
-    // }
-
-
  
-
-    
-
+}
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-    // old
+// old
     // public function index()
     // {
     //     $userId = Auth::id();
@@ -349,10 +381,6 @@ return redirect()->back()->with('error', 'Anda tidak dapat melakukan peminjaman 
 
     //     return redirect()->route('barangs.index')->with('success', 'Barang berhasil dipinjam');
     // }
-}
-
-
-
 
 
 

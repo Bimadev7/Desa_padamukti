@@ -13,8 +13,27 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\FormPinjamController;
 use App\Http\Controllers\Auth\RegisterController;
 
+// use App\Http\Controllers\PeminjamanController;
+Route::post('/returnadmin/{id}', [PeminjamanController::class, 'returnadmin']);
 
 
+
+Route::post('/peminjaman/returnadmin/{id}', [PeminjamanController::class, 'returnadmin'])->name('peminjaman.returnadmin');
+Route::post('/peminjaman/finish/{id}', [PeminjamanController::class, 'finishadmin'])->name('peminjaman.finishadmin');
+
+
+Route::post('/peminjaman/return/{id}', [PeminjamanController::class, 'returnadmin'])->name('peminjaman.returnadmin');
+
+// Route::get('/backoffice/peminjaman', [PeminjamanController::class, 'indexdata']);
+
+Route::get('/backoffice/returnadmin', [PeminjamanController::class, 'returnAdmin'])->name('peminjaman.returnadmin');
+Route::post('/backoffice/returnadmin', [PeminjamanController::class, 'returnAdmin'])->name('peminjaman.returnAdmin'); 
+
+// Route::get('peminjaman/returnadmin', 'PeminjamanController@')->name('peminjaman.returnadmin');
+
+Route::get('/backoffice/peminjaman', [PeminjamanController::class, 'indexdata']);
+Route::get('/backoffice/peminjaman/indexdata', [PeminjamanController::class, 'indexData'])->name('peminjaman.indexdata');
+Route::post('/backoffice/peminjaman/indexdata', [PeminjamanController::class, 'indexData'])->name('peminjaman.indexdata'); 
 // start Route Register 
 
 
@@ -194,6 +213,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
     Route::post('/peminjaman/return/{id}', [PeminjamanController::class, 'return'])->name('peminjaman.return');
 });
+
+Route::post('/peminjaman/returnadmin/{id}', [PeminjamanController::class, 'returnadmin'])->name('peminjaman.return');
+
 
 
 
