@@ -495,7 +495,7 @@
     <table id="peminjamanTable" class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th>No</th>
+                <th>ID</th>
                 <th>User</th>
                 <th>Goods</th>
                 <th>Stock</th>

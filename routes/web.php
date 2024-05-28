@@ -18,18 +18,12 @@ Route::post('/returnadmin/{id}', [PeminjamanController::class, 'returnadmin']);
 
 
 
-Route::post('/peminjaman/returnadmin/{id}', [PeminjamanController::class, 'returnadmin'])->name('peminjaman.returnadmin');
-Route::post('/peminjaman/finish/{id}', [PeminjamanController::class, 'finishadmin'])->name('peminjaman.finishadmin');
-
-
-Route::post('/peminjaman/return/{id}', [PeminjamanController::class, 'returnadmin'])->name('peminjaman.returnadmin');
-
-// Route::get('/backoffice/peminjaman', [PeminjamanController::class, 'indexdata']);
-
-Route::get('/backoffice/returnadmin', [PeminjamanController::class, 'returnAdmin'])->name('peminjaman.returnadmin');
-Route::post('/backoffice/returnadmin', [PeminjamanController::class, 'returnAdmin'])->name('peminjaman.returnAdmin'); 
-
 // Route::get('peminjaman/returnadmin', 'PeminjamanController@')->name('peminjaman.returnadmin');
+Route::get('/backoffice/pengembalian', [PeminjamanController::class, 'indexdata'])->name('pengembalian.indexdata');
+Route::get('/backoffice/pengembalian/datakembali', [PeminjamanController::class, 'datakembali'])->name('pengembalian.indexdata');
+Route::post('/backoffice/pengembalian/datakembali', [PeminjamanController::class, 'datakembali'])->name('pengembalian.indexdata'); 
+
+
 
 Route::get('/backoffice/peminjaman', [PeminjamanController::class, 'indexdata']);
 Route::get('/backoffice/peminjaman/indexdata', [PeminjamanController::class, 'indexData'])->name('peminjaman.indexdata');
@@ -115,19 +109,6 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 
-
-
-
-
-
-
-
-
-
-
-// Route::get('/', function () {
-//     return view('/welcome');
-// })->middleware('auth');
 
 
 

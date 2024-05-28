@@ -211,6 +211,8 @@ class BarangController extends Controller
     }
 
 
+   
+
     public function return(Request $request, $id){
 
     $barang = Barang::findOrFail($id);
@@ -225,6 +227,8 @@ class BarangController extends Controller
     return redirect()->route('barangs.kembali')->with('success', 'Barang berhasil dikembalikan!');
     }
 
+
+    
     
 
 

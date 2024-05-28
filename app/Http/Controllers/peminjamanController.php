@@ -287,9 +287,19 @@ return redirect()->back()->with('error', 'Anda tidak dapat melakukan peminjaman 
    
            return view('peminjaman.indexdata', compact('borrowedPeminjaman', 'returnedPeminjaman', 'finishPeminjaman'));
        }
+       
 
+       public function datakembali()
+       {
+           $finishPeminjaman = Peminjaman::where('status', 'finish')->get();
+           $borrowedPeminjaman = Peminjaman::where('status', 'borrowed')->get();
+           $returnedPeminjaman = Peminjaman::where('status', 'returned')->get();
+   
+           return view('backoffice.pengembalian.datakembali', compact('borrowedPeminjaman', 'returnedPeminjaman', 'finishPeminjaman'));
+       }
  
 }
+
 
 
 
