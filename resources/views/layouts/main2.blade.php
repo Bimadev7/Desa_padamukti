@@ -224,7 +224,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="adminlte/pages/layout/boxed.html" class="nav-link">
+                <a href="/backoffice/pengembalian/datakembali" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Peminjaman</p>
                 </a>

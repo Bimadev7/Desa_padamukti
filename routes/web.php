@@ -22,7 +22,9 @@ Route::post('/returnadmin/{id}', [PeminjamanController::class, 'returnadmin']);
 Route::get('/backoffice/pengembalian', [PeminjamanController::class, 'indexdata'])->name('pengembalian.indexdata');
 Route::get('/backoffice/pengembalian/datakembali', [PeminjamanController::class, 'datakembali'])->name('pengembalian.indexdata');
 Route::post('/backoffice/pengembalian/datakembali', [PeminjamanController::class, 'datakembali'])->name('pengembalian.indexdata'); 
+Route::post('/backoffice/pengembalian/datapinjam', [PeminjamanController::class, 'datapinjam'])->name('pengembalian.indexdata'); 
 
+Route::get('/backoffice/pengembalian/datapinjam', [PeminjamanController::class, 'datapinjam'])->name('pengembalian.indexdata');
 
 
 Route::get('/backoffice/peminjaman', [PeminjamanController::class, 'indexdata']);
@@ -54,6 +56,11 @@ Route::get('/register', [PeminjamanController::class, 'register'])->name('/regis
 
 
 Route::group(['middleware' => ['auth']], function () {
+
+    // Route::get('/dashboard', 'MainController@index')->name('backoffice.main');
+
+    Route::get('/dashboard', [PeminjamanController::class, 'dasboard'])->name('backoffice.main');
+    Route::get('/backoffice/main', [PeminjamanController::class, 'dasboard'])->name('backoffice.main');
 
 
     // Tampilan_Role_user
@@ -110,8 +117,22 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 
+Route::get('/backoffice/main', [PeminjamanController::class, 'backoffice_main'])->name('backoffice.main');
 
 
+
+Route::get('/backoffice/databarang/user/index', [PeminjamanController::class, 'user'])->name('backoffice.databarang.user.index');
+
+
+Route::get('/backoffice/main', [PeminjamanController::class, 'backoffice_main'])->name('backoffice.main');
+
+
+Route::get('/backoffice/main', [PeminjamanController::class, 'main'])->name('backoffice.main');
+Route::get('/backoffice/main', [PeminjamanController::class, 'main'])->name('backoffice.main');
+Route::get('/backoffice/databarang/main', [PeminjamanController::class, 'dasboard'])->name('backoffice.databarang.main');
+
+
+Route::get('/backoffice/main', [PeminjamanController::class, 'dasboard'])->name('backoffice.main');
 Route::get('/public/welcome', [PeminjamanController::class, 'welcome'])->name('public.welcome');
 
 Route::get('/', function () {
@@ -132,12 +153,21 @@ Route::get('/', function () {
 })->name('public.index');
 
 // news
+Route::get('/', function () {
+    return view('dasboard');
+})->name('backoffice.main');
 
 // tampilan data keseluruhan 
 
+Route::get('/', function () {
+    return view('backoffice.main');
+});
 
 
 
+Route::get('/', function () {
+    return view('backoffice.main');
+});
 
 
 
@@ -160,6 +190,7 @@ Route::get('/', function () {
 
 
 
+Route::get('/backoffice/main', [PeminjamanController::class, 'backoffice'])->name('backoffice.main');
 
 
 
@@ -389,10 +420,14 @@ Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 
 // Proses otentikasi pengguna
 Route::post('/login', [LoginController::class, 'login']);
+Route::post('/login', [LoginController::class, 'login'])->name('backoffice.main');
 
 
+// Route::get('/login', 'YourController@yourMethod')->name('backoffice.main');
+// Route::get('/login', 'YourController@yourMethod')->name('backoffice.main');
 
 
+Route::get('/user/create', 'UserController@create')->name('user.create');
 
 
 
@@ -407,9 +442,7 @@ Route::get('/form-pinjam', [PeminjamanController::class, 'form_pinjam'])->name('
 Route::resource('/form-pinjam', 'PeminjamanController');
 
 
-Route::get('/dashboard', function () {
-    return view('backoffice.main');
-});
+
 
 
 
@@ -432,8 +465,11 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
+Route::get('/backoffice/user/create', 'UserController@create')->name('backoffice.user.create');
+Route::get('/backoffice/main', [DasboardController::class, 'dasboard']);
 
 
+Route::get('/public/index', [DasboardController::class, 'index']);
 Route::get('/public/index', [DasboardController::class, 'index']);
 Route::post('/logout', [DasboardController::class, 'logout'])->name('logout');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

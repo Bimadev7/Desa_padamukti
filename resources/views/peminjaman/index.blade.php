@@ -498,7 +498,7 @@
                 <th>No</th>
                 <th>User</th>
                 <th>Goods</th>
-                <th>Stock</th>
+                <th>borrowed amount</th>
                 <th>Status</th>
                 <th>Action</th>
             </tr>
@@ -530,13 +530,14 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
-    <script>
+    <script>returned
         $(document).ready(function() {
             $.fn.dataTable.ext.order['status-precedence'] = function(settings, col) {
                 return this.api().column(col, { order: 'index' }).nodes().map(function(td, i) {
                     return $(td).text() === 'borrowed' ? 0 : 1;
                 });
             };
+            
 
             $('#peminjamanTable').DataTable({
                 columnDefs: [

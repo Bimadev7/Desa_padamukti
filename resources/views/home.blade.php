@@ -47,8 +47,8 @@
           <li type="button" class="btn btn-block btn-primary" data-bs-toggle="modal" data-bs-target="#modal-primary">Login</li>
           <li><a class="nav-link active" href="#">Home</a></li>
           <li><a class="nav-link" href="peminjaman/about">About</a></li>
-          <li><a class="nav-link" href="#">Form Peminjaman</a></li>
-          <li><a class="nav-link" href="#">Form kembali</a></li>
+          {{-- <li><a class="nav-link" href="#">Form Peminjaman</a></li> --}}
+          {{-- <li><a class="nav-link" href="#">Form kembali</a></li> --}}
           <li><a class="nav-link" href="https://discord.com/invite/dYXcy954" style="color:Cyan;"> JOIN DISCORD</a></li>
           <li><a class="nav-link" href="#">-</a></li>
               </li>

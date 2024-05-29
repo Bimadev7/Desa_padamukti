@@ -15,6 +15,12 @@ class AuthController extends Controller
         return view('login');
     }
 
+    public function backoffice()
+    {  
+        // arah pertama kita saat akses
+        return view('backoffice.main');
+    }
+
 
     public function login(Request $request)
     {
@@ -36,7 +42,7 @@ class AuthController extends Controller
                 case 'user':
                     return redirect()->route('/welcome');
                 case 'admin':
-                        return redirect()->route('backoffice.main');
+                        return redirect()->route('backoffice.databarang.main');
                     break;
                 default:
                     return redirect()->route('login');

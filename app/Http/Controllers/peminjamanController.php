@@ -90,6 +90,18 @@ return redirect()->back()->with('error', 'Anda tidak dapat melakukan peminjaman 
         return view('/welcome');
     }
 
+    public function dasboard(  )
+    { 
+        return view('backoffice.databarang.main');
+    }
+
+    public function backoffice_main(  )
+    { 
+        return redirect()->route('backoffice.main');
+
+        
+    }
+
 
     public function returnadmin(Request $request, $id) {
         $peminjaman = Peminjaman::findOrFail($id);
@@ -288,6 +300,16 @@ return redirect()->back()->with('error', 'Anda tidak dapat melakukan peminjaman 
            return view('peminjaman.indexdata', compact('borrowedPeminjaman', 'returnedPeminjaman', 'finishPeminjaman'));
        }
        
+       
+       public function datapinjam()
+       {
+           $finishPeminjaman = Peminjaman::where('status', 'finish')->get();
+           $borrowedPeminjaman = Peminjaman::where('status', 'borrowed')->get();
+           $returnedPeminjaman = Peminjaman::where('status', 'returned')->get();
+   
+           return view('backoffice.pengembalian.datapinjam', compact('borrowedPeminjaman', 'returnedPeminjaman', 'finishPeminjaman'));
+       }
+
 
        public function datakembali()
        {
