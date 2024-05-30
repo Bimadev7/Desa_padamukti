@@ -13,6 +13,41 @@ class UserController extends Controller
 {
 
 
+    public function edit($id)
+    {
+        $user = User::findOrFail($id);
+        return view('backoffice.user.edit')->with(compact('user'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        // Validasi input
+        $request->validate([
+            'username' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $id,
+            'password' => 'nullable|string|min:8|confirmed',
+            'role' => 'required|string|max:255',
+        ]);
+
+        // Temukan pengguna berdasarkan ID
+        $user = User::findOrFail($id);
+
+        // Update data pengguna
+        $user->username = strip_tags(ucfirst($request->username));
+        $user->email = strip_tags($request->email);
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->password);
+        }
+        $user->role = strip_tags($request->role);
+        $user->save();
+
+        // Redirect dengan pesan sukses
+        return redirect()->route('backoffice.user.index')->with([
+            'alert-type' => 'success',
+            'message' => 'Data User Berhasil Diperbarui!'
+        ]);
+    }
+
 
     // UserController.php
 
@@ -176,11 +211,7 @@ public function store(Request $request)
         return redirect()->route('backoffice.user.index');
     }
 
-    public function edit($id)
-    {
-        $user = User::findOrFail($id);
-        return view('backoffice.user.edit')->with(compact('user'));
-    }
+   
     
     public function show($id)
     {

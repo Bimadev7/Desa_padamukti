@@ -1,3 +1,4 @@
+
 @extends('layouts.main')
 
 @section('content')
@@ -12,16 +13,19 @@
     <div class="card mt-5">
         <h3 class="card-header p-3">Data Barang</h3>
         <div class="card-body">
+            <div class="mb-3">
+                <a href="{{ route('backoffice.barang.create') }}" class="btn btn-primary">Add Barang</a>
+            </div>
             <table class="table table-bordered data-table">
                 <thead>
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
                         <th>Description</th>
-                        <th>stock_of_goods</th>
-                        <th>stock_of_goods</th>
-                        <th>stock_of_goods</th>
-                        <th>stock_of_goods</th>
+                        <th>Stock of Goods</th>
+                        <th>Good Stuff</th>
+                        <th>Bad Stuff</th>
+                        <th>Department</th>
                         <th width="200px">Action</th>
                     </tr>
                 </thead>
@@ -55,7 +59,7 @@ $(function () {
                 searchable: false,
                 render: function (data) {
                     return '<a href="/barang/' + data + '" class="btn btn-info btn-sm">Show</a>' +
-                           '<a href="/barang/' + data + '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' +
+                           '<a href="/backoffice/barang/' + data + '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' +
                            '<form action="/barang/' + data + '" method="POST" style="display:inline">' +
                                '@csrf' +
                                '@method("DELETE")' +

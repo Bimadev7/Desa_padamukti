@@ -1,4 +1,4 @@
-<!-- File: resources/views/finished.blade.php -->
+<!-- Nampilin data yang status peminjaman return -->
 @extends('layouts.main')
 
 @section('content')
@@ -10,9 +10,9 @@
                     <th>No</th>
                     <th>User</th>
                     <th>Goods</th>
-                    <th>Borrowed Amount</th>
-                    <th>Status</th>
-                    <th>Action</th>
+                    <th>borrowed items</th>
+                    {{-- <th>Status</th> --}}
+                    {{-- <th>Action</th> --}}
                 </tr>
             </thead>
             <tbody>
@@ -22,15 +22,15 @@
                         <td>{{ $pinjam->user->username }}</td>
                         <td>{{ $pinjam->barang->name }}</td>
                         <td>{{ $pinjam->quantity }}</td>
-                        <td>{{ $pinjam->status }}</td>
-                        <td>
+                        {{-- <td>{{ $pinjam->status }}</td> --}}
+                        {{-- <td>
                             @if($pinjam->status == '#')
                                 <form action="{{ route('peminjaman.return', $pinjam->id) }}" method="POST">
                                     @csrf
                                     <button type="submit" class="btn btn-primary">Return</button>
                                 </form>
                             @endif
-                        </td>
+                        </td> --}}
                     </tr>
                 @endforeach
             </tbody>

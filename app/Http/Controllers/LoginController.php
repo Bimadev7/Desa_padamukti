@@ -23,6 +23,14 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
+
+        if (Auth::user()->status == 'draft') {
+            Auth::logout();
+            return redirect()->back()->with('status', 'Akun Anda belum aktif. Silakan hubungi administrator.');
+        }
+
+       
+
         // Validasi data login
         $request->validate([
             'email' => 'required|email',

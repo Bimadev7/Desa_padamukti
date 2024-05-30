@@ -31,11 +31,23 @@
   <!-- Template Main CSS File -->
   <link href="public_view/assets/css/style.css" rel="stylesheet">
 </head>
-
+<body>
+@if (session('status'))
+    <div class="alert alert-danger">
+        {{ session('status') }}
+    </div>
+@endif
 {{-- Tugas JDA --}}
 {{-- View --}}
 
 <body>
+
+<body>
+@if (session('status'))
+    <div class="alert alert-danger">
+        {{ session('status') }}
+    </div>
+@endif
   <!-- ======= Header ======= -->
   <header id="header">
     <div class="container">
@@ -53,27 +65,14 @@
           <li><a class="nav-link" href="#">-</a></li>
               </li>
         </ul>
+        
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
         </div>
   </header>
   <div class="credits">
 
-  {{-- <a href="https://api.whatsapp.com/send?phone=6287784510033" target="_blank">Kirim Pesan WhatsApp</a> --}}
-  {{-- <a href="https://chat.whatsapp.com/KjQ7nLTJuf32DheUAzidJd" target="_blank">Bergabung dengan Grup WhatsApp</a> --}}
-  {{-- <a href="https://chat.whatsapp.com/CgDCCcWcQ7h1MXbl25Rxwv" target="_blank">WhatsApp</a>
-  <a href="https://t.me/+fCZarSbCwWZkNTA1" target="_blank">Telegram</a>
-  <a href="https://discord.com/invite/dYXcy954" target="_blank">Discordf</a> --}}
-  {{-- <a href="https://discord.com/invite/dYXcy954" target="_blank">
-  <i class="fa-brands fa-discord"></i> Discord
-</a> --}}
-{{-- <a href="https://chat.whatsapp.com/CgDCCcWcQ7h1MXbl25Rxwv" target="_blank">
-  <i class="fa fa-whatsapp"></i> WhatsApp
-</a>
-
-<a href="https://t.me/+fCZarSbCwWZkNTA1" target="_blank">
-  <i class="fa fa-telegram"></i> Telegram
-</a> --}}
+  
 
 
 
@@ -102,7 +101,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   </head> 
   <body>
-
+  @if (session('status'))
+        <div class="alert alert-danger">
+            {{ session('status') }}
+        </div>
+    @endif
   <div class="modal fade" id="modal-primary">
   <div class="modal-dialog">
     <div class="modal-content bg-primary">

@@ -20,7 +20,7 @@
       </div>
       <!-- /.card-header -->
       <div class="card-body">
-       @if(session('success'))
+        @if(session('success'))
           <script>
             Swal.fire({
               icon: 'success',
@@ -30,14 +30,15 @@
           </script>
         @endif
 
-        <form class="card" action="{{ route('backoffice.user.store') }}" method="POST" enctype="multipart/form-data">
+        <form class="card" action="{{ route('user.update', $user->id) }}" method="POST" enctype="multipart/form-data">
           @csrf
+          @method('PUT')
 
           <div class="row">
             <div class="col-md-6">
               <div class="form-group ml-4">
                 <label for="username">Username</label>
-                <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" id="input-username" placeholder="Nama Admin" value="{{ $user->username }}" required>
+                <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="Username" value="{{ $user->username }}" required>
                 @error('username')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
@@ -45,19 +46,27 @@
 
               <div class="form-group ml-4">
                 <label for="email">Email address</label>
-                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="input-name" placeholder="Nama Admin" value="{{ $user->email }}" required>
-                @error('name')
+                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Email address" value="{{ $user->email }}" required>
+                @error('email')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
               </div>
             </div>
 
             <div class="col-md-6">
-              <div class="form-group ml-5">
-                <label>User Sebagai</label>
-                <select class="form-control select2 short-select ml-5" name="role" style="width: 100px;">
-                  <option value="user" {{ old('role') == 'user' ? 'selected' : '' }}>User</option>
-                  <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
+              <div class="form-group ml-4">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Password">
+                @error('password')
+                  <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+              </div>
+
+              <div class="form-group ml-4">
+                <label>User Role</label>
+                <select class="form-control select2 short-select" name="role" style="width: 100%;">
+                  <option value="user" {{ $user->role == 'user' ? 'selected' : '' }}>User</option>
+                  <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>Admin</option>
                 </select>
               </div>
             </div>
@@ -67,7 +76,7 @@
 
           <div class="row">
             <div class="col-12 text-right">
-              <button type="submit" class="btn btn-primary mr-5 mb-4">Submit</button>
+              <button type="submit" class="btn btn-primary mr-5 mb-4">Update</button>
             </div>
           </div>
         </form>

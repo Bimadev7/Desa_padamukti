@@ -13,6 +13,19 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\FormPinjamController;
 use App\Http\Controllers\Auth\RegisterController;
 
+// use App\Http\Controllers\BarangController;
+
+// Route::resource('backoffice/barang', BarangController::class);
+// Route::resource('backoffice/barang', BarangController::class);
+
+
+Route::get('/backoffice/barang/index', [PeminjamanController::class, 'store'])->name('backoffice.barang.index');
+
+Route::resource('backoffice/barang', BarangController::class);
+
+Route::put('/barang/{id}', [UserController::class, 'update'])->name('barang.update');
+Route::put('/user/{id}', [UserController::class, 'update'])->name('user.update');
+
 Route::post('/returnadmin/{id}', [PeminjamanController::class, 'returnadmin']);
 
 
@@ -74,9 +87,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('peminjaman', [PeminjamanController::class, 'store'])->name('peminjaman.store');
 
 
+    Route::resource('backoffice/barang', BarangController::class);
+
 
     // backoffice_barang
-    Route::get('backoffice/barang/{barang}/edit', [BarangController::class, 'edit'])->name('backoffice.barang.edit');
+    // Route::get('backoffice/barang/{barang}/edit', [BarangController::class, 'edit'])->name('backoffice.barang.edit');
     Route::delete('/backoffice/barang/{barang}', [BarangController::class, 'destroy'])->name('backoffice.barang.destroy');
     Route::get('/backoffice/barang', [BarangController::class, 'index'])->name('backoffice.barang.index');
     Route::get('/backoffice/main', [BackOfficeController::class, 'main'])->name('backoffice.main');
@@ -206,15 +221,21 @@ Route::post('/peminjaman/return/{id}', [PeminjamanController::class, 'return'])-
 
 
 
+Route::get('/backoffice/barang/edit', [BarangController::class, 'edit'])->name('backoffice.barang.edit');
+
+
 Route::get('/backoffice/user/edit', [UserController::class, 'edit'])->name('backoffice.user.edit');
 
+Route::post('/backoffice/barang/update', [BarangController::class, 'update'])->name('backoffice.barang.update');
 
+Route::get('/backoffice/barang/create', [BarangController::class, 'create'])->name('backoffice.barang.create');
 
 
 Route::get('/backoffice/user/index', [UserController::class, 'index'])->name('backoffice.user.index');
 Route::get('/backoffice/user/create', [UserController::class, 'create'])->name('backoffice.user.create');
 Route::post('/backoffice/user/store', [UserController::class, 'store'])->name('backoffice.user.store');
 
+Route::post('/backoffice/barang/store', [BarangController::class, 'store'])->name('backoffice.barang.store');
 
 
 Route::get('/backoffice/user/create', [UserController::class, 'create'])->name('backoffice.user.create');

@@ -9,7 +9,58 @@ use App\Models\Peminjaman;
 use Yajra\DataTables\Facades\DataTables;
 
 class BarangController extends Controller
-{
+{  
+
+    public function edit($id)
+    {
+        $barang = Barang::findOrFail($id);
+        return view('backoffice.barang.edit', compact('barang'));
+    }
+     
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'stock_of_goods' => 'required|integer',
+            'good_stuf' => 'required|integer',
+            'bad_stuf' => 'required|integer',
+            'department' => 'required|string|max:255',
+        ]);
+
+        $barang = Barang::findOrFail($id);
+        $barang->update($request->all());
+
+        return redirect()->route('backoffice.barang.index')->with([
+            'alert-type' => 'success',
+            'message' => 'Barang berhasil diperbarui!'
+        ]);
+    }
+ 
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'stock_of_goods' => 'required|integer',
+            'good_stuf' => 'required|integer',
+            'bad_stuf' => 'required|integer',
+            'department' => 'required|string|max:255',
+        ]);
+
+        Barang::create($request->all());
+
+        return redirect()->route('backoffice.barang.index')->with([
+            'alert-type' => 'success',
+            'message' => 'Barang berhasil ditambahkan!'
+        ]);
+    }
+
+    public function create()
+    {
+        return view('backoffice.barang.create');
+    }
+
     public function borrow(Request $request, $id) {
         // Validasi input
         $request->validate([
