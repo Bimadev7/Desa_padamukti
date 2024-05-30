@@ -7,7 +7,7 @@
         <table id="finishedTable" class="table table-bordered mt-3">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>No</th>
                     <th>User</th>
                     <th>Goods</th>
                     <th>Borrowed Amount</th>
