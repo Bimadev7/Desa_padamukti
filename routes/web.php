@@ -13,48 +13,47 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\FormPinjamController;
 use App\Http\Controllers\Auth\RegisterController;
 
-// use App\Http\Controllers\PeminjamanController;
 Route::post('/returnadmin/{id}', [PeminjamanController::class, 'returnadmin']);
 
 
+Route::get('/backoffice/pengembalian/datafinish', [PeminjamanController::class, 'datafinish'])->name('backoffice.pengembalian.datafinish');
 
-// Route::get('peminjaman/returnadmin', 'PeminjamanController@')->name('peminjaman.returnadmin');
+
+
+// Fungsi show data pengembalian
 Route::get('/backoffice/pengembalian', [PeminjamanController::class, 'indexdata'])->name('pengembalian.indexdata');
 Route::get('/backoffice/pengembalian/datakembali', [PeminjamanController::class, 'datakembali'])->name('pengembalian.indexdata');
 Route::post('/backoffice/pengembalian/datakembali', [PeminjamanController::class, 'datakembali'])->name('pengembalian.indexdata'); 
 Route::post('/backoffice/pengembalian/datapinjam', [PeminjamanController::class, 'datapinjam'])->name('pengembalian.indexdata'); 
-
 Route::get('/backoffice/pengembalian/datapinjam', [PeminjamanController::class, 'datapinjam'])->name('pengembalian.indexdata');
 
-
+// Fungsi show data peminjaman
 Route::get('/backoffice/peminjaman', [PeminjamanController::class, 'indexdata']);
 Route::get('/backoffice/peminjaman/indexdata', [PeminjamanController::class, 'indexData'])->name('peminjaman.indexdata');
 Route::post('/backoffice/peminjaman/indexdata', [PeminjamanController::class, 'indexData'])->name('peminjaman.indexdata'); 
+
+
 // start Route Register 
-
-
-Route::get('/register', [UserController::class, 'register']);
-Route::get('/register', [RegisterController::class, 'register'])->name('register');
-Route::post('/register', [RegisterController::class, 'register']);
 Route::get('/register', function () {
     return view('auth.register');
 });
+Route::post('/register', [PeminjamanController::class, 'register'])->name('/register');
+Route::get('/register', [PeminjamanController::class, 'register'])->name('/register');
+Route::get('/register', [UserController::class, 'register']);
+Route::get('/register', [RegisterController::class, 'register'])->name('register');
+Route::post('/register', [RegisterController::class, 'register']);
 Route::get('/register', [App\Http\Controllers\UserController::class, 'showRegistrationForm'])->name('peminjaman.about');
-
 // end Route Register 
 
 
-
+// tampilan about alert
 Route::get('peminjaman/about', [PeminjamanController::class, 'about'])->name('peminjaman.about');
 
 
 
-Route::post('/register', [PeminjamanController::class, 'register'])->name('/register');
 
 
-Route::get('/register', [PeminjamanController::class, 'register'])->name('/register');
-
-
+// grouping middleware
 Route::group(['middleware' => ['auth']], function () {
 
     // Route::get('/dashboard', 'MainController@index')->name('backoffice.main');
@@ -69,7 +68,6 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     // Peminjaman_barang
-
     Route::post('/peminjaman/{barang}', [PeminjamanController::class, 'store'])->name('peminjaman.store');
     Route::post('/peminjaman', [PeminjamanController::class, 'store'])->name('peminjaman.store');
     Route::post('/peminjaman', [PeminjamanController::class, 'store'])->name('peminjaman.store');
@@ -78,7 +76,6 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     // backoffice_barang
-
     Route::get('backoffice/barang/{barang}/edit', [BarangController::class, 'edit'])->name('backoffice.barang.edit');
     Route::delete('/backoffice/barang/{barang}', [BarangController::class, 'destroy'])->name('backoffice.barang.destroy');
     Route::get('/backoffice/barang', [BarangController::class, 'index'])->name('backoffice.barang.index');
@@ -86,25 +83,22 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     // Data Peminjaman transaksi
-
     Route::get('peminjaman/indexdata', [PeminjamanController::class, 'indexData'])->name('peminjaman.indexdata');
     Route::post('peminjaman/indexdata', [PeminjamanController::class, 'indexData'])->name('peminjaman.indexdata'); 
 
 
     // Data Peminjaman transaksi
-
     Route::get('peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
     Route::get('peminjaman/create', [PeminjamanController::class, 'create'])->name('peminjaman.create');
     Route::get('/peminjaman/create', [PeminjamanController::class, 'create'])->name('peminjaman.create');
     Route::get('/peminjaman/create', [PeminjamanController::class, 'create'])->name('peminjaman.create');
 
 
-    // backoffice_create
-
+    // backoffice_create_peminjaman_barang
     Route::resource('/backoffice/create', UserController::class);
 
-
-
+    // View data barang dasboard
+    Route::get('/backoffice/databarang/main', [PeminjamanController::class, 'dasboard'])->name('backoffice.databarang.main');
 
     
 
@@ -117,91 +111,28 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 
-Route::get('/backoffice/main', [PeminjamanController::class, 'backoffice_main'])->name('backoffice.main');
-
-
-
-Route::get('/backoffice/databarang/user/index', [PeminjamanController::class, 'user'])->name('backoffice.databarang.user.index');
-
-
-Route::get('/backoffice/main', [PeminjamanController::class, 'backoffice_main'])->name('backoffice.main');
-
-
-Route::get('/backoffice/main', [PeminjamanController::class, 'main'])->name('backoffice.main');
-Route::get('/backoffice/main', [PeminjamanController::class, 'main'])->name('backoffice.main');
-Route::get('/backoffice/databarang/main', [PeminjamanController::class, 'dasboard'])->name('backoffice.databarang.main');
-
-
-Route::get('/backoffice/main', [PeminjamanController::class, 'dasboard'])->name('backoffice.main');
 Route::get('/public/welcome', [PeminjamanController::class, 'welcome'])->name('public.welcome');
 
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/backoffice/peminjaman/show_peminjaman', [BarangController::class, 'show'])->name('peminjaman.show');
+    Route::post('/barangs/show/{id}', [PeminjamanController::class, 'store'])->name('barangs.show');
+    Route::post('/barangs/borrow/{id}', [PeminjamanController::class, 'store'])->name('barangs.borrow');
+    // Route::post('/barangs/show/{id}', [PeminjamanController::class, 'show'])->name('barangs.show');
+    Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
+    Route::post('/peminjaman/return/{id}', [PeminjamanController::class, 'return'])->name('peminjaman.return');
+});
+
+
+
+
+
 Route::get('/', function () {
-    // return view('login');
+   
     return view('/register');
 
 });
-
-
-Route::get('/', function () {
-    // return view('login');
-    return view('public.welcome');
-
-});
-
-Route::get('/', function () {
-    return view('index');
-})->name('public.index');
-
-// news
-Route::get('/', function () {
-    return view('dasboard');
-})->name('backoffice.main');
-
-// tampilan data keseluruhan 
-
-Route::get('/', function () {
-    return view('backoffice.main');
-});
-
-
-
-Route::get('/', function () {
-    return view('backoffice.main');
-});
-
-
-
-
-
-
-// news
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Route::get('/backoffice/main', [PeminjamanController::class, 'backoffice'])->name('backoffice.main');
-
-
-
-
-
-
-
-
-
-
-
 
 Route::get('backoffice/peminjaman/show_peminjaman/{id}', [BarangController::class, 'show_peminjaman'])->name('backoffice.peminjaman.show_peminjaman');
 
@@ -217,35 +148,9 @@ Route::get('/barangs/{id}/show', [BarangController::class, 'show'])->name('baran
 Route::get('/barangs', [BarangController::class, 'index'])->name('barangs.index');
 Route::get('/barangs/show/{id}', [BarangController::class, 'show'])->name('barangs.show');
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/backoffice/peminjaman/show_peminjaman', [BarangController::class, 'show'])->name('peminjaman.show');
-    Route::post('/barangs/show/{id}', [PeminjamanController::class, 'store'])->name('barangs.show');
-    Route::post('/barangs/borrow/{id}', [PeminjamanController::class, 'store'])->name('barangs.borrow');
-    // Route::post('/barangs/show/{id}', [PeminjamanController::class, 'show'])->name('barangs.show');
-    Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
-    Route::post('/peminjaman/return/{id}', [PeminjamanController::class, 'return'])->name('peminjaman.return');
-});
+
 
 Route::post('/peminjaman/returnadmin/{id}', [PeminjamanController::class, 'returnadmin'])->name('peminjaman.return');
-
-
-
-
-
-
-// end news
-
-
-
-
-
-
-
-
-
-
-// 
-
 
 
 Route::get('/barangs', [BarangController::class, 'index'])->name('barangs.index');
@@ -256,14 +161,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
     Route::post('/peminjaman/return/{id}', [PeminjamanController::class, 'return'])->name('peminjaman.return');
 });
-
-
-
-
-
-
-
-// 
 
 
 Route::get('/barangs/show/', [BarangController::class, 'show'])->name('barangs.show');
@@ -309,30 +206,6 @@ Route::post('/peminjaman/return/{id}', [PeminjamanController::class, 'return'])-
 
 
 
-//  end Route peminjaman logika  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Route::get('/backoffice/user/edit', [UserController::class, 'edit'])->name('backoffice.user.edit');
 
 
@@ -341,7 +214,7 @@ Route::get('/backoffice/user/edit', [UserController::class, 'edit'])->name('back
 Route::get('/backoffice/user/index', [UserController::class, 'index'])->name('backoffice.user.index');
 Route::get('/backoffice/user/create', [UserController::class, 'create'])->name('backoffice.user.create');
 Route::post('/backoffice/user/store', [UserController::class, 'store'])->name('backoffice.user.store');
-// $url = route('backoffice.user.create');
+
 
 
 Route::get('/backoffice/user/create', [UserController::class, 'create'])->name('backoffice.user.create');
@@ -349,7 +222,7 @@ Route::get('/backoffice/user/create', [UserController::class, 'create'])->name('
 
 
 Route::get('/', function () {
-    // return view('login');
+    
     return view('home');
 
 });

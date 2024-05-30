@@ -361,7 +361,7 @@
                 {{-- <i class="fas fa-angle-left right"></i> --}}
                <i class="fa-sharp fa-light fa-file"></i>
 
-                <span class="badge badge-info right">6</span>
+                <span class="badge badge-info right">4</span>
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -386,7 +386,14 @@
               <li class="nav-item">
                 <a href="/backoffice/pengembalian/datakembali" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Data pengembalian</p>
+                  <p>Data Proses Kembali</p>
+                </a>
+              </li>
+
+               <li class="nav-item">
+                <a href="/backoffice/pengembalian/datafinish" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Data Finish </p>
                 </a>
               </li>
            
