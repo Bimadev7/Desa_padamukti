@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    //
+    
 
     public function showLoginForm()
     {
@@ -24,10 +24,16 @@ class LoginController extends Controller
     public function login(Request $request)
     {
 
-        if (Auth::user()->status == 'draft') {
-            Auth::logout();
-            return redirect()->back()->with('status', 'Akun Anda belum aktif. Silakan hubungi administrator.');
+        // if (Auth::user()->status == 'draft') {
+        //     Auth::logout();
+        //     return redirect()->back()->with('status', 'Akun Anda belum aktif. Silakan hubungi administrator.');
+        // }
+
+        if (Auth::check() && Auth::user()->status === 'draft') {
+            return redirect()->route('login')->with('error', 'Your account is still under review. Please wait for approval.');
         }
+
+        return $next($request);
 
        
 

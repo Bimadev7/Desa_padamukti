@@ -13,15 +13,80 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\FormPinjamController;
 use App\Http\Controllers\Auth\RegisterController;
 
+Route::get('/', function () {
+    return view('welcome'); // or any other view or controller action
+});
+
+// use App\Http\Controllers\Auth\LoginController;
+// use App\Http\Controllers\Auth\RegisterController;
+Route::get('/backoffice/pengembalian/datafinish', [PeminjamanController::class, 'datafinish'])->name('backoffice.pengembalian.datafinish');
+
+// Contoh penggunaan middleware untuk membatasi akses ke pengguna dengan peran 'admin'
+Route::group(['middleware' => ['CheckUserRole:user']], function () {
+
+});
+Route::post('/login', [LoginController::class, 'login']);
+
+Route::post('/login', [LoginController::class, 'login'])->middleware('CheckUserStatus');
+
+Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('register', [RegisterController::class, 'register']);
+
+// register
+Route::get('/auth/register', [RegisterController::class, 'showRegistrationForm'])->name('auth.register');
+Route::post('/auth/register', [RegisterController::class, 'register'])->name('auth.register');
+
+
+
+Route::group(['middleware' => ['role:admin']], function () {
+    Route::get('/admin', 'AdminController@index')->name('admin.index');
+    Route::get('/backoffice/barang/index', [PeminjamanController::class, 'store'])->name('backoffice.barang.index');
+    Route::resource('backoffice/barang', BarangController::class);
+    Route::resource('backoffice/barang', BarangController::class);
+
+
+    
+});
+// routes/web.php
+
+// Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->middleware('CheckUserStatus');
+
+// Route::post('/login', [LoginController::class, 'login'])->middleware('CheckUserStatus');
+
+
+// Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+// Route::post('register', [RegisterController::class, 'register']);
+
+// // register
+// Route::get('/auth/register', [RegisterController::class, 'showRegistrationForm'])->name('auth.register');
+// Route::post('/auth/register', [RegisterController::class, 'register'])->name('auth.register');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// end register
+
 // use App\Http\Controllers\BarangController;
 
 // Route::resource('backoffice/barang', BarangController::class);
 // Route::resource('backoffice/barang', BarangController::class);
 
 
-Route::get('/backoffice/barang/index', [PeminjamanController::class, 'store'])->name('backoffice.barang.index');
 
-Route::resource('backoffice/barang', BarangController::class);
 
 Route::put('/barang/{id}', [UserController::class, 'update'])->name('barang.update');
 Route::put('/user/{id}', [UserController::class, 'update'])->name('user.update');
@@ -87,7 +152,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('peminjaman', [PeminjamanController::class, 'store'])->name('peminjaman.store');
 
 
-    Route::resource('backoffice/barang', BarangController::class);
 
 
     // backoffice_barang

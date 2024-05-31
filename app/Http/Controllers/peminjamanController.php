@@ -22,12 +22,7 @@ class PeminjamanController extends Controller
 
         return view('/register');
     }
-    // public function register(  )
-    // { 
-
-    //     return view('register');
-    // }
-
+  
 
     public function checkBorrowedStatus()
 {
@@ -71,11 +66,7 @@ return redirect()->back()->with('error', 'Anda tidak dapat melakukan peminjaman 
     }
     
 
-    // public function welcome()
-    // { 
-    //     // $user = Auth::user();
-    //     return view('public.welcome');
-    // }
+  
 
     public function about(  )
     { 
@@ -87,11 +78,19 @@ return redirect()->back()->with('error', 'Anda tidak dapat melakukan peminjaman 
     public function welcome(  )
     { 
 
+
+        // if(auth()->user()->role !=='admin'){
+        //     abort(404);
+        // }
+
         return view('/welcome');
     }
 
     public function dasboard(  )
     { 
+        
+        
+
         return view('backoffice.databarang.main');
     }
 

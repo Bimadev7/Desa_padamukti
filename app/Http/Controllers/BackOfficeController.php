@@ -9,6 +9,7 @@ class BackOfficeController extends Controller
 {
     public function index()
     {
+        
         // return view('backoffice.main');
         $username = Auth::user()->username;
         // return view('nama_view', ['username' => $username]);
@@ -24,6 +25,10 @@ class BackOfficeController extends Controller
 
     public function main()
     {
+        // if (!Auth::check() || Auth::user()->role !== 'admin') {
+        //     return redirect('/home'); // Or any other route you want to redirect to if access is denied
+        // }
+
         return view('backoffice.main');
     }
 

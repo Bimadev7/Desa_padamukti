@@ -131,10 +131,14 @@
               <button type="submit" class="btn btn-primary btn-block">Login</button>
             </div>
             <div class="col">
-              <button type="submit" class="btn btn-primary btn-block">Register</button>
+              {{-- <button href="{{('auth.register')}}" type="submit" class="btn btn-primary btn-block">Register</button> --}}
            {{-- <button type="button" class="btn btn-primary" onclick="location.href='{{ route('register') }}'">
+           
   Register
 </button> --}}
+<div class="mb-3">
+                <a href="{{ route('auth.register') }}" class="btn btn-primary">Register</a>
+            </div>
 
               </div>
               
