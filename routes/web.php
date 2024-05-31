@@ -133,6 +133,7 @@ Route::get('peminjaman/about', [PeminjamanController::class, 'about'])->name('pe
 
 // grouping middleware
 Route::group(['middleware' => ['auth']], function () {
+    Route::get('/backoffice/main', [DasboardController::class, 'dasboard']);
 
     // Route::get('/dashboard', 'MainController@index')->name('backoffice.main');
 
@@ -424,7 +425,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 Route::get('/backoffice/user/create', 'UserController@create')->name('backoffice.user.create');
-Route::get('/backoffice/main', [DasboardController::class, 'dasboard']);
 
 
 Route::get('/public/index', [DasboardController::class, 'index']);
