@@ -35,6 +35,8 @@ class BarangController extends Controller
             'alert-type' => 'success',
             'message' => 'Barang berhasil diperbarui!'
         ]);
+        $barang->save();
+
     }
  
     public function store(Request $request)
@@ -278,16 +280,6 @@ class BarangController extends Controller
     return redirect()->route('barangs.kembali')->with('success', 'Barang berhasil dikembalikan!');
     }
 
-
-    
-    
-
-
-    
-
-
-
-     
     // public function show(Barang $barang) {
     //     $peminjaman = Peminjaman::all();
 
@@ -295,8 +287,7 @@ class BarangController extends Controller
     //     return view('barangs.show', compact('barang'));
 
     // }
-    
-    
+
 
     public function showBarang(Barang $barang) {
         $barang = Barang::find(1); // Mengambil record tertentu, misalnya

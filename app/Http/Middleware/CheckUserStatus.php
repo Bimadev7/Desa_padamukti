@@ -16,9 +16,9 @@ class CheckUserStatus
 
         public function handle(Request $request, Closure $next, $role)
         {
-            if (!Auth::check() || Auth::user()->role !== $role) {
-                return redirect('/home'); // Atau rute lain yang diinginkan jika akses ditolak
-            }
+            // if (!Auth::check() || Auth::user()->role !== $role) {
+            //     return redirect('/home'); // Atau rute lain yang diinginkan jika akses ditolak
+            // }
     
             return $next($request);
         }

@@ -1,11 +1,11 @@
 <?php
-
+  
 namespace App\Http\Middleware;
-
+  
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-
+  
 class IsAdmin
 {
     /**
@@ -15,9 +15,9 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (\Auth::user()->role != 'user') {
+        if (\Auth::user()->role != "draft") {
             return response()->json('Opps! You do not have permission to access.');
         }
-        return $next($request);
+return $next($request);
     }
 }

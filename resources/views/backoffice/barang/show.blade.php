@@ -1,76 +1,77 @@
-<!-- resources/views/barang/edit.blade.php -->
 @extends('layouts.main')
+
 @section('content')
 
+<!-- SELECT2 EXAMPLE -->
+<div class="card card-default">
+    <div class="card-header">
+        <h3 class="card-title">Edit Barang</h3>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Show User</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-</head>
-<body>
-    <div class="container mt-5">
-        <div class="card">
-            <div class="card-header">
-                <h3>User Details</h3>
-            </div>
-            <div class="card-body">
-                <div class="mb-3">
-                    <label for="id" class="form-label">ID</label>
-                    <input type="text" class="form-control" id="id" value="{{ $user->id }}" readonly>
-                </div>
-                <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" value="{{ $user->username }}" readonly>
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="text" class="form-control" id="email" value="{{ $user->email }}" readonly>
-                </div>
-                <div class="mb-3">
-                    <label for="role" class="form-label">Role</label>
-                    <input type="text" class="form-control" id="role" value="{{ $user->role }}" readonly>
-                </div>
-                <a href="{{ route('backoffice.user.index') }}" class="btn btn-primary">Back to List</a>
-            </div>
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
-
-
+    <!-- /.card-header -->
+    <div class="card-body">
+        <form method="POST" action="{{ route('barang.update', $barang->id) }}">
+            @csrf
+            @method('PUT')
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Left Column -->
+                    <div class="form-group">
+                        <label for="id">ID</label>
+                        <input type="text" class="form-control" id="id" name="id" value="{{ $barang->id }}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" value="{{ $barang->name }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" name="description" required>{{ $barang->description }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="img">Image URL</label>
+                        <input type="text" class="form-control" id="img" name="img" value="{{ $barang->img }}">
+                    </div>
+                </div>
+                <!-- /.col -->
+                <div class="col-md-6">
+                    <!-- Right Column -->
+                    <div class="form-group">
+                        <label for="stock_of_goods">Stock of Goods</label>
+                        <input type="number" class="form-control" id="stock_of_goods" name="stock_of_goods" value="{{ $barang->stock_of_goods }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="good_stuf">Good Stuff</label>
+                        <input type="number" class="form-control" id="good_stuf" name="good_stuf" value="{{ $barang->good_stuf }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bad_stuf">Bad Stuff</label>
+                        <input type="number" class="form-control" id="bad_stuf" name="bad_stuf" value="{{ $barang->bad_stuf }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="department">Department</label>
+                        <input type="text" class="form-control" id="department" name="department" value="{{ $barang->department }}" required>
+                    </div>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer">
+        Edit Barang Details
+    </div>
+</div>
+<!-- /.card -->
 
 @endsection
-
-{{-- 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Edit Barang</title>
-</head>
-<body>
-    <h1>Edit Barang</h1>
-
-    <form method="POST" action="{{ route('barang.update', $barang->id) }}">
-        @csrf
-        @method('PUT')
-
-        <div>
-            <label for="nama">Nama Barang:</label>
-            <input type="text" id="nama" name="nama" value="{{ $barang->nama }}">
-        </div>
-
-        <div>
-            <label for="harga">Harga Barang:</label>
-            <input type="text" id="harga" name="harga" value="{{ $barang->harga }}">
-        </div>
-
-        <button type="submit">Simpan Perubahan</button>
-    </form>
-</body>
-</html> --}}

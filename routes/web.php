@@ -16,13 +16,10 @@ use App\Http\Controllers\Auth\RegisterController;
 
 
 Route::middleware(['isAdmin'])->group(function () {
-    Route::get('/dashboard', function () {
-        return 'Dashboard';
-    });
-      
-    Route::get('/users', function () {
-        return 'Users';
-    });
+    Route::get('/auth/register', [RegisterController::class, 'showRegistrationForm'])->name('auth.register');
+    Route::post('/auth/register', [RegisterController::class, 'register'])->name('auth.register');
+    Route::get('register', [UserController::class, 'showRegistrationForm']);
+    
 });
 
 Route::get('/', function () {
@@ -45,20 +42,18 @@ Route::get('register', [RegisterController::class, 'showRegistrationForm'])->nam
 Route::post('register', [RegisterController::class, 'register']);
 
 // register
-Route::get('/auth/register', [RegisterController::class, 'showRegistrationForm'])->name('auth.register');
-Route::post('/auth/register', [RegisterController::class, 'register'])->name('auth.register');
-Route::get('register', [UserController::class, 'showRegistrationForm']);
-
 
 Route::group(['middleware' => ['role:admin']], function () {
-    Route::get('/admin', 'AdminController@index')->name('admin.index');
-    Route::get('/backoffice/barang/index', [PeminjamanController::class, 'store'])->name('backoffice.barang.index');
-    Route::resource('backoffice/barang', BarangController::class);
-    Route::resource('backoffice/barang', BarangController::class);
-
-
-    
+  
 });
+
+Route::get('/admin', 'AdminController@index')->name('admin.index');
+Route::get('/backoffice/barang/index', [PeminjamanController::class, 'store'])->name('backoffice.barang.index');
+Route::resource('backoffice/barang', BarangController::class);
+Route::resource('backoffice/barang', BarangController::class);
+
+Route::resource('backoffice/barang', BarangController::class);
+
 // routes/web.php
 
 // Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->middleware('CheckUserStatus');
@@ -300,8 +295,17 @@ Route::post('/peminjaman/return/{id}', [PeminjamanController::class, 'return'])-
 
 Route::get('/backoffice/barang/edit', [BarangController::class, 'edit'])->name('backoffice.barang.edit');
 
-
+// user
 Route::get('/backoffice/user/edit', [UserController::class, 'edit'])->name('backoffice.user.edit');
+
+
+
+
+
+
+
+
+
 
 Route::post('/backoffice/barang/update', [BarangController::class, 'update'])->name('backoffice.barang.update');
 
@@ -398,6 +402,7 @@ Route::post('/login', [LoginController::class, 'login'])->name('backoffice.main'
 // Route::get('/login', 'YourController@yourMethod')->name('backoffice.main');
 
 
+
 Route::get('/user/create', 'UserController@create')->name('user.create');
 
 
@@ -446,20 +451,3 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::put('barang/{barang}', [BarangController::class, 'update'])->name('barang.update');
 
 
-
-// Route::get('/backoffice/welcome', 'DasboardController@index')->name('welcome');
-// Route::get('/public/index', 'DasboardController@index')->name('index');
-// Route::post('/login', 'Auth\LoginController@login')->name('login');
-// Route::post('/login', 'AuthController@authenticate')->name('login');
-// Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-// Route::get('/backoffice', 'BackofficeController@index')->name('backoffice.main');
-// Route::get('/backoffice', 'BackOfficeController@index')->name('backoffice.index');
-// Route::get('/backoffice/user', 'Backoffice\UserController@index')->name('backoffice.user.index');
-// Route::get('/backoffice/user', 'Backoffice\UserController@index')->name('backoffice.user.index');
-// Route::get('/backoffice/user/create', 'UserController@create')->name('backoffice.user.create');
-// Route::get('/backoffice/user/create', 'UserController@create')->name('backoffice.user.create');
-// Route::resource('/public/form-pinjam', 'PeminjamanController@form-pinjam');  
-// Route::get('/public/form_pinjam', 'FormPinjamController@index')->name('form_pinjam');
-// Route::get('/login', 'AuthController@showLoginForm')->name('login');
-// Route::get('/backoffice/users', 'Backoffice\UserController@index')->name('backoffice.user.index');
-// Route::get('/barangs', 'BarangController@index');

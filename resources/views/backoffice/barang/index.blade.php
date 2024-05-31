@@ -58,9 +58,9 @@ $(function () {
                 orderable: false,
                 searchable: false,
                 render: function (data) {
-                    return '<a href="/barang/' + data + '" class="btn btn-info btn-sm">Show</a>' +
+                    return '<a href="/backoffice/barang/' + data + '" class="btn btn-info btn-sm">Show</a>' +
                            '<a href="/backoffice/barang/' + data + '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' +
-                           '<form action="/barang/' + data + '" method="POST" style="display:inline">' +
+                           '<form action="/backoffice/barang/' + data + '" method="POST" style="display:inline">' +
                                '@csrf' +
                                '@method("DELETE")' +
                                '<button type="submit" class="btn btn-danger btn-sm mx-1">Delete</button>' +

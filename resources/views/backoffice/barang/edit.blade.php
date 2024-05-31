@@ -51,7 +51,7 @@
             </div>
         </div>
         <div class="card-body">
-            <form action="{{ route('backoffice.barang.update', $barang->id) }}" method="POST">
+            <form action="{{ route('barang.update', $barang->id) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="form-group">
