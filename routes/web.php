@@ -13,6 +13,18 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\FormPinjamController;
 use App\Http\Controllers\Auth\RegisterController;
 
+
+
+Route::middleware(['isAdmin'])->group(function () {
+    Route::get('/dashboard', function () {
+        return 'Dashboard';
+    });
+      
+    Route::get('/users', function () {
+        return 'Users';
+    });
+});
+
 Route::get('/', function () {
     return view('welcome'); // or any other view or controller action
 });
@@ -35,7 +47,7 @@ Route::post('register', [RegisterController::class, 'register']);
 // register
 Route::get('/auth/register', [RegisterController::class, 'showRegistrationForm'])->name('auth.register');
 Route::post('/auth/register', [RegisterController::class, 'register'])->name('auth.register');
-
+Route::get('register', [UserController::class, 'showRegistrationForm']);
 
 
 Route::group(['middleware' => ['role:admin']], function () {

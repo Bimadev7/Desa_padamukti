@@ -11,7 +11,10 @@ use Yajra\DataTables\Facades\DataTables;
 
 class UserController extends Controller
 {
-
+    public function showRegistrationForm()
+    {
+        return view('auth.register');
+    }
 
     public function edit($id)
     {
