@@ -144,12 +144,7 @@ class UserController extends Controller
 
 public function store(Request $request)
 {
-    // $request->validate([
-
-    //     'email'             => ['email', 'unique:email'],
-    // ], [
-
-        
+           
     $data = new User;
     $data->username            = strip_tags(ucfirst($request->username));
     $data->email           = strip_tags($request->email);
