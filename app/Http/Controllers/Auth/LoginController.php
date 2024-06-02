@@ -20,6 +20,16 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+
+    protected function authenticated(Request $request, $user)
+    {
+        if ($user->role === 'draft') {
+            // Set the alert message in the session
+            return redirect()->intended('/home')->with('alert', 'Akun Anda belum diverifikasi.');
+        }
+
+        return redirect()->intended('/home');
+    }
     /**
      * Where to redirect users after login.
      *

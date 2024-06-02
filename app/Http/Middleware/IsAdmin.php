@@ -18,6 +18,6 @@ class IsAdmin
         if (\Auth::user()->role != "draft") {
             return response()->json('Opps! You do not have permission to access.');
         }
-return $next($request);
+    return $next($request);
     }
 }

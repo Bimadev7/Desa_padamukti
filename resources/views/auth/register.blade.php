@@ -67,11 +67,61 @@
         button:hover {
             background-color: #0056b3;
         }
+
+        .links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .links a {
+            color: #007bff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        .modal-content h2 {
+            margin-top: 0;
+        }
+
+        .modal-content button {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Register</h1>
+        @if(session('success'))
+            <div id="success-message" style="display: none;">{{ session('success') }}</div>
+        @endif
         <form method="POST" action="{{ route('auth.register') }}">
             @csrf
             <div class="form-group">
@@ -107,6 +157,43 @@
                 <button type="submit">Register</button>
             </div>
         </form>
+        <div class="links">
+            <a href="/">Kembali</a>
+            <a href="/login">Login</a>
+        </div>
     </div>
+
+    <!-- Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <h2>Success!</h2>
+            <p id="modal-message"></p>
+            <button onclick="closeModal()">OK</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var successMessage = document.getElementById('success-message');
+            if (successMessage) {
+                var modal = document.getElementById('successModal');
+                var modalMessage = document.getElementById('modal-message');
+                modalMessage.textContent = successMessage.textContent;
+                modal.style.display = 'flex';
+            }
+        });
+
+        function showModal(message) {
+            var modal = document.getElementById('successModal');
+            var modalMessage = document.getElementById('modal-message');
+            modalMessage.textContent = message;
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            var modal = document.getElementById('successModal');
+            modal.style.display = 'none';
+        }
+    </script>
 </body>
 </html>

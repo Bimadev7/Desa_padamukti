@@ -23,7 +23,10 @@ class RegisterController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('/welcome'); // Ganti 'home' dengan rute yang diinginkan
+        // In your register controller
+return redirect()->route('auth.register')->with('success', 'Registration successful!');
+
+        // return redirect()->route('/welcome'); // Ganti 'home' dengan rute yang diinginkan
     }
 
     protected function validator(array $data)

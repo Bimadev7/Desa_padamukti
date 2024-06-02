@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Peminjaman;
 use App\Models\Barang;
 use Illuminate\Http\Request;
-// use Illuminate\Support\Facades\Auth;
+
 
 class PeminjamanController extends Controller
 { 
@@ -133,25 +133,6 @@ return redirect()->back()->with('error', 'Anda tidak dapat melakukan peminjaman 
         
     }
     
-    
-
-    // public function return(Request $request, $id){
-
-    //         $peminjaman = Peminjaman::findOrFail($id);
-    
-    //         if ($peminjaman->status == 'finish') {
-    //             return redirect()->back()->withErrors(['msg' => 'Item already returned']);
-    //         }
-    
-    //         $barang = Barang::find($peminjaman->barang_id);
-    //         $barang->stock_of_goods += $peminjaman->quantity;
-    //         $barang->save();
-    
-    //         $peminjaman->status = 'returned';
-    //         $peminjaman->save();
-    
-    //         return redirect()->route('peminjaman.index')->with('success', 'Item returned successfully');
-    //     }
 
     public function return(Request $request, $id){
 
@@ -231,70 +212,6 @@ return redirect()->back()->with('error', 'Anda tidak dapat melakukan peminjaman 
             return redirect()->route('peminjaman.index')->with('success', 'Peminjaman berhasil.');
         }
 
-    // public function store(Request $request)
-    // {
-    //     $validatedData = $request->validate([
-    //         'barang_id.*' => 'required|exists:barang,id',
-    //         'quantity.*' => 'required|integer|min:1',
-    //     ]);
-
-    //     foreach ($validatedData['barang_id'] as $index => $barang_id) {
-    //         $quantity = $validatedData['quantity'][$index];
-
-    //         // Dapatkan barang yang akan dipinjam
-    //         $barang = Barang::find($barang_id);
-
-    //         // Periksa apakah stok mencukupi
-    //         if ($barang->stock_of_goods >= $quantity) {
-    //             // Kurangi stok barang
-    //             $barang->stock_of_goods -= $quantity;
-    //             $barang->save();
-
-    //             // Buat peminjaman
-    //             Peminjaman::create([
-    //                 'user_id' => Auth::id(),
-    //                 'barang_id' => $barang_id,
-    //                 'quantity' => $quantity,
-    //                 // 'status' => 'pending',
-    //             ]);
-    //         } else {
-    //             return redirect()->back()->withErrors(['msg' => 'Stok barang ' . $barang->name . ' tidak mencukupi.']);
-    //         }
-    //     }
-
-    //     return redirect()->route('peminjaman.index')->with('success', 'Peminjaman berhasil.');
-    // }
-
-    
-
-    // edit baru
-
-
-    // public function create()
-    // {
-
-    //     $barang = Barang::all();
-    //     return view('peminjaman.create', compact('barang'));
-    // }
-
-    // public function store(Request $request)
-    // {
-    //     $validatedData = $request->validate([
-    //         'barang_id.*' => 'required|exists:barang,id',
-    //         'quantity.*' => 'required|integer|min:1',
-    //     ]);
-
-    //     foreach ($validatedData['barang_id'] as $index => $barang_id) {
-    //         Peminjaman::create([
-    //             'user_id' => Auth::id(),
-    //             'barang_id' => $barang_id,
-    //             'quantity' => $validatedData['quantity'][$index],
-    //             'status' => 'pending',
-    //         ]);
-    //     }
-
-    //     return redirect()->route('peminjaman.index')->with('success', 'Peminjaman berhasil.');
-    // }
 
     public function index()
     {
