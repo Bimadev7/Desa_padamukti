@@ -250,6 +250,7 @@
     Route::post('/backoffice/barang/update', [BarangController::class, 'update'])->name('backoffice.barang.update');
 
     Route::get('/backoffice/barang/create', [BarangController::class, 'create'])->name('backoffice.barang.create');
+    Route::post('/backoffice/barang/create', [BarangController::class, 'create'])->name('backoffice.barang.create');
 
 
     Route::get('/backoffice/user/index', [UserController::class, 'index'])->name('backoffice.user.index');
@@ -346,7 +347,7 @@
     // user
     Route::get('/backoffice/user/edit', [UserController::class, 'edit'])->name('backoffice.user.edit');
     Route::put('/user/{id}', [UserController::class, 'update'])->name('user.update');
-    Route::get('/backoffice/user/create', 'UserController@create')->name('backoffice.user.create');
+    // Route::get('/backoffice/user/create', 'UserController@create')->name('backoffice.user.create');
 
 
 
@@ -361,4 +362,5 @@
         // Rute untuk admin
     });
 
+    Route::post('/backoffice/barang/store', [BarangController::class, 'store'])->name('backoffice.barang.store');
 
