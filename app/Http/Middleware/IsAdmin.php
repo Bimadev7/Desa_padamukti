@@ -15,9 +15,9 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (\Auth::user()->role != "draft") {
-            return response()->json('Opps! You do not have permission to access.');
-        }
+        // if (\Auth::user()->role != "draft") {
+        //     return response()->json('Opps! You do not have permission to access.');
+        // }
     return $next($request);
     }
 }

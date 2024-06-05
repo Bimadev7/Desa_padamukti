@@ -20,7 +20,6 @@
 
     // fungsi middleware pada web.php
     Route::middleware(['isAdmin'])->group(function () {
-
     });
     // end Fungsi register
 
@@ -28,7 +27,7 @@
 
 
     Route::get('/', function () {
-        return view('welcome');
+         return view('welcome');
     });
 
 
@@ -172,10 +171,9 @@
 
 
     Route::get('/', function () {
-    
         return view('/register');
-
     });
+    
 
     Route::get('backoffice/peminjaman/show_peminjaman/{id}', [BarangController::class, 'show_peminjaman'])->name('backoffice.peminjaman.show_peminjaman');
 
@@ -240,28 +238,24 @@
 
 
     Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
-
-
     Route::get('/backoffice/barang/edit', [BarangController::class, 'edit'])->name('backoffice.barang.edit');
 
 
 
-
+    // update data 
     Route::post('/backoffice/barang/update', [BarangController::class, 'update'])->name('backoffice.barang.update');
 
-    Route::get('/backoffice/barang/create', [BarangController::class, 'create'])->name('backoffice.barang.create');
+
+    Route::post('/backoffice/barang/store', [BarangController::class, 'store'])->name('backoffice.barang.store');
     Route::post('/backoffice/barang/create', [BarangController::class, 'create'])->name('backoffice.barang.create');
 
-
+    // route user 
     Route::get('/backoffice/user/index', [UserController::class, 'index'])->name('backoffice.user.index');
     Route::get('/backoffice/user/create', [UserController::class, 'create'])->name('backoffice.user.create');
     Route::post('/backoffice/user/store', [UserController::class, 'store'])->name('backoffice.user.store');
-
-    Route::post('/backoffice/barang/store', [BarangController::class, 'store'])->name('backoffice.barang.store');
-
-
     Route::get('/backoffice/user/create', [UserController::class, 'create'])->name('backoffice.user.create');
 
+    //end route user 
 
 
     Route::get('/', function () {
