@@ -11,6 +11,10 @@
     use App\Http\Controllers\LoginController;
     use App\Http\Controllers\FormPinjamController;
     use App\Http\Controllers\Auth\RegisterController;
+    use App\Http\Controllers\BeritaController;
+
+
+    Route::get('/backoffice/berita', [BeritaController::class, 'index'])->name('backoffice.berita.index');
 
 
     // Fungsi register

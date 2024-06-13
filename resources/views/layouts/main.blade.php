@@ -348,7 +348,7 @@
               <p>
                 Sidebar
                <i class="fa-sharp fa-light fa-file"></i>
-                <span class="badge badge-info right">4</span>
+                {{-- <span class="badge badge-info right">4</span> --}}
               </p>
             </a>
           </li>
@@ -365,7 +365,7 @@
               <p>
                 management User
                <i class="fa-sharp fa-light fa-file"></i>
-                <span class="badge badge-info right">4</span>
+                {{-- <span class="badge badge-info right">4</span> --}}
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -388,7 +388,7 @@
               <p>
                 Demography
                <i class="fa-sharp fa-light fa-file"></i>
-                <span class="badge badge-info right">4</span>
+                {{-- <span class="badge badge-info right">4</span> --}}
               </p>
             </a>
           </li>
@@ -402,7 +402,7 @@
                 Berita
                <i class="fa-sharp fa-light fa-file"></i>
 
-                <span class="badge badge-info right">4</span>
+                {{-- <span class="badge badge-info right">4</span> --}}
               </p>
             </a>
             <ul class="nav nav-treeview">
