@@ -407,7 +407,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/backoffice/user" class="nav-link">
+                <a href="/backoffice/berita" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Berita </p>
                 </a>

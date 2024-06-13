@@ -13,8 +13,11 @@
     use App\Http\Controllers\Auth\RegisterController;
     use App\Http\Controllers\BeritaController;
 
+    Route::get('/backoffice/berita', [BeritaController::class, 'index'])->name('backoffice.berita.index');
+
 
     Route::get('/backoffice/berita', [BeritaController::class, 'index'])->name('backoffice.berita.index');
+    Route::get('/backoffice/berita/create', [BeritaController::class, 'create'])->name('backoffice.berita.create');
 
 
     // Fungsi register
