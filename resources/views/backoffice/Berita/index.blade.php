@@ -63,23 +63,17 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="username">Username</label>
-                        <input type="text" name="username" class="form-control" id="username" required>
+                        <input type="text" name="judul" class="form-control" id="judul" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" class="form-control" id="email" required>
+                        <label for="email">deskripsi_singkat</label>
+                        <input type="email" name="deskripsi_singkat" class="form-control" id="deskripsi_singkat" required>
                     </div>
                     <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" class="form-control" id="password" required>
+                        <label for="text">deskripsi</label>
+                        <input type="text" name="deskripsi" class="form-control" id="deskripsi" required>
                     </div>
-                    <div class="form-group">
-                        <label for="role">Role</label>
-                        <select name="role" class="form-control" id="role" required>
-                            <option value="user">User</option>
-                            <option value="admin">Admin</option>
-                        </select>
-                    </div>
+                   
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -98,12 +92,12 @@ $(function () {
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('user.index') }}",
+        ajax: "{{ route('backoffice.berita.index') }}",
         columns: [
             {data: 'id', name: 'id'},
-            {data: 'username', name: 'username'},
-            {data: 'email', name: 'email'},
-            {data: 'role', name: 'role'},
+            {data: 'judul', name: 'judul'},
+            {data: 'deskripsi_singkat', name: 'deskripsi_singkat'},
+            {data: 'deskripsi', name: 'deskripsi'},
             {
                 data: 'id',
                 name: 'action',

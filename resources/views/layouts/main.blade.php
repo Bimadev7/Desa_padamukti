@@ -344,7 +344,7 @@
           <li class="nav-header">Sidebar</li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="	fas fa-file-image"></i>
               <p>
                 Sidebar
                <i class="fa-sharp fa-light fa-file"></i>
@@ -361,7 +361,7 @@
           <li class="nav-header">Backoffice</li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="fas fa-address-book"></i>
               <p>
                 management User
                <i class="fa-sharp fa-light fa-file"></i>

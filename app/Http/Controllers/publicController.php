@@ -1,35 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Berita;
 
 use Illuminate\Http\Request;
-use Yajra\DataTables\Facades\DataTables;
 
-
-class BeritaController extends Controller
+class publicController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        if ($request->ajax()) {
-
-            $data = Berita::query();
-
-            return Datatables::of($data)
-                    ->addIndexColumn()
-                    ->addColumn('action', function($row){
-
-                            $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
-
-                            return $btn;
-                    })
-                    ->rawColumns(['action'])
-                    ->make(true);
-        }
-        return view('backoffice.berita.index');
+        //
     }
 
     /**
@@ -37,8 +19,7 @@ class BeritaController extends Controller
      */
     public function create()
     {
-        return view('backoffice.berita.create');
-        
+        //
     }
 
     /**

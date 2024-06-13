@@ -2,16 +2,23 @@
     use Illuminate\Support\Facades\Auth;
     use Illuminate\Support\Facades\Route;
     use App\Http\Controllers\BackOfficeController;
-    use App\Http\Controllers\peminjamanController;
     use App\Http\Controllers\AdminController;
-    use App\Http\Controllers\BarangController;
     use App\Http\Controllers\UserController;
     use App\Http\Controllers\AuthController;
     use App\Http\Controllers\DasboardController;
     use App\Http\Controllers\LoginController;
-    use App\Http\Controllers\FormPinjamController;
     use App\Http\Controllers\Auth\RegisterController;
     use App\Http\Controllers\BeritaController;
+
+    Route::get('/berita', [BeritaController::class, 'index'])->name('berita.index');
+
+
+    Route::get('/berita', 'BeritaController@index')->name('berita.index');
+
+    Route::get('/backoffice/berita/index', [BeritaController::class, 'index'])->name('backoffice.berita.index');
+    Route::get('/berita/index', [BeritaController::class, 'index'])->name('Berita.index');
+    
+    Route::get('/backoffice/berita/index', [BeritaController::class, 'index'])->name('backoffice.berita.index');
 
     Route::get('/backoffice/berita', [BeritaController::class, 'index'])->name('backoffice.berita.index');
 
