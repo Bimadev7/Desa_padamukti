@@ -40,7 +40,6 @@
 
 
     Route::get('/admin', 'AdminController@index')->name('admin.index');
-    Route::get('/backoffice/barang/index', [PeminjamanController::class, 'store'])->name('backoffice.barang.index');
     Route::resource('backoffice/barang', BarangController::class);
     Route::resource('backoffice/barang', BarangController::class);
 
@@ -48,44 +47,20 @@
 
 
 
-    Route::post('/returnadmin/{id}', [PeminjamanController::class, 'returnadmin']);
 
 
-
-
-    // Fungsi show data pengembalian
-    Route::get('/backoffice/pengembalian', [PeminjamanController::class, 'indexdata'])->name('pengembalian.indexdata');
-    Route::get('/backoffice/pengembalian/datakembali', [PeminjamanController::class, 'datakembali'])->name('pengembalian.indexdata');
-    Route::post('/backoffice/pengembalian/datakembali', [PeminjamanController::class, 'datakembali'])->name('pengembalian.indexdata'); 
-    Route::post('/backoffice/pengembalian/datapinjam', [PeminjamanController::class, 'datapinjam'])->name('pengembalian.indexdata'); 
-    Route::get('/backoffice/pengembalian/datapinjam', [PeminjamanController::class, 'datapinjam'])->name('pengembalian.indexdata');
-
-    // Data yang sudah ti
-    Route::get('/backoffice/pengembalian/datafinish', [PeminjamanController::class, 'datafinish'])->name('backoffice.pengembalian.datafinish');
-    Route::get('/backoffice/pengembalian/datafinish', [PeminjamanController::class, 'datafinish'])->name('backoffice.pengembalian.datafinish');
-
-
-    // Fungsi show data peminjaman
-    Route::get('/backoffice/peminjaman', [PeminjamanController::class, 'indexdata']);
-    Route::get('/backoffice/peminjaman/indexdata', [PeminjamanController::class, 'indexData'])->name('peminjaman.indexdata');
-    Route::post('/backoffice/peminjaman/indexdata', [PeminjamanController::class, 'indexData'])->name('peminjaman.indexdata'); 
 
 
     // start Route Register 
     Route::get('/register', function () {
         return view('auth.register');
     });
-    Route::post('/register', [PeminjamanController::class, 'register'])->name('/register');
-    Route::get('/register', [PeminjamanController::class, 'register'])->name('/register');
+
     Route::get('/register', [UserController::class, 'register']);
     Route::get('/register', [RegisterController::class, 'register'])->name('register');
     Route::post('/register', [RegisterController::class, 'register']);
     Route::get('/register', [App\Http\Controllers\UserController::class, 'showRegistrationForm'])->name('peminjaman.about');
     // end Route Register 
-
-
-    // tampilan about alert
-    Route::get('peminjaman/about', [PeminjamanController::class, 'about'])->name('peminjaman.about');
 
 
 
@@ -97,22 +72,12 @@
 
         // Route::get('/dashboard', 'MainController@index')->name('backoffice.main');
 
-        Route::get('/dashboard', [PeminjamanController::class, 'dasboard'])->name('backoffice.main');
-        Route::get('/backoffice/main', [PeminjamanController::class, 'dasboard'])->name('backoffice.main');
+    
+
+    
 
 
-        // Tampilan_Role_user
-        Route::get('/welcome', [PeminjamanController::class, 'welcome'])->name('/welcome');
-
-
-
-        // Peminjaman_barang
-        Route::post('/peminjaman/{barang}', [PeminjamanController::class, 'store'])->name('peminjaman.store');
-        Route::post('/peminjaman', [PeminjamanController::class, 'store'])->name('peminjaman.store');
-        Route::post('/peminjaman', [PeminjamanController::class, 'store'])->name('peminjaman.store');
-        Route::post('peminjaman', [PeminjamanController::class, 'store'])->name('peminjaman.store');
-
-
+    
 
 
         // backoffice_barang
@@ -122,30 +87,18 @@
         Route::get('/backoffice/main', [BackOfficeController::class, 'main'])->name('backoffice.main');
 
 
-        // Data Peminjaman transaksi
-        Route::get('peminjaman/indexdata', [PeminjamanController::class, 'indexData'])->name('peminjaman.indexdata');
-        Route::post('peminjaman/indexdata', [PeminjamanController::class, 'indexData'])->name('peminjaman.indexdata'); 
+    
 
-
-        // Data Peminjaman transaksi
-        Route::get('peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
-        Route::get('peminjaman/create', [PeminjamanController::class, 'create'])->name('peminjaman.create');
-        Route::get('/peminjaman/create', [PeminjamanController::class, 'create'])->name('peminjaman.create');
-        Route::get('/peminjaman/create', [PeminjamanController::class, 'create'])->name('peminjaman.create');
-
+   
 
         // backoffice_create_peminjaman_barang
         Route::resource('/backoffice/create', UserController::class);
-
-        // View data barang dasboard
-        Route::get('/backoffice/databarang/main', [PeminjamanController::class, 'dasboard'])->name('backoffice.databarang.main');
 
         
 
     
     // peminjaman_index_tidak_diperlukan
         Route::get('/peminjaman/index', [BarangController::class, 'index'])->name('peminjaman.index');
-        Route::get('/peminjaman/index', [PeminjamanController::class, 'index'])->name('peminjaman.index');
     // end_peminjaman_index_tidak_diperlukans
 
     
@@ -153,17 +106,11 @@
 
 
 
-    Route::get('/public/welcome', [PeminjamanController::class, 'welcome'])->name('public.welcome');
-
 
 
     Route::middleware(['auth'])->group(function () {
         Route::get('/backoffice/peminjaman/show_peminjaman', [BarangController::class, 'show'])->name('peminjaman.show');
-        Route::post('/barangs/show/{id}', [PeminjamanController::class, 'store'])->name('barangs.show');
-        Route::post('/barangs/borrow/{id}', [PeminjamanController::class, 'store'])->name('barangs.borrow');
-        // Route::post('/barangs/show/{id}', [PeminjamanController::class, 'show'])->name('barangs.show');
-        Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
-        Route::post('/peminjaman/return/{id}', [PeminjamanController::class, 'return'])->name('peminjaman.return');
+    
     });
 
 
@@ -179,7 +126,6 @@
 
     // news
     Route::get('/barangs/show/{id}', [BarangController::class, 'show'])->name('barangs.show');
-    Route::post('/barangs/borrow/{id}', [PeminjamanController::class, 'store'])->name('barangs.borrow');
 
     Route::get('/barangs/show/{id}', [BarangController::class, 'show'])->name('barangs.show');
     Route::get('/barangs/{id}/show', [BarangController::class, 'show'])->name('barangs.show');
@@ -191,7 +137,6 @@
 
 
 
-    Route::post('/peminjaman/returnadmin/{id}', [PeminjamanController::class, 'returnadmin'])->name('peminjaman.return');
 
 
     Route::get('/barangs/show/{id}', [BarangController::class, 'show'])->name('barangs.show');
@@ -205,16 +150,12 @@
     Route::get('/barangs/show/{id}', [BarangController::class, 'show'])->name('barangs.show');
     Route::post('/barangs/borrow/{id}', [BarangController::class, 'borrow'])->name('barangs.borrow');
     // routes/web.php
-    Route::post('/peminjaman/showBorrowedItems/{barang}', [PeminjamanController::class, 'borrow'])->name('peminjaman.borrow');
     Route::post('/barangs/show/{barang}', [BarangController::class, 'show'])->name('barangs.show');
 
 
 
 
-    Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
-    Route::post('/peminjaman/borrow/{barang}', [PeminjamanController::class, 'borrow'])->name('peminjaman.borrow');
-    Route::post('/peminjaman/return/{peminjaman}', [PeminjamanController::class, 'return'])->name('peminjaman.return');
-
+ 
 
     Route::post('/barangs/borrow/{id}', [BarangController::class, 'borrow'])->name('barangs.borrow');
     Route::post('/barangs/return/{id}', [BarangController::class, 'return'])->name('barangs.return');
@@ -232,12 +173,10 @@
     Route::post('/barangs/{id}/return', [BarangController::class, 'return'])->name('barangs.return');
 
 
-    Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
 
     // start route 
 
 
-    Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
     Route::get('/backoffice/barang/edit', [BarangController::class, 'edit'])->name('backoffice.barang.edit');
 
 
@@ -299,12 +238,9 @@
 
 
     // end route public view 
-    Route::get('/public/form_pinjam', [FormPinjamController::class, 'index'])->name('form_pinjam');
     Route::get('/backoffice', [BackOfficeController::class, 'index'])->name('backoffice.dashboard');
     Route::get('/dashboard', [AdminController::class, 'index'])->name('backoffice.dashboard.index');
-    Route::get('/public', [peminjamanController::class, 'Form_pinjam'])->name('public.Form_pinjam');
-    Route::get('/form-pinjam', [PeminjamanController::class, 'form_pinjam'])->name('form_pinjam');
-    Route::resource('/form-pinjam', 'PeminjamanController');
+   
 
 
 

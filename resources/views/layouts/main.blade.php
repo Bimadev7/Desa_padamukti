@@ -337,30 +337,34 @@
                   Dashboard
                 </a>
               </li>
-              {{-- <li class="nav-item">
-                <a href="adminlte/index2.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
-                </a>
-              </li> --}}
-              {{-- <li class="nav-item">
-                <a href="adminlte/index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
-                </a>
-              </li> --}}
             </ul>
           </li>
-          <li class="nav-header">Backoffice</li>
-        
+
+          {{-- Bagian Sidebar --}}
+          <li class="nav-header">Sidebar</li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                backoffice
-                {{-- <i class="fas fa-angle-left right"></i> --}}
+                Sidebar
                <i class="fa-sharp fa-light fa-file"></i>
+                <span class="badge badge-info right">4</span>
+              </p>
+            </a>
+          </li>
+          {{-- End Bagian bacckofice --}}
 
+
+
+
+          {{-- Bagian bacckofice --}}
+          <li class="nav-header">Backoffice</li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                management User
+               <i class="fa-sharp fa-light fa-file"></i>
                 <span class="badge badge-info right">4</span>
               </p>
             </a>
@@ -370,84 +374,55 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>User</p>
                 </a>
-              </li>
-               <li class="nav-item">
-                <a href="/backoffice/user/verifikasi_user" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>User verivikasi</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/backoffice/barang" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Barang</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/backoffice/pengembalian/datapinjam" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Peminjaman</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/backoffice/pengembalian/datakembali" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Data Proses Kembali</p>
-                </a>
-              </li>
-
-               <li class="nav-item">
-                <a href="/backoffice/pengembalian/datafinish" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Data Finish </p>
-                </a>
-              </li>
-           
-              {{-- <li class="nav-item">
-                <a href="adminlte/pages/layout/fixed-topnav.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fixed Navbar</p>
-                </a>
-              </li> --}}
-              {{-- <li class="nav-item">
-                <a href="adminlte/pages/layout/fixed-footer.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fixed Footer</p>
-                </a>
-              </li> --}}
-              {{-- <li class="nav-item">
-                <a href="adminlte/pages/layout/collapsed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Collapsed Sidebar</p>
-                </a>
-              </li> --}}
+              </li>      
             </ul>
           </li>
-
-         
-
-        
+          {{-- End Bagian bacckofice --}}
 
 
-         
-        
-          {{-- <li class="nav-header">EXAMPLES</li> --}}
-         
-          
+{{-- Bagian bacckofice --}}
+          <li class="nav-header">Demography</li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Demography
+               <i class="fa-sharp fa-light fa-file"></i>
+                <span class="badge badge-info right">4</span>
+              </p>
+            </a>
+          </li>
+          {{-- End Bagian bacckofice --}}
 
-          
+          {{-- Start Bagian berita --}}
+           <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Berita
+               <i class="fa-sharp fa-light fa-file"></i>
 
+                <span class="badge badge-info right">4</span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/backoffice/user" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Berita </p>
+                </a>
+              </li>      
+            </ul>
 
-              
-         
-
-         
-         
-
-          {{-- <li class="nav-header">LABELS</li> --}}
-          
-      
-         
+              <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/backoffice/user" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pengumuman</p>
+                </a>
+              </li>      
+            </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

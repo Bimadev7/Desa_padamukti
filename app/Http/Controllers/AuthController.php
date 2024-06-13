@@ -39,10 +39,10 @@ class AuthController extends Controller
                 case 'super_admin':
                     return redirect()->route('backoffice.main');
                     break;
-                case 'user':
-                    return redirect()->route('/welcome');
                 case 'admin':
-                        return redirect()->route('backoffice.databarang.main');
+                    return redirect()->route('/welcome');
+                case 'draft':
+                        return redirect()->route('/welcome');
                     break;
                 default:
                     return redirect()->route('login');
