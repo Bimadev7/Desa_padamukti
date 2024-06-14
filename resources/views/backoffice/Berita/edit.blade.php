@@ -7,7 +7,7 @@
     <!-- SELECT2 EXAMPLE -->
     <div class="card card-default">
       <div class="card-header">
-        <h3 class="card-title">Dashboard User</h3>
+        <h3 class="card-title">Edit Berita</h3>
 
         <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -30,24 +30,24 @@
           </script>
         @endif
 
-        <form class="card" action="{{ route('user.update', $user->id) }}" method="POST" enctype="multipart/form-data">
+        <form class="card" action="{{ route('berita.update', $berita->id) }}" method="POST" enctype="multipart/form-data">
           @csrf
           @method('PUT')
 
           <div class="row">
             <div class="col-md-6">
               <div class="form-group ml-4">
-                <label for="username">Username</label>
-                <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="Username" value="{{ $user->username }}" required>
-                @error('username')
+                <label for="judul">Judul Berita</label>
+                <input type="text" name="judul" class="form-control @error('judul') is-invalid @enderror" id="judul" placeholder="Judul Berita" value="{{ $berita->judul }}" required>
+                @error('judul')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
               </div>
 
               <div class="form-group ml-4">
-                <label for="email">Email address</label>
-                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Email address" value="{{ $user->email }}" required>
-                @error('email')
+                <label for="deskripsi_singkat">Deskripsi Singkat</label>
+                <input type="text" name="deskripsi_singkat" class="form-control @error('deskripsi_singkat') is-invalid @enderror" id="deskripsi_singkat" placeholder="Deskripsi Singkat" value="{{ $berita->deskripsi_singkat }}" required>
+                @error('deskripsi_singkat')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
               </div>
@@ -55,19 +55,25 @@
 
             <div class="col-md-6">
               <div class="form-group ml-4">
-                <label for="password">Password</label>
-                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Password">
-                @error('password')
+                <label for="deskripsi">Deskripsi</label>
+                <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" placeholder="Deskripsi" required>{{ $berita->deskripsi }}</textarea>
+                @error('deskripsi')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
               </div>
 
               <div class="form-group ml-4">
-                <label>User Role</label>
-                <select class="form-control select2 short-select" name="role" style="width: 100%;">
-                  <option value="user" {{ $user->role == 'user' ? 'selected' : '' }}>User</option>
-                  <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>Admin</option>
-                </select>
+                <label for="image">Gambar Berita</label>
+                <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image">
+                @error('image')
+                  <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+
+                @if($berita->image)
+                  <div class="mt-2">
+                    <img src="/path/to/images/{{ $berita->image }}" alt="Gambar Berita" height="100">
+                  </div>
+                @endif
               </div>
             </div>
             <!-- /.col -->
@@ -83,7 +89,7 @@
       </div>
       <!-- /.card-body -->
       <div class="card-footer">
-        Dashboard
+        Edit Berita
       </div>
     </div>
     <!-- /.card -->

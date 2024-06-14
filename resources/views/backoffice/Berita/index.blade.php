@@ -39,6 +39,7 @@
                         <th>Deskripsi Singkat</th>
                         <th>Deskripsi</th>
                         <th>Gambar</th>
+                        
                         <th width="200px">Aksi</th>
                     </tr>
                 </thead>
@@ -101,9 +102,12 @@ $(function () {
             {data: 'judul', name: 'judul'},
             {data: 'deskripsi_singkat', name: 'deskripsi_singkat'},
             {data: 'deskripsi', name: 'deskripsi'},
+    
+
             {data: 'image', name: 'image', render: function(data, type, full, meta) {
-                return '<img src="/path/to/images/' + data + '" height="50"/>';
-            }},
+            console.log(data);  // Memeriksa data gambar
+            return '<img src="/images/' + data + '" height="50" onerror="this.onerror=null;this.src=\'/path/to/default/image.png\';"/>';
+        }},
             {
                 data: 'id',
                 name: 'action',
@@ -111,12 +115,12 @@ $(function () {
                 searchable: false,
                 render: function (data, type, full, meta) {
                     return '<a href="/backoffice/berita/' + data + '" class="btn btn-info btn-sm">Show</a>' +
-                           '<a href="/backoffice/berita/' + data + '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' +
-                           '<form action="/backoffice/berita/' + data + '" method="POST" style="display:inline">' +
-                               '@csrf' +
-                               '@method("DELETE")' +
-                               '<button type="submit" class="btn btn-danger btn-sm mx-1">Delete</button>' +
-                           '</form>';
+                '<a href="/backoffice/berita/' + data + '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' +
+                '<form action="/backoffice/berita/' + data + '" method="POST" style="display:inline">' +
+                '@csrf' +
+                '@method("DELETE")' +
+                '<button type="submit" class="btn btn-danger btn-sm mx-1">Delete</button>' +
+                '</form>';
                 }
             },
         ]

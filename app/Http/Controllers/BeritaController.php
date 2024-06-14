@@ -65,78 +65,7 @@ class BeritaController extends Controller
                          ->with(['alert-type' => 'success', 'message' => 'Berita berhasil ditambahkan.']);
     }
 
-    // public function store(Request $request)
-    //     {
-
-    //         $data = new Berita;
-    //         $data->judul = strip_tags(ucfirst($request->judul));
-    //         $data->deskripsi_singkat = strip_tags($request->deskripsi_singkat);
-    //         $data->deskripsi = strip_tags($request->deskripsi);
-        
-    //             dd($request);
-
-
-            // if ($request->hasFile('image')) {
-            //     $image = $request->file('image');
-            //     $imageName = time().'.'.$image->getClientOriginalExtension();
-            //     $image->move(public_path('images/berita'), $imageName);
-            //     dd($image);
-            //     $validatedData['image'] = 'images/berita/'.$imageName; // Save image path in data
-            //   }
-            // Proses upload gambar
-            // if ($request->hasFile('gambar')) {
-            //     $image = $request->file('gambar');
-            //     $imageName = time().'.'.$image->getClientOriginalExtension();
-            //     $image->move(public_path('images/berita'), $imageName); // Simpan gambar di public/images/berita
-            //     $data->image = 'images/berita/'.$imageName; // Simpan lokasi gambar ke dalam kolom image
-            // }
-        
-        //     $data->save();
-        //     return redirect()->route('backoffice.berita.index')->with([
-        //         'alert-type' => 'success',
-        //         'message' => 'Data Berita Berhasil Ditambahkan!'
-        //     ]);
-
-        // }
-
-    // public function store(Request $request)
-    // {
-
-    // $data = new Berita;
-    // $data->judul = strip_tags(ucfirst($request->judul));
-    // $data->deskripsi_singkat = strip_tags($request->deskripsi_singkat);
-    // $data->deskripsi = strip_tags($request->deskripsi);
-    // // Proses upload gambar
-    //     if ($request->hasFile('gambar')) {
-    //         $image = $request->file('gambar');
-    //         $imageName = time().'.'.$image->getClientOriginalExtension();
-    //         Storage::disk('public')->put('images/berita/'.$imageName, file_get_contents($image));
-    //         $data->gambar = 'images/berita/'.$imageName;
-    //     }
-    // $data->save();
-    // return redirect()->route('backoffice.berita.index')->with([
-    //     'alert-type' => 'success',
-    //     'message' => 'Data Order Berhasil Ditambahkan!'
-    // ]);
-    // }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    // public function store(Request $request)
-    // {
-    //     $data = new Berita;
-    //     $data->judul            = strip_tags(ucfirst($request->judul));
-    //     $data->deskripsi_singkat           = strip_tags($request->deskripsi_singkat);
-    //     $data->deskripsi           = strip_tags($request->deskripsi);
-      
-
-    //     $data->save();
-    //     return redirect()->route('backoffice.berita.index')->with([
-    //         'alert-type' => 'success',
-    //         'message' => 'Data Order Berhasil Ditambahkan!'
-    //     ]);
-    // }
+    
 
     /**
      * Display the specified resource.
@@ -149,9 +78,14 @@ class BeritaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $berita = Berita::find($id);
+        if (!$berita) {
+            return redirect()->route('backoffice.berita.index')->with('error', 'Berita tidak ditemukan.');
+        }
+        return view('backoffice.berita.edit', compact('berita'));
+    
     }
 
     /**

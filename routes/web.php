@@ -106,13 +106,14 @@
     // user
     Route::get('/backoffice/user/edit', [UserController::class, 'edit'])->name('backoffice.user.edit');
     Route::put('/user/{id}', [UserController::class, 'update'])->name('user.update');
-    // Route::get('/backoffice/user/create', 'UserController@create')->name('backoffice.user.create');
+
+    // Route Berita
+    Route::get('/backoffice/berita/edit', [BeritaController::class, 'edit'])->name('backoffice.berita.edit');
+    Route::put('/berita/{id}', [BeritaController::class, 'update'])->name('user.update');
 
 
 
+    Route::resource('backoffice/berita', BeritaController::class);
 
-
-
-
-
+}
 
