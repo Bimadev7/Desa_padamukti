@@ -55,7 +55,6 @@
     Route::get('/register', [UserController::class, 'register']);
     Route::get('/register', [RegisterController::class, 'register'])->name('register');
     Route::post('/register', [RegisterController::class, 'register']);
-    Route::get('/register', [App\Http\Controllers\UserController::class, 'showRegistrationForm'])->name('peminjaman.about');
     // end Route Register 
 
     // Route menampilkan data main 
