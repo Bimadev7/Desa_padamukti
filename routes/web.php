@@ -112,8 +112,8 @@
     Route::put('/berita/{id}', [BeritaController::class, 'update'])->name('user.update');
 
 
-
+    // Route CRUD
     Route::resource('backoffice/berita', BeritaController::class);
 
-}
+    
 
