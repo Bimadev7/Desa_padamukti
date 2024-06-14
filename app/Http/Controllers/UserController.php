@@ -135,20 +135,20 @@ class UserController extends Controller
 
 
 
-public function store(Request $request)
-{
+    public function store(Request $request)
+    {
 
-    $data = new User;
-    $data->username            = strip_tags(ucfirst($request->username));
-    $data->email           = strip_tags($request->email);
-    $data->password         =Hash::make($request->password);
-    $data->role            = strip_tags($request->role);
-    $data->save();
-    return redirect()->route('backoffice.user.index')->with([
-        'alert-type' => 'success',
-        'message' => 'Data Order Berhasil Ditambahkan!'
-    ]);
-    
+        $data = new User;
+        $data->username            = strip_tags(ucfirst($request->username));
+        $data->email           = strip_tags($request->email);
+        $data->password         =Hash::make($request->password);
+        $data->role            = strip_tags($request->role);
+        $data->save();
+        return redirect()->route('backoffice.user.index')->with([
+            'alert-type' => 'success',
+            'message' => 'Data Order Berhasil Ditambahkan!'
+        ]);
+        
 
     }
 

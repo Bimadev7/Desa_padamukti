@@ -20,6 +20,10 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+    public function showLoginForm()
+    {
+        return view('auth.login');
+    }
 
     protected function authenticated(Request $request, $user)
     {
@@ -42,6 +46,8 @@ class LoginController extends Controller
      *
      * @return void
      */
+
+
     public function __construct()
     {
         $this->middleware('guest')->except('logout');

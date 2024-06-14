@@ -7,10 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Berita extends Model
 {
-    // use HasFactory;
-    // protected $fillable = [
-    //     'judul', 'deskripsi_singkat', 'deskripsi'
-    // ];
+   
 
     use HasFactory;
     protected $table = 'berita';
@@ -19,6 +16,8 @@ class Berita extends Model
         'id',
         'judul',
         'deskripsi_singkat',
-        'deskripsi'
+        'deskripsi',
+        'image',
+       
     ];
 }
