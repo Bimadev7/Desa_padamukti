@@ -81,3 +81,31 @@ Route::get('/pengumuman1', function () {
 Route::get('/pengumuman', function () {
     return view('public.pengumuman');
 })->name('public.pengumuman');
+
+Route::get('/visimisi', function () {
+    return view('public.visimisi');
+});
+Route::get('/tentang', function () {
+    return view('public.tentang');
+});
+Route::get('/tentang', function () {
+    return view('public.tentang');
+});
+Route::get('/sejarah', function () {
+    return view('public.sejarah');
+});
+Route::get('/demografi', function () {
+    return view('public.demografi');
+});
+Route::get('/geografis', function () {
+    return view('public.geografis');
+});
+Route::get('/lembaga', function () {
+    return view('public.lembaga');
+});
+Route::get('/struktur', function () {
+    return view('public.struktur');
+});
+Route::get('/perangkat', function () {
+    return view('public.perangkat');
+});
