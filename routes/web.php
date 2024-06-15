@@ -10,6 +10,11 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BeritaController;
 
+Route::get('/backoffice/users', [UserController::class, 'index'])->name('backoffice.user.index');
+Route::prefix('backoffice')->group(function () {
+    Route::get('/users', [UserController::class, 'index'])->name('backoffice.user.index');
+});
+
 // Route Public Welcome
 Route::get('/', function () {
     return view('welcome');

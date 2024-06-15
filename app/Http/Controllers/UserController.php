@@ -144,10 +144,16 @@ class UserController extends Controller
         $data->password         =Hash::make($request->password);
         $data->role            = strip_tags($request->role);
         $data->save();
+        // return redirect()->route('backoffice.user.index')->with([
+        //     'alert-type' => 'success',
+        //     'message' => 'Data Order Berhasil Ditambahkan!'
+        // ]);
+
         return redirect()->route('backoffice.user.index')->with([
             'alert-type' => 'success',
             'message' => 'Data Order Berhasil Ditambahkan!'
         ]);
+        
         
 
     }
