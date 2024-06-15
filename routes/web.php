@@ -10,6 +10,9 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BeritaController;
 
+
+
+// Route Public createn 
 Route::get('/backoffice/users', [UserController::class, 'index'])->name('backoffice.user.index');
 Route::prefix('backoffice')->group(function () {
     Route::get('/users', [UserController::class, 'index'])->name('backoffice.user.index');
@@ -31,13 +34,7 @@ Route::post('/berita', [BeritaController::class, 'store'])->name('berita.store')
 // Route menampilkan data view
 Route::get('/public/index', [DasboardController::class, 'index']);
 
-// Route Login Akses
-Route::prefix('auth')->group(function () {
-    Route::get('/login', [LoginController::class, 'showRegistrationForm'])->name('auth.register');
-    Route::post('/login', [LoginController::class, 'login'])->name('auth.login');
-    Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('auth.register');
-    Route::post('/register', [RegisterController::class, 'register'])->name('auth.register');
-});
+
 
 // Fungsi middleware untuk Hak Akses Dari role
 Route::middleware(['isAdmin'])->group(function () {
@@ -74,7 +71,6 @@ Route::middleware(['isAdmin'])->group(function () {
 
     // CRUD Berita
     Route::resource('/backoffice/berita', BeritaController::class);
-    // Route::resource('/backoffice/berita/index', BeritaController::class);
 
 });
 
