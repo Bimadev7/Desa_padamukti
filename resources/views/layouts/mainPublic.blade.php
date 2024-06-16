@@ -97,7 +97,7 @@
               </li>
               <li class="dropdown"><a href="#"><span>Informasi Publik</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
-                  <li><a href="/berita">Berita Desa</a></li>
+                  <li><a href="/public/berita">Berita Desa</a></li>
                   <li><a href="/pengumuman">Pengumuman Desa</a></li> 
                 </ul>
               </li>

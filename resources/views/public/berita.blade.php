@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layout_public.main')
 
 @section('title', 'Berita Desa')
 
@@ -20,13 +20,14 @@
     <div class="row">
         <div class="col-md-8">
             <!-- Cards Section -->
+            @foreach($berita as $item)
             <div class="row mb-2">
                 <div class="col-md-12 ps-3">
                     <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                         <div class="col p-4 d-flex flex-column position-static text-start">
-                            <h3 class="mb-2">Berita Pertama</h3> <!-- Adjusted margin for heading -->
-                            <div class="mb-1 text-body-secondary">12 Juni 2024</div>
-                            <p class="card-text mb-3">Ini adalah contoh Berita pertama. Anda bisa menggantinya dengan konten sesuai.</p> <!-- Adjusted margin for paragraph -->
+                            <h3 class="mb-2">{{ $item->judul }}</h3>
+                            <div class="mb-1 text-body-secondary">{{ $item->created_at->format('d F Y') }}</div>
+                            <p class="card-text mb-3">{{ $item->deskripsi_singkat }}</p>
                             <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">Lanjutkan Membaca
                                 <svg class="bi">
                                     <use xlink:href="#chevron-right"></use>
@@ -34,46 +35,14 @@
                             </a>
                         </div>
                         <div class="col-auto d-none d-lg-block">
-                            <img src="path/to/image1.jpg" alt="Berita" width="200" height="250">
-                        </div>
-                    </div>
-                </div>
-                <!-- Repeat the structure for other news articles -->
-                <div class="col-md-12 ps-3">
-                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                        <div class="col p-4 d-flex flex-column position-static text-start">
-                            <h3 class="mb-2">Berita Kedua</h3>
-                            <div class="mb-1 text-body-secondary">11 Juni 2024</div>
-                            <p class="card-text mb-3">Ini adalah contoh Berita kedua. Anda bisa menggantinya dengan konten sesuai.</p>
-                            <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">Lanjutkan Membaca
-                                <svg class="bi">
-                                    <use xlink:href="#chevron-right"></use>
-                                </svg>
-                            </a>
-                        </div>
-                        <div class="col-auto d-none d-lg-block">
-                            <img src="path/to/image2.jpg" alt="Berita" width="200" height="250">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12 ps-3">
-                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                        <div class="col p-4 d-flex flex-column position-static text-start">
-                            <h3 class="mb-2">Berita Ketiga</h3>
-                            <div class="mb-1 text-body-secondary">10 Juni 2024</div>
-                            <p class="card-text mb-3">Ini adalah contoh Berita ketiga. Anda bisa menggantinya dengan konten sesuai.</p>
-                            <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">Lanjutkan Membaca
-                                <svg class="bi">
-                                    <use xlink:href="#chevron-right"></use>
-                                </svg>
-                            </a>
-                        </div>
-                        <div class="col-auto d-none d-lg-block">
-                            <img src="path/to/image3.jpg" alt="Berita" width="200" height="250">
+                            {{-- <img src="{{ asset($item->image) }}" alt="Berita" width="200" height="250"> --}}
+                            <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="200" height="250">
+
                         </div>
                     </div>
                 </div>
             </div>
+            @endforeach
         </div>
         <div class="col-md-4">
             <!-- About and Archives Section -->
@@ -85,10 +54,10 @@
                 <div class="p-4">
                     <h4 class="fst-italic">Arsip</h4>
                     <ol class="list-unstyled mb-0">
-                        <li><a href="#">Maret 2024</a></li>
-                        <li><a href="#">Februari 2024</a></li>
-                        <li><a href="#">Januari 2024</a></li>
-                        <!-- Add more archive links as needed -->
+                        <!-- Anda bisa menambahkan logika untuk menampilkan arsip berdasarkan bulan/tahun di sini -->
+                        @foreach($berita as $item)
+                        <li><a href="#">{{ $item->created_at->format('F Y') }}</a></li>
+                        @endforeach
                     </ol>
                 </div>
             </div>

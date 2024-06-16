@@ -25,22 +25,22 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="green/assets/img/favicon.png" rel="icon">
+  <link href="/green/assets/img/favicon.png" rel="icon">
   <link href="image/logopadamukti.svg" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="{{ asset("green/assets/vendor/animate.css/animate.min.css") }}" rel="stylesheet">
-  <link href="{{ asset("green/assets/vendor/bootstrap/css/bootstrap.min.css")}}" rel="stylesheet">
-  <link href="{{asset("green/assets/vendor/bootstrap-icons/bootstrap-icons.css")}}" rel="stylesheet">
-  <link href="{{asset("green/assets/vendor/boxicons/css/boxicons.min.css")}}" rel="stylesheet">
-  <link href="{{asset("green/assets/vendor/glightbox/css/glightbox.min.css")}}" rel="stylesheet">
-  <link href="{{asset("green/assets/vendor/swiper/swiper-bundle.min.css")}}" rel="stylesheet">
+  <link href="/green/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="/green/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/green/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/green/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/green/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/green/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="{{asset("green/assets/css/style.css")}}" rel="stylesheet">
+  <link href="/green/assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -66,7 +66,7 @@
       <div class="row justify-content-between w-100">
         <div class="col-auto">
           <div class="d-flex align-items-center">
-            <a href="index.html" class="logo me-auto"><img src="/public/image/logopadamukti.svg" alt="" style="width: 100px; height: 100px;"></a>
+            <a href="index.html" class="logo me-auto"><img src="/image/logopadamukti.svg" alt="" style="width: 100px; height: 100px;"></a>
             <h5>
               <a href="#" class="text-dark">
                 <strong>Desa Padamukti</strong><br/>
@@ -97,7 +97,7 @@
               </li>
               <li class="dropdown"><a href="#"><span>Informasi Publik</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
-                  <li><a href="/berita">Berita Desa</a></li>
+                  <li><a href="/public/berita">Berita Desa</a></li>
                   <li><a href="/pengumuman">Pengumuman Desa</a></li> 
                 </ul>
               </li>
@@ -136,14 +136,14 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="green/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="green/assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="green/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="green/assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="green/assets/vendor/php-email-form/validate.js"></script>
+  <script src="/green/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/green/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/green/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/green/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/green/assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="green/assets/js/main.js"></script>
+  <script src="/green/assets/js/main.js"></script>
 
 </body>
 </html>
