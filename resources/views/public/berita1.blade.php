@@ -163,7 +163,7 @@
               <li class="dropdown"><a href="#"><span>Informasi Publik</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
                   <li><a href="#">Berita Desa</a></li>
-                  <li><a href="#">Berita  Desa</a></li>
+                  <li><a href="#">Pengumuman Desa</a></li>
                 </ul>
               </li>
             </ul>

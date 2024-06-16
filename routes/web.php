@@ -19,7 +19,10 @@ Route::prefix('backoffice')->group(function () {
     Route::get('/users', [UserController::class, 'index'])->name('backoffice.user.index');
 });
 
-
+// Route Public Welcome
+Route::get('/', function () {
+    return view('welcome');
+});
 
 // Menampilkan home
 Route::get('/', function () {
@@ -56,16 +59,13 @@ Route::middleware(['isAdmin'])->group(function () {
         Route::post('/create', [BeritaController::class, 'create'])->name('backoffice.berita.create');
         Route::get('/edit', [BeritaController::class, 'edit'])->name('backoffice.berita.edit');
         Route::put('/{id}', [BeritaController::class, 'update'])->name('berita.update');
-        Route::post('/berita', [BeritaController::class, 'store'])->name('backoffice.berita.store');
-        Route::get('/berita', [BeritaController::class, 'index'])->name('backoffice.berita.index');
-
-
     });
 
-    // Namespace Store
-    // Route::namespace('App\Http\Controllers\Backoffice')->group(function () {
-    //     // Dan lain-lain...
-    // });
+    Route::namespace('App\Http\Controllers\Backoffice')->group(function () {
+        Route::get('/berita', [BeritaController::class, 'index'])->name('backoffice.berita.index');
+        Route::post('/berita', [BeritaController::class, 'store'])->name('backoffice.berita.store');
+        // Dan lain-lain...
+    });
     
 
     // Route User
