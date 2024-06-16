@@ -1,4 +1,4 @@
-@extends('layouts.main2')
+@extends('layouts.mainPublic')
 
 @section('title', 'Berita Desa')
 
@@ -26,9 +26,9 @@
                 <div class="col-md-12 ps-3">
                     <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                         <div class="col p-4 d-flex flex-column position-static text-start">
-                            <h3 class="mb-2">{{ $article->title }}</h3>
+                            <h3 class="mb-2">{{ $article->judul }}</h3>
                             <div class="mb-1 text-body-secondary">{{ $article->date }}</div>
-                            <p class="card-text mb-3">{{ $article->summary }}</p>
+                            <p class="card-text mb-3">{{ $article->deskripsi_singkat }}</p>
                             <a href="{{ $article->link }}" class="icon-link gap-1 icon-link-hover stretched-link">Lanjutkan Membaca
                                 <svg class="bi">
                                     <use xlink:href="#chevron-right"></use>
@@ -36,7 +36,7 @@
                             </a>
                         </div>
                         <div class="col-auto d-none d-lg-block">
-                            <img src="{{ $article->image }}" alt="Berita" width="200" height="250">
+                            <img src="{{ asset('images/' . $article->image) }}" alt="{{ $article->judul }}" width="200" height="250">
                         </div>
                     </div>
                 </div>
@@ -54,6 +54,8 @@
                 <div class="p-4">
                     <h4 class="fst-italic">Arsip</h4>
                     <ol class="list-unstyled mb-0">
+                        {{-- <p class="card-text mb-3">{{ $article->created_at }}</p> --}}
+
                         <li><a href="#">Maret 2024</a></li>
                         <li><a href="#">Februari 2024</a></li>
                         <li><a href="#">Januari 2024</a></li>
