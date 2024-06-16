@@ -23,7 +23,6 @@
             <!-- Cards Section -->
             @foreach($berita as $item)
             <div class="row mb-2">
-                @foreach($Berita as $article)
                 <div class="col-md-12 ps-3">
                     <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                         <div class="col p-4 d-flex flex-column position-static text-start">
@@ -43,17 +42,23 @@
                         </div>
                     </div>
                 </div>
-                @endforeach
-            </div>
+                </div>
             @endforeach
         </div>
 
         <div class="col-md-4">
-            <!-- About and Archives Section -->
+            <!-- Sidebar Section -->
             <div class="position-sticky" style="top: 2rem;">
+                <!-- Categories Section -->
                 <div class="p-4 mb-3 bg-light rounded">
-                    <h4 class="fst-italic">Tentang</h4>
-                    <p class="mb-0">Sesuaikan bagian ini untuk memberi informasi kepada pengunjung tentang publikasi Anda, penulis, konten, atau hal lainnya.</p>
+                    <h4 class="fst-italic">Kategori</h4>
+                    <ul class="mb-0">
+                        <li><a href="#">Kategori 1</a></li>
+                        <li><a href="#">Kategori 2</a></li>
+                        <li><a href="#">Kategori 3</a></li>
+                        <li><a href="#">Kategori 4</a></li>
+                        <li><a href="#">Kategori 5</a></li>
+                    </ul>
                 </div>
                 <div class="p-4">
                     <h4 class="fst-italic">Arsip</h4>

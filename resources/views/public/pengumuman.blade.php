@@ -75,31 +75,40 @@
             </div>
         </div>
         <div class="col-md-4">
-            <!-- About and Archives Section -->
-            <div class="position-sticky" style="top: 2rem;">
-                <div class="p-4 mb-3 bg-light rounded">
-                    <h4 class="fst-italic">About</h4>
-                    <p class="mb-0">Sesuaikan bagian ini untuk memberi tahu pengunjung tentang publikasi Anda, penulis, konten, atau hal lainnya.</p>
-                </div>
-                <div class="p-4">
-                    <h4 class="fst-italic">Archives</h4>
-                    <ol class="list-unstyled mb-0">
-                        <li><a href="#">Maret 2024</a></li>
-                        <li><a href="#">Februari 2024</a></li>
-                        <li><a href="#">Januari 2024</a></li>
-                        <li><a href="#">Desember 2023</a></li>
-                        <li><a href="#">November 2023</a></li>
-                        <li><a href="#">Oktober 2023</a></li>
-                        <li><a href="#">September 2023</a></li>
-                        <li><a href="#">Agustus 2023</a></li>
-                        <li><a href="#">Juli 2023</a></li>
-                        <li><a href="#">Juni 2023</a></li>
-                        <li><a href="#">Mei 2023</a></li>
-                        <li><a href="#">April 2023</a></li>
-                    </ol>
-                </div>
-            </div>
+    <!-- Kategori -->
+    <div class="position-sticky" style="top: 2rem;">
+        <div class="p-4 mb-3 bg-light rounded">
+            <h4 class="fst-italic">Kategori</h4>
+            <ul class="list-unstyled mb-0">
+                <li><a href="#">Kategori 1</a></li>
+                <li><a href="#">Kategori 2</a></li>
+                <li><a href="#">Kategori 3</a></li>
+                <!-- Tambahkan kategori lain sesuai kebutuhan -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Berita Terakhir -->
+    <div class="position-sticky" style="top: 2rem;">
+        <div class="p-4 mb-3 bg-light rounded">
+            <h4 class="fst-italic">Berita Terakhir</h4>
+            <ul class="list-unstyled mb-0">
+                <li>
+                    <a href="#">Judul Berita 1</a>
+                    <p class="small text-muted">1 Juni 2024</p>
+                </li>
+                <li>
+                    <a href="#">Judul Berita 2</a>
+                    <p class="small text-muted">2 Juni 2024</p>
+                </li>
+                <li>
+                    <a href="#">Judul Berita 3</a>
+                    <p class="small text-muted">3 Juni 2024</p>
+                </li>
+                <!-- Tambahkan berita terakhir lain sesuai kebutuhan -->
+            </ul>
         </div>
     </div>
 </div>
+
 @endsection

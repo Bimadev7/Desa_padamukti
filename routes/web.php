@@ -12,9 +12,13 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DasboardPublicController;
 
 
+
+
 Route::get('/public/tentang', [DasboardPublicController::class, 'tentang']);
 
 Route::get('/public/berita', [DasboardPublicController::class, 'index']);
+Route::get('/public/berita/{id}', [DasboardPublicController::class, 'detailBerita'])->name('berita.detailBerita');
+
 Route::get('/public/sejarah', [DasboardPublicController::class, 'index']);
 // Route Public createn 
 Route::get('/backoffice/users', [UserController::class, 'index'])->name('backoffice.user.index');
@@ -23,9 +27,9 @@ Route::prefix('backoffice')->group(function () {
 });
 
 // Route Public Welcome
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::get('/public/tentang', function () {
     return view('public.tentang');
 })->name('tentang');
@@ -57,6 +61,9 @@ Route::get('/public/lembaga1', function () {
 Route::get('/', function () {
     return view('home');
 });
+
+
+
 
 // Route untuk Berita Barang Simpen data
 Route::post('/berita', [BeritaController::class, 'store'])->name('berita.store');
