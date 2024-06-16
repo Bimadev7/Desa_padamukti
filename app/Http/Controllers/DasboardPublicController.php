@@ -25,4 +25,9 @@ class DasboardPublicController extends Controller
 
     }
 
+    public function tentang()
+    {
+     
+        return view('public.tentang');
+    }
 }

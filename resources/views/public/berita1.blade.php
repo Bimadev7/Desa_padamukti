@@ -163,7 +163,7 @@
               <li class="dropdown"><a href="#"><span>Informasi Publik</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
                   <li><a href="#">Berita Desa</a></li>
-                  <li><a href="#">Pengumuman Desa</a></li>
+                  <li><a href="#">Berita  Desa</a></li>
                 </ul>
               </li>
             </ul>
@@ -200,7 +200,7 @@
                      <!-- $berita->title -->
                     <p class="blog-post-meta text-center">January 1, 2021 by <a href="#">Mark</a></p>
                     <img src="green/assets/img/about.jpg" class="img-fluid w-80" alt="">
-                    <p>This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, lists, tables, images, code, and more are all supported as expected.</p>
+                    <p>This blog post shows a few different types of content thats supported and styled with Bootstrap. Basic typography, lists, tables, images, code, and more are all supported as expected.</p>
                     <hr>
                     <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
                     <h2>Blockquotes</h2>

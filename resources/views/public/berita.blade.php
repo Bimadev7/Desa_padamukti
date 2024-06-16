@@ -1,8 +1,9 @@
-@extends('layout_public.main')
+@extends('layouts.mainPublic')
 
 @section('title', 'Berita Desa')
 
 @section('content')
+
 <!-- Breadcrumbs -->
 <section id="breadcrumbs" class="breadcrumbs">
     <div class="container">
@@ -22,6 +23,7 @@
             <!-- Cards Section -->
             @foreach($berita as $item)
             <div class="row mb-2">
+                @foreach($Berita as $article)
                 <div class="col-md-12 ps-3">
                     <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                         <div class="col p-4 d-flex flex-column position-static text-start">
@@ -41,9 +43,11 @@
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
             @endforeach
         </div>
+
         <div class="col-md-4">
             <!-- About and Archives Section -->
             <div class="position-sticky" style="top: 2rem;">
@@ -64,4 +68,5 @@
         </div>
     </div>
 </div>
+
 @endsection
