@@ -45,21 +45,30 @@
         </div>
 
         <div class="col-md-4">
-            <!-- About and Archives Section -->
+            <!-- Sidebar Section -->
             <div class="position-sticky" style="top: 2rem;">
+                <!-- Categories Section -->
                 <div class="p-4 mb-3 bg-light rounded">
-                    <h4 class="fst-italic">Tentang</h4>
-                    <p class="mb-0">Sesuaikan bagian ini untuk memberi informasi kepada pengunjung tentang publikasi Anda, penulis, konten, atau hal lainnya.</p>
+                    <h4 class="fst-italic">Kategori</h4>
+                    <ul class="mb-0">
+                        <li><a href="#">Kategori 1</a></li>
+                        <li><a href="#">Kategori 2</a></li>
+                        <li><a href="#">Kategori 3</a></li>
+                        <li><a href="#">Kategori 4</a></li>
+                        <li><a href="#">Kategori 5</a></li>
+                    </ul>
                 </div>
-                <div class="p-4">
-                    <h4 class="fst-italic">Arsip</h4>
-                    <ol class="list-unstyled mb-0">
-                        {{-- <p class="card-text mb-3">{{ $article->created_at }}</p> --}}
 
-                        <li><a href="#">Maret 2024</a></li>
-                        <li><a href="#">Februari 2024</a></li>
-                        <li><a href="#">Januari 2024</a></li>
-                        <!-- Add more archive links as needed -->
+                <!-- Latest News Section -->
+                <div class="p-4 mb-3 bg-light rounded">
+                    <h4 class="fst-italic">Berita Terakhir</h4>
+                    <ol class="list-unstyled mb-0">
+                        @foreach($Berita->take(5) as $latestArticle)
+                        <li>
+                            <a href="{{ route('berita.detailBerita', ['id' => $latestArticle->id]) }}">{{ $latestArticle->judul }}</a>
+                            <div class="tanggal small">{{ $latestArticle->date }}</div>
+                        </li>
+                        @endforeach
                     </ol>
                 </div>
             </div>
