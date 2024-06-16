@@ -73,9 +73,7 @@
         <div class="col-lg-12">
             <h2 class="font-weight-bold">Tugas Pokok Badan Permusyawaratan Desa</h2>
             <div class="divider divider-primary divider-small divider-small-center mb-3">
-                <hr>
-            </div>
-            <p class="lead text-justify">
+                <hr>            <p class="lead text-justify">
                 Badan Permusyawaratan Desa (BPD) dalam Permendagri No.110/2016 Tugas Badan Permusyawaratan Desa (BPD) mempunyai fungsi, membahas dan menyepakati Rancangan Peraturan Desa bersama Kepala Desa, menampung dan menyalurkan aspirasi masyarakat Desa, dan melakukan pengawasan kinerja Kepala Desa. Selain melaksanakan fungsi diatas, Badan Permusyawaratan Desa juga mempunyai tugas sebagai berikut. Tugas Badan Permusyawaratan Desa:
                 <ul class="lead text-justify">
                     <li>Menggali aspirasi masyarakat</li>
@@ -144,3 +142,5 @@
     </div>
 </div>
 @endsection
+
+            </div>

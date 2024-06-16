@@ -1,4 +1,4 @@
-@extends('layouts.mainPublic')
+@extends('layout.main')
 
 @section('title', 'Sejarah Desa')
 
