@@ -17,6 +17,13 @@ class DasboardPublicController extends Controller
         // return view('public.berita'); 
     }
 
+    public function detailBerita($id)
+    {
+        $berita = Berita::findOrFail($id);
+        
+        return view('public.berita1', ['berita' => $berita]);
+    }
+
     public function main()
     {
         // $berita = Berita::all();

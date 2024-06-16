@@ -15,6 +15,8 @@ use App\Http\Controllers\DasboardPublicController;
 Route::get('/public/tentang', [DasboardPublicController::class, 'tentang']);
 
 Route::get('/public/berita', [DasboardPublicController::class, 'index']);
+Route::get('/public/berita/{id}', [DasboardPublicController::class, 'detailBerita'])->name('berita.detailBerita');
+
 Route::get('/public/sejarah', [DasboardPublicController::class, 'index']);
 // Route Public createn 
 Route::get('/backoffice/users', [UserController::class, 'index'])->name('backoffice.user.index');
