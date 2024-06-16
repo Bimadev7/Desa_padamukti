@@ -358,12 +358,12 @@
 
 
           {{-- Bagian bacckofice --}}
-          <li class="nav-header">Backoffice</li>
+          <li class="nav-header">Management</li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="fas fa-address-book"></i>
               <p>
-                management User
+                User
                <i class="fa-sharp fa-light fa-file"></i>
                 {{-- <span class="badge badge-info right">4</span> --}}
               </p>
@@ -381,7 +381,7 @@
 
 
 {{-- Bagian bacckofice --}}
-          <li class="nav-header">Demography</li>
+          <li class="nav-header">Management Public</li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
@@ -394,6 +394,20 @@
           </li>
           {{-- End Bagian bacckofice --}}
 
+          {{-- Pengumuman --}}
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Pengumuman
+               <i class="fa-sharp fa-light fa-file"></i>
+                {{-- <span class="badge badge-info right">4</span> --}}
+              </p>
+            </a>
+          </li>
+
+          {{-- end Pengumuman --}}
+          
           {{-- Start Bagian berita --}}
            <li class="nav-item">
             <a href="#" class="nav-link">

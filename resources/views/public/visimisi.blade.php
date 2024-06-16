@@ -58,4 +58,3 @@
     </article>
 </div>
 @endsection
-d:\laragon\www\Dspadamukti\resources\views\public\demografi.blade.php

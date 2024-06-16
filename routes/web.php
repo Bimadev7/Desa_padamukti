@@ -12,8 +12,8 @@ use App\Http\Controllers\BeritaController;
 
 // Route Public Welcome
 Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+    return view('home');
+})->name('home');
 
 // Route Untuk Berita Barang Simpen data
 Route::post('/berita', [BeritaController::class, 'store'])->name('berita.store');

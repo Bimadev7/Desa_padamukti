@@ -51,6 +51,17 @@
                   <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
+              
+ <div class="row">
+            <div class="col-md-6">
+              <div class="form-group ml-4">
+                <label for="role">role</label>
+                <input type="text" class="form-control ml-4 @error('role') is-invalid @enderror" id="role" name="role" placeholder="Masukan Nama" value="{{ old('role') }}">
+                @error('role')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+              </div>
+              
 
               <div class="form-group mb-4 ml-4">
                 <label for="password">Password</label>
@@ -61,13 +72,13 @@
 
          
 
-              <div class="form-group ml-5">
+              {{-- <div class="form-group ml-5">
                 <label>User Sebagai</label>
                 <select class="form-control select2 short-select ml-5" name="role" style="width: 100px;">
-                  <option value="user" {{ old('role') == 'user' ? 'selected' : '' }}>User</option>
                   <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
+                  <option value="super_admin" {{ old('role') == 'super_admin' ? 'selected' : '' }}>super_admin</option>
                 </select>
-              </div>
+              </div> --}}
             </div>
             <!-- /.col -->
           </div>
