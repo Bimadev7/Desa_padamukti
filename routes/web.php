@@ -9,8 +9,9 @@ use App\Http\Controllers\DasboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\DasboardPublicController;
 
-
+Route::get('/public/berita', [DasboardPublicController::class, 'index']);
 
 // Route Public createn 
 Route::get('/backoffice/users', [UserController::class, 'index'])->name('backoffice.user.index');
@@ -42,6 +43,16 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::get('/backoffice', [BackOfficeController::class, 'index'])->name('backoffice.dashboard');
     Route::get('/dashboard', [AdminController::class, 'index'])->name('backoffice.dashboard.index');
     
+
+    Route::prefix('backoffice/user')->group(function () {
+        Route::get('/', [UserController::class, 'index'])->name('backoffice.user.index');
+        Route::get('/create', [UserController::class, 'create'])->name('backoffice.user.create');
+        Route::post('/store', [UserController::class, 'store'])->name('backoffice.user.store');
+        Route::get('/edit', [UserController::class, 'edit'])->name('backoffice.user.edit');
+        Route::put('/{id}', [UserController::class, 'update'])->name('user.update');
+    });
+
+
     // Route Berita
     Route::prefix('backoffice/berita')->group(function () {
         Route::get('/', [BeritaController::class, 'index'])->name('backoffice.berita.index');

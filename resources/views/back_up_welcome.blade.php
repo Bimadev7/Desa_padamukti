@@ -1,95 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-  .navbar {
-    float: right;
-}
 
-.navbar ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.navbar ul li {
-    float: left;
-    position: relative;
-}
-
-.navbar a {
-    display: block;
-    padding: 10px 15px;
-    text-decoration: none;
-    font-size: 14px;
-    color: #333;
-}
-
-.navbar a:hover,
-.navbar .active a {
-    color: #007bff;
-}
-
-.navbar ul ul {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    z-index: 9999;
-}
-
-.navbar ul ul li {
-    float: none;
-    width: 200px;
-}
-
-.navbar ul ul a {
-    padding: 10px 15px;
-    color: #333;
-}
-
-.navbar ul ul a:hover {
-    background-color: #f5f5f5;
-}
-
-.navbar ul li:hover > ul {
-    display: block;
-}
-
-.mobile-nav-toggle {
-    display: none;
-}
-
-@media (max-width: 768px) {
-    .navbar ul {
-        display: none;
-        float: none;
-        clear: both;
-    }
-
-    .navbar ul li {
-        float: none;
-    }
-
-    .navbar ul ul {
-        position: static;
-        display: none;
-    }
-
-    .navbar ul ul li {
-        width: 100%;
-    }
-
-    .navbar .mobile-nav-toggle {
-        display: block;
-        cursor: pointer;
-        padding: 10px 15px;
-    }
-    
-}
-
-</style>
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -145,53 +56,44 @@
 
   <!-- ======= Header ======= -->
   <header id="header" class="d-flex align-items-center">
-  <div class="container d-flex align-items-center">
-    <div class="row justify-content-between w-100">
-      <div class="col-auto">
-        <div class="d-flex align-items-center">
-          <a href="index.html" class="logo me-auto"><img src="image/logopadamukti.svg" alt="" style="width: 100px; height: 100px;"></a>
-          <h5>
-            <a href="#" class="text-dark">
-              <strong>Desa Padamukti</strong><br/>
-              Kabupaten Bandung
-            </a>
-          </h5>
-        </div>
-      </div>
-      <div class="col-auto">
-        <nav id="navbar" class="navbar">
-          <ul>
-            <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-            <li class="dropdown"><a href="#"><span>Profil Desa</span> <i class="bi bi-chevron-down"></i></a>
-              <ul>
-                <li><a href="#">Tentang Desa</a></li>
-                <li><a href="#">Visi dan Misi</a></li>
-                <li><a href="#">Sejarah</a></li>
-                <li><a href="#">Geografis</a></li>
-                <li><a href="#">Demografis </a></li>
-              </ul>
-            </li>
-            <li class="dropdown"><a href="#"><span>Pemerintahan</span> <i class="bi bi-chevron-down"></i></a>
-              <ul>
-                <li><a href="#">Struktur Desa</a></li>
-                <li><a href="#">Perangkat Desa</a></li>
-                <li><a href="#">Lembaga Desa</a></li>
-              </ul>
-            </li>
-            <li class="dropdown"><a href="#"><span>Informasi Publik</span> <i class="bi bi-chevron-down"></i></a>
-              <ul>
-                <li><a href="/public/berita">Berita Desa</a></li>
-                <li><a href="#">Pengumuman Desa</a></li> 
-              </ul>
-            </li>
-          </ul>
-          <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav><!-- .navbar -->
-      </div>
-    </div>
-  </div>
-</header><!-- End Header -->
+    <div class="container d-flex align-items-center">
 
+      <h1 class="logo me-auto"><a href="index.html">Desa Padamukti</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Dashboard</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+          <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
+          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
   <section id="hero">
@@ -205,7 +107,9 @@
         <div class="carousel-item active" style="background-image: url(green/assets/img/slide/slide-1.jpg)">
           <div class="carousel-container">
             <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">Selamat Datang<span> di Website Desa Padamukti</span></h2>
+              <h2 class="animate__animated animate__fadeInDown">Welcome to <span>village Padamukti</span></h2>
+              <p class="animate__animated animate__fadeInUp">Mari bergabung dan menjelajahi keunikan Desa Padamukti bersama kami. Jadikanlah kunjungan Anda di website ini sebagai awal perjalanan yang tak terlupakan di desa kami.</p>
+              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
             </div>
           </div>
         </div>
@@ -214,9 +118,9 @@
         <div class="carousel-item" style="background-image: url(green/assets/img/slide/slide-2.jpg)">
           <div class="carousel-container">
             <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">Tentang Desa</h2>
-              <p class="animate__animated animate__fadeInUp">Beberapa informasi tentang Desa Padamukti</p>
-              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Lihat</a>
+              <h2 class="animate__animated animate__fadeInDown">Slide k2</h2>
+              <p class="animate__animated animate__fadeInUp">Deskripsi yang mau di sampaikan</p>
+              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
             </div>
           </div>
         </div>
@@ -225,9 +129,10 @@
         <div class="carousel-item" style="background-image: url(green/assets/img/slide/slide-3.jpg)">
           <div class="carousel-container">
             <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">Berita Desa</h2>
-              <p class="animate__animated animate__fadeInUp">Tinjau berita terbaru dari Desa Padamukti</p>
-              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Lihat Berita</a>
+              <h2 class="animate__animated animate__fadeInDown">Slide 3</h2>
+              <p class="animate__animated animate__fadeInUp"> Des Slide 3</p>
+              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+            </div>
           </div>
         </div>
 
@@ -244,70 +149,70 @@
     </div>
   </section><!-- End Hero -->
 
- 
+  <main id="main">
+
+    <!-- ======= Featured Services Section ======= -->
+    <section id="featured-services" class="featured-services section-bg">
+      <div class="container">
+
+        <div class="row no-gutters">
+          <div class="col-lg-4 col-md-6">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-laptop"></i></div>
+              <h4 class="title"><a href="">Point A</a></h4>
+              <p class="description">Text A</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-briefcase"></i></div>
+              <h4 class="title"><a href="">Point B</a></h4>
+              <p class="description">Text B</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-calendar4-week"></i></div>
+              <h4 class="title"><a href="">Point C</a></h4>
+              <p class="description">Text C</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Featured Services Section -->
 
     <!-- ======= About Us Section ======= -->
     <section id="about" class="about">
       <div class="container">
 
         <div class="section-title">
-        <a href="your-url" class="text-decoration-none">
-          <h2 class="text-dark">Berita Desa</h2>
-        </a>
-          <div class="row mb-2">
-    <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static text-start">
-          <strong class="d-inline-block mb-2 text-primary-emphasis">World</strong>
-          <h3 class="mb-0">Featured post</h3>
-          <div class="mb-1 text-body-secondary">Nov 12</div>
-          <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
-          Lanjutkan Membaca
-            <svg class="bi"><use xlink:href="#chevron-right"/></svg>
-          </a>
+          <h2>About Us</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
-        <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></svg>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static text-start">
-          <strong class="d-inline-block mb-2 text-success-emphasis">Design</strong>
-          <h3 class="mb-0">Post title</h3>
-          <div class="mb-1 text-body-secondary">Nov 11</div>
-          <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
-            Lanjutkan Membaca
-            <svg class="bi"><use xlink:href="#chevron-right"/></svg>
-          </a>
-        </div>
-        <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></svg>
-        </div>
-      </div>
-    </div>
-  </div>
-  <<div class="row">
-  <div class="col-lg-6 order-1 order-lg-2">
-    <img src="green/assets/img/about.jpg" class="img-fluid w-80" alt="">
-  </div>
-  <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content text-start">
-    <h3>Tentang Desa</h3>
-    <p>
-      Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-      culpa qui officia deserunt mollit anim id est laborum
-    </p>
-    <button type="button" class="btn btn-success icon-link gap-1 icon-link-hover mt-3">
-      Lanjutkan Membaca
-      <svg class="bi"><use xlink:href="#chevron-right"/></svg>
-    </button>
-  </div>
-</div>
 
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2">
+            <img src="green/assets/img/about.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+            <p class="fst-italic">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua.
+            </p>
+            <ul>
+              <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+              <li><i class="bi bi-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+              <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+            </ul>
+            <p>
+              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+              culpa qui officia deserunt mollit anim id est laborum
+            </p>
+          </div>
+        </div>
 
       </div>
     </section><!-- End About Us Section -->
@@ -722,65 +627,39 @@
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
-  <div class="container">
+      <div class="container">
 
-    <div class="section-title">
-      <h2>Pengumuman Desa</h2>
-      <div class="card text-start mb-3">
-        <div class="card-body">
-        <h5 class="card-title">
-            <a href="your-route-url" class="text-decoration-none">Special title treatment</a>
-          </h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>Mau di isi apa</p>
         </div>
-      </div>
-      <div class="card text-start mb-3">
-        <div class="card-body">
-        <h5 class="card-title">
-            <a href="your-route-url" class="text-decoration-none">Special title treatment</a>
-          </h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        </div>
-      </div>
-      <div class="card text-start mb-3">
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="your-route-url" class="text-decoration-none">Special title treatment</a>
-          </h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        </div>
-      </div>
-    </div>
 
-    <div class="row justify-content-center">
-      <div class="col-lg-5 d-flex align-items-stretch mt-5">
-        <div class="info w-100">
-          <div class="address">
-            <i class="bi bi-geo-alt"></i>
-            <h4>Location:</h4>
-            <p>Padamukti</p>
+        <div class="row">
+
+          <div class="col-lg-5 d-flex align-items-stretch">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>Padamukti </p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>Padamukti@Desapadamukti.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Call:</h4>
+                <p>+62 888 888</p>
+              </div>
+
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9599.715435800841!2d107.75721164857325!3d-7.012227205968178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68c6aee51c0af3%3A0xae7bc5e161ed42f9!2sPadamukti%2C%20Solokanjreruk%2C%20Bandung%20Regency%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1718207269561!5m2!1sen!2sid" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+            </div>
+
           </div>
-
-          <div class="email">
-            <i class="bi bi-envelope"></i>
-            <h4>Email:</h4>
-            <p>Padamukti@Desapadamukti.com</p>
-          </div>
-
-          <div class="phone">
-            <i class="bi bi-phone"></i>
-            <h4>Call:</h4>
-            <p>+62 888 888</p>
-          </div>
-
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9599.715435800841!2d107.75721164857325!3d-7.012227205968178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68c6aee51c0af3%3A0xae7bc5e161ed42f9!2sPadamukti%2C%20Solokanjreruk%2C%20Bandung%20Regency%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1718207269561!5m2!1sen!2sid" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
 
           {{-- <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
@@ -822,6 +701,7 @@
   <footer id="footer">
     <div class="container">
       <h3>Desa Padamukti</h3>
+      <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
       <div class="social-links">
         <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
         <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
