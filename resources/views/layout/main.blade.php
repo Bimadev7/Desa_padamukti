@@ -66,7 +66,7 @@
       <div class="row justify-content-between w-100">
         <div class="col-auto">
           <div class="d-flex align-items-center">
-            <a href="index.html" class="logo me-auto"><img src="image/logopadamukti.svg" alt="" style="width: 100px; height: 100px;"></a>
+            <a href="index.html" class="logo me-auto"><img src="/public/image/logopadamukti.svg" alt="" style="width: 100px; height: 100px;"></a>
             <h5>
               <a href="#" class="text-dark">
                 <strong>Desa Padamukti</strong><br/>
