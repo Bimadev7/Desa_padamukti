@@ -11,8 +11,11 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DasboardPublicController;
 
-Route::get('/public/berita', [DasboardPublicController::class, 'index']);
 
+Route::get('/public/tentang', [DasboardPublicController::class, 'tentang']);
+
+Route::get('/public/berita', [DasboardPublicController::class, 'index']);
+Route::get('/public/sejarah', [DasboardPublicController::class, 'index']);
 // Route Public createn 
 Route::get('/backoffice/users', [UserController::class, 'index'])->name('backoffice.user.index');
 Route::prefix('backoffice')->group(function () {
@@ -23,7 +26,33 @@ Route::prefix('backoffice')->group(function () {
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/public/tentang', function () {
+    return view('public.tentang');
+})->name('tentang');
+Route::get('/public/visimisi', function () {
+    return view('public.visimisi');
+})->name('visimisi');
+Route::get('/public/geografis', function () {
+    return view('public.geografis');
+})->name('geografis');
+Route::get('/public/sejarah', function () {
+    return view('public.sejarah');
+})->name('sejarah');
+Route::get('/public/struktur', function () {
+    return view('public.struktur');
+})->name('struktur');
+Route::get('/public/perangkat', function () {
+    return view('public.perangkat');
+})->name('perangkat');
+Route::get('/public/lembaga', function () {
+    return view('public.lembaga');
+})->name('lembaga');
+Route::get('/public/pengumuman', function () {
+    return view('public.pengumuman');
+})->name('pengumuman');
+Route::get('/public/lembaga1', function () {
+    return view('public.lembaga1');
+})->name('lembaga1');
 // Menampilkan home
 Route::get('/', function () {
     return view('home');

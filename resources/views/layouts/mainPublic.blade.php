@@ -81,24 +81,24 @@
               <li><a class="nav-link scrollto active" href="/">Home</a></li>
               <li class="dropdown"><a href="#"><span>Profil Desa</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
-                  <li><a href="/tentang">Tentang Desa</a></li>
-                  <li><a href="/visimisi">Visi dan Misi</a></li>
-                  <li><a href="/sejarah">Sejarah</a></li>
-                  <li><a href="/geografis">Geografis</a></li>
-                  <li><a href="/demografi">Demografi </a></li>
+                  <li><a href="/public/tentang">Tentang Desa</a></li>
+                  <li><a href="/public/visimisi">Visi dan Misi</a></li>
+                  <li><a href="/public/sejarah">Sejarah</a></li>
+                  <li><a href="/public/geografis">Geografis</a></li>
+                  <li><a href="/public/geografis">Demografi </a></li>
                 </ul>
               </li>
               <li class="dropdown"><a href="#"><span>Pemerintahan</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
-                  <li><a href="/struktur">Struktur Desa</a></li>
-                  <li><a href="/perangkat">Perangkat Desa</a></li>
-                  <li><a href="/lembaga">Lembaga Desa</a></li>
+                  <li><a href="/public/struktur">Struktur Desa</a></li>
+                  <li><a href="/public/perangkat">Perangkat Desa</a></li>
+                  <li><a href="/public/lembaga">Lembaga Desa</a></li>
                 </ul>
               </li>
               <li class="dropdown"><a href="#"><span>Informasi Publik</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
-                  <li><a href="/berita">Berita Desa</a></li>
-                  <li><a href="/pengumuman">Pengumuman Desa</a></li> 
+                  <li><a href="/public/berita">Berita Desa</a></li>
+                  <li><a href="/public/pengumuman">Pengumuman Desa</a></li> 
                 </ul>
               </li>
             </ul>

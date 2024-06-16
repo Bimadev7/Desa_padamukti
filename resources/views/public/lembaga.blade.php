@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layouts.mainPublic')
 
 @section('title', 'Lembaga Desa')
 
@@ -27,17 +27,17 @@
         <tbody>
             <tr>
                 <th scope="row">1</th>
-                <td>Mark</td>
+                <td><a href="/lembaga1">Mark</a></td>
                 <td>Otto</td>
             </tr>
             <tr>
                 <th scope="row">2</th>
-                <td>Jacob</td>
+                <td><a href="/lembaga1">Jacob</a></td>
                 <td>Thornton</td>
             </tr>
             <tr>
                 <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
+                <td colspan="2"><a href="/lembaga1">Larry the Bird</a></td>
             </tr>
         </tbody>
     </table>

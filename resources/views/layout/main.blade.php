@@ -83,7 +83,7 @@
                 <ul>
                   <li><a href="/tentang">Tentang Desa</a></li>
                   <li><a href="/visimisi">Visi dan Misi</a></li>
-                  <li><a href="/sejarah">Sejarah</a></li>
+                  <li><a href="/public/sejarah">Sejarah</a></li>
                   <li><a href="/geografis">Geografis</a></li>
                   <li><a href="/demografi">Demografi </a></li>
                 </ul>

@@ -1,9 +1,8 @@
-@extends('layout.main')
+@extends('layouts.mainPublic')
 
 @section('title', 'Berita Desa')
 
 @section('content')
-<!-- Breadcrumbs -->
 <section id="breadcrumbs" class="breadcrumbs">
     <div class="container">
         <div class="d-flex justify-content-between align-items-center">
@@ -79,18 +78,34 @@
             <!-- About and Archives Section -->
             <div class="position-sticky" style="top: 2rem;">
                 <div class="p-4 mb-3 bg-light rounded">
-                    <h4 class="fst-italic">Tentang</h4>
-                    <p class="mb-0">Sesuaikan bagian ini untuk memberi informasi kepada pengunjung tentang publikasi Anda, penulis, konten, atau hal lainnya.</p>
+                    <h4 class="fst">Categories</h4>
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="#category1">Technology</a></li>
+                        <li><a href="#category2">Health</a></li>
+                        <li><a href="#category3">Business</a></li>
+                        <li><a href="#category4">Travel</a></li>
+                        <li><a href="#category5">Sports</a></li>
+                        <li><a href="#category6">Entertainment</a></li>
+                    </ul>
                 </div>
-                <div class="p-4">
-                    <h4 class="fst-italic">Arsip</h4>
-                    <ol class="list-unstyled mb-0">
-                        <li><a href="#">Maret 2024</a></li>
-                        <li><a href="#">Februari 2024</a></li>
-                        <li><a href="#">Januari 2024</a></li>
-                        <!-- Add more archive links as needed -->
-                    </ol>
-                </div>
+                <div class="p-4 mb-3 bg-light rounded">
+    <h4 class="fst">Berita Terakhir</h4>
+    <ol class="list-unstyled mb-0">
+        <li>
+            <a href="#">Berita 1</a>
+            <div class="tanggal small">16 Juni 2024</div>
+        </li>
+        <li>
+            <a href="#">Berita 2</a>
+            <div class="tanggal small">15 Juni 2024</div>
+        </li>
+        <li>
+            <a href="#">Berita 3</a>
+            <div class="tanggal small">14 Juni 2024</div>
+        </li>
+        <!-- Add more archive links as needed -->
+    </ol>
+</div>
             </div>
         </div>
     </div>
