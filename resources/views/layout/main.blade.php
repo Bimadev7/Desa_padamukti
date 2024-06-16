@@ -32,15 +32,15 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="green/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="green/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="green/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="green/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="green/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="green/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="{{ asset("green/assets/vendor/animate.css/animate.min.css") }}" rel="stylesheet">
+  <link href="{{ asset("green/assets/vendor/bootstrap/css/bootstrap.min.css")}}" rel="stylesheet">
+  <link href="{{asset("green/assets/vendor/bootstrap-icons/bootstrap-icons.css")}}" rel="stylesheet">
+  <link href="{{asset("green/assets/vendor/boxicons/css/boxicons.min.css")}}" rel="stylesheet">
+  <link href="{{asset("green/assets/vendor/glightbox/css/glightbox.min.css")}}" rel="stylesheet">
+  <link href="{{asset("green/assets/vendor/swiper/swiper-bundle.min.css")}}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="green/assets/css/style.css" rel="stylesheet">
+  <link href="{{asset("green/assets/css/style.css")}}" rel="stylesheet">
 </head>
 
 <body>
@@ -66,7 +66,7 @@
       <div class="row justify-content-between w-100">
         <div class="col-auto">
           <div class="d-flex align-items-center">
-            <a href="index.html" class="logo me-auto"><img src="image/logopadamukti.svg" alt="" style="width: 100px; height: 100px;"></a>
+            <a href="index.html" class="logo me-auto"><img src="/public/image/logopadamukti.svg" alt="" style="width: 100px; height: 100px;"></a>
             <h5>
               <a href="#" class="text-dark">
                 <strong>Desa Padamukti</strong><br/>
