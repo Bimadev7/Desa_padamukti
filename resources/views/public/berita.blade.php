@@ -36,7 +36,8 @@
                             </a>
                         </div>
                         <div class="col-auto d-none d-lg-block">
-                            <img src="{{ asset('images/' . $article->image) }}" alt="{{ $article->judul }}" width="200" height="250">
+                            <img src="{{ asset($article->gambar) }}" alt="{{ $article->judul }}" width="200" height="250">
+                            {{-- <img src="{{ asset('images/' . $article->image) }}" alt="{{ $article->judul }}" width="200" height="250"> --}}
                         </div>
                     </div>
                 </div>
