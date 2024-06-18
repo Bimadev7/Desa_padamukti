@@ -12,6 +12,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DasboardPublicController;
 
 Route::get('/public/berita', [DasboardPublicController::class, 'index']);
+Route::get('/public/berita/{id}', [DasboardPublicController::class, 'detailBerita'])->name('berita.detailBerita');
 
 // Route Public createn 
 Route::get('/backoffice/users', [UserController::class, 'index'])->name('backoffice.user.index');

@@ -30,7 +30,7 @@ class DasboardPublicController extends Controller
     {
         $berita = Berita::findOrFail($id);
         
-        return view('public.berita1', ['berita' => $berita]);
+        return view('public.detail_berita', ['berita' => $berita]);
     }
 
     public function main()
