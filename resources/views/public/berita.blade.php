@@ -21,46 +21,52 @@
     <div class="row">
         <div class="col-md-8">
             <!-- Cards Section -->
+            @foreach($berita as $item)
             <div class="row mb-2">
-                @foreach($Berita as $article)
                 <div class="col-md-12 ps-3">
                     <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                         <div class="col p-4 d-flex flex-column position-static text-start">
-                            <h3 class="mb-2">{{ $article->judul }}</h3>
-                            <div class="mb-1 text-body-secondary">{{ $article->date }}</div>
-                            <p class="card-text mb-3">{{ $article->deskripsi_singkat }}</p>
-                            <a href="{{ route('berita.detailBerita', ['id' => $article->id]) }}" class="icon-link gap-1 icon-link-hover stretched-link">Lanjutkan Membaca
+                            <h3 class="mb-2">{{ $item->judul }}</h3>
+                            <div class="mb-1 text-body-secondary">{{ $item->created_at->format('d F Y') }}</div>
+                            <p class="card-text mb-3">{{ $item->deskripsi_singkat }}</p>
+                            <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">Lanjutkan Membaca
                                 <svg class="bi">
                                     <use xlink:href="#chevron-right"></use>
                                 </svg>
                             </a>
                         </div>
                         <div class="col-auto d-none d-lg-block">
-                            <img src="{{ asset($article->gambar) }}" alt="{{ $article->judul }}" width="200" height="250">
-                            {{-- <img src="{{ asset('images/' . $article->image) }}" alt="{{ $article->judul }}" width="200" height="250"> --}}
+                            {{-- <img src="{{ asset($item->image) }}" alt="Berita" width="200" height="250"> --}}
+                            <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="200" height="250">
+
                         </div>
                     </div>
                 </div>
-                @endforeach
-            </div>
+                </div>
+            @endforeach
         </div>
 
         <div class="col-md-4">
-            <!-- About and Archives Section -->
+            <!-- Sidebar Section -->
             <div class="position-sticky" style="top: 2rem;">
+                <!-- Categories Section -->
                 <div class="p-4 mb-3 bg-light rounded">
-                    <h4 class="fst-italic">Tentang</h4>
-                    <p class="mb-0">Sesuaikan bagian ini untuk memberi informasi kepada pengunjung tentang publikasi Anda, penulis, konten, atau hal lainnya.</p>
+                    <h4 class="fst-italic">Kategori</h4>
+                    <ul class="mb-0">
+                        <li><a href="#">Kategori 1</a></li>
+                        <li><a href="#">Kategori 2</a></li>
+                        <li><a href="#">Kategori 3</a></li>
+                        <li><a href="#">Kategori 4</a></li>
+                        <li><a href="#">Kategori 5</a></li>
+                    </ul>
                 </div>
                 <div class="p-4">
                     <h4 class="fst-italic">Arsip</h4>
                     <ol class="list-unstyled mb-0">
-                        {{-- <p class="card-text mb-3">{{ $article->created_at }}</p> --}}
-
-                        <li><a href="#">Maret 2024</a></li>
-                        <li><a href="#">Februari 2024</a></li>
-                        <li><a href="#">Januari 2024</a></li>
-                        <!-- Add more archive links as needed -->
+                        <!-- Anda bisa menambahkan logika untuk menampilkan arsip berdasarkan bulan/tahun di sini -->
+                        @foreach($berita as $item)
+                        <li><a href="#">{{ $item->created_at->format('F Y') }}</a></li>
+                        @endforeach
                     </ol>
                 </div>
             </div>
