@@ -17,13 +17,19 @@ class DasboardPublicController extends Controller
         // return view('public.berita'); 
     }
 
+    public function indexdes()
+    {
+        $berita = Berita::all();
+     
+        return view('home', ['home' => $berita]);
+        // return view('public.berita'); 
+    }
 
     public function index()
     {
         $berita = Berita::all();
      
         return view('public.berita', ['berita' => $berita]);
-        // return view('public.berita'); 
     }
 
     public function detailBerita($id)
