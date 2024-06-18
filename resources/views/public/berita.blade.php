@@ -29,7 +29,7 @@
                             <h3 class="mb-2">{{ $item->judul }}</h3>
                             <div class="mb-1 text-body-secondary">{{ $item->created_at->format('d F Y') }}</div>
                             <p class="card-text mb-3">{{ $item->deskripsi_singkat }}</p>
-                            <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">Lanjutkan Membaca
+                            <a href="{{ route('berita.detailBerita', $item->id) }}" class="icon-link gap-1 icon-link-hover stretched-link">Lanjutkan Membaca
                                 <svg class="bi">
                                     <use xlink:href="#chevron-right"></use>
                                 </svg>
