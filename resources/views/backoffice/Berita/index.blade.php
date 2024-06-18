@@ -36,9 +36,9 @@
                     <tr>
                         <th>No</th>
                         <th>Judul</th>
-                        <th>Deskrip Singkat</th>
+                        <th>caption_capture</th>
                         <th>Deskripsi</th>
-                        <th>Image</th>
+                        {{-- <th>Image</th> --}}
                         <th width="200px">Action</th>
                     </tr>
                 </thead>
@@ -69,6 +69,10 @@
         <div class="form-group">
             <label for="deskripsi_singkat">Deskripsi Singkat</label>
             <input type="text" name="deskripsi_singkat" class="form-control" id="deskripsi_singkat" required>
+        </div>
+         <div class="form-group">
+            <label for="caption_capture">Deskripsi Capture</label>
+            <input type="text" name="caption_capture" class="form-control" id="caption_capture" required>
         </div>
         <div class="form-group">
             <label for="deskripsi">Deskripsi</label>
@@ -101,9 +105,15 @@ $(function () {
         columns: [
             {data: 'id', name: 'id'},
             {data: 'judul', name: 'judul'},
-            {data: 'deskripsi_singkat', name: 'deskripsi_singkat'},
+            {data: 'caption_capture', name: 'caption_capture'},
             {data: 'deskripsi', name: 'deskripsi'},
-            {data: 'image', name: 'image'},
+            {{-- {data: 'image', name: 'image'}, --}}
+            {{-- {data: 'image', name: 'image',
+                    render: function(data, type, full, meta) {
+                        return '<img src="/images/' + data + '" style="max-width: 100px">';
+                    }
+                }, --}}
+
             {
                 data: 'id',
                 name: 'action',
