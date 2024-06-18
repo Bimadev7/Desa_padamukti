@@ -21,4 +21,9 @@ class Berita extends Model
         'deskripsi',
         'category_id'
     ];
+
+    public function kategori()
+    {
+        return $this->belongsTo(KategoriBerita::class);
+    }
 }

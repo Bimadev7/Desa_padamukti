@@ -24,9 +24,10 @@ Route::prefix('backoffice')->group(function () {
 
 
 // Menampilkan home
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/', function () {
+//     return view('home');
+// });
+Route::get('/', [DasboardPublicController::class, 'indexdes']);
 
 // Route untuk Berita Barang Simpen data
 Route::post('/berita', [BeritaController::class, 'store'])->name('berita.store');

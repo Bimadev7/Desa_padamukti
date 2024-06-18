@@ -15,4 +15,8 @@ class KategoriBerita extends Model
         'id',
         'nama_kategori',
     ];
+
+    public function berita(){
+        return $this->hasMany(Berita::class);
+    }
 }
