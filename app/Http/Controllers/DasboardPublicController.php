@@ -9,12 +9,34 @@ class DasboardPublicController extends Controller
 {
    
 
+    public function databerita()
+    {
+        $berita = Berita::all();
+     
+        return view('/', ['/' => $berita]);
+        // return view('public.berita'); 
+    }
+
+    public function indexdes()
+    {
+        $berita = Berita::all();
+     
+        return view('home', ['home' => $berita]);
+        // return view('public.berita'); 
+    }
+
     public function index()
     {
         $berita = Berita::all();
      
-        return view('public.berita', ['Berita' => $berita]);
-        // return view('public.berita'); 
+        return view('public.berita', ['berita' => $berita]);
+    }
+
+    public function detailBerita($id)
+    {
+        $berita = Berita::findOrFail($id);
+        
+        return view('public.berita1', ['berita' => $berita]);
     }
 
     public function main()
@@ -25,4 +47,9 @@ class DasboardPublicController extends Controller
 
     }
 
+    public function tentang()
+    {
+     
+        return view('public.tentang');
+    }
 }

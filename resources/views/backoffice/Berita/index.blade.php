@@ -110,9 +110,9 @@ $(function () {
                 orderable: false,
                 searchable: false,
                 render: function (data) {
-                    return '<a href="/backoffice/user/' + data + '" class="btn btn-info btn-sm">Show</a>' +
-                           '<a href="/backoffice/user/' + data + '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' +
-                           '<form action="/backoffice/user/' + data + '" method="POST" style="display:inline">' +
+                    return '<a href="/backoffice/berita/' + data + '" class="btn btn-info btn-sm">Show</a>' +
+                           '<a href="/backoffice/berita/' + data + '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' +
+                           '<form action="/backoffice/berita/' + data + '" method="POST" style="display:inline">' +
                                '@csrf' +
                                '@method("DELETE")' +
                                '<button type="submit" class="btn btn-danger btn-sm mx-1">Delete</button>' +
