@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DasboardPublicController;
 
+// Detail berita
 Route::get('/public/berita', [DasboardPublicController::class, 'index']);
 Route::get('/public/berita/{id}', [DasboardPublicController::class, 'detailBerita'])->name('berita.detailBerita');
 
