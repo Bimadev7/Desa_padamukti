@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Berita;
+use App\Models\pengumuman;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -11,12 +12,17 @@ class DasboardPublicController extends Controller
     public function indexdes()
     {
         $berita = Berita::latest()->take(2)->get();
+        $pengumuman = pengumuman::latest()->take(3)->get();
 
         foreach ($berita as $item) {
             $item->deskripsi = Str::limit($item->deskripsi, 100, '...');
         }
-     
-        return view('home', ['home' => $berita]);
+        
+        foreach ($pengumuman as $item) {
+            $item->deskripsi = Str::limit($item->deskripsi, 100, '...');
+        }
+        
+        return view('home', ['berita' => $berita], ['pengumuman' => $pengumuman]);
         // return view('public.berita'); 
     }
 

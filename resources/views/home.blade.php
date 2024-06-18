@@ -53,7 +53,7 @@
 
         {{-- berita --}}
         <div class="row mb-2">
-          @foreach($home as $item)
+          @foreach($berita as $item)
           <div class="col-md-6">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
               <div class="col p-4 d-flex flex-column position-static text-start">
@@ -101,30 +101,16 @@
     <div class="container">
       <div class="section-title">
         <h2>Pengumuman Desa</h2>
+        @foreach($pengumuman as $item)
         <div class="card text-start mb-3">
           <div class="card-body">
             <h5 class="card-title">
-              <a href="your-route-url" class="text-decoration-none">Special title treatment</a>
+              <a href="your-route-url" class="text-decoration-none">{{ $item->judul }}</a>
             </h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <p class="card-text">{{ $item->deskripsi }}</p>
           </div>
         </div>
-        <div class="card text-start mb-3">
-          <div class="card-body">
-            <h5 class="card-title">
-              <a href="your-route-url" class="text-decoration-none">Special title treatment</a>
-            </h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          </div>
-        </div>
-        <div class="card text-start mb-3">
-          <div class="card-body">
-            <h5 class="card-title">
-              <a href="your-route-url" class="text-decoration-none">Special title treatment</a>
-            </h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          </div>
-        </div>
+        @endforeach
       </div>
       <div class="row justify-content-center">
         <div class="col-lg-5 d-flex align-items-stretch mt-5">
