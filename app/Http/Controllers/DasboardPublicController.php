@@ -9,13 +9,7 @@ class DasboardPublicController extends Controller
 {
    
 
-    public function databerita()
-    {
-        $berita = Berita::all();
-     
-        return view('/', ['/' => $berita]);
-        // return view('public.berita'); 
-    }
+   
 
     public function indexdes()
     {
