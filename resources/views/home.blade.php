@@ -83,12 +83,12 @@
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content text-start">
             <h3>Tentang Desa</h3>
             <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              Desa Padamukti, dengan segala potensi alam dan budayanya, merupakan contoh desa yang berkembang dengan tetap menjaga kearifan lokal dan tradisi. Kehidupan yang harmonis, alam yang indah, serta nilai-nilai kebersamaan menjadikan Desa Padamukti sebagai tempat yang nyaman untuk tinggal dan berkunjung. Potensi besar yang dimiliki desa ini perlu terus dikembangkan dengan dukungan semua pihak, sehingga kesejahteraan masyarakatnya dapat terus meningkat.
             </p>
-            <button type="button" class="btn btn-success icon-link gap-1 icon-link-hover mt-3">
+            <a href="{{ route('tentang-desa') }}" class="btn btn-success icon-link gap-1 icon-link-hover mt-3">
               Lanjutkan Membaca
               <svg class="bi"><use xlink:href="#chevron-right"/></svg>
-            </button>
+            </a>            
           </div>
         </div>
       </div>

@@ -102,4 +102,7 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 
+    Route::get('/public/tentang-desa', function () {
+        return view('public.tentang');
+    })->name('tentang-desa');
 ?>
