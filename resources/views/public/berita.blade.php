@@ -60,12 +60,11 @@
                         <li><a href="#">Kategori 5</a></li>
                     </ul>
                 </div>
-                <div class="p-4">
-                    <h4 class="fst-italic">Arsip</h4>
+               <div class="p-4">
+                    <h4 class="fst-italic">Berita Terakhir</h4>
                     <ol class="list-unstyled mb-0">
-                        <!-- Anda bisa menambahkan logika untuk menampilkan arsip berdasarkan bulan/tahun di sini -->
                         @foreach($berita as $item)
-                        <li><a href="#">{{ $item->created_at->format('F Y') }}</a></li>
+                        <li><a href="#">{{ $item->judul }}</a></li>
                         @endforeach
                     </ol>
                 </div>
