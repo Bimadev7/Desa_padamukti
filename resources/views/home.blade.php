@@ -1,4 +1,4 @@
-@extends('layout_public.main')
+@extends('layouts.mainPublic')
 
 @section('title', 'Welcome')
 
