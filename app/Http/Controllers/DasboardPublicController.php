@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 use App\Models\Berita;
-
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class DasboardPublicController extends Controller
 {
    
-
-   
-
     public function indexdes()
     {
-        $berita = Berita::all();
+        $berita = Berita::latest()->take(2)->get();
+
+        foreach ($berita as $item) {
+            $item->deskripsi = Str::limit($item->deskripsi, 100, '...');
+        }
      
         return view('home', ['home' => $berita]);
         // return view('public.berita'); 
