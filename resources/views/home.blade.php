@@ -61,7 +61,7 @@
                 <div class="mb-1 text-body-secondary">Nov 12</div>
                 <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
                 <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
-                  Lanjutkan Membaca
+                  Lanjutkan Membaca2
                   <svg class="bi"><use xlink:href="#chevron-right"/></svg>
                 </a>
               </div>

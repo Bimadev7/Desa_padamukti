@@ -10,8 +10,12 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DasboardPublicController;
+use App\Http\Controllers\PengumumanController;
+use App\Models\Berita;
 
 
+
+// Route::get('/home', [DasboardPublicController::class, 'indexdes']);
 
 
 Route::get('/public/tentang', [DasboardPublicController::class, 'tentang']);
@@ -59,10 +63,13 @@ Route::get('/public/lembaga1', function () {
 })->name('lembaga1');
 // Menampilkan home
 Route::get('/', function () {
+    $berita = Berita::all();
     return view('home');
 });
 
 
+// Route untuk Berita pengumuman Simpen data
+Route::post('/pengumuman', [PengumumanController::class, 'store'])->name('pengumuman.store');
 
 
 // Route untuk Berita Barang Simpen data
@@ -88,6 +95,22 @@ Route::middleware(['isAdmin'])->group(function () {
         Route::put('/{id}', [UserController::class, 'update'])->name('user.update');
     });
 
+    Route::get('/backoffice/pengumuman/{id}/edit', [PengumumanController::class, 'edit'])->name('berita.edit');
+    Route::put('/{id}', [PengumumanController::class, 'update'])->name('pengumuman.update');
+
+      // Route Pengumuman
+      Route::prefix('backoffice/pengumuman')->group(function () {
+        Route::get('/', [PengumumanController::class, 'index'])->name('backoffice.pengumuman.index');
+        Route::post('/create', [PengumumanController::class, 'create'])->name('backoffice.pengumuman.create');
+        Route::get('/edit', [PengumumanController::class, 'edit'])->name('backoffice.pengumuman.edit');
+        Route::put('/{id}', [PengumumanController::class, 'update'])->name('pengumuman.update');
+    });
+
+    // Datatable
+    Route::get('/', [PengumumanController::class, 'index'])->name('pengumuman.index');
+
+
+    
 
     // Route Berita
     Route::prefix('backoffice/berita')->group(function () {

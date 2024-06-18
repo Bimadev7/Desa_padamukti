@@ -68,28 +68,7 @@ class BeritaController extends Controller
 
 
     
-    // public function store(Request $request)
-    // {
-    //     $request->validate([
-    //         'judul' => 'required|string|max:255',
-    //         'deskripsi_singkat' => 'required|string',
-    //         'deskripsi' => 'required|string',
-    //         'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-    //     ]);
-
-    //     $imageName = time().'.'.$request->image->extension();
-    //     $request->image->move(public_path('images'), $imageName);
-
-    //     Berita::create([
-    //         'judul' => $request->judul,
-    //         'deskripsi_singkat' => $request->deskripsi_singkat,
-    //         'deskripsi' => $request->deskripsi,
-    //         'image' => $imageName,
-    //     ]);
-
-    //     return redirect()->route('backoffice.berita.index')
-    //         ->with(['alert-type' => 'success', 'message' => 'Berita berhasil ditambahkan.']);
-    // }
+   
 
     
 
@@ -98,7 +77,8 @@ class BeritaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('backoffice.berita.show');
+        
     }
 
     /**
