@@ -21,7 +21,7 @@ class BeritaFactory extends Factory
     {
         return [
             'judul' => $this->faker->sentence,
-            'images' => 'images/default-berita.jpg', // assuming you have a default image or you can generate fake images
+            'image' => 'images/default-berita.jpg', // assuming you have a default image or you can generate fake images
             'caption_capture' => $this->faker->sentence,
             'deskripsi_singkat' => $this->faker->paragraph,
             'deskripsi' => $this->faker->paragraphs(3, true),
