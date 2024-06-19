@@ -53,7 +53,7 @@
 
         {{-- berita --}}
         <div class="row mb-2">
-          @foreach($home as $item)
+          @foreach($berita as $item)
           <div class="col-md-6">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
               <div class="col p-4 d-flex flex-column position-static text-start">
@@ -83,12 +83,12 @@
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content text-start">
             <h3>Tentang Desa</h3>
             <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              Desa Padamukti, dengan segala potensi alam dan budayanya, merupakan contoh desa yang berkembang dengan tetap menjaga kearifan lokal dan tradisi. Kehidupan yang harmonis, alam yang indah, serta nilai-nilai kebersamaan menjadikan Desa Padamukti sebagai tempat yang nyaman untuk tinggal dan berkunjung. Potensi besar yang dimiliki desa ini perlu terus dikembangkan dengan dukungan semua pihak, sehingga kesejahteraan masyarakatnya dapat terus meningkat.
             </p>
-            <button type="button" class="btn btn-success icon-link gap-1 icon-link-hover mt-3">
+            <a href="{{ route('tentang-desa') }}" class="btn btn-success icon-link gap-1 icon-link-hover mt-3">
               Lanjutkan Membaca
               <svg class="bi"><use xlink:href="#chevron-right"/></svg>
-            </button>
+            </a>            
           </div>
         </div>
       </div>
@@ -101,30 +101,16 @@
     <div class="container">
       <div class="section-title">
         <h2>Pengumuman Desa</h2>
+        @foreach($pengumuman as $item)
         <div class="card text-start mb-3">
           <div class="card-body">
             <h5 class="card-title">
-              <a href="your-route-url" class="text-decoration-none">Special title treatment</a>
+              <a href="your-route-url" class="text-decoration-none">{{ $item->judul }}</a>
             </h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <p class="card-text">{{ $item->deskripsi }}</p>
           </div>
         </div>
-        <div class="card text-start mb-3">
-          <div class="card-body">
-            <h5 class="card-title">
-              <a href="your-route-url" class="text-decoration-none">Special title treatment</a>
-            </h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          </div>
-        </div>
-        <div class="card text-start mb-3">
-          <div class="card-body">
-            <h5 class="card-title">
-              <a href="your-route-url" class="text-decoration-none">Special title treatment</a>
-            </h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          </div>
-        </div>
+        @endforeach
       </div>
       <div class="row justify-content-center">
         <div class="col-lg-5 d-flex align-items-stretch mt-5">
