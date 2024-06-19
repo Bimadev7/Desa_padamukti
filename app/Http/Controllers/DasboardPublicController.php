@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 class DasboardPublicController extends Controller
 {
    
+    // Homepage
     public function indexdes()
     {
         $berita = Berita::latest()->take(2)->get();
@@ -23,21 +24,39 @@ class DasboardPublicController extends Controller
         }
         
         return view('home', ['berita' => $berita], ['pengumuman' => $pengumuman]);
-        // return view('public.berita'); 
     }
 
-    public function index()
+    // Halaman Berita
+    public function indexBerita()
     {
-        $berita = Berita::all();
-     
-        return view('public.berita', ['berita' => $berita]);
+        $berita = Berita::latest()->get();
+        $news = Berita::latest()->take(3)->get();
+    
+        foreach ($berita as $item) {
+            $item->deskripsi = Str::limit($item->deskripsi, 100, '...');
+        }
+
+        return view('public.berita', ['berita' => $berita], ['news' => $news]);
     }
 
+    // Halaman Detail Berita
     public function detailBerita($id)
     {
         $berita = Berita::findOrFail($id);
         
         return view('public.detail_berita', ['berita' => $berita]);
+    }
+
+    // Halaman Pengumuman
+    public function indexPengumuman()
+    {
+        $pengumuman = pengumuman::latest()->get();
+
+        foreach ($pengumuman as $item) {
+            $item->deskripsi = Str::limit($item->deskripsi, 250, '...');
+        }
+
+        return view('public.pengumuman', ['pengumuman' => $pengumuman]);
     }
 
     public function main()

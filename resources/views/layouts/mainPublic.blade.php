@@ -82,10 +82,10 @@
               <li class="dropdown"><a href="#"><span>Profil Desa</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
                   <li><a href="{{ route('tentang-desa') }}">Tentang Desa</a></li>
-                  <li><a href="/public/visimisi">Visi dan Misi</a></li>
-                  <li><a href="/public/sejarah">Sejarah</a></li>
-                  <li><a href="/public/geografis">Geografis</a></li>
-                  <li><a href="/public/geografis">Demografi </a></li>
+                  <li><a href="{{ route('visi-misi') }}">Visi dan Misi</a></li>
+                  <li><a href="{{ route('sejarah') }}">Sejarah</a></li>
+                  <li><a href="{{ route('geografis') }}">Geografis</a></li>
+                  <li><a href="{{ route('demografi') }}">Demografi </a></li>
                 </ul>
               </li>
               <li class="dropdown"><a href="#"><span>Pemerintahan</span> <i class="bi bi-chevron-down"></i></a>
@@ -98,7 +98,7 @@
               <li class="dropdown"><a href="#"><span>Informasi Publik</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
                   <li><a href="/public/berita">Berita Desa</a></li>
-                  <li><a href="/public/pengumuman">Pengumuman Desa</a></li> 
+                  <li><a href="{{ route('pengumuman') }}">Pengumuman Desa</a></li> 
                 </ul>
               </li>
             </ul>

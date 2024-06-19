@@ -11,7 +11,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DasboardPublicController;
 
-Route::get('/public/berita', [DasboardPublicController::class, 'index']);
+Route::get('/public/berita', [DasboardPublicController::class, 'indexBerita']);
 Route::get('/public/berita/{id}', [DasboardPublicController::class, 'detailBerita'])->name('berita.detailBerita');
 
 // Route Public createn 
@@ -105,4 +105,22 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::get('/public/tentang-desa', function () {
         return view('public.tentang');
     })->name('tentang-desa');
+
+    Route::get('/public/visi-misi', function () {
+        return view('public.visimisi');
+    })->name('visi-misi');
+
+    Route::get('/public/sejarah', function () {
+        return view('public.sejarah');
+    })->name('sejarah');
+
+    Route::get('/public/geografis', function () {
+        return view('public.geografis');
+    })->name('geografis');
+
+    Route::get('/public/demografi', function () {
+        return view('public.demografi');
+    })->name('demografi');
+
+    Route::get('/public/pengumuman', [DasboardPublicController::class, 'indexPengumuman'])->name('pengumuman');
 ?>
