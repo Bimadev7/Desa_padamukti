@@ -81,7 +81,7 @@
               <li><a class="nav-link scrollto active" href="/">Home</a></li>
               <li class="dropdown"><a href="#"><span>Profil Desa</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
-                  <li><a href="/public/tentang">Tentang Desa</a></li>
+                  <li><a href="{{ route('tentang-desa') }}">Tentang Desa</a></li>
                   <li><a href="/public/visimisi">Visi dan Misi</a></li>
                   <li><a href="/public/sejarah">Sejarah</a></li>
                   <li><a href="/public/geografis">Geografis</a></li>
