@@ -395,16 +395,15 @@
           {{-- End Bagian bacckofice --}}
 
           {{-- Pengumuman --}}
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Pengumuman
                <i class="fa-sharp fa-light fa-file"></i>
-                {{-- <span class="badge badge-info right">4</span> --}}
               </p>
             </a>
-          </li>
+          </li> --}}
 
           {{-- end Pengumuman --}}
           
@@ -413,7 +412,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Berita
+                Informasi Public
                <i class="fa-sharp fa-light fa-file"></i>
 
                 {{-- <span class="badge badge-info right">4</span> --}}
@@ -430,7 +429,7 @@
 
               <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/backoffice/user" class="nav-link">
+                <a href="/backoffice/pengumuman" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Pengumuman</p>
                 </a>

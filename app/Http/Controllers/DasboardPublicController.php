@@ -17,7 +17,6 @@ class DasboardPublicController extends Controller
         }
      
         return view('home', ['home' => $berita]);
-        // return view('public.berita'); 
     }
 
     public function index()

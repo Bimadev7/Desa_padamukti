@@ -10,6 +10,15 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DasboardPublicController;
+use App\Http\Controllers\PengumumanController;
+
+
+// Edit Pengumuman
+
+// Detail Pengumuman
+Route::get('/public/berita', [DasboardPublicController::class, 'index']);
+Route::get('/public/berita/{id}', [DasboardPublicController::class, 'detailBerita'])->name('berita.detailBerita');
+
 
 // Detail berita
 Route::get('/public/berita', [DasboardPublicController::class, 'index']);
@@ -23,10 +32,7 @@ Route::prefix('backoffice')->group(function () {
 
 
 
-// Menampilkan home
-// Route::get('/', function () {
-//     return view('home');
-// });
+
 Route::get('/', [DasboardPublicController::class, 'indexdes']);
 
 // Route untuk Berita Barang Simpen data
@@ -52,6 +58,23 @@ Route::middleware(['isAdmin'])->group(function () {
         Route::put('/{id}', [UserController::class, 'update'])->name('user.update');
     });
 
+     // Route Pengumuman
+     Route::prefix('backoffice/pengumuman')->group(function () {
+        Route::post('/store', [PengumumanController::class, 'store'])->name('pengumuman.store');
+        Route::get('/{id}/edit', [PengumumanController::class, 'edit'])->name('pengumuman.edit');
+
+        Route::get('/', [PengumumanController::class, 'index'])->name('pengumuman.index');
+        Route::post('/create', [PengumumanController::class, 'create'])->name('backoffice.pengumuman.create');
+        Route::put('/{id}', [PengumumanController::class, 'update'])->name('pengumuman.update');
+        Route::post('/pengumuman', [PengumumanController::class, 'store'])->name('backoffice.pengumuman.store');
+        Route::get('/pengumuman', [PengumumanController::class, 'index'])->name('backoffice.pengumuman.index');
+
+
+    });
+
+
+
+
 
     // Route Berita
     Route::prefix('backoffice/berita')->group(function () {
@@ -65,11 +88,10 @@ Route::middleware(['isAdmin'])->group(function () {
 
     });
 
-    // Namespace Store
-    // Route::namespace('App\Http\Controllers\Backoffice')->group(function () {
-    //     // Dan lain-lain...
-    // });
-    
+
+    // Route::post('/store', [PengumumanController::class, 'store'])->name('backoffice.Pengumuman.store');
+
+ 
 
     // Route User
     Route::prefix('backoffice/user')->group(function () {
@@ -85,6 +107,7 @@ Route::middleware(['isAdmin'])->group(function () {
 
     // CRUD Berita
     Route::resource('/backoffice/berita', BeritaController::class);
+    Route::resource('/backoffice/pengumuman', PengumumanController::class);
 
 });
 

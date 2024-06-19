@@ -57,7 +57,7 @@
           <div class="col-md-6">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
               <div class="col p-4 d-flex flex-column position-static text-start">
-                <strong class="d-inline-block mb-2 text-primary-emphasis">{{ $item->kategori->nama_kategori }}</strong>
+                {{-- <strong class="d-inline-block mb-2 text-primary-emphasis">{{ $item->kategori->nama_kategori }}</strong> --}}
                 <h3 class="mb-0">{{ $item->judul }}</h3>
                 <div class="mb-1 text-body-secondary">{{ $item->created_at->format('M Y') }}</div>
                 <p class="card-text mb-auto">{{ $item->deskripsi }}</p>

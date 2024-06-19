@@ -19,11 +19,16 @@ class Berita extends Model
         'caption_capture',
         'deskripsi_singkat',
         'deskripsi',
+        'penulis',
         'category_id'
     ];
 
+    // public function kategori()
+    // {
+    //     return $this->belongsTo(KategoriBerita::class);
+    // }
     public function kategori()
     {
-        return $this->belongsTo(KategoriBerita::class);
+        return $this->belongsTo(KategoriBerita::class, 'kategori_id', 'id');
     }
 }

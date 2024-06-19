@@ -44,7 +44,26 @@ class PengumumanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $imageName = time().'.'.$request->image->extension();  
+         $request->image->move(public_path('images'), $imageName);
+
+        $pengumuman = new Pengumuman([
+            'judul' => $request->get('judul'),
+            'caption_capture' => $request->get('caption_capture'),
+            'deskripsi_singkat' => $request->get('deskripsi_singkat'),
+            'deskripsi' => $request->get('deskripsi'),
+            'penulis' => $request->get('penulis'),
+            'image' => $imageName, 
+    
+        ]);
+        $pengumuman->save();
+    
+     
+                         return redirect()->route('backoffice.pengumuman.index')->with([
+                            'alert-type' => 'success',
+                            'message' => 'Data Order Berhasil Ditambahkan!'
+                        ]); 
     }
 
     /**
@@ -60,11 +79,10 @@ class PengumumanController extends Controller
      */
     public function edit(string $id)
     {
-        $pengumuman = Pengumuman::find($id);
-        if (!$pengumuman) {
-            return redirect()->route('backoffice.pengumuman.index')->with('error', 'Berita tidak ditemukan.');
-        }
-        return view('backoffice.pengumuman.edit', compact('pengumuman'));
+        $pengumuman = Pengumuman::findOrFail($id);
+        return view('backoffice.pengumuman.edit')->with(compact('pengumuman'));
+
+        
     }
 
     /**
@@ -72,7 +90,8 @@ class PengumumanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = DataModel::findOrFail($id);
+        // $data = DataModel::findOrFail($id);
+        $pengumuman = Pengumuman::findOrFail($id);
 
         // Update data
         $data->judul = $request->judul;
