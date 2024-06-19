@@ -52,13 +52,13 @@
                         <li><a href="#">Kategori 5</a></li>
                     </ul>
                 </div>
-          <div class="p-4">
-            <h4 class="fst-italic">Berita Terakhir</h4>
-            <ol class="list-unstyled">
-              <li><a href="#">Lorem ipsum dolor sit amet consectetur !</a></li>
-              <li><a href="#">Lorem ipsum dolor sit, amet consectetur</a></li>
-              <li><a href="#">Lorem ipsum dolor sit amet consectetur !</a></li>
-            </ol>
+                <div class="p-4">
+                    <h4 class="fst-italic">Berita Terakhir</h4>
+                    <ol class="list-unstyled mb-0">
+                    @foreach($berita as $item)
+                    <li><a href="#">{{ $item->judul }}</a></li>
+                     @endforeach
+                </ol>
           </div>
         </div>
       </div>

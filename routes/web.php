@@ -11,6 +11,41 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DasboardPublicController;
 
+//route public
+Route::get('/public/struktur', function () {
+    return view('public.struktur');
+});
+Route::get('/public/visimisi', function () {
+    return view('public.visimisi');
+});
+Route::get('/public/tentang', function () {
+    return view('public.tentang');
+});
+Route::get('/public/tentang', function () {
+    return view('public.tentang');
+});
+Route::get('/public/sejarah', function () {
+    return view('public.sejarah');
+});
+Route::get('/public/demografi', function () {
+    return view('public.demografi');
+});
+Route::get('/public/geografis', function () {
+    return view('public.geografis');
+});
+Route::get('/public/lembaga', function () {
+    return view('public.lembaga');
+});
+Route::get('/public/struktur', function () {
+    return view('public.struktur');
+});
+Route::get('/public/perangkat', function () {
+    return view('public.perangkat');
+});
+Route::get('/public/lembaga1', function () {
+    return view('public.lembaga1');
+});
+
 Route::get('/public/berita', [DasboardPublicController::class, 'index']);
 Route::get('/public/berita/{id}', [DasboardPublicController::class, 'detailBerita'])->name('berita.detailBerita');
 
@@ -21,11 +56,16 @@ Route::prefix('backoffice')->group(function () {
 });
 
 
-
+Route::get('/public/berita', [DasboardPublicController::class, 'index'])->name('public.berita');
 // Menampilkan home
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get('/public/pengumuman', [DasboardPublicController::class, 'pengumuman'])->name('public.pengumuman');
+
+
+
 
 // Route untuk Berita Barang Simpen data
 Route::post('/berita', [BeritaController::class, 'store'])->name('berita.store');
