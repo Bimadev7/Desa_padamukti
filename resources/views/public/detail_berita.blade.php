@@ -25,7 +25,7 @@
                     <div class="col-md-8 ps-3 ms-auto">
                         <article class="blog-post">
                             <p class="blog-post-meta text-center">{{ $berita->created_at->format('d M Y') }} by <a href="#">{{ $berita->penulis }}</a></p>
-                            <img src="{{ asset('images/' . $berita->image) }}" alt="Berita" width="200" height="150">
+                            <img src="{{ asset('images/' . $berita->image) }}" text="ro" alt="Berita" width="200" height="150">
 
                             <h6>{{ $berita->caption_capture }}</h6>
                             <hr>

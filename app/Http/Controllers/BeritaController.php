@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Models\Berita;
-
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -104,26 +103,27 @@ class BeritaController extends Controller
     public function update(Request $request, string $id)
     {
         // Temukan data berdasarkan ID
-        $data = DataModel::findOrFail($id);
+        $berita = Berita::findOrFail($id);
+        // $berita = DataModel::all();
 
         // Update data
-        $data->judul = $request->judul;
-        $data->deskripsi_singkat = $request->deskripsi_singkat;
-        $data->deskripsi = $request->deskripsi;
+        $berita->judul = $request->judul;
+        $berita->deskripsi_singkat = $request->deskripsi_singkat;
+        $berita->deskripsi = $request->deskripsi;
 
         // Upload dan simpan gambar jika ada
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $filename = time() . '_' . $image->getClientOriginalName();
             $image->storeAs('public/images', $filename); // Simpan gambar ke storage
-            $data->image = $filename; // Simpan nama file gambar ke kolom 'image' dalam database
+            $berita->image = $filename; // Simpan nama file gambar ke kolom 'image' dalam database
         }
 
         // Simpan perubahan data
-        $data->save();
+        $berita->save();
 
         // Redirect dengan pesan sukses
-        return redirect()->route('route.name')->with([
+        return redirect()->route('backoffice.berita.index')->with([
             'alert-type' => 'success',
             'message' => 'Data berhasil diperbarui.'
         ]);
