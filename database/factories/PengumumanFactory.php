@@ -2,16 +2,15 @@
 
 namespace Database\Factories;
 
-use App\Models\Berita;
-use App\Models\KategoriBerita;
+use App\Models\pengumuman;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Berita>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Pengumuman>
  */
-class BeritaFactory extends Factory
+class PengumumanFactory extends Factory
 {
-    protected $model = Berita::class;
+    protected $model = pengumuman::class;
     /**
      * Define the model's default state.
      *
@@ -21,12 +20,11 @@ class BeritaFactory extends Factory
     {
         return [
             'judul' => $this->faker->sentence,
-            'images' => 'images/default-berita.jpg', // assuming you have a default image or you can generate fake images
+            'gambar' => 'images/default-berita.jpg',
             'caption_capture' => $this->faker->sentence,
             'deskripsi_singkat' => $this->faker->paragraph,
             'deskripsi' => $this->faker->paragraphs(3, true),
             'penulis' => $this->faker->name,
-            'kategori_id' => KategoriBerita::inRandomOrder()->first()->id, // assuming you have a factory for KategoriBerita
             'created_at' => now(),
             'updated_at' => now(),
         ];

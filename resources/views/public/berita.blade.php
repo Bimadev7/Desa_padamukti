@@ -28,16 +28,16 @@
                         <div class="col p-4 d-flex flex-column position-static text-start">
                             <h3 class="mb-2">{{ $item->judul }}</h3>
                             <div class="mb-1 text-body-secondary">{{ $item->created_at->format('d F Y') }}</div>
-                            <p class="card-text mb-3">{{ $item->deskripsi_singkat }}</p>
-                            <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">Lanjutkan Membaca
+                            <p class="card-text mb-3">{{ $item->deskripsi }}</p>
+                            <a href="{{ route('berita.detailBerita', $item->id) }}" class="icon-link gap-1 icon-link-hover stretched-link">Lanjutkan Membaca
                                 <svg class="bi">
                                     <use xlink:href="#chevron-right"></use>
                                 </svg>
                             </a>
                         </div>
                         <div class="col-auto d-none d-lg-block">
-                            {{-- <img src="{{ asset($item->image) }}" alt="Berita" width="200" height="250"> --}}
-                            <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="200" height="250">
+                            <img src="{{ asset($item->image) }}" alt="Berita" width="200" height="250">
+                            {{-- <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="200" height="250"> --}}
 
                         </div>
                     </div>
@@ -60,12 +60,11 @@
                         <li><a href="#">Kategori 5</a></li>
                     </ul>
                 </div>
-                <div class="p-4">
-                    <h4 class="fst-italic">Arsip</h4>
+               <div class="p-4">
+                    <h4 class="fst-italic">Berita Terakhir</h4>
                     <ol class="list-unstyled mb-0">
-                        <!-- Anda bisa menambahkan logika untuk menampilkan arsip berdasarkan bulan/tahun di sini -->
-                        @foreach($berita as $item)
-                        <li><a href="#">{{ $item->created_at->format('F Y') }}</a></li>
+                        @foreach($news as $item)
+                        <li><a href="#">{{ $item->judul }}</a></li>
                         @endforeach
                     </ol>
                 </div>
