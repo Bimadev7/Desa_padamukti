@@ -113,13 +113,13 @@
         @endforeach
       </div>
       <div class="row justify-content-center">
-        <div class="col-lg-5 d-flex align-items-stretch mt-5">
+        <div class="col-lg-50 d-flex align-items-stretch mt-5">
           <div class="info w-100">
-            <div class="address">
+            {{-- <div class="address">
               <i class="bi bi-geo-alt"></i>
               <h4>Location:</h4>
               <p>Padamukti</p>
-            </div>
+            </div> --}}
             <div class="email">
               <i class="bi bi-envelope"></i>
               <h4>Email:</h4>
@@ -130,7 +130,7 @@
               <h4>Call:</h4>
               <p>+62 888 888</p>
             </div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.6179905471503!2d-79.39637338450038!3d43.66418917912138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d4a1d9f8a5%3A0xc57a90982c7384b1!2sUniversity%20of%20Toronto!5e0!3m2!1sen!2sca!4v1612481683839!5m2!1sen!2sca" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.6179905471503!2d-79.39637338450038!3d43.66418917912138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d4a1d9f8a5%3A0xc57a90982c7384b1!2sUniversity%20of%20Toronto!5e0!3m2!1sen!2sca!4v1612481683839!5m2!1sen!2sca" frameborder="0" style="border:0; width: 100%; height: 350px;" allowfullscreen></iframe>
           </div>
         </div>
       </div>

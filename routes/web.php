@@ -138,5 +138,18 @@ Route::middleware(['isAdmin'])->group(function () {
         return view('public.demografi');
     })->name('demografi');
 
+    Route::get('/public/struktur-desa', function () {
+        return view('public.struktur');
+    })->name('struktur-desa');
+
+    Route::get('/public/perangkat-desa', function () {
+        return view('public.perangkat');
+    })->name('perangkat-desa');
+
+    Route::get('/public/lembaga-desa', function () {
+        return view('public.lembaga');
+    })->name('lembaga-desa');
+
+
     Route::get('/public/pengumuman', [DasboardPublicController::class, 'indexPengumuman'])->name('pengumuman');
 ?>
