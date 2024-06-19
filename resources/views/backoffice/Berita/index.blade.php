@@ -21,7 +21,7 @@
             });
         </script>
         @endif
-        <h3 class="card-header p-3">Data User</h3>
+        <h3 class="card-header p-3">Data Berita</h3>
         <div class="card-body">
             <div class="card-header d-flex align-items-center">
                 <h3 class="card-title"></h3>
@@ -36,9 +36,9 @@
                     <tr>
                         <th>No</th>
                         <th>Judul</th>
-                        <th>Deskrip Singkat</th>
+                        <th>caption_capture</th>
                         <th>Deskripsi</th>
-                        <th>Image</th>
+                        <th>Kategori_berita</th>
                         <th width="200px">Action</th>
                     </tr>
                 </thead>
@@ -70,18 +70,31 @@
             <label for="deskripsi_singkat">Deskripsi Singkat</label>
             <input type="text" name="deskripsi_singkat" class="form-control" id="deskripsi_singkat" required>
         </div>
+         <div class="form-group">
+            <label for="caption_capture">Deskripsi Capture</label>
+            <input type="text" name="caption_capture" class="form-control" id="caption_capture" required>
+        </div>
         <div class="form-group">
             <label for="deskripsi">Deskripsi</label>
             <input type="text" name="deskripsi" class="form-control" id="deskripsi" required>
         </div>
+
+           <div class="form-group">
+            <label for="deskripsi">penulis</label>
+            <input type="text" name="penulis" class="form-control" id="penulis" required>
+        </div>
+           <div class="form-group">
+            <label for="deskripsi">kategori_id</label>
+            <input type="text" name="kategori_id" class="form-control" id="kategori_id" required>
+        </div>
        <div class="form-group">
-                        <label for="image">Gambar Berita</label>
-                        <input type="file" id="image" name="image" required>
-                    </div>
+      <label for="image">Gambar Berita</label>
+     <input type="file" id="image" name="image" required>
+     </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Tambah User</button>
+        <button type="submit" class="btn btn-primary">Tambah Berita</button>
     </div>
 </form>
 
@@ -101,9 +114,16 @@ $(function () {
         columns: [
             {data: 'id', name: 'id'},
             {data: 'judul', name: 'judul'},
-            {data: 'deskripsi_singkat', name: 'deskripsi_singkat'},
+            {data: 'caption_capture', name: 'caption_capture'},
             {data: 'deskripsi', name: 'deskripsi'},
-            {data: 'image', name: 'image'},
+            {data: 'kategori_id', name: 'kategori_id'},
+          
+            {{-- {data: 'image', name: 'image',
+                    render: function(data, type, full, meta) {
+                        return '<img src="/images/' + data + '" style="max-width: 100px">';
+                    }
+                }, --}}
+
             {
                 data: 'id',
                 name: 'action',

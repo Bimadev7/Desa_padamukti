@@ -51,13 +51,12 @@
             <div class="position-sticky" style="top: 2rem;">
                 <!-- Categories Section -->
                 <div class="p-4 mb-3 bg-light rounded">
-                    <h4 class="fst-italic">Kategori</h4>
+                    <h4 class="fst-italic">Berita Kategori</h4>
                     <ul class="mb-0">
-                        <li><a href="#">Kategori 1</a></li>
-                        <li><a href="#">Kategori 2</a></li>
-                        <li><a href="#">Kategori 3</a></li>
-                        <li><a href="#">Kategori 4</a></li>
-                        <li><a href="#">Kategori 5</a></li>
+                        <li><a href="#">Berita Desa </a></li>
+                        <li><a href="#">Berita Kementria</a></li>
+                        <li><a href="#">Berita Pemerintah Kabupaten</a></li>
+                        <li><a href="#">Berita Pemerintah Provinsi</a></li>
                     </ul>
                 </div>
                 <div class="p-4">

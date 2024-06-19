@@ -51,9 +51,13 @@ class BeritaController extends Controller
     // Simpan data ke database
     $berita = new Berita([
         'judul' => $request->get('judul'),
+        'caption_capture' => $request->get('caption_capture'),
         'deskripsi_singkat' => $request->get('deskripsi_singkat'),
         'deskripsi' => $request->get('deskripsi'),
-        'image' => $imageName, // simpan nama file gambar ke dalam kolom 'image'
+        'penulis' => $request->get('penulis'),
+        'image' => $imageName, 
+        'kategori_id' => $request->get('kategori_id'),
+
     ]);
     $berita->save();
 

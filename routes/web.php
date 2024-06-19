@@ -12,6 +12,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DasboardPublicController;
 use App\Http\Controllers\PengumumanController;
 
+// Berita
 Route::get('/public/berita', [DasboardPublicController::class, 'indexBerita']);
 Route::get('/public/berita/{id}', [DasboardPublicController::class, 'detailBerita'])->name('berita.detailBerita');
 
