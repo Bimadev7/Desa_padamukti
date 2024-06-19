@@ -115,11 +115,7 @@
       <div class="row justify-content-center">
         <div class="col-lg-50 d-flex align-items-stretch mt-5">
           <div class="info w-100">
-            {{-- <div class="address">
-              <i class="bi bi-geo-alt"></i>
-              <h4>Location:</h4>
-              <p>Padamukti</p>
-            </div> --}}
+     
             <div class="email">
               <i class="bi bi-envelope"></i>
               <h4>Email:</h4>

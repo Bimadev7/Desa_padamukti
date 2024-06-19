@@ -94,9 +94,9 @@ class PengumumanController extends Controller
         $pengumuman = Pengumuman::findOrFail($id);
 
         // Update data
-        $data->judul = $request->judul;
-        $data->deskripsi_singkat = $request->deskripsi_singkat;
-        $data->deskripsi = $request->deskripsi;
+        $pengumuman->judul = $request->judul;
+        $pengumuman->deskripsi_singkat = $request->deskripsi_singkat;
+        $pengumuman->deskripsi = $request->deskripsi;
 
         // Upload dan simpan gambar jika ada
         if ($request->hasFile('image')) {
@@ -107,10 +107,10 @@ class PengumumanController extends Controller
         }
 
         // Simpan perubahan data
-        $data->save();
+        $pengumuman->save();
 
         // Redirect dengan pesan sukses
-        return redirect()->route('route.name')->with([
+        return redirect()->route('backoffice.pengumuman.index')->with([
             'alert-type' => 'success',
             'message' => 'Data berhasil diperbarui.'
         ]);
