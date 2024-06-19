@@ -44,7 +44,26 @@ class PengumumanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+           // Simpan gambar ke direktori yang ditentukan
+    $imageName = time().'.'.$request->image->extension();  
+    $request->image->move(public_path('images'), $imageName);
+
+    // Simpan data ke database
+    $pengumuman = new Pengumuman([
+        'judul' => $request->get('judul'),
+        'caption_capture' => $request->get('caption_capture'),
+        'deskripsi_singkat' => $request->get('deskripsi_singkat'),
+        'deskripsi' => $request->get('deskripsi'),
+        'penulis' => $request->get('penulis'),
+        'gambar' => $imageName, // simpan nama file gambar ke dalam kolom 'image'
+    ]);
+    $pengumuman->save();
+
+ 
+                     return redirect()->route('backoffice.pengumuman.index')->with([
+                        'alert-type' => 'success',
+                        'message' => 'Data Order Berhasil Ditambahkan!'
+                    ]); 
     }
 
     /**
