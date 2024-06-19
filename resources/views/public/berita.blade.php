@@ -60,7 +60,7 @@
                         <li><a href="#">Kategori 5</a></li>
                     </ul>
                 </div>
-               <div class="p-4">
+                <div class="p-4">
                     <h4 class="fst-italic">Berita Terakhir</h4>
                     <ol class="list-unstyled mb-0">
                         @foreach($berita as $item)
