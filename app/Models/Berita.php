@@ -20,4 +20,9 @@ class Berita extends Model
         'image',
         'category_id'
     ];
+
+    public function kategori()
+    {
+        return $this->belongsTo(KategoriBerita::class);
+    }
 }

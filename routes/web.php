@@ -12,16 +12,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DasboardPublicController;
 use App\Http\Controllers\PengumumanController;
 
-
-// Edit Pengumuman
-
-// Detail Pengumuman
-Route::get('/public/berita', [DasboardPublicController::class, 'index']);
-Route::get('/public/berita/{id}', [DasboardPublicController::class, 'detailBerita'])->name('berita.detailBerita');
-
-
-// Detail berita
-Route::get('/public/berita', [DasboardPublicController::class, 'index']);
+Route::get('/public/berita', [DasboardPublicController::class, 'indexBerita']);
 Route::get('/public/berita/{id}', [DasboardPublicController::class, 'detailBerita'])->name('berita.detailBerita');
 
 // Route Public createn 
@@ -29,7 +20,6 @@ Route::get('/backoffice/users', [UserController::class, 'index'])->name('backoff
 Route::prefix('backoffice')->group(function () {
     Route::get('/users', [UserController::class, 'index'])->name('backoffice.user.index');
 });
-
 
 
 
@@ -126,4 +116,25 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 
+    Route::get('/public/tentang-desa', function () {
+        return view('public.tentang');
+    })->name('tentang-desa');
+
+    Route::get('/public/visi-misi', function () {
+        return view('public.visimisi');
+    })->name('visi-misi');
+
+    Route::get('/public/sejarah', function () {
+        return view('public.sejarah');
+    })->name('sejarah');
+
+    Route::get('/public/geografis', function () {
+        return view('public.geografis');
+    })->name('geografis');
+
+    Route::get('/public/demografi', function () {
+        return view('public.demografi');
+    })->name('demografi');
+
+    Route::get('/public/pengumuman', [DasboardPublicController::class, 'indexPengumuman'])->name('pengumuman');
 ?>
