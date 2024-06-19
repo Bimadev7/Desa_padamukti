@@ -53,7 +53,7 @@
                 <div class="p-4 mb-3 bg-light rounded">
                     <h4 class="fst-italic">Berita Kategori</h4>
                     <ul class="mb-0">
-                        <li><a href="#">Berita Desa </a></li>
+                        <li><a href="#">Berita Desa 2</a></li>
                         <li><a href="#">Berita Kementria</a></li>
                         <li><a href="#">Berita Pemerintah Kabupaten</a></li>
                         <li><a href="#">Berita Pemerintah Provinsi</a></li>
