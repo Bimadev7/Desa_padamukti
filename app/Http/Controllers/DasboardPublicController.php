@@ -75,11 +75,20 @@ class DasboardPublicController extends Controller
     }
 
     // Halaman Profil Desa - Visi Misi
-    public function visiMisi(){
+    public function visiMisi()
+    {
         $visi = DB::table('profil_desa')->value('visi');
         $misi = DB::table('profil_desa')->value('misi');
 
         return view('public.visimisi', ['visi' => $visi], ['misi' => $misi]);
+    }
+
+    // Halaman Profil Desa - Sejarah Desa
+    public function sejarah()
+    {
+        $sejarah = DB::table('profil_desa')->value('sejarah_desa');
+
+        return view('public.sejarah', ['sejarah' => $sejarah]);
     }
 
     public function main()
