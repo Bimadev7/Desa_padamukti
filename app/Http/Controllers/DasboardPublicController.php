@@ -36,6 +36,10 @@ class DasboardPublicController extends Controller
             $item->deskripsi = Str::limit($item->deskripsi, 100, '...');
         }
 
+        foreach ($news as $new){
+            $new->judul = Str::limit($new->judul, 40, '...');
+        }
+
         return view('public.berita', ['berita' => $berita], ['news' => $news]);
     }
 
