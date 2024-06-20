@@ -44,26 +44,26 @@ class PengumumanController extends Controller
      */
     public function store(Request $request)
     {
+           // Simpan gambar ke direktori yang ditentukan
+    $imageName = time().'.'.$request->image->extension();  
+    $request->image->move(public_path('images'), $imageName);
 
-        $imageName = time().'.'.$request->image->extension();  
-         $request->image->move(public_path('images'), $imageName);
+    // Simpan data ke database
+    $pengumuman = new Pengumuman([
+        'judul' => $request->get('judul'),
+        'caption_capture' => $request->get('caption_capture'),
+        'deskripsi_singkat' => $request->get('deskripsi_singkat'),
+        'deskripsi' => $request->get('deskripsi'),
+        'penulis' => $request->get('penulis'),
+        'image' => $imageName, // simpan nama file gambar ke dalam kolom 'image'
+    ]);
+    $pengumuman->save();
 
-        $pengumuman = new Pengumuman([
-            'judul' => $request->get('judul'),
-            'caption_capture' => $request->get('caption_capture'),
-            'deskripsi_singkat' => $request->get('deskripsi_singkat'),
-            'deskripsi' => $request->get('deskripsi'),
-            'penulis' => $request->get('penulis'),
-            'image' => $imageName, 
-    
-        ]);
-        $pengumuman->save();
-    
-     
-                         return redirect()->route('backoffice.pengumuman.index')->with([
-                            'alert-type' => 'success',
-                            'message' => 'Data Order Berhasil Ditambahkan!'
-                        ]); 
+ 
+                     return redirect()->route('backoffice.pengumuman.index')->with([
+                        'alert-type' => 'success',
+                        'message' => 'Data Order Berhasil Ditambahkan!'
+                    ]); 
     }
 
     /**
@@ -94,9 +94,9 @@ class PengumumanController extends Controller
         $pengumuman = Pengumuman::findOrFail($id);
 
         // Update data
-        $data->judul = $request->judul;
-        $data->deskripsi_singkat = $request->deskripsi_singkat;
-        $data->deskripsi = $request->deskripsi;
+        $pengumuman->judul = $request->judul;
+        $pengumuman->deskripsi_singkat = $request->deskripsi_singkat;
+        $pengumuman->deskripsi = $request->deskripsi;
 
         // Upload dan simpan gambar jika ada
         if ($request->hasFile('image')) {
@@ -107,10 +107,10 @@ class PengumumanController extends Controller
         }
 
         // Simpan perubahan data
-        $data->save();
+        $pengumuman->save();
 
         // Redirect dengan pesan sukses
-        return redirect()->route('route.name')->with([
+        return redirect()->route('backoffice.pengumuman.index')->with([
             'alert-type' => 'success',
             'message' => 'Data berhasil diperbarui.'
         ]);
@@ -121,6 +121,7 @@ class PengumumanController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Pengumuman::findOrFail($id)->delete();
+        return redirect()->route('backoffice.user.index');
     }
 }

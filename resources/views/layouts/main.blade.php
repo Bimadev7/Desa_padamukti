@@ -72,7 +72,7 @@
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="adminlte/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+    <img class="animation__shake" src="public/adminlte/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
   </div>
 
   <!-- Navbar -->
@@ -382,16 +382,16 @@
 
 {{-- Bagian bacckofice --}}
           <li class="nav-header">Management Public</li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Demography
                <i class="fa-sharp fa-light fa-file"></i>
-                {{-- <span class="badge badge-info right">4</span> --}}
               </p>
+
             </a>
-          </li>
+          </li> --}}
           {{-- End Bagian bacckofice --}}
 
           {{-- Pengumuman --}}

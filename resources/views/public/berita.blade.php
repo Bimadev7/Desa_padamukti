@@ -36,8 +36,13 @@
                             </a>
                         </div>
                         <div class="col-auto d-none d-lg-block">
+<<<<<<< HEAD
                             <img src="{{ asset($item->image) }}" alt="Berita" width="200" height="200">
                             {{-- <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="200" height="250"> --}}
+=======
+                            {{-- <img src="{{ asset($item->image) }}" alt="Berita" width="200" height="250"> --}}
+                            <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="200" height="250">
+>>>>>>> 7319cf94076c318afdc866926198d62f0a9f7cbc
 
                         </div>
                     </div>
@@ -53,14 +58,24 @@
                 <div class="p-4 mb-3 bg-light rounded">
                     <h4 class="fst-italic">Berita Kategori</h4>
                     <ul class="mb-0">
+<<<<<<< HEAD
                         <li><a href="#">Berita Desa </a></li>
                         <li><a href="#">Berita Kementrian/a></li>
+=======
+                        <li><a href="#">Berita Desa 2</a></li>
+                        <li><a href="#">Berita Kementria</a></li>
+>>>>>>> 7319cf94076c318afdc866926198d62f0a9f7cbc
                         <li><a href="#">Berita Pemerintah Kabupaten</a></li>
                         <li><a href="#">Berita Pemerintah Provinsi</a></li>
                     </ul>
                 </div>
+<<<<<<< HEAD
                <div>
                     <h4 class="p-3 fst-italic">Berita Terakhir</h4>
+=======
+                <div class="p-4">
+                    <h4 class="fst-italic">Berita Terakhir</h4>
+>>>>>>> 7319cf94076c318afdc866926198d62f0a9f7cbc
                     <ol class="list-unstyled mb-0">
                         @foreach($news as $new)
                         <li class="bg-light rounded mt-2 p-3"><a href="{{ route('berita.detailBerita', $new->id) }}">{{ $new->judul }}</a></li>

@@ -71,9 +71,7 @@
 
                 @if($pengumuman->image)
                   <div class="mt-2">
-                            <img src="{{ asset('images/' . $pengumuman->image) }}" text="ro" alt="Berita" width="200" height="150">
-
-                    {{-- <img src="/path/to/images/{{ $pengumuman->image }}" alt="Gambar Berita" height="100"> --}}
+                    <img src="/path/to/images/{{ $pengumuman->image }}" alt="Gambar Berita" height="100">
                   </div>
                 @endif
               </div>

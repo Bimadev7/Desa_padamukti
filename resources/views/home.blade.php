@@ -8,14 +8,14 @@
     <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
       <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
       <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active" style="background-image: url(green/assets/img/slide/slide-1.jpg)">
+        <div class="carousel-item active" style="background-image: url(/image/desa1.jpg)">
           <div class="carousel-container">
             <div class="container">
               <h2 class="animate__animated animate__fadeInDown">Selamat Datang<span> di Website Desa Padamukti</span></h2>
             </div>
           </div>
         </div>
-        <div class="carousel-item" style="background-image: url(green/assets/img/slide/slide-2.jpg)">
+        <div class="carousel-item" style="background-image: url(/image/desa2.jpg)">
           <div class="carousel-container">
             <div class="container">
               <h2 class="animate__animated animate__fadeInDown">Tentang Desa</h2>
@@ -24,7 +24,7 @@
             </div>
           </div>
         </div>
-        <div class="carousel-item" style="background-image: url(green/assets/img/slide/slide-3.jpg)">
+        <div class="carousel-item" style="background-image: url(/image/desa3.jpg)">
           <div class="carousel-container">
             <div class="container">
               <h2 class="animate__animated animate__fadeInDown">Berita Desa</h2>
@@ -68,7 +68,9 @@
               </div>
 
               <div class="col-auto d-none d-lg-block">
-                <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></svg>
+                            <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="200" height="250">
+
+                {{-- <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></svg> --}}
               </div>
             </div>
           </div>
@@ -115,11 +117,7 @@
       <div class="row justify-content-center">
         <div class="col-lg-50 d-flex align-items-stretch mt-5">
           <div class="info w-100">
-            {{-- <div class="address">
-              <i class="bi bi-geo-alt"></i>
-              <h4>Location:</h4>
-              <p>Padamukti</p>
-            </div> --}}
+     
             <div class="email">
               <i class="bi bi-envelope"></i>
               <h4>Email:</h4>
@@ -130,8 +128,8 @@
               <h4>Call:</h4>
               <p>+62 888 888</p>
             </div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.6179905471503!2d-79.39637338450038!3d43.66418917912138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d4a1d9f8a5%3A0xc57a90982c7384b1!2sUniversity%20of%20Toronto!5e0!3m2!1sen!2sca!4v1612481683839!5m2!1sen!2sca" frameborder="0" style="border:0; width: 100%; height: 350px;" allowfullscreen></iframe>
-          </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9599.715435800841!2d107.75721164857325!3d-7.012227205968178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68c6aee51c0af3%3A0xae7bc5e161ed42f9!2sPadamukti%2C%20Solokanjreruk%2C%20Bandung%20Regency%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1718207269561!5m2!1sen!2sid" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+        </div>
         </div>
       </div>
     </div>

@@ -25,11 +25,11 @@
                     <div class="col-md-8 ps-3 ms-auto">
                         <article class="blog-post">
                             <p class="blog-post-meta text-center">{{ $berita->created_at->format('d M Y') }} by <a href="#">{{ $berita->penulis }}</a></p>
-                            <img src="{{ asset($berita->image) }}" alt="{{ $berita->judul }}" class="img-fluid w-80" width="200" height="250">
+                            <img src="{{ asset('images/' . $berita->image) }}" text="ro" alt="Berita" width="200" height="150">
 
-                            <p>{{ $berita->deskripsi }}</p>
+                            <h6>{{ $berita->caption_capture }}</h6>
                             <hr>
-                            <p>{{ $berita->caption_capture }}</p>
+                            <p>{{ $berita->deskripsi }}</p>
                         </article>
                     </div>
                 </div>

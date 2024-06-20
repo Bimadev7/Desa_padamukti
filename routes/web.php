@@ -24,7 +24,6 @@ Route::prefix('backoffice')->group(function () {
 
 
 
-
 Route::get('/', [DasboardPublicController::class, 'indexdes']);
 
 // Route untuk Berita Barang Simpen data
