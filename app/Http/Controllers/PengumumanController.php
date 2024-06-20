@@ -126,6 +126,5 @@ class PengumumanController extends Controller
             'alert-type' => 'success',
             'message' => 'Data Order Berhasil Ditambahkan!'
         ]); 
-        // return redirect()->route('backoffice.pengumuman.index');
     }
 }
