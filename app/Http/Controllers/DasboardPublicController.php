@@ -91,6 +91,13 @@ class DasboardPublicController extends Controller
         return view('public.sejarah', ['sejarah' => $sejarah]);
     }
 
+    public function geografis()
+    {
+        $geografis = DB::table('profil_desa')->value('geografis');
+        
+        return view('public.geografis', ['geografis' => $geografis]);
+    }
+
     public function main()
     {
         // $berita = Berita::all();
