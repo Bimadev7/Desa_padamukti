@@ -117,9 +117,7 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 
-    Route::get('/public/tentang-desa', function () {
-        return view('public.tentang');
-    })->name('tentang-desa');
+    Route::get('/public/tentang-desa', [DasboardPublicController::class, 'tentangDesa'])->name('tentang-desa');
 
     Route::get('/public/visi-misi', function () {
         return view('public.visimisi');

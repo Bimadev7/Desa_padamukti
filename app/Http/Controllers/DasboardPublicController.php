@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\Berita;
 use App\Models\pengumuman;
+use App\Models\ProfilDesa;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -61,6 +63,15 @@ class DasboardPublicController extends Controller
         }
 
         return view('public.pengumuman', ['pengumuman' => $pengumuman]);
+    }
+
+    // Halaman Tentang Desa
+    public function tentangDesa()
+    {
+        $tentang_desa = DB::table('profil_desa')->value('tentang_desa');
+
+        // return view('public.tentang', compact('tentang_desa'));
+        return view('public.tentang', ['tentang_desa' => $tentang_desa]);
     }
 
     public function main()
