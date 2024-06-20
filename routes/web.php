@@ -85,13 +85,13 @@ Route::middleware(['isAdmin'])->group(function () {
  
 
     // Route User
-    Route::prefix('backoffice/user')->group(function () {
-        Route::get('/', [UserController::class, 'index'])->name('backoffice.user.index');
-        Route::get('/create', [UserController::class, 'create'])->name('backoffice.user.create');
-        Route::post('/store', [UserController::class, 'store'])->name('backoffice.user.store');
-        Route::get('/edit', [UserController::class, 'edit'])->name('backoffice.user.edit');
-        Route::put('/{id}', [UserController::class, 'update'])->name('user.update');
-    });
+    // Route::prefix('backoffice/user')->group(function () {
+    //     Route::get('/', [UserController::class, 'index'])->name('backoffice.user.index');
+    //     Route::get('/create', [UserController::class, 'create'])->name('backoffice.user.create');
+    //     Route::post('/store', [UserController::class, 'store'])->name('backoffice.user.store');
+    //     Route::get('/edit', [UserController::class, 'edit'])->name('backoffice.user.edit');
+    //     Route::put('/{id}', [UserController::class, 'update'])->name('user.update');
+    // });
 
     // CRUD User
     Route::resource('/backoffice/user', UserController::class);
