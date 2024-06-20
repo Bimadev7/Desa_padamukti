@@ -121,6 +121,7 @@ class PengumumanController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Pengumuman::findOrFail($id)->delete();
+        return redirect()->route('backoffice.user.index');
     }
 }

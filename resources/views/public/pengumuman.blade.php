@@ -63,11 +63,11 @@
                 </div>
                 <div class="p-4">
                     {{-- <h4 class="fst-italic">Berita Terakhir</h4> --}}
-                    <ol class="list-unstyled mb-0">
+                    {{-- <ol class="list-unstyled mb-0">
                         @foreach($berita as $item)
                         <li><a href="#">{{ $item->judul }}</a></li>
                         @endforeach
-                    </ol>
+                    </ol> --}}
                 </div>
             </div>
         </div>
