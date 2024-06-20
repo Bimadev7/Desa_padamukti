@@ -122,6 +122,10 @@ class PengumumanController extends Controller
     public function destroy(string $id)
     {
         Pengumuman::findOrFail($id)->delete();
-        return redirect()->route('backoffice.user.index');
+        return redirect()->route('backoffice.pengumuman.index')->with([
+            'alert-type' => 'success',
+            'message' => 'Data Order Berhasil Ditambahkan!'
+        ]); 
+        // return redirect()->route('backoffice.pengumuman.index');
     }
 }
