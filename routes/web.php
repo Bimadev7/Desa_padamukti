@@ -118,10 +118,7 @@ Route::middleware(['isAdmin'])->group(function () {
 
 
     Route::get('/public/tentang-desa', [DasboardPublicController::class, 'tentangDesa'])->name('tentang-desa');
-
-    Route::get('/public/visi-misi', function () {
-        return view('public.visimisi');
-    })->name('visi-misi');
+    Route::get('/public/visi-misi', [DasboardPublicController::class, 'visiMisi'])->name('visi-misi');
 
     Route::get('/public/sejarah', function () {
         return view('public.sejarah');

@@ -65,7 +65,7 @@ class DasboardPublicController extends Controller
         return view('public.pengumuman', ['pengumuman' => $pengumuman]);
     }
 
-    // Halaman Tentang Desa
+    // Halaman Profil Desa - Tentang Desa
     public function tentangDesa()
     {
         $tentang_desa = DB::table('profil_desa')->value('tentang_desa');
@@ -74,17 +74,19 @@ class DasboardPublicController extends Controller
         return view('public.tentang', ['tentang_desa' => $tentang_desa]);
     }
 
+    // Halaman Profil Desa - Visi Misi
+    public function visiMisi(){
+        $visi = DB::table('profil_desa')->value('visi');
+        $misi = DB::table('profil_desa')->value('misi');
+
+        return view('public.visimisi', ['visi' => $visi], ['misi' => $misi]);
+    }
+
     public function main()
     {
         // $berita = Berita::all();
      
         return view('layout.main2');
 
-    }
-
-    public function tentang()
-    {
-     
-        return view('public.tentang');
     }
 }
