@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Models\Berita;
-
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -15,9 +14,10 @@ class BeritaController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-
+            // $kategori_berita = kategori_berita::pluck('nama', 'id');
             $data = Berita::query();
 
+            
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
@@ -51,9 +51,13 @@ class BeritaController extends Controller
     // Simpan data ke database
     $berita = new Berita([
         'judul' => $request->get('judul'),
+        'caption_capture' => $request->get('caption_capture'),
         'deskripsi_singkat' => $request->get('deskripsi_singkat'),
         'deskripsi' => $request->get('deskripsi'),
-        'image' => $imageName, // simpan nama file gambar ke dalam kolom 'image'
+        'penulis' => $request->get('penulis'),
+        'image' => $imageName, 
+        'kategori_id' => $request->get('kategori_id'),
+
     ]);
     $berita->save();
 
@@ -100,26 +104,30 @@ class BeritaController extends Controller
     public function update(Request $request, string $id)
     {
         // Temukan data berdasarkan ID
-        $data = DataModel::findOrFail($id);
+        $berita = Berita::findOrFail($id);
+        // $berita = DataModel::all();
 
         // Update data
-        $data->judul = $request->judul;
-        $data->deskripsi_singkat = $request->deskripsi_singkat;
-        $data->deskripsi = $request->deskripsi;
+        $berita->judul = $request->judul;
+        $berita->deskripsi_singkat = $request->deskripsi_singkat;
+        $berita->deskripsi = $request->deskripsi;
 
         // Upload dan simpan gambar jika ada
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $filename = time() . '_' . $image->getClientOriginalName();
-            $image->storeAs('public/images', $filename); // Simpan gambar ke storage
-            $data->image = $filename; // Simpan nama file gambar ke kolom 'image' dalam database
+            // dd($image->getClientOriginalName());
+        // $filename->image = strip_tags($request->image);
+
+            $filename = time() . '_' . $image->hashName();
+            $image->move('images/', $filename); // Simpan gambar ke storage
+            $berita->image = $filename; // Simpan nama file gambar ke kolom 'image' dalam database
         }
 
         // Simpan perubahan data
-        $data->save();
+        $berita->save();
 
         // Redirect dengan pesan sukses
-        return redirect()->route('route.name')->with([
+        return redirect()->route('backoffice.berita.index')->with([
             'alert-type' => 'success',
             'message' => 'Data berhasil diperbarui.'
         ]);

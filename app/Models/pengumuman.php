@@ -12,9 +12,9 @@ class pengumuman extends Model
     protected $fillable = [
         'id',
         'judul',
-        'gambar',
+        'image',
         'caption_capture',
-        'deskripsi_singkat	',
+        'deskripsi_singkat',
         'deskripsi',
         'penulis'
     ];

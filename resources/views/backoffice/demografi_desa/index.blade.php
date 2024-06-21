@@ -21,7 +21,7 @@
             });
         </script>
         @endif
-        <h3 class="card-header p-3">Data User</h3>
+        <h3 class="card-header p-3">Data Pengumuman</h3>
         <div class="card-body">
             <div class="card-header d-flex align-items-center">
                 <h3 class="card-title"></h3>
@@ -36,9 +36,8 @@
                     <tr>
                         <th>No</th>
                         <th>Judul</th>
-                        <th>Deskrip Singkat</th>
-                        <th>Deskripsi</th>
-                        <th>Image</th>
+                        <th>Deskripsi singkat</th>
+                        <th>Penulis</th>
                         <th width="200px">Action</th>
                     </tr>
                 </thead>
@@ -59,12 +58,16 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-        <form action="{{ route('berita.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('pengumuman.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="modal-body">
         <div class="form-group">
             <label for="judul">Judul</label>
             <input type="text" name="judul" class="form-control" id="judul" required>
+        </div>
+         <div class="form-group">
+            <label for="caption_capture">caption_capture</label>
+            <input type="text" name="caption_capture" class="form-control" id="caption_capture" required>
         </div>
         <div class="form-group">
             <label for="deskripsi_singkat">Deskripsi Singkat</label>
@@ -74,10 +77,14 @@
             <label for="deskripsi">Deskripsi</label>
             <input type="text" name="deskripsi" class="form-control" id="deskripsi" required>
         </div>
-       <div class="form-group">
-                        <label for="image">Gambar Berita</label>
-                        <input type="file" id="image" name="image" required>
-                    </div>
+        <div class="form-group">
+            <label for="penulis">penulis</label>
+            <input type="text" name="penulis" class="form-control" id="penulis" required>
+        </div>
+   <div class="form-group">
+      <label for="image">Gambar Berita</label>
+     <input type="file" id="image" name="image" required>
+     </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -97,22 +104,21 @@ $(function () {
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('berita.index') }}",
+        ajax: "{{ route('pengumuman.index') }}",
         columns: [
             {data: 'id', name: 'id'},
             {data: 'judul', name: 'judul'},
             {data: 'deskripsi_singkat', name: 'deskripsi_singkat'},
-            {data: 'deskripsi', name: 'deskripsi'},
-            {data: 'image', name: 'image'},
+            {data: 'penulis', name: 'penulis'},
             {
                 data: 'id',
                 name: 'action',
                 orderable: false,
                 searchable: false,
                 render: function (data) {
-                    return '<a href="/backoffice/user/' + data + '" class="btn btn-info btn-sm">Show</a>' +
-                           '<a href="/backoffice/user/' + data + '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' +
-                           '<form action="/backoffice/user/' + data + '" method="POST" style="display:inline">' +
+                    return '<a href="/backoffice/pengumuman/' + data + '" class="btn btn-info btn-sm">Show</a>' +
+                           '<a href="/backoffice/pengumuman/' + data + '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' +
+                           '<form action="/backoffice/pengumuman/' + data + '" method="POST" style="display:inline">' +
                                '@csrf' +
                                '@method("DELETE")' +
                                '<button type="submit" class="btn btn-danger btn-sm mx-1">Delete</button>' +

@@ -20,8 +20,8 @@
 <div class="container">
     <article class="blog-post">
         <h2 class="display-5 link-body-emphasis mb-4 text-center">Geografis Desa</h2>
-        <p>This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, lists, tables, images, code, and more are all supported as expected.</p>
-        <hr>
+        <p>{{ $geografis }}</p>
+        {{-- <hr>
         <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
         
         <h2 class="mt-5">Blockquotes</h2>
@@ -55,7 +55,7 @@
             <dd>Used to describe the appearance of Web content</dd>
             <dt>JavaScript (JS)</dt>
             <dd>The programming language used to build advanced Web sites and applications</dd>
-        </dl>
+        </dl> --}}
     </article>
 </div>
 @endsection

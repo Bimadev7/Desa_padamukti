@@ -66,6 +66,10 @@
             <label for="judul">Judul</label>
             <input type="text" name="judul" class="form-control" id="judul" required>
         </div>
+         <div class="form-group">
+            <label for="caption_capture">caption_capture</label>
+            <input type="text" name="caption_capture" class="form-control" id="caption_capture" required>
+        </div>
         <div class="form-group">
             <label for="deskripsi_singkat">Deskripsi Singkat</label>
             <input type="text" name="deskripsi_singkat" class="form-control" id="deskripsi_singkat" required>
@@ -74,10 +78,14 @@
             <label for="deskripsi">Deskripsi</label>
             <input type="text" name="deskripsi" class="form-control" id="deskripsi" required>
         </div>
-       <div class="form-group">
-                        <label for="image">Gambar Berita</label>
-                        <input type="file" id="image" name="image" required>
-                    </div>
+        <div class="form-group">
+            <label for="penulis">penulis</label>
+            <input type="text" name="penulis" class="form-control" id="penulis" required>
+        </div>
+   <div class="form-group">
+      <label for="image">Gambar Berita</label>
+     <input type="file" id="image" name="image" required>
+     </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -111,7 +119,7 @@ $(function () {
                 render: function (data) {
                     return '<a href="/backoffice/pengumuman/' + data + '" class="btn btn-info btn-sm">Show</a>' +
                            '<a href="/backoffice/pengumuman/' + data + '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' +
-                           '<form action="/backoffice/pengumuman/' + data + '" method="POST" style="display:inline">' +
+                           '<form action="/backoffice/pengumuman/' + data + '/show" method="POST" style="display:inline">' +
                                '@csrf' +
                                '@method("DELETE")' +
                                '<button type="submit" class="btn btn-danger btn-sm mx-1">Delete</button>' +

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\Berita;
 use App\Models\pengumuman;
+use App\Models\ProfilDesa;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -36,6 +38,10 @@ class DasboardPublicController extends Controller
             $item->deskripsi = Str::limit($item->deskripsi, 100, '...');
         }
 
+        foreach ($news as $new){
+            $new->judul = Str::limit($new->judul, 40, '...');
+        }
+
         return view('public.berita', ['berita' => $berita], ['news' => $news]);
     }
 
@@ -59,17 +65,44 @@ class DasboardPublicController extends Controller
         return view('public.pengumuman', ['pengumuman' => $pengumuman]);
     }
 
+    // Halaman Profil Desa - Tentang Desa
+    public function tentangDesa()
+    {
+        $tentang_desa = DB::table('profil_desa')->value('tentang_desa');
+
+        // return view('public.tentang', compact('tentang_desa'));
+        return view('public.tentang', ['tentang_desa' => $tentang_desa]);
+    }
+
+    // Halaman Profil Desa - Visi Misi
+    public function visiMisi()
+    {
+        $visi = DB::table('profil_desa')->value('visi');
+        $misi = DB::table('profil_desa')->value('misi');
+
+        return view('public.visimisi', ['visi' => $visi], ['misi' => $misi]);
+    }
+
+    // Halaman Profil Desa - Sejarah Desa
+    public function sejarah()
+    {
+        $sejarah = DB::table('profil_desa')->value('sejarah_desa');
+
+        return view('public.sejarah', ['sejarah' => $sejarah]);
+    }
+
+    public function geografis()
+    {
+        $geografis = DB::table('profil_desa')->value('geografis');
+        
+        return view('public.geografis', ['geografis' => $geografis]);
+    }
+
     public function main()
     {
         // $berita = Berita::all();
      
         return view('layout.main2');
 
-    }
-
-    public function tentang()
-    {
-     
-        return view('public.tentang');
     }
 }

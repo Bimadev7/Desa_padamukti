@@ -15,14 +15,20 @@ class Berita extends Model
     protected $fillable = [
         'id',
         'judul',
+        'image',
+        'caption_capture',
         'deskripsi_singkat',
         'deskripsi',
-        'image',
-        'category_id'
+        'penulis',
+        'kategori_id'
     ];
 
+    // public function kategori()
+    // {
+    //     return $this->belongsTo(KategoriBerita::class);
+    // }
     public function kategori()
     {
-        return $this->belongsTo(KategoriBerita::class);
+        return $this->belongsTo(KategoriBerita::class, 'kategori_id', 'id');
     }
 }

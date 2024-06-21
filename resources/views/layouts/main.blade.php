@@ -72,7 +72,7 @@
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="adminlte/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+    <img class="animation__shake" src="public/adminlte/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
   </div>
 
   <!-- Navbar -->
@@ -317,6 +317,8 @@
         </div>
       </div>
 
+      
+
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -340,6 +342,69 @@
             </ul>
           </li>
 
+          
+ {{-- Bagian bacckofice --}}
+          <li class="nav-header">Informasi Desa</li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fas fa-address-book"></i>
+              <p>
+                Profil Desa
+               <i class="fa-sharp fa-light fa-file"></i>
+                {{-- <span class="badge badge-info right">4</span> --}}
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/backoffice/user" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Tentang Kami</p>
+                </a>
+              </li>      
+            </ul>
+             <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/backoffice/user" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Visi</p>
+                </a>
+              </li>      
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/backoffice/user" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Misi</p>
+                </a>
+              </li>      
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/backoffice/user" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Sejarah Desa</p>
+                </a>
+              </li>      
+            </ul>
+              <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/backoffice/user" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Geografi</p>
+                </a>
+              </li>      
+            </ul>
+              <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/backoffice/user" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Demografi</p>
+                </a>
+              </li>      
+            </ul>
+          </li>
+          {{-- End Bagian bacckofice --}}
+
           {{-- Bagian Sidebar --}}
           <li class="nav-header">Sidebar</li>
           <li class="nav-item">
@@ -355,10 +420,7 @@
           {{-- End Bagian bacckofice --}}
 
 
-
-
-          {{-- Bagian bacckofice --}}
-          <li class="nav-header">Management</li>
+  <li class="nav-header">Management</li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="fas fa-address-book"></i>
@@ -377,46 +439,19 @@
               </li>      
             </ul>
           </li>
-          {{-- End Bagian bacckofice --}}
+
+         
 
 
 {{-- Bagian bacckofice --}}
-          <li class="nav-header">Management Public</li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Demography
-               <i class="fa-sharp fa-light fa-file"></i>
-                {{-- <span class="badge badge-info right">4</span> --}}
-              </p>
-            </a>
-          </li>
-          {{-- End Bagian bacckofice --}}
-
-          {{-- Pengumuman --}}
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Pengumuman
-               <i class="fa-sharp fa-light fa-file"></i>
-                {{-- <span class="badge badge-info right">4</span> --}}
-              </p>
-            </a>
-          </li>
-
-          {{-- end Pengumuman --}}
-          
+          <li class="nav-header">Management + Public</li>
           {{-- Start Bagian berita --}}
            <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Berita
+                Informasi Public
                <i class="fa-sharp fa-light fa-file"></i>
-
-                {{-- <span class="badge badge-info right">4</span> --}}
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -430,13 +465,15 @@
 
               <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/backoffice/user" class="nav-link">
+                <a href="/backoffice/pengumuman" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Pengumuman</p>
                 </a>
               </li>      
             </ul>
           </li>
+
+          
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -444,6 +481,9 @@
 
     <!-- /.sidebar -->
   </aside>
+
+
+  
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
