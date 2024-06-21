@@ -121,22 +121,11 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 
-    Route::get('/public/tentang-desa', function () {
-        return view('public.tentang');
-    })->name('tentang-desa');
-
-    Route::get('/public/visi-misi', function () {
-        return view('public.visimisi');
-    })->name('visi-misi');
-
-    Route::get('/public/sejarah', function () {
-        return view('public.sejarah');
-    })->name('sejarah');
-
-    Route::get('/public/geografis', function () {
-        return view('public.geografis');
-    })->name('geografis');
-
+    Route::get('/public/tentang-desa', [DasboardPublicController::class, 'tentangDesa'])->name('tentang-desa');
+    Route::get('/public/visi-misi', [DasboardPublicController::class, 'visiMisi'])->name('visi-misi');
+    Route::get('/public/sejarah', [DasboardPublicController::class, 'sejarah'])->name('sejarah');
+    Route::get('/public/geografis', [DasboardPublicController::class, 'geografis'])->name('geografis');
+    
     Route::get('/public/demografi', function () {
         return view('public.demografi');
     })->name('demografi');

@@ -69,9 +69,9 @@
       <div class="row justify-content-between w-100">
         <div class="col-auto">
           <div class="d-flex align-items-center">
-            <a href="index.html" class="logo me-auto"><img src="/image/logopadamukti.svg" alt="" style="width: 100px; height: 100px;"></a>
+            <a href="/" class="logo me-auto"><img src="/image/logopadamukti.svg" alt="" style="width: 100px; height: 100px;"></a>
             <h5>
-              <a href="#" class="text-dark">
+              <a href="/" class="text-dark">
                 <strong>Desa Padamukti</strong><br/>
                 Kabupaten Bandung
               </a>
@@ -82,7 +82,7 @@
           <nav id="navbar" class="navbar">
             <ul>
               <li><a class="nav-link scrollto active" href="/">Home</a></li>
-              <li class="dropdown"><a href="#"><span>Profil Desa</span> <i class="bi bi-chevron-down"></i></a>
+              <li class="dropdown"><a href="/"><span>Profil Desa</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
                   <li><a href="{{ route('tentang-desa') }}">Tentang Desa</a></li>
                   <li><a href="{{ route('visi-misi') }}">Visi dan Misi</a></li>
@@ -91,14 +91,14 @@
                   <li><a href="{{ route('demografi') }}">Demografi </a></li>
                 </ul>
               </li>
-              <li class="dropdown"><a href="#"><span>Pemerintahan</span> <i class="bi bi-chevron-down"></i></a>
+              <li class="dropdown"><a href="/"><span>Pemerintahan</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
                   <li><a href="{{ route('struktur-desa') }}">Struktur Desa</a></li>
                   <li><a href="{{ route('perangkat-desa') }}">Perangkat Desa</a></li>
                   <li><a href="{{ route('lembaga-desa') }}">Lembaga Desa</a></li>
                 </ul>
               </li>
-              <li class="dropdown"><a href="#"><span>Informasi Publik</span> <i class="bi bi-chevron-down"></i></a>
+              <li class="dropdown"><a href="/"><span>Informasi Publik</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
                   <li><a href="/public/berita">Berita Desa</a></li>
                   <li><a href="{{ route('pengumuman') }}">Pengumuman Desa</a></li> 
