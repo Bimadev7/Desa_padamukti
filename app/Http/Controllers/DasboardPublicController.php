@@ -24,6 +24,8 @@ class DasboardPublicController extends Controller
         foreach ($pengumuman as $item) {
             $item->deskripsi = Str::limit($item->deskripsi, 250, '...');
         }
+
+        
         
         return view('home', ['berita' => $berita], ['pengumuman' => $pengumuman]);
     }

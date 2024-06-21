@@ -25,7 +25,7 @@ Route::prefix('backoffice')->group(function () {
 });
 
 
-
+// Halamn public
 Route::get('/', [DasboardPublicController::class, 'indexdes']);
 
 // Route untuk Berita Barang Simpen data

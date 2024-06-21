@@ -30,55 +30,85 @@
           </script>
         @endif
 
-        <form class="card" action="{{ route('berita.update', $berita->id) }}" method="POST" enctype="multipart/form-data">
+        <form class="card" action="{{ route('slider.update', $slider->id) }}" method="POST" enctype="multipart/form-data">
           @csrf
           @method('PUT')
 
           <div class="row">
             <div class="col-md-6">
-              <div class="form-group ml-4">
-                <label for="judul">Judul Berita</label>
-                <input type="text" name="judul" class="form-control @error('judul') is-invalid @enderror" id="judul" placeholder="Judul Berita" value="{{ $berita->judul }}" required>
-                @error('judul')
-                  <span class="invalid-feedback">{{ $message }}</span>
-                @enderror
-              </div>
+                <label for="image2">Gambar Slider 2</label>
 
-              <div class="form-group ml-4">
-                <label for="deskripsi_singkat">Deskripsi Singkat</label>
-                <input type="text" name="deskripsi_singkat" class="form-control @error('deskripsi_singkat') is-invalid @enderror" id="deskripsi_singkat" placeholder="Deskripsi Singkat" value="{{ $berita->deskripsi_singkat }}" required>
-                @error('deskripsi_singkat')
+              <div class="form-group">
+                @error('slider1')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
+                @if($slider->slider1)
+                  <div class="mt-2">
+                    <img src="{{ asset('images/' . $slider->slider1) }}" alt="Gambar Slider 1" width="200" height="250">
+                  </div>
+                @endif
+                 <label for="image1">Gambar Slider 1</label>
+                <input type="file" name="slider1" class="form-control @error('slider1') is-invalid @enderror" id="slider1">
               </div>
             </div>
 
             <div class="col-md-6">
-              <div class="form-group ml-4">
-                <label for="deskripsi">Deskripsi</label>
-                <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" placeholder="Deskripsi" required>{{ $berita->deskripsi }}</textarea>
-                @error('deskripsi')
+                <label for="image2">Gambar Slider 2</label>
+
+              <div class="form-group">
+                @error('slider2')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
-              </div>
-
-              <div class="form-group ml-4">
-                <label for="image">Gambar Berita</label>
-                <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image">
-                @error('image')
-                  <span class="invalid-feedback">{{ $message }}</span>
-                @enderror
-
-                @if($berita->image)
+                @if($slider->slider2)
                   <div class="mt-2">
-                    <img src="/path/to/images/{{ $berita->image }}" alt="Gambar Berita" height="100">
+                    <img src="{{ asset('images/' . $slider->slider2) }}" alt="Gambar Slider 2" width="200" height="250">
                   </div>
                 @endif
+                <label for="image2">Gambar Slider 2</label>
+                <input type="file" name="slider2" class="form-control @error('slider2') is-invalid @enderror" id="slider2">
               </div>
             </div>
-            <!-- /.col -->
           </div>
-          <!-- /.row -->
+
+           <div class="row">
+            <div class="col-md-6">
+                <label for="image2">Gambar Slider 3</label>
+
+              <div class="form-group">
+                @error('slider1')
+                  <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+                @if($slider->slider1)
+                  <div class="mt-2">
+                    <img src="{{ asset('images/' . $slider->slider3) }}" alt="Gambar Slider 1" width="200" height="250">
+                  </div>
+                @endif
+                 <label for="image1">Gambar Slider 3</label>
+                <input type="file" name="slider3" class="form-control @error('slider3') is-invalid @enderror" id="slider3">
+              </div>
+            </div>
+
+            <div class="col-md-6">
+                <label for="image2">Gambar Slider 4</label>
+
+              <div class="form-group">
+                @error('slider2')
+                  <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+                @if($slider->slider4)
+                  <div class="mt-2">
+                    <img src="{{ asset('images/' . $slider->slider4) }}" alt="Gambar Slider 2" width="200" height="250">
+                  </div>
+                @endif
+                <label for="image2">Gambar Slider 4</label>
+                <input type="file" name="slider4" class="form-control @error('slider4') is-invalid @enderror" id="slider4">
+              </div>
+            </div>
+          </div>
+
+          
+
+            
 
           <div class="row">
             <div class="col-12 text-right">

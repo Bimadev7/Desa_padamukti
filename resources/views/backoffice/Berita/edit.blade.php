@@ -63,8 +63,6 @@
               </div>
 
               <div class="form-group">
-              
-
                 @if($berita->image)
                 <div class="mt-2">
                   <label for="current_image">Gambar saat ini:</label><br>

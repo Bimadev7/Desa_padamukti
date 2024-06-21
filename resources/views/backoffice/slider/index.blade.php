@@ -115,15 +115,25 @@ $(function () {
         ajax: "{{ route('slider.index') }}",
         columns: [
             {data: 'id', name: 'id'},
-            {data: 'slider1', name: 'slider1'},
-            {data: 'slider2', name: 'slider2'},
-            {data: 'slider3', name: 'slider3'},
+            {{-- {data: 'slider1', name: 'slider1'}, --}}
+            {{-- {data: 'slider2', name: 'slider2'},
+            {data: 'slider3', name: 'slider3'}, --}}
           
-            {{-- {data: 'image', name: 'image',
+            {data: 'slider1', name: 'slider1',
                     render: function(data, type, full, meta) {
                         return '<img src="/images/' + data + '" style="max-width: 100px">';
                     }
-                }, --}}
+                },
+                {data: 'slider2', name: 'slider2',
+                    render: function(data, type, full, meta) {
+                        return '<img src="/images/' + data + '" style="max-width: 100px">';
+                    }
+                },
+                {data: 'slider3', name: 'slider3',
+                    render: function(data, type, full, meta) {
+                        return '<img src="/images/' + data + '" style="max-width: 100px">';
+                    }
+                },
 
             {
                 data: 'id',
@@ -131,9 +141,9 @@ $(function () {
                 orderable: false,
                 searchable: false,
                 render: function (data) {
-                    return '<a href="/backoffice/berita/' + data + '" class="btn btn-info btn-sm">Show</a>' +
-                           '<a href="/backoffice/berita/' + data + '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' +
-                           '<form action="/backoffice/berita/' + data + '" method="POST" style="display:inline">' +
+                    return '<a href="/backoffice/slider/' + data + '" class="btn btn-info btn-sm">Show</a>' +
+                           '<a href="/backoffice/slider/' + data + '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' +
+                           '<form action="/backoffice/slider/' + data + '" method="POST" style="display:inline">' +
                                '@csrf' +
                                '@method("DELETE")' +
                                '<button type="submit" class="btn btn-danger btn-sm mx-1">Delete</button>' +
