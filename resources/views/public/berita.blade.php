@@ -36,6 +36,7 @@
                             </a>
                         </div>
                         <div class="col-auto d-none d-lg-block">
+
                             {{-- <img src="{{ asset($item->image) }}" alt="Berita" width="200" height="250"> --}}
                             <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="200" height="250">
 
@@ -53,10 +54,13 @@
                 <div class="p-4 mb-3 bg-light rounded">
                     <h4 class="fst-italic">Berita Kategori</h4>
                     <ul class="mb-0">
-                        <li><a href="#">Berita Desa 2</a></li>
+
+                        <li><a href="#">Berita Desa</a></li>
                         <li><a href="#">Berita Kementrian</a></li>
-                        <li><a href="#">Berita Pemerintah Kabupaten</a></li>
-                        <li><a href="#">Berita Pemerintah Provinsi</a></li>
+                        <li><a href="#">Berita Pemerintahan Kabupaten</a></li>
+                        <li><a href="#">Berita Pemerintahan Provinsi</a></li>
+                        {{-- <li><a href="#">Info Pemerintahan Provinsi</a></li> --}}
+
                     </ul>
                 </div>
                 <div class="p-4">
