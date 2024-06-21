@@ -5,10 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Berita extends Model
+class StrukturOrganisasi extends Model
 {
-   
-
     use HasFactory;
     protected $table = 'struktur_organisasi';
 
@@ -21,13 +19,4 @@ class Berita extends Model
         'deskripsi'
         
     ];
-
-    // public function kategori()
-    // {
-    //     return $this->belongsTo(KategoriBerita::class);
-    // }
-    public function kategori()
-    {
-        return $this->belongsTo(KategoriBerita::class, 'kategori_id', 'id');
-    }
 }

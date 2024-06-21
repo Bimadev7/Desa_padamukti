@@ -66,16 +66,21 @@
                   <svg class="bi"><use xlink:href="#chevron-right"/></svg>
                 </a>
               </div>
-
+        
               <div class="col-auto d-none d-lg-block">
-                            <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="200" height="250">
-
-                {{-- <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></svg> --}}
+                  <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="250" height="250">
+             
               </div>
             </div>
           </div>
           @endforeach
         </div>
+        
+        <div class="text-end mb-4">
+          <a href="#" class="btn btn-success">Lihat Semua Berita</a>
+        </div>
+        
+        
           {{-- End sesion berita --}}
         
         <div class="row">
@@ -87,9 +92,8 @@
             <p>
               Desa Padamukti, dengan segala potensi alam dan budayanya, merupakan contoh desa yang berkembang dengan tetap menjaga kearifan lokal dan tradisi. Kehidupan yang harmonis, alam yang indah, serta nilai-nilai kebersamaan menjadikan Desa Padamukti sebagai tempat yang nyaman untuk tinggal dan berkunjung. Potensi besar yang dimiliki desa ini perlu terus dikembangkan dengan dukungan semua pihak, sehingga kesejahteraan masyarakatnya dapat terus meningkat.
             </p>
-            <a href="{{ route('tentang-desa') }}" class="btn btn-success icon-link gap-1 icon-link-hover mt-3">
+            <a href="{{ route('tentang-desa') }}" class="btn btn-success">
               Lanjutkan Membaca
-              <svg class="bi"><use xlink:href="#chevron-right"/></svg>
             </a>            
           </div>
         </div>

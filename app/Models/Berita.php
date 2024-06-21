@@ -20,7 +20,7 @@ class Berita extends Model
         'deskripsi_singkat',
         'deskripsi',
         'penulis',
-        'category_id'
+        'kategori_id'
     ];
 
     // public function kategori()

@@ -14,13 +14,13 @@ class DasboardPublicController extends Controller
     // Homepage
     public function indexdes()
     {
-        $berita = Berita::latest()->take(2)->get();
-        $pengumuman = pengumuman::latest()->take(3)->get();
-
+        $berita = Berita::latest()->take(4)->get();
         foreach ($berita as $item) {
+            $item->judul = Str::limit($item->judul, 40, '...');
             $item->deskripsi = Str::limit($item->deskripsi, 100, '...');
         }
         
+        $pengumuman = pengumuman::latest()->take(3)->get();
         foreach ($pengumuman as $item) {
             $item->deskripsi = Str::limit($item->deskripsi, 250, '...');
         }
