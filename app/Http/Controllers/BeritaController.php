@@ -14,9 +14,10 @@ class BeritaController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-
+            // $kategori_berita = kategori_berita::pluck('nama', 'id');
             $data = Berita::query();
 
+            
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
@@ -114,8 +115,11 @@ class BeritaController extends Controller
         // Upload dan simpan gambar jika ada
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $filename = time() . '_' . $image->getClientOriginalName();
-            $image->storeAs('public/images', $filename); // Simpan gambar ke storage
+            // dd($image->getClientOriginalName());
+        // $filename->image = strip_tags($request->image);
+
+            $filename = time() . '_' . $image->hashName();
+            $image->move('images/', $filename); // Simpan gambar ke storage
             $berita->image = $filename; // Simpan nama file gambar ke kolom 'image' dalam database
         }
 

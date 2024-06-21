@@ -17,6 +17,9 @@
         footer {
             margin-top: auto;
         }
+         body {
+    padding-top: 200px; /* Jarak minimum antara header dan konten */
+  }
     </style>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -43,7 +46,7 @@
   <link href="/green/assets/css/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="p-0">
   <!-- ======= Top Bar ======= -->
   <section id="topbar" class="d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between align-items-center">
@@ -106,7 +109,7 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
     </div>
-  </header><!-- End Header -->
+  </header>
   <!-- End Header -->
 
   <main>
@@ -147,3 +150,5 @@
 
 </body>
 </html>
+
+

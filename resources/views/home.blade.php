@@ -52,35 +52,32 @@
         </a>
 
         {{-- berita --}}
-        <div class="row mb-2">
-          @foreach($berita as $item)
-          <div class="col-md-6">
-            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-              <div class="col p-4 d-flex flex-column position-static text-start">
-                {{-- <strong class="d-inline-block mb-2 text-primary-emphasis">{{ $item->kategori->nama_kategori }}</strong> --}}
+       
+    <div class="row mb-2">
+    @foreach($berita as $item)
+    <div class="col-md-6 mb-4">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static text-start">
+                
                 <h3 class="mb-0">{{ $item->judul }}</h3>
-                <div class="mb-1 text-body-secondary">{{ $item->created_at->format('M Y') }}</div>
+                <div class="mb-1 text-body-secondary">
+                    {{ optional($item->created_at)->format('M Y') }}
+                </div>
                 <p class="card-text mb-auto">{{ $item->deskripsi }}</p>
-                <a href="{{ route('berita.detailBerita', $item->id) }}" class="icon-link gap-1 icon-link-hover stretched-link">
-                  Lanjutkan Membaca
-                  <svg class="bi"><use xlink:href="#chevron-right"/></svg>
+                <a href="{{ route('berita.detailBerita', $item->id) }}"
+                    class="icon-link gap-1 icon-link-hover stretched-link">
+                    Lanjutkan Membaca
+                    <svg class="bi"><use xlink:href="#chevron-right" /></svg>
                 </a>
-              </div>
-        
-              <div class="col-auto d-none d-lg-block">
-                  <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="250" height="250">
-             
-              </div>
             </div>
-          </div>
-          @endforeach
+
+            <div class="col-auto d-none d-lg-block">
+                <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="200" height="250">
+            </div>
         </div>
-        
-        <div class="text-end mb-4">
-          <a href="#" class="btn btn-success">Lihat Semua Berita</a>
-        </div>
-        
-        
+    </div>
+    @endforeach
+</div>
           {{-- End sesion berita --}}
         
         <div class="row">
@@ -92,8 +89,9 @@
             <p>
               Desa Padamukti, dengan segala potensi alam dan budayanya, merupakan contoh desa yang berkembang dengan tetap menjaga kearifan lokal dan tradisi. Kehidupan yang harmonis, alam yang indah, serta nilai-nilai kebersamaan menjadikan Desa Padamukti sebagai tempat yang nyaman untuk tinggal dan berkunjung. Potensi besar yang dimiliki desa ini perlu terus dikembangkan dengan dukungan semua pihak, sehingga kesejahteraan masyarakatnya dapat terus meningkat.
             </p>
-            <a href="{{ route('tentang-desa') }}" class="btn btn-success">
+            <a href="{{ route('tentang-desa') }}" class="btn btn-success icon-link gap-1 icon-link-hover mt-3">
               Lanjutkan Membaca
+              <svg class="bi"><use xlink:href="#chevron-right"/></svg>
             </a>            
           </div>
         </div>

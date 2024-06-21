@@ -83,10 +83,13 @@
             <label for="deskripsi">penulis</label>
             <input type="text" name="penulis" class="form-control" id="penulis" required>
         </div>
-           <div class="form-group">
-            <label for="deskripsi">kategori_id</label>
-            <input type="text" name="kategori_id" class="form-control" id="kategori_id" required>
-        </div>
+          <div class="form-group">
+                        <label for="role">Role</label>
+                        <select name="kategori_id" class="form-control" id="kategori_id" required>
+                            <option value="1">User</option>
+                            <option value="2">Admin</option>
+                        </select>
+                    </div>
        <div class="form-group">
       <label for="image">Gambar Berita</label>
      <input type="file" id="image" name="image" required>
