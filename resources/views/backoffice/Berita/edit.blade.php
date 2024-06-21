@@ -21,13 +21,13 @@
       <!-- /.card-header -->
       <div class="card-body">
         @if(session('success'))
-          <script>
-            Swal.fire({
-              icon: 'success',
-              title: 'Success!',
-              text: '{{ session('success') }}',
-            });
-          </script>
+        <script>
+          Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: '{{ session('success') }}',
+          });
+        </script>
         @endif
 
         <form class="card" action="{{ route('berita.update', $berita->id) }}" method="POST" enctype="multipart/form-data">
@@ -36,50 +36,52 @@
 
           <div class="row">
             <div class="col-md-6">
-              <div class="form-group ml-4">
+              <div class="form-group">
                 <label for="judul">Judul Berita</label>
                 <input type="text" name="judul" class="form-control @error('judul') is-invalid @enderror" id="judul" placeholder="Judul Berita" value="{{ $berita->judul }}" required>
                 @error('judul')
-                  <span class="invalid-feedback">{{ $message }}</span>
+                <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
               </div>
 
-              <div class="form-group ml-4">
+              <div class="form-group">
                 <label for="deskripsi_singkat">Deskripsi Singkat</label>
                 <input type="text" name="deskripsi_singkat" class="form-control @error('deskripsi_singkat') is-invalid @enderror" id="deskripsi_singkat" placeholder="Deskripsi Singkat" value="{{ $berita->deskripsi_singkat }}" required>
                 @error('deskripsi_singkat')
-                  <span class="invalid-feedback">{{ $message }}</span>
+                <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
               </div>
             </div>
 
             <div class="col-md-6">
-              <div class="form-group ml-4">
+              <div class="form-group">
                 <label for="deskripsi">Deskripsi</label>
                 <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" placeholder="Deskripsi" required>{{ $berita->deskripsi }}</textarea>
                 @error('deskripsi')
-                  <span class="invalid-feedback">{{ $message }}</span>
+                <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
               </div>
 
-              <div class="form-group ml-4">
-                <label for="image">Gambar Berita</label>
-                <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image">
-                @error('image')
-                  <span class="invalid-feedback">{{ $message }}</span>
-                @enderror
+              <div class="form-group">
+              
 
                 @if($berita->image)
-                  <div class="mt-2">
-                    <img src="/path/to/images/{{ $berita->image }}" alt="Gambar Berita" height="100">
-                  </div>
+                <div class="mt-2">
+                  <label for="current_image">Gambar saat ini:</label><br>
+                  <img src="{{ asset('images/' . $berita->image) }}" alt="Gambar Berita" width="200" height="250">
+                </div>
                 @endif
               </div>
+                <label for="image">Gambar</label>
+                <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image">
+                @error('image')
+                <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
             </div>
             <!-- /.col -->
           </div>
           <!-- /.row -->
-
+<br>
           <div class="row">
             <div class="col-12 text-right">
               <button type="submit" class="btn btn-primary mr-5 mb-4">Update</button>
@@ -97,21 +99,8 @@
   <!-- /.container-fluid -->
 </section>
 <!-- /.content -->
-
-<style>
-  .short-select {
-    width: auto !important;
-    min-width: 150px;
-  }
-</style>
 @endsection
 
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
 @endpush

@@ -21,7 +21,7 @@
             });
         </script>
         @endif
-        <h3 class="card-header p-3">Data Berita</h3>
+        <h3 class="card-header p-3">Data Slider</h3>
         <div class="card-body">
             <div class="card-header d-flex align-items-center">
                 <h3 class="card-title"></h3>
@@ -35,10 +35,9 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Judul</th>
-                        <th>caption_capture</th>
-                        <th>Deskripsi</th>
-                        <th>Kategori_berita</th>
+                        <th>slider1</th>
+                        <th>slider2</th>
+                        <th>slider3</th>
                         <th width="200px">Action</th>
                     </tr>
                 </thead>
@@ -59,7 +58,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-        <form action="{{ route('berita.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('slider.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="modal-body">
         <div class="form-group">
@@ -113,13 +112,12 @@ $(function () {
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('berita.index') }}",
+        ajax: "{{ route('slider.index') }}",
         columns: [
             {data: 'id', name: 'id'},
-            {data: 'judul', name: 'judul'},
-            {data: 'caption_capture', name: 'caption_capture'},
-            {data: 'deskripsi', name: 'deskripsi'},
-            {data: 'kategori_id', name: 'kategori_id'},
+            {data: 'slider1', name: 'slider1'},
+            {data: 'slider2', name: 'slider2'},
+            {data: 'slider3', name: 'slider3'},
           
             {{-- {data: 'image', name: 'image',
                     render: function(data, type, full, meta) {
