@@ -11,13 +11,14 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DasboardPublicController;
 use App\Http\Controllers\PengumumanController;
+use App\Http\Controllers\Demografi_desaControllers;
 
 // Berita
 Route::get('/public/berita', [DasboardPublicController::class, 'indexBerita']);
 Route::get('/public/berita/{id}', [DasboardPublicController::class, 'detailBerita'])->name('berita.detailBerita');
 
 // Route Public createn 
-Route::get('/backoffice/users', [UserController::class, 'index'])->name('backoffice.user.index');
+// Route::get('/backoffice/users', [UserController::class, 'index'])->name('backoffice.user.index');
 Route::prefix('backoffice')->group(function () {
     Route::get('/users', [UserController::class, 'index'])->name('backoffice.user.index');
 });
@@ -41,13 +42,15 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('backoffice.dashboard.index');
     
 
-    Route::prefix('backoffice/user')->group(function () {
-        Route::get('/', [UserController::class, 'index'])->name('backoffice.user.index');
-        Route::get('/create', [UserController::class, 'create'])->name('backoffice.user.create');
-        Route::post('/store', [UserController::class, 'store'])->name('backoffice.user.store');
-        Route::get('/edit', [UserController::class, 'edit'])->name('backoffice.user.edit');
-        Route::put('/{id}', [UserController::class, 'update'])->name('user.update');
-    });
+    // Route::prefix('backoffice/user')->group(function () {
+    //     Route::get('/', [UserController::class, 'index'])->name('backoffice.user.index');
+    //     Route::get('/create', [UserController::class, 'create'])->name('backoffice.user.create');
+    //     Route::post('/store', [UserController::class, 'store'])->name('backoffice.user.store');
+    //     Route::get('/edit', [UserController::class, 'edit'])->name('backoffice.user.edit');
+    //     Route::put('/{id}', [UserController::class, 'update'])->name('user.update');
+    // });
+
+    
 
      // Route Pengumuman
      Route::prefix('backoffice/pengumuman')->group(function () {
@@ -85,13 +88,13 @@ Route::middleware(['isAdmin'])->group(function () {
  
 
     // Route User
-    Route::prefix('backoffice/user')->group(function () {
-        Route::get('/', [UserController::class, 'index'])->name('backoffice.user.index');
-        Route::get('/create', [UserController::class, 'create'])->name('backoffice.user.create');
-        Route::post('/store', [UserController::class, 'store'])->name('backoffice.user.store');
-        Route::get('/edit', [UserController::class, 'edit'])->name('backoffice.user.edit');
-        Route::put('/{id}', [UserController::class, 'update'])->name('user.update');
-    });
+    // Route::prefix('backoffice/user')->group(function () {
+    //     Route::get('/', [UserController::class, 'index'])->name('backoffice.user.index');
+    //     Route::get('/create', [UserController::class, 'create'])->name('backoffice.user.create');
+    //     Route::post('/store', [UserController::class, 'store'])->name('backoffice.user.store');
+    //     Route::get('/edit', [UserController::class, 'edit'])->name('backoffice.user.edit');
+    //     Route::put('/{id}', [UserController::class, 'update'])->name('user.update');
+    // });
 
     // CRUD User
     Route::resource('/backoffice/user', UserController::class);
@@ -99,6 +102,7 @@ Route::middleware(['isAdmin'])->group(function () {
     // CRUD Berita
     Route::resource('/backoffice/berita', BeritaController::class);
     Route::resource('/backoffice/pengumuman', PengumumanController::class);
+    Route::resource('/backoffice/demografi_desa', Demografi_desaControllers::class);
 
 });
 

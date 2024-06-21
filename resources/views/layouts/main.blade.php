@@ -317,6 +317,8 @@
         </div>
       </div>
 
+      
+
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -340,6 +342,7 @@
             </ul>
           </li>
 
+          
  {{-- Bagian bacckofice --}}
           <li class="nav-header">Informasi Desa</li>
           <li class="nav-item">
@@ -401,6 +404,7 @@
             </ul>
           </li>
           {{-- End Bagian bacckofice --}}
+
           {{-- Bagian Sidebar --}}
           <li class="nav-header">Sidebar</li>
           <li class="nav-item">
