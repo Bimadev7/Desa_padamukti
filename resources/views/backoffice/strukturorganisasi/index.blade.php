@@ -21,7 +21,7 @@
             });
         </script>
         @endif
-        <h3 class="card-header p-3">Data Slider</h3>
+        <h3 class="card-header p-3">Data Berita</h3>
         <div class="card-body">
             <div class="card-header d-flex align-items-center">
                 <h3 class="card-title"></h3>
@@ -35,9 +35,9 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>slider1</th>
-                        {{-- <th>slider2</th>
-                        <th>slider3</th> --}}
+                        <th>Judul</th>
+                        <th>caption_capture</th>
+                        <th>Deskripsi</th>
                         <th width="200px">Action</th>
                     </tr>
                 </thead>
@@ -58,7 +58,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-        <form action="{{ route('slider.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('berita.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="modal-body">
         <div class="form-group">
@@ -112,28 +112,13 @@ $(function () {
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('slider.index') }}",
+        ajax: "{{ route('strukturorganisasi.index') }}",
         columns: [
             {data: 'id', name: 'id'},
-            {{-- {data: 'slider1', name: 'slider1'}, --}}
-            {{-- {data: 'slider2', name: 'slider2'},
-            {data: 'slider3', name: 'slider3'}, --}}
+            {data: 'nama_pejabat', name: 'nama_pejabat'},
+            {data: 'nip', name: 'nip'},
+            {data: 'deskripsi', name: 'deskripsi'},
           
-            {data: 'slider1', name: 'slider1',
-                    render: function(data, type, full, meta) {
-                        return '<img src="/images/' + data + '" style="max-width: 100px">';
-                    }
-                },
-                {{-- {data: 'slider2', name: 'slider2',
-                    render: function(data, type, full, meta) {
-                        return '<img src="/images/' + data + '" style="max-width: 100px">';
-                    }
-                },
-                {data: 'slider3', name: 'slider3',
-                    render: function(data, type, full, meta) {
-                        return '<img src="/images/' + data + '" style="max-width: 100px">';
-                    }
-                }, --}}
 
             {
                 data: 'id',
@@ -141,9 +126,9 @@ $(function () {
                 orderable: false,
                 searchable: false,
                 render: function (data) {
-                    return '<a href="/backoffice/slider/' + data + '" class="btn btn-info btn-sm">Show</a>' +
-                           '<a href="/backoffice/slider/' + data + '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' +
-                           '<form action="/backoffice/slider/' + data + '" method="POST" style="display:inline">' +
+                    return '<a href="/backoffice/struktur_organisasi/' + data + '" class="btn btn-info btn-sm">Show</a>' +
+                           '<a href="/backoffice/struktur_organisasi/' + data + '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' +
+                           '<form action="/backoffice/struktur_organisasi/' + data + '" method="POST" style="display:inline">' +
                                '@csrf' +
                                '@method("DELETE")' +
                                '<button type="submit" class="btn btn-danger btn-sm mx-1">Delete</button>' +
