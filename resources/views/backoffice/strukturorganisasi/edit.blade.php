@@ -7,7 +7,7 @@
     <!-- SELECT2 EXAMPLE -->
     <div class="card card-default">
       <div class="card-header">
-        <h3 class="card-title">Edit Berita</h3>
+        <h3 class="card-title">Edit Pengumuman</h3>
 
         <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -30,15 +30,15 @@
           </script>
         @endif
 
-        <form class="card" action="{{ route('berita.update', $berita->id) }}" method="POST" enctype="multipart/form-data">
+        <form class="card" action="{{ route('pengumuman.update', $pengumuman->id) }}" method="POST" enctype="multipart/form-data">
           @csrf
           @method('PUT')
 
           <div class="row">
             <div class="col-md-6">
               <div class="form-group ml-4">
-                <label for="judul">Judul Berita</label>
-                <input type="text" name="judul" class="form-control @error('judul') is-invalid @enderror" id="judul" placeholder="Judul Berita" value="{{ $berita->judul }}" required>
+                <label for="judul">Judul Pengumuman</label>
+                <input type="text" name="judul" class="form-control @error('judul') is-invalid @enderror" id="judul" placeholder="Judul Berita" value="{{ $pengumuman->judul }}" required>
                 @error('judul')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
@@ -46,7 +46,7 @@
 
               <div class="form-group ml-4">
                 <label for="deskripsi_singkat">Deskripsi Singkat</label>
-                <input type="text" name="deskripsi_singkat" class="form-control @error('deskripsi_singkat') is-invalid @enderror" id="deskripsi_singkat" placeholder="Deskripsi Singkat" value="{{ $berita->deskripsi_singkat }}" required>
+                <input type="text" name="deskripsi_singkat" class="form-control @error('deskripsi_singkat') is-invalid @enderror" id="deskripsi_singkat" placeholder="Deskripsi Singkat" value="{{ $pengumuman->deskripsi_singkat }}" required>
                 @error('deskripsi_singkat')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
@@ -56,22 +56,24 @@
             <div class="col-md-6">
               <div class="form-group ml-4">
                 <label for="deskripsi">Deskripsi</label>
-                <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" placeholder="Deskripsi" required>{{ $berita->deskripsi }}</textarea>
+                <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" placeholder="Deskripsi" required>{{ $pengumuman->deskripsi }}</textarea>
                 @error('deskripsi')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
               </div>
 
               <div class="form-group ml-4">
-                <label for="image">Gambar Berita</label>
+                <label for="image">Gambar Pengumuman</label>
                 <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image">
                 @error('image')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
 
-                @if($berita->image)
+                @if($pengumuman->image)
                   <div class="mt-2">
-                    <img src="/path/to/images/{{ $berita->image }}" alt="Gambar Berita" height="100">
+                            <img src="{{ asset('images/' . $pengumuman->image) }}" text="ro" alt="Berita" width="200" height="150">
+
+                    {{-- <img src="/path/to/images/{{ $pengumuman->image }}" alt="Gambar Berita" height="100"> --}}
                   </div>
                 @endif
               </div>
@@ -89,7 +91,7 @@
       </div>
       <!-- /.card-body -->
       <div class="card-footer">
-        Edit Berita
+        Edit Pengumuman
       </div>
     </div>
     <!-- /.card -->

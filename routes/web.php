@@ -11,19 +11,22 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DasboardPublicController;
 use App\Http\Controllers\PengumumanController;
+use App\Http\Controllers\Demografi_desaControllers;
+use App\Http\Controllers\SliderConttrollers;
+use App\Http\Controllers\StrukturorganisasiConttrollers;
 
 // Berita
-Route::get('/public/berita', [DasboardPublicController::class, 'indexBerita']);
+Route::get('/public/berita', [DasboardPublicController::class, 'indexBerita'])->name('berita-desa');
 Route::get('/public/berita/{id}', [DasboardPublicController::class, 'detailBerita'])->name('berita.detailBerita');
 
 // Route Public createn 
-Route::get('/backoffice/users', [UserController::class, 'index'])->name('backoffice.user.index');
+// Route::get('/backoffice/users', [UserController::class, 'index'])->name('backoffice.user.index');
 Route::prefix('backoffice')->group(function () {
     Route::get('/users', [UserController::class, 'index'])->name('backoffice.user.index');
 });
 
 
-
+// Halamn public
 Route::get('/', [DasboardPublicController::class, 'indexdes']);
 
 // Route untuk Berita Barang Simpen data
@@ -41,13 +44,15 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('backoffice.dashboard.index');
     
 
-    Route::prefix('backoffice/user')->group(function () {
-        Route::get('/', [UserController::class, 'index'])->name('backoffice.user.index');
-        Route::get('/create', [UserController::class, 'create'])->name('backoffice.user.create');
-        Route::post('/store', [UserController::class, 'store'])->name('backoffice.user.store');
-        Route::get('/edit', [UserController::class, 'edit'])->name('backoffice.user.edit');
-        Route::put('/{id}', [UserController::class, 'update'])->name('user.update');
-    });
+    // Route::prefix('backoffice/user')->group(function () {
+    //     Route::get('/', [UserController::class, 'index'])->name('backoffice.user.index');
+    //     Route::get('/create', [UserController::class, 'create'])->name('backoffice.user.create');
+    //     Route::post('/store', [UserController::class, 'store'])->name('backoffice.user.store');
+    //     Route::get('/edit', [UserController::class, 'edit'])->name('backoffice.user.edit');
+    //     Route::put('/{id}', [UserController::class, 'update'])->name('user.update');
+    // });
+
+    
 
      // Route Pengumuman
      Route::prefix('backoffice/pengumuman')->group(function () {
@@ -80,25 +85,15 @@ Route::middleware(['isAdmin'])->group(function () {
     });
 
 
-    // Route::post('/store', [PengumumanController::class, 'store'])->name('backoffice.Pengumuman.store');
-
- 
-
-    // Route User
-    Route::prefix('backoffice/user')->group(function () {
-        Route::get('/', [UserController::class, 'index'])->name('backoffice.user.index');
-        Route::get('/create', [UserController::class, 'create'])->name('backoffice.user.create');
-        Route::post('/store', [UserController::class, 'store'])->name('backoffice.user.store');
-        Route::get('/edit', [UserController::class, 'edit'])->name('backoffice.user.edit');
-        Route::put('/{id}', [UserController::class, 'update'])->name('user.update');
-    });
-
     // CRUD User
     Route::resource('/backoffice/user', UserController::class);
 
     // CRUD Berita
     Route::resource('/backoffice/berita', BeritaController::class);
     Route::resource('/backoffice/pengumuman', PengumumanController::class);
+    Route::resource('/backoffice/demografi_desa', Demografi_desaControllers::class);
+    Route::resource('/backoffice/slider', SliderConttrollers::class);
+    Route::resource('/backoffice/strukturorganisasi', StrukturorganisasiConttrollers::class);
 
 });
 
@@ -117,22 +112,11 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 
-    Route::get('/public/tentang-desa', function () {
-        return view('public.tentang');
-    })->name('tentang-desa');
-
-    Route::get('/public/visi-misi', function () {
-        return view('public.visimisi');
-    })->name('visi-misi');
-
-    Route::get('/public/sejarah', function () {
-        return view('public.sejarah');
-    })->name('sejarah');
-
-    Route::get('/public/geografis', function () {
-        return view('public.geografis');
-    })->name('geografis');
-
+    Route::get('/public/tentang-desa', [DasboardPublicController::class, 'tentangDesa'])->name('tentang-desa');
+    Route::get('/public/visi-misi', [DasboardPublicController::class, 'visiMisi'])->name('visi-misi');
+    Route::get('/public/sejarah', [DasboardPublicController::class, 'sejarah'])->name('sejarah');
+    Route::get('/public/geografis', [DasboardPublicController::class, 'geografis'])->name('geografis');
+    
     Route::get('/public/demografi', function () {
         return view('public.demografi');
     })->name('demografi');

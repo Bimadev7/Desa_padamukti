@@ -15,14 +15,6 @@
   <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
 
 
-  {{-- a --}}
-
-
-  {{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
-    <!-- Include Bootstrap and AdminLTE JS -->
-    {{-- <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script> --}}
-  {{-- end script --}}
 
   <!-- CkEditor-->
 
@@ -76,7 +68,7 @@
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="adminlte/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+    <img class="animation__shake" src="public/adminlte/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
   </div>
 
   <!-- Navbar -->
@@ -118,189 +110,16 @@
         </div>
       </li>
 
-      {{-- @yield('content_navbar') --}}
-
-
-
-      {{-- <nav class="navbar navbar-expand navbar-light bg-light">
-        <ul class="navbar-nav mr-auto">
-         
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-th-large"></i> Menu
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-              <a class="dropdown-item" href="#" id="userName"></a>
-              <a class="dropdown-item" href="#" id="userName"></a>
-              <p>Selamat datang, {{ $username }}!</p>
-
-              <div class="dropdown-divider"></div>
-
-              <a class="dropdown-item" href="/" id="logout">Keluar</a>
-            </div>
-          </li>
-        </ul>
-      </nav> --}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
+  
         @yield('content_navbar')
   
 
-      <!-- Messages Dropdown Menu -->
-      {{-- <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item"> --}}
-            <!-- Message Start -->
-            {{-- <div class="media">
-              <img src="{{('adminlte/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle')}}">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Brad Diesel
-                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div> --}}
-            <!-- Message End -->
-          {{-- </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item"> --}}
-            <!-- Message Start -->
-            {{-- <div class="media">
-              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  John Pierce
-                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">I got your message bro</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div> --}}
-            <!-- Message End -->
-          {{-- </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Nora Silvester
-                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">The subject goes here</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div> --}}
-            <!-- Message End -->
-          {{-- </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-        </div>
-      </li> --}}
-      <!-- Notifications Dropdown Menu -->
-      {{-- <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-        </div>
-      </li> --}}
-      {{-- <li class="nav-item">
-        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-          <i class="fas fa-expand-arrows-alt"></i>
-        </a>
-      </li> --}}
-
-
-      {{-- <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
-        </a>
-      </li> --}}
-      {{-- <nav class="navbar navbar-expand navbar-light bg-light">
-        <ul class="navbar-nav mr-auto">
-          <!-- Dropdown -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-th-large"></i> Menu
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <!-- Menampilkan nama yang sedang login -->
-              <a class="dropdown-item" href="#">Nama Anda</a>
-              <div class="dropdown-divider"></div>
-              <!-- Opsi untuk keluar -->
-              {{-- <a class="dropdown-item" href="#">Keluar</a> --}}
-              {{-- <a class="dropdown-item" href="/" id="logout">Keluar</a>
-            </div>
-          </li>
-        </ul>
-      </nav>  --}}
-
-
-    {{-- </ul>
-  </nav> --}}
-  <!-- /.navbar -->
+   
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      {{-- <img src="adminlte/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> --}}
 
       <span class="brand-text font-weight-light " text="center">Admin</span>
     </a>
@@ -321,132 +140,65 @@
         </div>
       </div>
 
-      <!-- Sidebar Menu -->
+      
+<!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+       
           
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/backoffice/main" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-
-                  Dashboard
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          {{-- Bagian Sidebar --}}
-          <li class="nav-header">Sidebar</li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="	fas fa-file-image"></i>
+            <a href="/backoffice/berita" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
               <p>
-                Sidebar
-               <i class="fa-sharp fa-light fa-file"></i>
-                {{-- <span class="badge badge-info right">4</span> --}}
+                Berita
               </p>
             </a>
           </li>
-          {{-- End Bagian bacckofice --}}
-
-
-
-
-          {{-- Bagian bacckofice --}}
-          <li class="nav-header">Management</li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="fas fa-address-book"></i>
-              <p>
-                User
-               <i class="fa-sharp fa-light fa-file"></i>
-                {{-- <span class="badge badge-info right">4</span> --}}
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/backoffice/user" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>User</p>
-                </a>
-              </li>      
-            </ul>
-          </li>
-          {{-- End Bagian bacckofice --}}
-
-
-{{-- Bagian bacckofice --}}
-          <li class="nav-header">Management Public</li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Demography
-               <i class="fa-sharp fa-light fa-file"></i>
-                {{-- <span class="badge badge-info right">4</span> --}}
-              </p>
-            </a>
-          </li>
-          {{-- End Bagian bacckofice --}}
-
-          {{-- Pengumuman --}}
-          {{-- <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+            <li class="nav-item">
+            <a href="/backoffice/pengumuman" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
               <p>
                 Pengumuman
-               <i class="fa-sharp fa-light fa-file"></i>
               </p>
             </a>
-          </li> --}}
-
-          {{-- end Pengumuman --}}
-          
-          {{-- Start Bagian berita --}}
-           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Informasi Public
-               <i class="fa-sharp fa-light fa-file"></i>
-
-                {{-- <span class="badge badge-info right">4</span> --}}
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/backoffice/berita" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Berita </p>
-                </a>
-              </li>      
-            </ul>
-
-              <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/backoffice/pengumuman" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Pengumuman</p>
-                </a>
-              </li>      
-            </ul>
           </li>
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div> 
+          </li>
+          <li class="nav-item">
+            <a href="/backoffice/user" class="nav-link">
+              <i class="nav-icon fas fa-user-circle"></i>
+              {{-- <i class="nav-icon far fa-image"></i> --}}
+              <p>
+                Users
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/backoffice/slider" class="nav-link">
+              <i class="nav-icon far fa-calendar-alt"></i>
+              <p>
+                Slider
+              </p>
+            </a>
+          
+          <li class="nav-item">
+            <a href="pages/kanban.html" class="nav-link">
+              <i class="nav-icon fas fa-columns"></i>
+              <p>
+                Kanban Board
+              </p>
+            </a>
+          </li>
 
+        
+         
+          
+      <!-- /.sidebar-menu -->
+    </div>
     <!-- /.sidebar -->
   </aside>
+
+
+  
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

@@ -70,16 +70,31 @@ h6 {
 # Top Bar
 --------------------------------------------------------------*/
 #topbar {
-  background: #fbfbfb;
+  background: #090909;
   font-size: 15px;
   height: 40px;
-  padding: 0;
+  padding: 10px 0; /* Mengurangi padding agar tidak terlalu tinggi */
+  display: flex;
+  align-items: center; /* Menyelaraskan item di tengah secara vertikal */
+}
+
+#topbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#topbar .contact-info {
+  display: flex;
+  align-items: center;
 }
 
 #topbar .contact-info a {
-  line-height: 0;
-  color: #444444;
+  line-height: 1;
+  color: #ffffff;
   transition: 0.3s;
+  margin-left: 5px; 
+  /* Menambah spasi antara ikon dan teks */
 }
 
 #topbar .contact-info a:hover {
@@ -88,7 +103,7 @@ h6 {
 
 #topbar .contact-info i {
   color: #5cb874;
-  line-height: 0;
+  line-height: 1;
   margin-right: 5px;
 }
 
@@ -96,11 +111,16 @@ h6 {
   margin-left: 15px;
 }
 
+#topbar .social-links {
+  display: flex;
+  align-items: center;
+}
+
 #topbar .social-links a {
-  color: #6f6f6f;
+  color: #5cb874;
   padding: 4px 12px;
   display: inline-block;
-  line-height: 1px;
+  line-height: 1;
   transition: 0.3s;
 }
 
@@ -116,10 +136,15 @@ h6 {
   transition: all 0.5s;
   z-index: 997;
   height: 70px;
+  padding: 10px 0; /* Menambah padding di atas dan bawah */
+  display: flex;
+  align-items: center; /* Menyelaraskan item di tengah secara vertikal */
 }
 
-#header.header-scrolled {
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+#header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #header .logo {
@@ -130,6 +155,8 @@ h6 {
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
 }
 
 #header .logo a {
@@ -137,11 +164,63 @@ h6 {
 }
 
 #header .logo img {
-  max-height: 40px;
+  max-height: 35px; /* Menambah tinggi gambar untuk menyelaraskan dengan teks */
+}
+
+#navbar {
+  display: flex;
+  align-items: center;
+}
+
+#navbar ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#navbar ul li {
+  position: relative;
+  margin-left: 20px; /* Menambah spasi antara item menu */
+}
+
+/* #navbar ul li a {
+  text-decoration: none;
+  color: #000;
 }
 
 .scrolled-offset {
   margin-top: 70px;
+} */
+
+#navbar ul li ul {
+  display: none; /* Sembunyikan dropdown menu secara default */
+  position: absolute;
+  top: 100%; /* Posisikan tepat di bawah item menu utama */
+  left: 0;
+  background-color: #fff; /* Ubah warna latar belakang sesuai kebutuhan */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan */
+  padding: 10px 0; /* Tambahkan padding pada dropdown menu */
+  z-index: 1000;
+}
+
+#navbar ul li ul li {
+  width: 200px; /* Sesuaikan lebar dropdown menu */
+  margin-left: 0; /* Hapus margin kiri untuk item dropdown */
+}
+
+#navbar ul li ul li a {
+  padding: 10px 20px; /* Tambahkan padding pada item dropdown */
+  color: #000;
+}
+
+#navbar ul li:hover ul {
+  display: block; /* Tampilkan dropdown menu saat hover */
+}
+
+/* Tambahan untuk menjaga dropdown menu terlihat rapi */
+#navbar ul li ul li a:hover {
+  background-color: #f8f9fa; /* Ubah warna latar belakang saat hover */
 }
 
 /*--------------------------------------------------------------
