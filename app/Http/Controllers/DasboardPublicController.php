@@ -24,10 +24,8 @@ class DasboardPublicController extends Controller
         foreach ($pengumuman as $item) {
             $item->deskripsi = Str::limit($item->deskripsi, 250, '...');
         }
-
-        $about = DB::table('profil_desa')->value('tentang_desa');
         
-        return view('home', ['berita' => $berita], ['pengumuman' => $pengumuman], ['about' => $about]);
+        return view('home', ['berita' => $berita], ['pengumuman' => $pengumuman]);
     }
 
     // Halaman Berita

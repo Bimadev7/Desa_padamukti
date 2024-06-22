@@ -112,15 +112,57 @@ $(function () {
                 render: function (data) {
                     return '<a href="/backoffice/user/' + data + '" class="btn btn-info btn-sm">Show</a>' +
                            '<a href="/backoffice/user/' + data + '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' +
-                           '<form action="/backoffice/user/' + data + '" method="POST" style="display:inline">' +
-                               '@csrf' +
-                               '@method("DELETE")' +
-                               '<button type="submit" class="btn btn-danger btn-sm mx-1">Delete</button>' +
-                           '</form>';
+                           '<button class="btn btn-danger btn-sm mx-1" onclick="confirmDelete(' + data + ')">Delete</button>';
                 }
             },
         ]
     });
+
+    // Function to handle delete confirmation
+    window.confirmDelete = function(id) {
+        Swal.fire({
+            title: 'Apakah Anda Yakin Hapus Data?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Ya, Hapus!',
+            cancelButtonText: 'Tidak, Batalkan!',
+            reverseButtons: true,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: '/backoffice/user/' + id,
+                    type: 'DELETE',
+                    data: {
+                        '_token': '{{ csrf_token() }}',
+                    },
+                    success: function () {
+                        table.ajax.reload(); // Reload DataTable after deletion
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Data berhasil dihapus',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    },
+                    error: function (xhr, status, error) {
+                        var err = eval("(" + xhr.responseText + ")");
+                        console.log(err);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Terjadi Kesalahan',
+                            text: 'Gagal menghapus data.'
+                        });
+                    }
+                });
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                Swal.fire(
+                    'Dibatalkan',
+                    'Data tidak jadi dihapus :)',
+                    'info'
+                );
+            }
+        });
+    };
 });
 </script>
 @endpush

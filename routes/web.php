@@ -12,6 +12,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DasboardPublicController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\Demografi_desaControllers;
+use App\Http\Controllers\SliderConttrollers;
 
 // Berita
 Route::get('/public/berita', [DasboardPublicController::class, 'indexBerita'])->name('berita-desa');
@@ -24,7 +25,7 @@ Route::prefix('backoffice')->group(function () {
 });
 
 
-
+// Halamn public
 Route::get('/', [DasboardPublicController::class, 'indexdes']);
 
 // Route untuk Berita Barang Simpen data
@@ -103,6 +104,7 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::resource('/backoffice/berita', BeritaController::class);
     Route::resource('/backoffice/pengumuman', PengumumanController::class);
     Route::resource('/backoffice/demografi_desa', Demografi_desaControllers::class);
+    Route::resource('/backoffice/slider', SliderConttrollers::class);
 
 });
 
