@@ -62,6 +62,8 @@
                 @enderror
               </div>
 
+            {{-- image --}}
+
               <div class="row">
             <div class="col-md-6">
               <label for="slider1">Gambar Slider</label>
@@ -79,6 +81,7 @@
                 <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image" onchange="previewImage('image', 'preview_slider1')">
               </div>
             </div>
+            {{-- End image --}}
 <br>
           <div class="row">
             <div class="col-12 text-right">
