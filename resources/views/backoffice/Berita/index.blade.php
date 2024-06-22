@@ -54,7 +54,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="addUserModalLabel">Tambah User Baru</h5>
+                <h5 class="modal-title" id="addUserModalLabel">Tambah Berita Baru</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -76,7 +76,7 @@
         </div>
         <div class="form-group">
             <label for="deskripsi">Deskripsi</label>
-            <input type="text" name="deskripsi" class="form-control" id="deskripsi" required>
+            <input type="text" name="deskripsi" class="form-control" id="editor" required>
         </div>
 
            <div class="form-group">

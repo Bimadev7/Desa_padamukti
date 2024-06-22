@@ -29,7 +29,10 @@
 
                             <h6>{{ $berita->caption_capture }}</h6>
                             <hr>
+
                             <p>{{ $berita->deskripsi }}</p>
+                            <p>{!! $berita->deskripsi !!}</p>
+
                         </article>
                     </div>
                 </div>

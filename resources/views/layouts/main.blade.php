@@ -16,6 +16,10 @@
 
 
 
+  <!-- CkEditor-->
+
+  <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
+
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -348,6 +352,10 @@
       alert("Anda telah keluar!");
     });
   });
+</script>
+
+<script>
+   CKEDITOR.replace('editor');
 </script>
 </body>
 </html>
