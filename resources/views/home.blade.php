@@ -43,57 +43,87 @@
     </div>
   </section><!-- End Hero -->
 
+  <section id="featured-services" class="featured-services section-bg">
+    <div class="container">
+
+      <div class="row no-gutters">
+        <div class="col-lg-4 col-md-6">
+          <div class="icon-box">
+            <div class="icon"><i class="bi bi-laptop"></i></div>
+            <h4 class="title"><a href="">12</a></h4>
+            <p class="description">Kelahiran</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="icon-box">
+            <div class="icon"><i class="bi bi-briefcase"></i></div>
+            <h4 class="title"><a href="">0</a></h4>
+            <p class="description">Kematian</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="icon-box">
+            <div class="icon"><i class="bi bi-calendar4-week"></i></div>
+            <h4 class="title"><a href="">15432</a></h4>
+            <p class="description">Jumalah Penduduk</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- ======= About Us Section ======= -->
   <section id="about" class="about">
     <div class="container">
       <div class="section-title">
-        <a href="your-url" class="text-decoration-none">
-          <h2 class="text-dark">Berita Desa</h2>
-        </a>
+        <h2 class="text-dark">Berita Desa</h2>
+      </div>
 
-        {{-- berita --}}
-       
-    <div class="row mb-2">
-    @foreach($berita as $item)
-    <div class="col-md-6 mb-4">
-        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+      <div class="row">
+        @foreach($berita as $item)
+        <div class="col-md-6 mb-4">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <div class="col p-4 d-flex flex-column position-static text-start">
-                
-                <h3 class="mb-0">{{ $item->judul }}</h3>
-                <div class="mb-1 text-body-secondary">
-                    {{ optional($item->created_at)->format('M Y') }}
-                </div>
-                <p class="card-text mb-auto">{{ $item->deskripsi }}</p>
-                <a href="{{ route('berita.detailBerita', $item->id) }}"
-                    class="icon-link gap-1 icon-link-hover stretched-link">
-                    Lanjutkan Membaca
-                    <svg class="bi"><use xlink:href="#chevron-right" /></svg>
-                </a>
+              <h3 class="mb-0">{{ $item->judul }}</h3>
+              <div class="mb-1 text-body-secondary">
+                {{ optional($item->created_at)->format('M Y') }}
+              </div>
+              <p class="card-text mb-auto">{{ $item->deskripsi }}</p>
+              <a href="{{ route('berita.detailBerita', $item->id) }}" class="icon-link gap-1 icon-link-hover stretched-link">
+                Lanjutkan Membaca
+                <svg class="bi"><use xlink:href="#chevron-right" /></svg>
+              </a>
             </div>
-
             <div class="col-auto d-none d-lg-block">
-                <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="200" height="250">
+              <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="200" height="250">
             </div>
-        </div>
-    </div>
-    @endforeach
-</div>
-          {{-- End sesion berita --}}
-        
-        <div class="row">
-          <div class="col-lg-6 order-1 order-lg-2">
-            <img src="green/assets/img/about.jpg" class="img-fluid w-80" alt="">
           </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content text-start">
-            <h3>Tentang Desa</h3>
+        </div>
+        @endforeach
+
+        <div class="text-end mb-4">
+          <a href="{{ route('berita-desa') }}" class="btn btn-success">Lihat Semua Berita</a>
+        </div>
+      </div>
+
+      <div class="section-title mt-5">
+        <h2 class="text-dark">Tentang Desa</h2>
+      </div>
+
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="content text-start">
             <p>
               Desa Padamukti, dengan segala potensi alam dan budayanya, merupakan contoh desa yang berkembang dengan tetap menjaga kearifan lokal dan tradisi. Kehidupan yang harmonis, alam yang indah, serta nilai-nilai kebersamaan menjadikan Desa Padamukti sebagai tempat yang nyaman untuk tinggal dan berkunjung. Potensi besar yang dimiliki desa ini perlu terus dikembangkan dengan dukungan semua pihak, sehingga kesejahteraan masyarakatnya dapat terus meningkat.
             </p>
             <a href="{{ route('tentang-desa') }}" class="btn btn-success icon-link gap-1 icon-link-hover mt-3">
               Lanjutkan Membaca
-              <svg class="bi"><use xlink:href="#chevron-right"/></svg>
-            </a>            
+            </a>
           </div>
+        </div>
+        <div class="col-lg-6 text-center">
+          <img src="green/assets/img/slider 3.jpg" alt="Tentang Desa" class="img-fluid w-80">
         </div>
       </div>
     </div>

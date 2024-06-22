@@ -16,7 +16,7 @@ use App\Http\Controllers\SliderConttrollers;
 use App\Http\Controllers\StrukturorganisasiConttrollers;
 
 // Berita
-Route::get('/public/berita', [DasboardPublicController::class, 'indexBerita']);
+Route::get('/public/berita', [DasboardPublicController::class, 'indexBerita'])->name('berita-desa');
 Route::get('/public/berita/{id}', [DasboardPublicController::class, 'detailBerita'])->name('berita.detailBerita');
 
 // Route Public createn 
