@@ -12,9 +12,11 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DasboardPublicController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\Demografi_desaControllers;
+use App\Http\Controllers\SliderConttrollers;
+use App\Http\Controllers\StrukturorganisasiConttrollers;
 
 // Berita
-Route::get('/public/berita', [DasboardPublicController::class, 'indexBerita']);
+Route::get('/public/berita', [DasboardPublicController::class, 'indexBerita'])->name('berita-desa');
 Route::get('/public/berita/{id}', [DasboardPublicController::class, 'detailBerita'])->name('berita.detailBerita');
 
 // Route Public createn 
@@ -24,7 +26,7 @@ Route::prefix('backoffice')->group(function () {
 });
 
 
-
+// Halamn public
 Route::get('/', [DasboardPublicController::class, 'indexdes']);
 
 // Route untuk Berita Barang Simpen data
@@ -83,19 +85,6 @@ Route::middleware(['isAdmin'])->group(function () {
     });
 
 
-    // Route::post('/store', [PengumumanController::class, 'store'])->name('backoffice.Pengumuman.store');
-
- 
-
-    // Route User
-    // Route::prefix('backoffice/user')->group(function () {
-    //     Route::get('/', [UserController::class, 'index'])->name('backoffice.user.index');
-    //     Route::get('/create', [UserController::class, 'create'])->name('backoffice.user.create');
-    //     Route::post('/store', [UserController::class, 'store'])->name('backoffice.user.store');
-    //     Route::get('/edit', [UserController::class, 'edit'])->name('backoffice.user.edit');
-    //     Route::put('/{id}', [UserController::class, 'update'])->name('user.update');
-    // });
-
     // CRUD User
     Route::resource('/backoffice/user', UserController::class);
 
@@ -103,6 +92,8 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::resource('/backoffice/berita', BeritaController::class);
     Route::resource('/backoffice/pengumuman', PengumumanController::class);
     Route::resource('/backoffice/demografi_desa', Demografi_desaControllers::class);
+    Route::resource('/backoffice/slider', SliderConttrollers::class);
+    Route::resource('/backoffice/strukturorganisasi', StrukturorganisasiConttrollers::class);
 
 });
 

@@ -22,7 +22,7 @@
         <br>
         <dl>
             <dt>Visi</dt>
-            <dd>T{{ $visi }}</dd>
+            <dd>{{ $visi }}</dd>
             <br>
 
             <dt>Misi</dt>

@@ -105,7 +105,6 @@ class BeritaController extends Controller
     {
         // Temukan data berdasarkan ID
         $berita = Berita::findOrFail($id);
-        // $berita = DataModel::all();
 
         // Update data
         $berita->judul = $request->judul;
@@ -115,9 +114,6 @@ class BeritaController extends Controller
         // Upload dan simpan gambar jika ada
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            // dd($image->getClientOriginalName());
-        // $filename->image = strip_tags($request->image);
-
             $filename = time() . '_' . $image->hashName();
             $image->move('images/', $filename); // Simpan gambar ke storage
             $berita->image = $filename; // Simpan nama file gambar ke kolom 'image' dalam database
