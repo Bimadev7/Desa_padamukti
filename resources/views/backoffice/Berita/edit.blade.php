@@ -62,23 +62,23 @@
                 @enderror
               </div>
 
+              <div class="row">
+            <div class="col-md-6">
+              <label for="slider1">Gambar Slider</label>
               <div class="form-group">
-                @if($berita->image)
-                <div class="mt-2">
-                  <label for="current_image">Gambar saat ini:</label><br>
-                  <img src="{{ asset('images/' . $berita->image) }}" alt="Gambar Berita" width="200" height="250">
-                </div>
-                @endif
-              </div>
-                <label for="image">Gambar</label>
-                <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image">
-                @error('image')
-                <span class="invalid-feedback">{{ $message }}</span>
+                @error('slider1')
+                  <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
+                @if($berita->image)
+                  <div class="mt-2">
+                    <img src="{{ asset('images/' . $berita->image) }}" alt="Gambar Slider 1" width="200" height="250" id="preview_slider1">
+                  </div>
+                @endif
+                <br>
+                <p>masukan Gambar</p>
+                <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image" onchange="previewImage('image', 'preview_slider1')">
+              </div>
             </div>
-            <!-- /.col -->
-          </div>
-          <!-- /.row -->
 <br>
           <div class="row">
             <div class="col-12 text-right">
@@ -97,6 +97,18 @@
   <!-- /.container-fluid -->
 </section>
 <!-- /.content -->
+<script>
+  function previewImage(inputId, imageId) {
+    const input = document.getElementById(inputId);
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        document.getElementById(imageId).src = e.target.result;
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+</script>
 @endsection
 
 @push('scripts')
