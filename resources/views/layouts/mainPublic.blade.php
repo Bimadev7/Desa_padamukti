@@ -101,7 +101,7 @@
           <li class="dropdown">
             <a href="/"><span>Informasi Publik</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="/public/berita">Berita Desa</a></li>
+              <li><a href="{{ route('berita-desa') }}">Berita Desa</a></li>
               <li><a href="{{ route('pengumuman') }}">Pengumuman Desa</a></li> 
             </ul>
           </li>
@@ -117,7 +117,7 @@
   </main>
 
   <!-- ======= Footer ======= -->
-  <footer class="mt-5" id="footer">
+  <footer id="footer">
     <div class="container">
       <h3>Desa Padamukti</h3>
       <div class="social-links">

@@ -14,7 +14,7 @@ use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\Demografi_desaControllers;
 
 // Berita
-Route::get('/public/berita', [DasboardPublicController::class, 'indexBerita']);
+Route::get('/public/berita', [DasboardPublicController::class, 'indexBerita'])->name('berita-desa');
 Route::get('/public/berita/{id}', [DasboardPublicController::class, 'detailBerita'])->name('berita.detailBerita');
 
 // Route Public createn 
