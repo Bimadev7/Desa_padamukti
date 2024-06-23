@@ -14,6 +14,7 @@ use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\Demografi_desaControllers;
 use App\Http\Controllers\SliderConttrollers;
 use App\Http\Controllers\StrukturorganisasiConttrollers;
+use App\Http\Controllers\DemografidesaController;
 
 // Berita
 Route::get('/public/berita', [DasboardPublicController::class, 'indexBerita'])->name('berita-desa');
@@ -94,6 +95,7 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::resource('/backoffice/demografi_desa', Demografi_desaControllers::class);
     Route::resource('/backoffice/slider', SliderConttrollers::class);
     Route::resource('/backoffice/strukturorganisasi', StrukturorganisasiConttrollers::class);
+    Route::resource('/backoffice/demografidesa', DemografidesaController::class);
 
 });
 

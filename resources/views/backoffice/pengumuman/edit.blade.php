@@ -65,7 +65,7 @@
              {{-- image --}}
                  <div class="row">
             <div class="col-md-6">
-              <label for="slider1">Gambar Slider</label>
+              <label for="slider1">Gambar Pengumuman</label>
               <div class="form-group">
                 @error('slider1')
                   <span class="invalid-feedback">{{ $message }}</span>
