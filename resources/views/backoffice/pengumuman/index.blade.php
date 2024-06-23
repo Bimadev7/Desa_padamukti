@@ -1,3 +1,4 @@
+{{-- Testin --}}
 @extends('layouts.main')
 
 @section('content')
@@ -118,7 +119,7 @@ $(function () {
                 render: function (data) {
                     return '<a href="/backoffice/pengumuman/' + data + '" class="btn btn-info btn-sm">Show</a>' +
                            '<a href="/backoffice/pengumuman/' + data + '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' +
-                           '<form action="/backoffice/pengumuman/' + data + '" method="POST" style="display:inline">' +
+                           '<form action="/backoffice/pengumuman/' + data + '/show" method="POST" style="display:inline">' +
                                '@csrf' +
                                '@method("DELETE")' +
                                '<button type="submit" class="btn btn-danger btn-sm mx-1">Delete</button>' +
