@@ -5,18 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class StrukturOrganisasi extends Model
+class Demografidesa extends Model
 {
     use HasFactory;
-    protected $table = 'struktur_organisasi';
-
+    protected $table = 'demografi_desa';
     protected $fillable = [
         'id',
-        'nama',
-        'jabatan',
-        'foto',
-        'nip',
-        'deskripsi'
-        
+        'angka_kelahiran',
+        'angka_kematian',
+        'jumlah_penduduk'
     ];
 }
