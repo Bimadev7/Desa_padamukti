@@ -119,7 +119,9 @@ $(function () {
             {data: 'judul', name: 'judul'},
             {data: 'caption_capture', name: 'caption_capture'},
             {data: 'deskripsi_singkat', name: 'deskripsi_singkat'},
-            {data: 'kategori_id', name: 'kategori_id'},
+            {data: 'kategori_id', name: 'kategori_id', render: function(data, type, full, meta) {
+                return full.kategori.nama_kategori; // Menampilkan nama_kategori dari relasi
+            }},
           
             {{-- {data: 'image', name: 'image',
                     render: function(data, type, full, meta) {

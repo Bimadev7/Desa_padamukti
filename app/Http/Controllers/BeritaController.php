@@ -14,23 +14,48 @@ class BeritaController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            // $kategori_berita = kategori_berita::pluck('nama', 'id');
-            $data = Berita::query();
-
-            
-            return Datatables::of($data)
-                    ->addIndexColumn()
-                    ->addColumn('action', function($row){
-
-                            $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
-
-                            return $btn;
-                    })
-                    ->rawColumns(['action'])
-                    ->make(true);
+            $data = Berita::with('kategori')->latest()->get();
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function($row){
+                    $btn = '<a href="/backoffice/berita/' . $row->id . '" class="btn btn-info btn-sm">Show</a>' .
+                           '<a href="/backoffice/berita/' . $row->id . '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' .
+                           '<form action="/backoffice/berita/' . $row->id . '" method="POST" style="display:inline">' .
+                               csrf_field() .
+                               method_field("DELETE") .
+                               '<button type="submit" class="btn btn-danger btn-sm mx-1">Delete</button>' .
+                           '</form>';
+                    return $btn;
+                })
+                ->addColumn('kategori_id', function($row){
+                    return $row->kategori->nama_kategori;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
         }
         return view('backoffice.berita.index');
     }
+
+    // public function index(Request $request)
+    // {
+    //     if ($request->ajax()) {
+    //         // $kategori_berita = kategori_berita::pluck('nama', 'id');
+    //         $data = Berita::query();
+
+            
+    //         return Datatables::of($data)
+    //                 ->addIndexColumn()
+    //                 ->addColumn('action', function($row){
+
+    //                         $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
+
+    //                         return $btn;
+    //                 })
+    //                 ->rawColumns(['action'])
+    //                 ->make(true);
+    //     }
+    //     return view('backoffice.berita.index');
+    // }
 
     /**
      * Show the form for creating a new resource.
