@@ -81,70 +81,69 @@
       </div>
 
       <div class="row">
-        @foreach($berita as $item)
-        <div class="col-md-6 mb-4">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-            <div class="col p-4 d-flex flex-column position-static text-start">
-              <h3 class="mb-0">{{ $item->judul }}</h3>
-              <div class="mb-1 text-body-secondary">
-                {{ optional($item->created_at)->format('M Y') }}
-              </div>
-              <p class="card-text mb-auto">{{ $item->deskripsi }}</p>
-              <a href="{{ route('berita.detailBerita', $item->id) }}" class="icon-link gap-1 icon-link-hover stretched-link">
-                Lanjutkan Membaca
-                <svg class="bi"><use xlink:href="#chevron-right" /></svg>
-              </a>
-            </div>
-            <div class="col-auto d-none d-lg-block">
-              <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="200" height="250">
-            </div>
-          </div>
+  @foreach($berita as $item)
+  <div class="col-md-6 mb-4">
+    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+      <div class="col p-4 d-flex flex-column position-static text-start">
+        <h3 class="mb-0" style="font-size: 1.5em; font-weight: bold; color: #000;">{{ $item->judul }}</h3>
+        <div class="mb-1 text-body-secondary">
+          {{ optional($item->created_at)->format('M Y') }}
         </div>
-        @endforeach
-
-        <div class="text-end mb-4">
-          <a href="{{ route('berita-desa') }}" class="btn btn-success">Lihat Semua Berita</a>
-        </div>
+        <p class="card-text mb-auto">{{ $item->deskripsi }}</p>
+        <a href="{{ route('berita.detailBerita', $item->id) }}" class="icon-link gap-1 icon-link-hover stretched-link">
+          Lanjutkan Membaca
+          <svg class="bi"><use xlink:href="#chevron-right" /></svg>
+        </a>
       </div>
-
-      <div class="section-title mt-5">
-        <h2 class="text-dark">Tentang Desa</h2>
-      </div>
-
-      <div class="row align-items-center">
-        <div class="col-lg-6">
-          <div class="content text-start">
-            <p>
-              Desa Padamukti, dengan segala potensi alam dan budayanya, merupakan contoh desa yang berkembang dengan tetap menjaga kearifan lokal dan tradisi. Kehidupan yang harmonis, alam yang indah, serta nilai-nilai kebersamaan menjadikan Desa Padamukti sebagai tempat yang nyaman untuk tinggal dan berkunjung. Potensi besar yang dimiliki desa ini perlu terus dikembangkan dengan dukungan semua pihak, sehingga kesejahteraan masyarakatnya dapat terus meningkat.
-            </p>
-            <a href="{{ route('tentang-desa') }}" class="btn btn-success icon-link gap-1 icon-link-hover mt-3">
-              Lanjutkan Membaca
-            </a>
-          </div>
-        </div>
-        <div class="col-lg-6 text-center">
-          <img src="green/assets/img/slider 3.jpg" alt="Tentang Desa" class="img-fluid w-80">
-        </div>
+      <div class="col-auto d-none d-lg-block">
+        <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="200" height="250">
       </div>
     </div>
-  </section>
-  <!-- End About Us Section -->
+  </div>
+  @endforeach
 
-  <!-- ======= Contact Section ======= -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <div class="section-title">
-        <h2>Pengumuman Desa</h2>
-        @foreach($pengumuman as $item)
-        <div class="card text-start mb-3">
-          <div class="card-body">
-            <h5 class="card-title">
-              <a href="your-route-url" class="text-decoration-none">{{ $item->judul }}</a>
-            </h5>
-            <p class="card-text">{{ $item->deskripsi }}</p>
-          </div>
+  <div class="text-end mb-4">
+    <a href="{{ route('berita-desa') }}" class="btn btn-success">Lihat Semua Berita</a>
+  </div>
+</div>
+
+<div class="section-title mt-5">
+  <h2 class="text-dark">Tentang Desa</h2>
+</div>
+
+<div class="row align-items-center">
+  <div class="col-lg-6">
+    <div class="content text-start">
+      <p>
+        Desa Padamukti, dengan segala potensi alam dan budayanya, merupakan contoh desa yang berkembang dengan tetap menjaga kearifan lokal dan tradisi. Kehidupan yang harmonis, alam yang indah, serta nilai-nilai kebersamaan menjadikan Desa Padamukti sebagai tempat yang nyaman untuk tinggal dan berkunjung. Potensi besar yang dimiliki desa ini perlu terus dikembangkan dengan dukungan semua pihak, sehingga kesejahteraan masyarakatnya dapat terus meningkat.
+      </p>
+      <a href="{{ route('tentang-desa') }}" class="btn btn-success icon-link gap-1 icon-link-hover mt-3">
+        Lanjutkan Membaca
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-6 text-center">
+    <img src="green/assets/img/slider 3.jpg" alt="Tentang Desa" class="img-fluid w-80">
+  </div>
+</div>
+</div>
+</section>
+
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="section-title">
+      <h2>Pengumuman Desa</h2>
+      @foreach($pengumuman as $item)
+      <div class="card text-start mb-3">
+        <div class="card-body">
+          <h5 class="card-title" style="font-size: 1.5em; font-weight: bold; color: #000;">
+            <a href="/public/detail_pengumuman" class="mb-0">{{ $item->judul }}</a>
+          </h5>
+          <p class="card-text">{{ $item->deskripsi }}</p>
         </div>
-        @endforeach
+      </div>
+      @endforeach
       </div>
       <div class="row justify-content-center">
         <div class="col-lg-50 d-flex align-items-stretch mt-5">

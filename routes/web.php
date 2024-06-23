@@ -67,6 +67,7 @@ Route::middleware(['isAdmin'])->group(function () {
         Route::get('/pengumuman', [PengumumanController::class, 'index'])->name('backoffice.pengumuman.index');
 
 
+
     });
 
 
@@ -134,6 +135,9 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::get('/public/lembaga-desa', function () {
         return view('public.lembaga');
     })->name('lembaga-desa');
+    Route::get('/public/detail_pengumuman', function () {
+        return view('public.pengumuman1');
+    })->name('detail-pengumuman');
 
 
     Route::get('/public/pengumuman', [DasboardPublicController::class, 'indexPengumuman'])->name('pengumuman');
