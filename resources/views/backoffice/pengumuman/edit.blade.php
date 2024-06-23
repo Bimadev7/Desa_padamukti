@@ -62,25 +62,26 @@
                 @enderror
               </div>
 
-              <div class="form-group ml-4">
-                <label for="image">Gambar Pengumuman</label>
-                <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image">
-                @error('image')
+             {{-- image --}}
+                 <div class="row">
+            <div class="col-md-6">
+              <label for="slider1">Gambar Pengumuman</label>
+              <div class="form-group">
+                @error('slider1')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
-
                 @if($pengumuman->image)
                   <div class="mt-2">
-                            <img src="{{ asset('images/' . $pengumuman->image) }}" text="ro" alt="Berita" width="200" height="150">
-
-                    {{-- <img src="/path/to/images/{{ $pengumuman->image }}" alt="Gambar Berita" height="100"> --}}
+                    <img src="{{ asset('images/' . $pengumuman->image) }}" alt="Gambar Slider 1" width="200" height="250" id="preview_slider1">
                   </div>
                 @endif
+                <br>
+                <p>masukan Gambar</p>
+                <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image" onchange="previewImage('image', 'preview_slider1')">
               </div>
             </div>
-            <!-- /.col -->
-          </div>
-          <!-- /.row -->
+
+          {{-- end --}}
 
           <div class="row">
             <div class="col-12 text-right">
@@ -97,6 +98,18 @@
     <!-- /.card -->
   </div>
   <!-- /.container-fluid -->
+  <script>
+  function previewImage(inputId, imageId) {
+    const input = document.getElementById(inputId);
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        document.getElementById(imageId).src = e.target.result;
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+</script>
 </section>
 <!-- /.content -->
 

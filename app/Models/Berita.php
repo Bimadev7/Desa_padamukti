@@ -11,7 +11,6 @@ class Berita extends Model
 
     use HasFactory;
     protected $table = 'berita';
-
     protected $fillable = [
         'id',
         'judul',
@@ -27,6 +26,7 @@ class Berita extends Model
     // {
     //     return $this->belongsTo(KategoriBerita::class);
     // }
+    
     public function kategori()
     {
         return $this->belongsTo(KategoriBerita::class, 'kategori_id', 'id');

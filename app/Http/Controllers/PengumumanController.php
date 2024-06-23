@@ -102,8 +102,9 @@ class PengumumanController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $filename = time() . '_' . $image->getClientOriginalName();
-            $image->storeAs('public/images', $filename); // Simpan gambar ke storage
-            $data->image = $filename; // Simpan nama file gambar ke kolom 'image' dalam database
+            // $image->storeAs('public/images', $filename); // Simpan gambar ke storage
+            $image->move('images/', $filename); // Simpan gambar ke storage
+            $pengumuman->image = $filename; // Simpan nama file gambar ke kolom 'image' dalam database
         }
 
         // Simpan perubahan data
