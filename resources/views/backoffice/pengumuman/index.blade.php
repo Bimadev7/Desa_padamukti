@@ -21,14 +21,17 @@
             });
         </script>
         @endif
-        <h3 class="card-header p-3">Data User</h3>
+        <h3 class="card-header p-3">Data Pengumuman</h3>
         <div class="card-body">
             <div class="card-header d-flex align-items-center">
                 <h3 class="card-title"></h3>
                 <div class="card-tools ml-auto mr-0">
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addUserModal">
+                    {{-- <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addUserModal">
                         <i class="fas fa-plus mr-1"></i> Tambah Baru
-                    </button>
+                    </button> --}}
+              <a href="{{ route('pengumuman.create') }}" class="btn btn-primary btn-sm">
+                    <i class="fas fa-plus mr-1"></i> Tambah Baru
+                </a>
                 </div>
             </div>
             <table class="table table-bordered data-table">
