@@ -16,6 +16,9 @@ use App\Http\Controllers\SliderConttrollers;
 use App\Http\Controllers\StrukturorganisasiConttrollers;
 use App\Http\Controllers\DemografidesaController;
 
+
+Route::delete('/backoffice/pengumuman/{id}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
+
 // Berita
 Route::get('/public/berita', [DasboardPublicController::class, 'indexBerita'])->name('berita-desa');
 Route::get('/public/berita/{id}', [DasboardPublicController::class, 'detailBerita'])->name('berita.detailBerita');

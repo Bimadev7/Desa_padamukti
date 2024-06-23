@@ -118,7 +118,7 @@ $(function () {
             {data: 'id', name: 'id'},
             {data: 'judul', name: 'judul'},
             {data: 'caption_capture', name: 'caption_capture'},
-            {data: 'deskripsi', name: 'deskripsi'},
+            {data: 'deskripsi_singkat', name: 'deskripsi_singkat'},
             {data: 'kategori_id', name: 'kategori_id'},
           
             {{-- {data: 'image', name: 'image',

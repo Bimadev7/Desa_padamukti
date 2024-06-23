@@ -122,10 +122,13 @@ class PengumumanController extends Controller
      */
     public function destroy(string $id)
     {
-        Pengumuman::findOrFail($id)->delete();
-        return redirect()->route('backoffice.pengumuman.index')->with([
-            'alert-type' => 'success',
-            'message' => 'Data Order Berhasil Ditambahkan!'
-        ]); 
+        try {
+            $pengumuman = Pengumuman::findOrFail($id);
+            $pengumuman->delete();
+
+            return response()->json(['message' => 'User berhasil dihapus.'], 200);
+             } catch (\Exception $e) {
+            return response()->json(['message' => 'Gagal menghapus user. ' . $e->getMessage()], 500);
+        }
     }
 }

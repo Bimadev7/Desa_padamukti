@@ -1,11 +1,13 @@
-    <?php
+<?php
 
-    namespace App\Http\Controllers;
-    use Illuminate\Support\Facades\Auth;
-    use Illuminate\Http\Request;
-    use App\Models\User;
-    use Illuminate\Support\Facades\Hash;
-    use Yajra\DataTables\Facades\DataTables;
+namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Yajra\DataTables\Facades\DataTables;
+
+    
 
     class UserController extends Controller
     {
@@ -158,18 +160,18 @@
 
         
 
-        public function destroy($id)
-        {
-            
-        try {
-            $user = User::findOrFail($id);
-            $user->delete();
+            public function destroy($id)
+            {
+                
+            try {
+                $user = User::findOrFail($id);
+                $user->delete();
 
-            return response()->json(['message' => 'User berhasil dihapus.'], 200);
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Gagal menghapus user. ' . $e->getMessage()], 500);
-        }
-        }
+                return response()->json(['message' => 'User berhasil dihapus.'], 200);
+            } catch (\Exception $e) {
+                return response()->json(['message' => 'Gagal menghapus user. ' . $e->getMessage()], 500);
+            }
+            }
 
     
         

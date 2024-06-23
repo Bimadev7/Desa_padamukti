@@ -26,7 +26,6 @@ class Berita extends Model
     // {
     //     return $this->belongsTo(KategoriBerita::class);
     // }
-    
     public function kategori()
     {
         return $this->belongsTo(KategoriBerita::class, 'kategori_id', 'id');
