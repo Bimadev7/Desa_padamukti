@@ -53,7 +53,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="addUserModalLabel">Tambah User Baru</h5>
+                <h5 class="modal-title" id="addUserModalLabel">Tambah Pengumuman Baru</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -75,20 +75,20 @@
         </div>
         <div class="form-group">
             <label for="deskripsi">Deskripsi</label>
-            <input type="text" name="deskripsi" class="form-control" id="deskripsi" required>
+            <input type="text" name="deskripsi" class="form-control" id="editor" required>
         </div>
         <div class="form-group">
             <label for="penulis">penulis</label>
             <input type="text" name="penulis" class="form-control" id="penulis" required>
         </div>
    <div class="form-group">
-      <label for="image">Gambar Berita</label>
+      <label for="image">Gambar Pengumuman</label>
      <input type="file" id="image" name="image" required>
      </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Tambah User</button>
+        <button type="submit" class="btn btn-primary">Tambah Pengumuman</button>
     </div>
 </form>
 
