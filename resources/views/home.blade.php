@@ -46,32 +46,34 @@
   <section id="featured-services" class="featured-services section-bg">
     <div class="container">
 
-      <div class="row no-gutters">
-        <div class="col-lg-4 col-md-6">
-          <div class="icon-box">
-            <div class="icon"><i class="bi bi-laptop"></i></div>
-            <h4 class="title"><a href="">12</a></h4>
-            <p class="description">Kelahiran</p>
-          </div>
+        <div class="row no-gutters">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="icon-box text-center">
+                    <div class="icon mb-3"><i class="bi bi-person-plus"></i></div>
+                    <h2 class="title"><a href="">12</a></h2>
+                    <p class="description">Kelahiran</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="icon-box text-center">
+                    <div class="icon mb-3"><i class="bi bi-person-dash"></i></div>
+                    <h2 class="title"><a href="">0</a></h2>
+                    <p class="description">Kematian</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="icon-box text-center">
+                    <div class="icon mb-3"><i class="bi bi-people"></i></div>
+                    <h2 class="title"><a href="">15432</a></h2>
+                    <p class="description">Jumlah Penduduk</p>
+                </div>
+            </div>
         </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="icon-box">
-            <div class="icon"><i class="bi bi-briefcase"></i></div>
-            <h4 class="title"><a href="">0</a></h4>
-            <p class="description">Kematian</p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="icon-box">
-            <div class="icon"><i class="bi bi-calendar4-week"></i></div>
-            <h4 class="title"><a href="">15432</a></h4>
-            <p class="description">Jumalah Penduduk</p>
-          </div>
-        </div>
-      </div>
 
     </div>
   </section>
+
+
 
   <!-- ======= About Us Section ======= -->
   <section id="about" class="about">
@@ -111,9 +113,10 @@
         <h2 class="text-dark">Tentang Desa</h2>
       </div>
 
-      <div class="row align-items-center">
+      <div class="row">
         <div class="col-lg-6">
           <div class="content text-start">
+            <h3>Desa Padamukti, kecamatan Solokanjeruk, Bandung, Jawa Barat.</h3>
             <p>
               Desa Padamukti, dengan segala potensi alam dan budayanya, merupakan contoh desa yang berkembang dengan tetap menjaga kearifan lokal dan tradisi. Kehidupan yang harmonis, alam yang indah, serta nilai-nilai kebersamaan menjadikan Desa Padamukti sebagai tempat yang nyaman untuk tinggal dan berkunjung. Potensi besar yang dimiliki desa ini perlu terus dikembangkan dengan dukungan semua pihak, sehingga kesejahteraan masyarakatnya dapat terus meningkat.
             </p>
