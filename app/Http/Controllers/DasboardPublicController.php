@@ -49,8 +49,13 @@ class DasboardPublicController extends Controller
     public function detailBerita($id)
     {
         $berita = Berita::findOrFail($id);
-        
-        return view('public.detail_berita', ['berita' => $berita]);
+
+        $news = Berita::latest()->take(3)->get();
+        foreach ($news as $new){
+            $new->judul = Str::limit($new->judul, 40, '...');
+        }
+
+        return view('public.detail_berita', ['berita' => $berita], ['news' => $news]);
     }
 
     // Halaman Pengumuman
@@ -62,7 +67,25 @@ class DasboardPublicController extends Controller
             $item->deskripsi = Str::limit($item->deskripsi, 250, '...');
         }
 
-        return view('public.pengumuman', ['pengumuman' => $pengumuman]);
+        $news = pengumuman::latest()->take(3)->get();
+        foreach ($news as $new){
+            $new->judul = Str::limit($new->judul, 40, '...');
+        }
+
+        return view('public.pengumuman', ['pengumuman' => $pengumuman], ['news' => $news]);
+    }
+
+    // Halaman Detail Pengumuman
+    public function detailPengumuman($id)
+    {
+        $pengumuman = pengumuman::findOrFail($id);
+
+        $news = pengumuman::latest()->take(3)->get();
+        foreach ($news as $new){
+            $new->judul = Str::limit($new->judul, 40, '...');
+        }
+
+        return view('public.detail_pengumuman', ['pengumuman' => $pengumuman], ['news' => $news]);
     }
 
     // Halaman Profil Desa - Tentang Desa

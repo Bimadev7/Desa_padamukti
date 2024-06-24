@@ -145,4 +145,6 @@ Route::middleware(['isAdmin'])->group(function () {
 
 
     Route::get('/public/pengumuman', [DasboardPublicController::class, 'indexPengumuman'])->name('pengumuman');
+    Route::get('/public/pengumuman/{id}', [DasboardPublicController::class, 'detailPengumuman'])->name('pengumuman.detailPengumuman');
+
 ?>

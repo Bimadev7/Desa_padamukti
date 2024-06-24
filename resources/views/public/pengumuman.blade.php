@@ -30,7 +30,7 @@
                             {{-- <div class="mb-1 text-body-secondary">{{ $item->created_at->format('d F Y') }}</div> --}}
                             <p class="card-text mb-auto">{{ $item->deskripsi }}</p>
 
-                            <a href="/public/detail_pengumuman" class="icon-link gap-1 icon-link-hover stretched-link">Lanjutkan Membaca
+                            <a href="{{ route('pengumuman.detailPengumuman', $item->id) }}" class="icon-link gap-1 icon-link-hover stretched-link">Lanjutkan Membaca
                                 <svg class="bi">
                                     <use xlink:href="#chevron-right"></use>
                                 </svg>
@@ -62,12 +62,12 @@
                     </ul>
                 </div>
                 <div class="p-4">
-                    {{-- <h4 class="fst-italic">Berita Terakhir</h4> --}}
-                    {{-- <ol class="list-unstyled mb-0">
-                        @foreach($berita as $item)
-                        <li><a href="#">{{ $item->judul }}</a></li>
+                    <h4 class="fst-italic">Pengumuman Terakhir</h4>
+                    <ol class="list-unstyled mb-0">
+                        @foreach($news as $new)
+                        <li class="bg-light rounded mt-2 p-3"><a href="{{ route('pengumuman.detailPengumuman', $new->id) }}">{{ $new->judul }}</a></li>
                         @endforeach
-                    </ol> --}}
+                    </ol>
                 </div>
             </div>
         </div>
