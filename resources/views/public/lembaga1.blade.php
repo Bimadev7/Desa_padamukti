@@ -98,47 +98,6 @@
         </div>
     </div>
 </div>
-
-<div class="container pt-2 pb-4">
-    <div class="row">
-        <div class="col">
-            <h2 class="font-weight-bold">Daftar Anggota Badan Permusyawaratan Desa</h2>
-            <table class="table table-bordered table-hover table-striped">
-                <thead class="thead-light">
-                    <tr>
-                        <th>No</th>
-                        <th>Nama</th>
-                        <th>Jabatan</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Junaedi, S.Pd</td>
-                        <td>Ketua</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Sriyanto</td>
-                        <td>Wakil Ketua</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Purwanti</td>
-                        <td>Sekretaris</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Ahmad Yani</td>
-                        <td>Anggota</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Siti Rohmah</td>
-                        <td>Anggota</td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </div>
 </div>

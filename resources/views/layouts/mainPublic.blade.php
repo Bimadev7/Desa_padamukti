@@ -115,7 +115,7 @@
         
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-       <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalLogin">
+       <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalLogin">
             Login
           </button>
     </div>
@@ -129,23 +129,54 @@
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
-      <h3>Desa Padamukti</h3>
-      <div class="social-links">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-        
-      </div>
-      <div class="copyright">
-        &copy; Copyright <strong><span>Desa Padamukti</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
+        <div class="row">
+            <div class="col-md-4 text-center text-md-left">
+                <div class="d-flex align-items-center mb-3">
+                    <img src="image/logopadamukti.svg" alt="Desa Padamukti Logo" class="img-fluid" style="max-width: 100px; margin-right: 10px;">
+                    <h4>
+                        <a href="/" class="text-white">
+                            <strong>Desa Padamukti</strong><br>
+                                 Kabupaten Bandung
+                        </a>
+                    </h4>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <h4>Contact Us</h4>
+                <p>
+                    Jl. Raya Desa Padamukti<br>
+                    Padamukti, Jawa Barat<br>
+                    Indonesia<br><br>
+                    <strong>Phone:</strong> +62 123 4567 890<br>
+                    <strong>Email:</strong> info@desapadamukti.id
+                </p>
+            </div>
+            <div class="col-md-4 text-center text-md-right">
+    <h4>Tautan</h4>
+    <div class="text-white">
+        <ul class="list-unstyled">
+            <li><a href="{{ route('tentang-desa') }}" class="text-white">Tentang Desa</a></li>
+            <li><a href="{{ route('visi-misi') }}" class="text-white">Visi dan Misi</a></li>
+            <li><a href="{{ route('sejarah') }}" class="text-white">Sejarah</a></li>
+            <li><a href="{{ route('geografis') }}" class="text-white">Geografis</a></li>
+            <li><a href="{{ route('demografi') }}" class="text-white">Demografi</a></li>
+        </ul>
     </div>
-  </footer><!-- End Footer -->
+</div>
+
+        <div class="row mt-3">
+            <div class="col-md-12 text-center">
+                <div class="copyright">
+                    &copy; Copyright <strong>Desa Padamukti</strong>. All Rights Reserved
+                </div>
+                <div class="credits">
+                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

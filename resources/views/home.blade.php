@@ -151,20 +151,13 @@
         </div>
         @endforeach
       </div>
+      <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Lokasi Desa</h2>
       <div class="row justify-content-center">
         <div class="col-lg-50 d-flex align-items-stretch mt-5">
           <div class="info w-100">
-
-            <div class="email">
-              <i class="bi bi-envelope"></i>
-              <h4>Email:</h4>
-              <p>Padamukti@Desapadamukti.com</p>
-            </div>
-            <div class="phone">
-              <i class="bi bi-phone"></i>
-              <h4>Call:</h4>
-              <p>+62 888 888</p>
-            </div>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9599.715435800841!2d107.75721164857325!3d-7.012227205968178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68c6aee51c0af3%3A0xae7bc5e161ed42f9!2sPadamukti%2C%20Solokanjreruk%2C%20Bandung%20Regency%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1718207269561!5m2!1sen!2sid" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
           </div>
         </div>
@@ -201,9 +194,6 @@
   <!-- End Modal Login -->
 
   <!-- Tombol Login -->
-  <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalLogin">
-    Login
-  </button>
   <!-- End Tombol Login -->
 
 @endsection

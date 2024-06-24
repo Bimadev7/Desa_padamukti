@@ -15,7 +15,7 @@
     </div>
 </section>
 
-<div class="container mt-5 mb-5"> <!-- Added mb-5 class for margin bottom -->
+<div class="container mt-5 mb-5">
     <table class="table table-sm">
         <thead>
             <tr>
@@ -27,17 +27,18 @@
         <tbody>
             <tr>
                 <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
+                <td><a href="/public/detail_lembaga">Badan Permusyawaratan Desa</a></td>
+                <td>Jl.</td>
             </tr>
             <tr>
                 <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
+                <td><a href="URL_TO_PAGE_2">Badan Usaha Milik Desa</a></td>
+                <td>Jl.</td>
             </tr>
             <tr>
                 <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
+                <td><a href="URL_TO_PAGE_3">Karang Taruna</a></td>
+                <td>Jl.</td>
             </tr>
         </tbody>
     </table>
