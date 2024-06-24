@@ -78,7 +78,6 @@ class BeritaController extends Controller
         'judul' => $request->get('judul'),
         'caption_capture' => $request->get('caption_capture'),
         'deskripsi_singkat' => $request->get('deskripsi_singkat'),
-        'deskripsi' => $request->get('deskripsi'),
         'penulis' => $request->get('penulis'),
         'image' => $imageName, 
         'kategori_id' => $request->get('kategori_id'),
@@ -134,7 +133,7 @@ class BeritaController extends Controller
         // Update data
         $berita->judul = $request->judul;
         $berita->deskripsi_singkat = $request->deskripsi_singkat;
-        $berita->deskripsi = $request->deskripsi;
+        $berita->caption_capture = $request->caption_capture;
 
         // Upload dan simpan gambar jika ada
         if ($request->hasFile('image')) {

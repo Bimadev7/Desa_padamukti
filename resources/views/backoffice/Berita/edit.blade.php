@@ -53,14 +53,23 @@
               </div>
             </div>
 
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="deskripsi">Deskripsi</label>
-                <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" placeholder="Deskripsi" required>{{ $berita->deskripsi }}</textarea>
-                @error('deskripsi')
+
+          <div class="form-group">
+                <label for="deskripsi_singkat">caption_capture</label>
+                <input type="text" name="caption_capture" class="form-control @error('caption_capture') is-invalid @enderror" id="caption_capture" placeholder="Deskripsi Singkat" value="{{ $berita->caption_capture }}" required>
+                @error('deskripsi_singkat')
                 <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
               </div>
+            </div>
+            {{-- <div class="col-md-6">
+              <div class="form-group">
+                <label for="deskripsi">Deskripsi </label>
+                <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" placeholder="Deskripsi" required>{{ $berita->deskripsi_singkat }}</textarea>
+                @error('deskripsi')
+                <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+              </div> --}}
 
             {{-- image --}}
 

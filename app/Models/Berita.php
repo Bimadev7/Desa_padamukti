@@ -15,9 +15,8 @@ class Berita extends Model
         'id',
         'judul',
         'image',
-        'caption_capture',
+        'caption_capture',  
         'deskripsi_singkat',
-        'deskripsi',
         'penulis',
         'kategori_id'
     ];

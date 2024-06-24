@@ -36,9 +36,9 @@
                     <tr>
                         <th>No</th>
                         <th>Judul</th>
-                        <th>caption_capture</th>
+                        <th>Caption Capture</th>
                         <th>Deskripsi</th>
-                        <th>Kategori_berita</th>
+                        <th>Kategori Berita</th>
                         <th width="200px">Action</th>
                     </tr>
                 </thead>
