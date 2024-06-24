@@ -19,7 +19,7 @@ class LembagaDesaFactory extends Factory
     public function definition(): array
     {
         return [
-            'image' => 'images/default-berita.jpg',
+            'image' => 'default-berita.jpg',
             'nama_lembaga' => $this->faker->sentence,
             'alamat' => $this->faker->address,
             'deskripsi_profil' => $this->faker->paragraphs(3, true),

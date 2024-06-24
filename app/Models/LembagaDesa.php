@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\KepengurusanLembaga;
 
 class LembagaDesa extends Model
 {
@@ -17,4 +18,9 @@ class LembagaDesa extends Model
         'alamat',
         'deskripsi_profil',
     ];
+
+    public function kepengurusan()
+    {
+        return $this->hasMany(KepengurusanLembaga::class, 'lembaga_id', 'id');
+    }
 }

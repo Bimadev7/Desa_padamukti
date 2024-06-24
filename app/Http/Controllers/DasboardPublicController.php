@@ -5,6 +5,7 @@ use App\Models\Berita;
 use App\Models\pengumuman;
 use App\Models\ProfilDesa;
 use App\Models\DemografiDesa;
+use App\Models\KepengurusanLembaga;
 use App\Models\LembagaDesa;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -143,12 +144,13 @@ class DasboardPublicController extends Controller
     // DETAIL LEMBAGA DESA
     public function detailLembagaDesa($id)
     {
-        $lembagaDesa = LembagaDesa::findOrFail($id);
+        $lembaga = LembagaDesa::with('kepengurusan')->findOrFail($id);
 
         return view('public.detail_lembaga', [
-            'lembagaDesa' => $lembagaDesa
+            'lembaga' => $lembaga
         ]);
     }
+
     public function main()
     {
         // $berita = Berita::all();
