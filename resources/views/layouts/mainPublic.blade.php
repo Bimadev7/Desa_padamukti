@@ -79,9 +79,11 @@
       </div>
       <nav id="navbar" class="navbar">
         <ul>
-          <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalLogin">
-    Login
-  </button>
+          {{-- <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalLogin">
+            Login
+          </button> --}}
+
+
           <li><a class="nav-link scrollto active" href="/">Home</a></li>
           <li class="dropdown">
             <a href="/"><span>Profil Desa</span> <i class="bi bi-chevron-down"></i></a>
@@ -107,11 +109,15 @@
             <ul>
               <li><a href="{{ route('berita-desa') }}">Berita Desa</a></li>
               <li><a href="{{ route('pengumuman') }}">Pengumuman Desa</a></li> 
-            </ul>
+             </ul>
           </li>
         </ul>
+        
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
+       <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalLogin">
+            Login
+          </button>
     </div>
   </header>
   <!-- End Header -->
@@ -130,6 +136,7 @@
         <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
         <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
         <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        
       </div>
       <div class="copyright">
         &copy; Copyright <strong><span>Desa Padamukti</span></strong>. All Rights Reserved
