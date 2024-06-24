@@ -25,20 +25,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
+            @foreach ($lembaga as $item)
+            <tr onclick="window.location='{{ route('lembaga-desa.detail', $item->id) }}';" style="cursor: pointer;">
+                <th scope="row">{{ $loop->iteration }}</th>
+                <td>{{ $item -> nama_lembaga }}</td>
+                <td>{{ $item -> alamat }}</td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-            </tr>
+            @endforeach
         </tbody>
     </table>
 </div>

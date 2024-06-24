@@ -138,13 +138,15 @@ Route::middleware(['isAdmin'])->group(function () {
         return view('public.perangkat');
     })->name('perangkat-desa');
 
-    Route::get('/public/lembaga-desa', function () {
-        return view('public.lembaga');
-    })->name('lembaga-desa');
+    Route::get('/public/lemabga-desa', [DasboardPublicController::class, 'indexLembagaDesa'])->name('lembaga-desa');
+    Route::get('/public/lemabga-desa/{id}', [DasboardPublicController::class, 'detailLembagaDesa'])->name('lembaga-desa.detail');
+
     Route::get('/public/detail_pengumuman', function () {
         return view('public.pengumuman1');
     })->name('detail-pengumuman');
 
 
     Route::get('/public/pengumuman', [DasboardPublicController::class, 'indexPengumuman'])->name('pengumuman');
+    Route::get('/public/pengumuman/{id}', [DasboardPublicController::class, 'detailPengumuman'])->name('pengumuman.detailPengumuman');
+
 ?>

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 use App\Models\Berita;
 use App\Models\pengumuman;
 use App\Models\ProfilDesa;
+use App\Models\DemografiDesa;
+use App\Models\KepengurusanLembaga;
+use App\Models\LembagaDesa;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -24,8 +27,14 @@ class DasboardPublicController extends Controller
         foreach ($pengumuman as $item) {
             $item->deskripsi = Str::limit($item->deskripsi, 250, '...');
         }
+
+        $demografi = DemografiDesa::all();
         
-        return view('home', ['berita' => $berita], ['pengumuman' => $pengumuman]);
+        return view('home', [
+            'berita' => $berita,
+            'pengumuman' => $pengumuman,
+            'demografi' => $demografi
+        ]);
     }
 
     // Halaman Berita
@@ -49,8 +58,13 @@ class DasboardPublicController extends Controller
     public function detailBerita($id)
     {
         $berita = Berita::findOrFail($id);
-        
-        return view('public.detail_berita', ['berita' => $berita]);
+
+        $news = Berita::latest()->take(3)->get();
+        foreach ($news as $new){
+            $new->judul = Str::limit($new->judul, 40, '...');
+        }
+
+        return view('public.detail_berita', ['berita' => $berita], ['news' => $news]);
     }
 
     // Halaman Pengumuman
@@ -62,7 +76,25 @@ class DasboardPublicController extends Controller
             $item->deskripsi = Str::limit($item->deskripsi, 250, '...');
         }
 
-        return view('public.pengumuman', ['pengumuman' => $pengumuman]);
+        $news = pengumuman::latest()->take(3)->get();
+        foreach ($news as $new){
+            $new->judul = Str::limit($new->judul, 40, '...');
+        }
+
+        return view('public.pengumuman', ['pengumuman' => $pengumuman], ['news' => $news]);
+    }
+
+    // Halaman Detail Pengumuman
+    public function detailPengumuman($id)
+    {
+        $pengumuman = pengumuman::findOrFail($id);
+
+        $news = pengumuman::latest()->take(3)->get();
+        foreach ($news as $new){
+            $new->judul = Str::limit($new->judul, 40, '...');
+        }
+
+        return view('public.detail_pengumuman', ['pengumuman' => $pengumuman], ['news' => $news]);
     }
 
     // Halaman Profil Desa - Tentang Desa
@@ -96,6 +128,27 @@ class DasboardPublicController extends Controller
         $geografis = DB::table('profil_desa')->value('geografis');
         
         return view('public.geografis', ['geografis' => $geografis]);
+    }
+
+    // PEMERINTAHAN
+
+    // INDEX LEMBAGA DESA
+    public function indexLembagaDesa() {
+        $lembaga = LembagaDesa::all();
+
+        return view('public.lembaga', [
+            'lembaga' => $lembaga
+        ]);
+    }
+
+    // DETAIL LEMBAGA DESA
+    public function detailLembagaDesa($id)
+    {
+        $lembaga = LembagaDesa::with('kepengurusan')->findOrFail($id);
+
+        return view('public.detail_lembaga', [
+            'lembaga' => $lembaga
+        ]);
     }
 
     public function main()
