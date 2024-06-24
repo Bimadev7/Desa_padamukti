@@ -87,7 +87,7 @@
         <div class="col-md-6 mb-4">
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <div class="col p-4 d-flex flex-column position-static text-start">
-              <h3 class="mb-0">{{ $item->judul }}</h3>
+              <h3 class="mb-0" style="font-size: 1.5em; font-weight: bold; color: #000;">{{ $item->judul }}</h3>
               <div class="mb-1 text-body-secondary">
                 {{ optional($item->created_at)->format('M Y') }}
               </div>
@@ -134,7 +134,6 @@
       </div>
     </div>
   </section>
-  <!-- End About Us Section -->
 
   <!-- ======= Contact Section ======= -->
   <section id="contact" class="contact">
@@ -144,8 +143,8 @@
         @foreach($pengumuman as $item)
         <div class="card text-start mb-3">
           <div class="card-body">
-            <h5 class="card-title" style="font-size: 1.5em; font-weight: bold; color: #000;">
-              <a href="your-route-url" class="text-decoration-none">{{ $item->judul }}</a>
+            <h5 class="card-title" style="font-size: 1.5em; font-weight: bold; color: #000;">
+              <a href="/public/detail_pengumuman" class="mb-0">{{ $item->judul }}</a>
             </h5>
             <p class="card-text">{{ $item->deskripsi }}</p>
           </div>
@@ -155,7 +154,7 @@
       <div class="row justify-content-center">
         <div class="col-lg-50 d-flex align-items-stretch mt-5">
           <div class="info w-100">
-     
+
             <div class="email">
               <i class="bi bi-envelope"></i>
               <h4>Email:</h4>
@@ -167,9 +166,44 @@
               <p>+62 888 888</p>
             </div>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9599.715435800841!2d107.75721164857325!3d-7.012227205968178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68c6aee51c0af3%3A0xae7bc5e161ed42f9!2sPadamukti%2C%20Solokanjreruk%2C%20Bandung%20Regency%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1718207269561!5m2!1sen!2sid" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
-        </div>
+          </div>
         </div>
       </div>
     </div>
   </section><!-- End Contact Section -->
+
+  <!-- Modal Login -->
+  <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="modalLoginLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLoginLabel">Masuk ke Akun Anda</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Form login bisa Anda tambahkan di sini -->
+          <form method="POST" action="{{ route('login') }}">
+            @csrf
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Masuk</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal Login -->
+
+  <!-- Tombol Login -->
+  <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalLogin">
+    Login
+  </button>
+  <!-- End Tombol Login -->
+
 @endsection

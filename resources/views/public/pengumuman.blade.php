@@ -30,7 +30,7 @@
                             {{-- <div class="mb-1 text-body-secondary">{{ $item->created_at->format('d F Y') }}</div> --}}
                             <p class="card-text mb-auto">{{ $item->deskripsi }}</p>
 
-                            <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">Lanjutkan Membaca
+                            <a href="/public/detail_pengumuman" class="icon-link gap-1 icon-link-hover stretched-link">Lanjutkan Membaca
                                 <svg class="bi">
                                     <use xlink:href="#chevron-right"></use>
                                 </svg>

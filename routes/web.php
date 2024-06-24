@@ -16,6 +16,10 @@ use App\Http\Controllers\SliderConttrollers;
 use App\Http\Controllers\StrukturorganisasiConttrollers;
 use App\Http\Controllers\DemografidesaController;
 
+
+
+Route::delete('/backoffice/pengumuman/{id}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
+
 // Berita
 Route::get('/public/berita', [DasboardPublicController::class, 'indexBerita'])->name('berita-desa');
 Route::get('/public/berita/{id}', [DasboardPublicController::class, 'detailBerita'])->name('berita.detailBerita');
@@ -65,6 +69,7 @@ Route::middleware(['isAdmin'])->group(function () {
         Route::put('/{id}', [PengumumanController::class, 'update'])->name('pengumuman.update');
         Route::post('/pengumuman', [PengumumanController::class, 'store'])->name('backoffice.pengumuman.store');
         Route::get('/pengumuman', [PengumumanController::class, 'index'])->name('backoffice.pengumuman.index');
+
 
 
     });
@@ -134,6 +139,9 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::get('/public/lembaga-desa', function () {
         return view('public.lembaga');
     })->name('lembaga-desa');
+    Route::get('/public/detail_pengumuman', function () {
+        return view('public.pengumuman1');
+    })->name('detail-pengumuman');
 
 
     Route::get('/public/pengumuman', [DasboardPublicController::class, 'indexPengumuman'])->name('pengumuman');
