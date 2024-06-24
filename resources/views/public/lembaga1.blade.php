@@ -35,7 +35,7 @@
             </div>
             <div class="row">
                 <div class="col-md-3">
-                    <img src="/path/to/your/image.png" class="img-fluid" alt="BPD Image">
+                    <img src="/image/logo bpd.png" class="img-fluid" alt="BPD Image">
                 </div>
                 <div class="col-md-9">
                     <table class="table table-borderless">
@@ -102,5 +102,3 @@
     </div>
 </div>
 @endsection
-
-            </div>

@@ -41,6 +41,8 @@
   <link href="/green/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="/green/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="/green/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-xxx" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../../assets/vendors/flag-icon-css/css/flag-icons.min.css">
 
   <!-- Template Main CSS File -->
   <link href="/green/assets/css/style.css" rel="stylesheet">
@@ -52,7 +54,7 @@
     <div class="container d-flex justify-content-center justify-content-md-between align-items-center">
       <div class="contact-info d-flex align-items-center">
         <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">Desa_padaMukti@Pemdes.com</a>
-        <i class="bi bi-phone-fill phone-icon"></i><a href="/">+62 888 888 </a>
+        <i class="bi bi-phone-fill phone-icon"></i><a href="/">082121358207 </a>
       </div>
       <div class="social-links d-none d-md-block">
         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -144,10 +146,8 @@
             <div class="col-md-4 text-center">
                 <h4>Contact Us</h4>
                 <p>
-                    Jl. Raya Desa Padamukti<br>
-                    Padamukti, Jawa Barat<br>
-                    Indonesia<br><br>
-                    <strong>Phone:</strong> +62 123 4567 890<br>
+                Pancak Suji, Padamukti, Kec. Solokanjeruk, Kabupaten Bandung, Jawa Barat 40376<br><br>
+                    <strong>Phone:</strong> 082121358207<br>
                     <strong>Email:</strong> info@desapadamukti.id
                 </p>
             </div>
@@ -186,7 +186,7 @@
   <script src="/green/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="/green/assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="/green/assets/vendor/php-email-form/validate.js"></script>
-
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <!-- Template Main JS File -->
   <script src="/green/assets/js/main.js"></script>
 
