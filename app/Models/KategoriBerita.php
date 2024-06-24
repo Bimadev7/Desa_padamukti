@@ -21,4 +21,6 @@ class KategoriBerita extends Model
     {
         return $this->hasMany(Berita::class, 'kategori_id');
     }
+
+    
 }

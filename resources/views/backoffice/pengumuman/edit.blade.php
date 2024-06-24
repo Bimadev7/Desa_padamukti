@@ -61,9 +61,9 @@
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
               </div>
-
-             {{-- image --}}
-                 <div class="row">
+          
+            {{-- image --}}
+            <div class="row">
             <div class="col-md-6">
               <label for="slider1">Gambar Pengumuman</label>
               <div class="form-group">
