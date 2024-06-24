@@ -105,7 +105,10 @@
         @endforeach
 
         <div class="text-end mb-4">
-          <a href="{{ route('berita-desa') }}" class="btn btn-success">Lihat Semua Berita</a>
+          <a href="{{ route('berita-desa') }}" class="btn btn-success">
+            Lihat Semua Berita 
+            <i class="bi bi-arrow-right"></i>
+          </a>
         </div>
       </div>
 
@@ -120,9 +123,9 @@
             <p>
               Desa Padamukti, dengan segala potensi alam dan budayanya, merupakan contoh desa yang berkembang dengan tetap menjaga kearifan lokal dan tradisi. Kehidupan yang harmonis, alam yang indah, serta nilai-nilai kebersamaan menjadikan Desa Padamukti sebagai tempat yang nyaman untuk tinggal dan berkunjung. Potensi besar yang dimiliki desa ini perlu terus dikembangkan dengan dukungan semua pihak, sehingga kesejahteraan masyarakatnya dapat terus meningkat.
             </p>
-            <a href="{{ route('tentang-desa') }}" class="btn btn-success icon-link gap-1 icon-link-hover mt-3">
-              Lanjutkan Membaca
-            </a>
+            <a href="{{ route('tentang-desa') }}" class="btn btn-success d-inline-flex align-items-center gap-1 mt-3">
+              Lanjutkan Membaca <i class="bi bi-arrow-right"></i>
+            </a>                      
           </div>
         </div>
         <div class="col-lg-6 text-center">
@@ -141,7 +144,7 @@
         @foreach($pengumuman as $item)
         <div class="card text-start mb-3">
           <div class="card-body">
-            <h5 class="card-title">
+            <h5 class="card-title" style="font-size: 1.5em; font-weight: bold; color: #000;">
               <a href="your-route-url" class="text-decoration-none">{{ $item->judul }}</a>
             </h5>
             <p class="card-text">{{ $item->deskripsi }}</p>
