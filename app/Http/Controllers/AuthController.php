@@ -37,10 +37,10 @@ class AuthController extends Controller
             // Redirect user based on their role
             switch ($user->role) {
                 case 'super_admin':
-                    return redirect()->route('backoffice.main');
+                    return redirect()->route('backoffice.user.index');
                     break;
                 case 'admin':
-                    return redirect()->route('/welcome');
+                    return redirect()->route('backoffice.berita.index');
                 case 'draft':
                         return redirect()->route('/welcome');
                     break;

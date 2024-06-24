@@ -79,6 +79,9 @@
       </div>
       <nav id="navbar" class="navbar">
         <ul>
+          <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalLogin">
+    Login
+  </button>
           <li><a class="nav-link scrollto active" href="/">Home</a></li>
           <li class="dropdown">
             <a href="/"><span>Profil Desa</span> <i class="bi bi-chevron-down"></i></a>
@@ -88,6 +91,7 @@
               <li><a href="{{ route('sejarah') }}">Sejarah</a></li>
               <li><a href="{{ route('geografis') }}">Geografis</a></li>
               <li><a href="{{ route('demografi') }}">Demografi </a></li>
+              
             </ul>
           </li>
           <li class="dropdown">
