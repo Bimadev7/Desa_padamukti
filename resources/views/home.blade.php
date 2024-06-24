@@ -47,27 +47,30 @@
     <div class="container">
 
         <div class="row no-gutters">
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="icon-box text-center">
-                    <div class="icon mb-3"><i class="bi bi-person-plus"></i></div>
-                    <h2 class="title"><a href="">12</a></h2>
-                    <p class="description">Kelahiran</p>
-                </div>
+          @foreach ($demografi as $item)
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="icon-box text-center">
+                <div class="icon mb-3"><i class="bi bi-person-plus"></i></div>
+                <h2 class="title"><a href="">{{ $item->angka_kelahiran }}</a></h2>
+                <p class="description">Kelahiran</p>
             </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="icon-box text-center">
-                    <div class="icon mb-3"><i class="bi bi-person-dash"></i></div>
-                    <h2 class="title"><a href="">0</a></h2>
-                    <p class="description">Kematian</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="icon-box text-center">
-                    <div class="icon mb-3"><i class="bi bi-people"></i></div>
-                    <h2 class="title"><a href="">15432</a></h2>
-                    <p class="description">Jumlah Penduduk</p>
-                </div>
-            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+              <div class="icon-box text-center">
+                  <div class="icon mb-3"><i class="bi bi-person-dash"></i></div>
+                  <h2 class="title"><a href="">{{$item->angka_kematian}}</a></h2>
+                  <p class="description">Kematian</p>
+              </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+              <div class="icon-box text-center">
+                  <div class="icon mb-3"><i class="bi bi-people"></i></div>
+                  <h2 class="title"><a href="">{{ $item->jumlah_penduduk }}</a></h2>
+                  <p class="description">Jumlah Penduduk</p>
+              </div>
+          </div>
+          @endforeach
+            
         </div>
 
     </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Berita;
 use App\Models\pengumuman;
 use App\Models\ProfilDesa;
+use App\Models\DemografiDesa;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -24,8 +25,14 @@ class DasboardPublicController extends Controller
         foreach ($pengumuman as $item) {
             $item->deskripsi = Str::limit($item->deskripsi, 250, '...');
         }
+
+        $demografi = DemografiDesa::all();
         
-        return view('home', ['berita' => $berita], ['pengumuman' => $pengumuman]);
+        return view('home', [
+            'berita' => $berita,
+            'pengumuman' => $pengumuman,
+            'demografi' => $demografi
+        ]);
     }
 
     // Halaman Berita
