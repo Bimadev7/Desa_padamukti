@@ -36,6 +36,7 @@ class BeritaController extends Controller
         return view('backoffice.berita.index');
     }
 
+    // Tanpa relasi
     // public function index(Request $request)
     // {
     //     if ($request->ajax()) {

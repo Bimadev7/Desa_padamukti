@@ -1,43 +1,28 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Demografi_desa;
+use App\Models\ProfilDesa;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
-class Demografi_desaControllers extends Controller
+class ProfilDesaController extends Controller
 {
-    
-
     public function index(Request $request)
     {
         if ($request->ajax()) {
-
-            $data = Demografi_desa::query();
-
-            return Datatables::of($data)
+                    $profildesa = ProfilDesa::query();
+                    return Datatables::of($profildesa)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
 
                             $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
-
-                            return $btn;
+                                    return $btn;
                     })
                     ->rawColumns(['action'])
                     ->make(true);
-        }
-        return view('backoffice.demografi_desa.index');
+                }
+                return view('backoffice.profildesa.index');
     }
-
-
-
-
-
-
-
-
-
-
 
 
 }

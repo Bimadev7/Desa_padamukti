@@ -151,6 +151,8 @@
         </div>
         @endforeach
       </div>
+
+      {{-- Maps --}}
       <div class="row justify-content-center">
         <div class="col-lg-50 d-flex align-items-stretch mt-5">
           <div class="info w-100">
@@ -201,9 +203,7 @@
   <!-- End Modal Login -->
 
   <!-- Tombol Login -->
-  <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalLogin">
-    Login
-  </button>
+ 
   <!-- End Tombol Login -->
 
 @endsection
