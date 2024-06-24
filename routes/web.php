@@ -17,6 +17,7 @@ use App\Http\Controllers\StrukturorganisasiConttrollers;
 use App\Http\Controllers\DemografidesaController;
 
 
+
 Route::delete('/backoffice/pengumuman/{id}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
 
 // Berita
