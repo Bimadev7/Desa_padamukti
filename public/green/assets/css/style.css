@@ -724,6 +724,43 @@ section {
   font-size: 14px;
 }
 
+.featured-services .container {
+  max-width: 1700px; /* Sesuaikan lebar maksimum yang diinginkan */
+  margin: 0 auto; /* Membuat kontainer terpusat */
+}
+
+.icon-box {
+  padding: 10px; /* Mengurangi padding di dalam icon-box */
+}
+
+.icon-box .icon {
+  font-size: 2rem; /* Sesuaikan ukuran ikon */
+  margin-bottom: 10px; /* Mengurangi jarak bawah ikon */
+  color: #000; /* Sesuaikan warna ikon */
+}
+
+.icon-box .title {
+  font-family: 'Arial', sans-serif; /* Ganti dengan font yang diinginkan */
+  font-size: 1.5rem; /* Sesuaikan ukuran font */
+  font-weight: bold; /* Sesuaikan berat font */
+  margin-bottom: 5px; /* Mengurangi jarak bawah judul */
+}
+
+.icon-box .description {
+  font-family: 'Verdana', sans-serif; /* Ganti dengan font yang diinginkan */
+  font-size: 1rem; /* Sesuaikan ukuran font */
+  margin: 0; /* Menghilangkan margin untuk deskripsi */
+  color: #666; /* Sesuaikan warna font */
+}
+
+.row.no-gutters {
+  margin: 0; /* Menghilangkan margin dari row */
+}
+
+.icon-box a {
+  text-decoration: none;
+}
+
 /*--------------------------------------------------------------
 # About Us
 --------------------------------------------------------------*/
