@@ -20,7 +20,7 @@ class PengumumanFactory extends Factory
     {
         return [
             'judul' => $this->faker->sentence,
-            'gambar' => 'images/default-berita.jpg',
+            'image' => 'images/default-berita.jpg',
             'caption_capture' => $this->faker->sentence,
             'deskripsi_singkat' => $this->faker->paragraph,
             'deskripsi' => $this->faker->paragraphs(3, true),

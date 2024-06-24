@@ -5,6 +5,7 @@ use App\Models\Berita;
 use App\Models\pengumuman;
 use App\Models\ProfilDesa;
 use App\Models\DemografiDesa;
+use App\Models\LembagaDesa;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -128,6 +129,26 @@ class DasboardPublicController extends Controller
         return view('public.geografis', ['geografis' => $geografis]);
     }
 
+    // PEMERINTAHAN
+
+    // INDEX LEMBAGA DESA
+    public function indexLembagaDesa() {
+        $lembaga = LembagaDesa::all();
+
+        return view('public.lembaga', [
+            'lembaga' => $lembaga
+        ]);
+    }
+
+    // DETAIL LEMBAGA DESA
+    public function detailLembagaDesa($id)
+    {
+        $lembagaDesa = LembagaDesa::findOrFail($id);
+
+        return view('public.detail_lembaga', [
+            'lembagaDesa' => $lembagaDesa
+        ]);
+    }
     public function main()
     {
         // $berita = Berita::all();

@@ -147,7 +147,7 @@
         <div class="card text-start mb-3">
           <div class="card-body">
             <h5 class="card-title" style="font-size: 1.5em; font-weight: bold; color: #000;">
-              <a href="/public/detail_pengumuman" class="mb-0">{{ $item->judul }}</a>
+              <a href="{{ route('pengumuman.detailPengumuman', $item->id) }}" class="mb-0">{{ $item->judul }}</a>
             </h5>
             <p class="card-text">{{ $item->deskripsi }}</p>
           </div>
