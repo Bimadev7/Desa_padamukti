@@ -23,13 +23,10 @@
         @endif
         <h3 class="card-header p-3">Data Pengumuman</h3>
         <div class="card-body">
-            <div class="card-header d-flex align-items-center">
+            <div class="d-flex align-items-center">
                 <h3 class="card-title"></h3>
                 <div class="card-tools ml-auto mr-0">
-                    {{-- <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addUserModal">
-                        <i class="fas fa-plus mr-1"></i> Tambah Baru
-                    </button> --}}
-              <a href="{{ route('pengumuman.create') }}" class="btn btn-primary btn-sm">
+              <a href="{{ route('pengumuman.create') }}" class="btn btn-primary btn-sm mb-4">
                     <i class="fas fa-plus mr-1"></i> Tambah Baru
                 </a>
                 </div>
@@ -40,6 +37,7 @@
                         <th>No</th>
                         <th>Judul Pengumuman</th>
                         <th>Caption Capture</th>
+                        <th>Deskripsi Singkat</th>
                         <th>Deskripsi Singkat</th>
                         <th width="200px">Action</th>
                     </tr>
@@ -103,22 +101,36 @@ $(function () {
         serverSide: true,
         ajax: "{{ route('pengumuman.index') }}",
         columns: [
-            {data: 'id', name: 'id'},
+            // Custom index column
+            {
+                data: null,
+                name: 'index',
+                searchable: false,
+                orderable: false,
+                render: function (data, type, row, meta) {
+                    // Calculate row index
+                    return meta.row + 1;
+                }
+            },
             {data: 'judul', name: 'judul'},
             {data: 'caption_capture', name: 'caption_capture'},
             {data: 'deskripsi_singkat', name: 'deskripsi_singkat'},
+            {data: 'penulis', name: 'penulis'},
+            
+
+            // Action buttons column
             {
                 data: 'id',
                 name: 'action',
                 orderable: false,
                 searchable: false,
                 render: function (data) {
-                    return '<a href="/backoffice/pengumuman/' + data + '" class="btn btn-info btn-sm">Show</a>' +
-                           '<a href="/backoffice/pengumuman/' + data + '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' +
+                    return '<a href="/backoffice/user/' + data + '" class="btn btn-info btn-sm">Show</a>' +
+                           '<a href="/backoffice/user/' + data + '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' +
                            '<button class="btn btn-danger btn-sm mx-1" onclick="confirmDelete(' + data + ')">Delete</button>';
                 }
             },
-        ]
+         ]
     });
 
    

@@ -21,12 +21,12 @@
             });
         </script>
         @endif
-        <h3 class="card-header p-3">Data demografidesa</h3>
+        <h3 class="card-header p-3">Data Berita</h3>
         <div class="card-body">
-            <div class="card-header d-flex align-items-center">
+            <div class="d-flex align-items-center">
                 <h3 class="card-title"></h3>
                 <div class="card-tools ml-auto mr-0">
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addUserModal">
+                    <button type="button" class="btn btn-primary btn-sm mb-4" data-toggle="modal" data-target="#addUserModal">
                         <i class="fas fa-plus mr-1"></i> Tambah Baru
                     </button>
                 </div>
@@ -35,11 +35,10 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Judul</th>
-                        <th>caption_capture</th>
-                        <th>Deskripsi</th>
-                      
-                        <th>Action</th>
+                        <th>Angka Kelahiran</th>
+                        <th>Angkat Kematian</th>
+                        <th>Jumlah penduduk</th>
+                        <th width="200px">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -59,81 +58,122 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('berita.store') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="judul">Judul</label>
-                        <input type="text" name="judul" class="form-control" id="judul" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="deskripsi_singkat">Deskripsi Singkat</label>
-                        <input type="text" name="deskripsi_singkat" class="form-control" id="deskripsi_singkat" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="caption_capture">Deskripsi Capture</label>
-                        <input type="text" name="caption_capture" class="form-control" id="caption_capture" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="deskripsi">Deskripsi</label>
-                        <input type="text" name="deskripsi" class="form-control" id="editor" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="penulis">Penulis</label>
-                        <input type="text" name="penulis" class="form-control" id="penulis" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="kategori_id">Role</label>
-                        <select name="kategori_id" class="form-control" id="kategori_id" required>
-                            <option value="1">User</option>
-                            <option value="2">Admin</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="image">Gambar Berita</label>
-                        <input type="file" id="image" name="image" required>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Tambah Berita</button>
-                </div>
-            </form>
+        <form action="{{ route('demografidesa.store') }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="angka_kelahiran">Kelahiran</label>
+            <input type="text" name="angka_kelahiran" class="form-control" id="angka_kelahiran" required>
+        </div>
+        <div class="form-group">
+            <label for="angka_kematian">Kematia</label>
+            <input type="text" name="angka_kematian" class="form-control" id="angka_kematian" required>
+        </div>
+         <div class="form-group">
+            <label for="jumlah_penduduk">jumlah_penduduk</label>
+            <input type="text" name="jumlah_penduduk" class="form-control" id="jumlah_penduduk" required>
+        </div>
+       
+
+         
+        
+       
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Tambah Berita</button>
+    </div>
+</form>
+
         </div>
     </div>
 </div>
 @endsection
 
-@push('scripts')
-<script>
+
+@push('script')
+<script type="text/javascript">
 $(function () {
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: true,
         ajax: "{{ route('demografidesa.index') }}",
         columns: [
-            {data: 'id', name: 'id'},
+            // Custom index column
+            {
+                data: null,
+                name: 'index',
+                searchable: false,
+                orderable: false,
+                render: function (data, type, row, meta) {
+                    // Calculate row index
+                    return meta.row + 1;
+                }
+            },
             {data: 'angka_kelahiran', name: 'angka_kelahiran'},
             {data: 'angka_kematian', name: 'angka_kematian'},
             {data: 'jumlah_penduduk', name: 'jumlah_penduduk'},
-           
+
+            // Action buttons column
             {
                 data: 'id',
                 name: 'action',
                 orderable: false,
                 searchable: false,
                 render: function (data) {
-                    return '<a href="/backoffice/berita/' + data + '" class="btn btn-info btn-sm">Show</a>' +
-                           '<a href="/backoffice/berita/' + data + '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' +
-                           '<form action="/backoffice/berita/' + data + '" method="POST" style="display:inline">' +
-                               '@csrf' +
-                               '@method("DELETE")' +
-                               '<button type="submit" class="btn btn-danger btn-sm mx-1">Delete</button>' +
-                           '</form>';
+                    return '<a href="/backoffice/demografidesa/' + data + '" class="btn btn-info btn-sm">Show</a>' +
+                           '<a href="/backoffice/demografidesa/' + data + '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' +
+                           '<button class="btn btn-danger btn-sm mx-1" onclick="confirmDelete(' + data + ')">Delete</button>';
                 }
             },
-        ]
+         ]
     });
-});
-</script>
-@endpush
+   
+        // Function to handle delete confirmation
+        window.confirmDelete = function(id) {
+            Swal.fire({
+                title: 'Apakah Anda Yakin Hapus Data?',
+                text: "Anda tidak akan dapat mengembalikan data ini!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, Hapus!',
+                cancelButtonText: 'Tidak, Batalkan!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Ajax request for deletion
+                    $.ajax({
+                        url: '/backoffice/demografidesa/' + id,
+                        type: 'DELETE',
+                        data: {
+                            '_token': '{{ csrf_token() }}'
+                        },
+                        success: function(response) {
+                            table.ajax.reload(); // Reload DataTable after deletion
+                            Swal.fire(
+                                'Terhapus!',
+                                'Data telah dihapus.',
+                                'success'
+                            );
+                        },
+                        error: function(xhr) {
+                            Swal.fire(
+                                'Gagal!',
+                                'Terjadi kesalahan saat menghapus data.',
+                                'error'
+                            );
+                            console.error(xhr);
+                        }
+                    });
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    Swal.fire(
+                        'Dibatalkan',
+                        'Data tidak jadi dihapus :)',
+                        'info'
+                    );
+                }
+            });
+        };
+    });
+    </script>
+    @endpush

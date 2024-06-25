@@ -35,16 +35,16 @@
             </div>
             <div class="row">
                 <div class="col-md-3">
-                    <img src="/image/logo bpd.png" class="img-fluid" alt="BPD Image">
+                    <img src="{{ asset('images/' . $lembaga->image) }}" class="img-fluid" alt="BPD Image">
                 </div>
                 <div class="col-md-9">
                     <table class="table table-borderless">
                         <tr>
                             <th>Nama Lembaga</th>
                             <td>:</td>
-                            <td>BADAN PERMUSYAWARATAN DESA</td>
+                            <td>{{ $lembaga->nama_lembaga }}</td>
                         </tr>
-                        <tr>
+                        {{-- <tr>
                             <th>Singkatan</th>
                             <td>:</td>
                             <td>BPD</td>
@@ -53,11 +53,11 @@
                             <th>Dasar Hukum / SK Pembentukan</th>
                             <td>:</td>
                             <td></td>
-                        </tr>
+                        </tr> --}}
                         <tr>
                             <th>Alamat Kantor</th>
                             <td>:</td>
-                            <td>Jl. Raya Padalarang No.125 A</td>
+                            <td>{{ $lembaga->alamat }}</td>
                         </tr>
                     </table>
                 </div>
@@ -74,30 +74,39 @@
         <div class="col-lg-12">
             <h2 class="font-weight-bold">Tugas Pokok Badan Permusyawaratan Desa</h2>
             <div class="divider divider-primary divider-small divider-small-center mb-3">
-                <hr>            <p class="lead text-justify">
-                Badan Permusyawaratan Desa (BPD) dalam Permendagri No.110/2016 Tugas Badan Permusyawaratan Desa (BPD) mempunyai fungsi, membahas dan menyepakati Rancangan Peraturan Desa bersama Kepala Desa, menampung dan menyalurkan aspirasi masyarakat Desa, dan melakukan pengawasan kinerja Kepala Desa. Selain melaksanakan fungsi diatas, Badan Permusyawaratan Desa juga mempunyai tugas sebagai berikut. Tugas Badan Permusyawaratan Desa:
-                <ul class="lead text-justify">
-                    <li>Menggali aspirasi masyarakat</li>
-                    <li>Menampung aspirasi masyarakat</li>
-                    <li>Mengelola aspirasi masyarakat</li>
-                    <li>Menyalurkan aspirasi masyarakat</li>
-                    <li>Menyelenggarakan musyawarah Tugas Badan Permusyawaratan Desa (BPD)</li>
-                    <li>Menyelenggarakan musyawarah Desa</li>
-                    <li>Membentuk panitia pemilihan Kepala Desa</li>
-                    <li>Menyelenggarakan musyawarah Desa khusus untuk pemilihan Kepala Desa antarwaktu</li>
-                    <li>Membahas dan menyepakati rancangan Peraturan Desa bersama Kepala Desa</li>
-                    <li>Melaksanakan pengawasan terhadap kinerja Kepala Desa</li>
-                    <li>Melakukan evaluasi laporan keterangan penyelenggaraan Pemerintahan Desa</li>
-                    <li>Menciptakan hubungan kerja yang harmonis dengan Pemerintah Desa dan lembaga Desa lainnya; dan</li>
-                    <li>Melaksanakan tugas lain yang diatur dalam ketentuan peraturan perundang-undangan</li>
-                </ul>
-            </p>
-            <div class="divider divider-style-4 divider-primary divider-medium">
+                <hr>            
+                <p class="lead text-justify">
+                    {{ $lembaga->deskripsi_profil }}
+                </p>
+                <div class="divider divider-style-4 divider-primary divider-medium">
                 <hr>
             </div>
         </div>
     </div>
 </div>
+
+<div class="container pt-2 pb-4">
+    <div class="row">
+        <div class="col">
+            <h2 class="font-weight-bold">Daftar Anggota Badan Permusyawaratan Desa</h2>
+            <table class="table table-bordered table-hover table-striped">
+                <thead class="thead-light">
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Jabatan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($lembaga->kepengurusan as $kepengurusan)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $kepengurusan->nama }}</td>
+                        <td>{{ $kepengurusan->jabatan }}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

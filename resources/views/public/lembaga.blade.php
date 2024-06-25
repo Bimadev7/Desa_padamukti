@@ -25,21 +25,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td><a href="/public/detail_lembaga">Badan Permusyawaratan Desa</a></td>
-                <td>Jl.</td>
+            @foreach ($lembaga as $item)
+            <tr onclick="window.location='{{ route('lembaga-desa.detail', $item->id) }}';" style="cursor: pointer;">
+                <th scope="row">{{ $loop->iteration }}</th>
+                <td>{{ $item -> nama_lembaga }}</td>
+                <td>{{ $item -> alamat }}</td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td><a href="URL_TO_PAGE_2">Badan Usaha Milik Desa</a></td>
-                <td>Jl.</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td><a href="URL_TO_PAGE_3">Karang Taruna</a></td>
-                <td>Jl.</td>
-            </tr>
+            @endforeach
         </tbody>
     </table>
 </div>

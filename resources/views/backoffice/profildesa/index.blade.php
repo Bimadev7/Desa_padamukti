@@ -21,23 +21,24 @@
             });
         </script>
         @endif
-        <h3 class="card-header p-3">Data User</h3>
+        <h3 class="card-header p-3">Data profildesa</h3>
         <div class="card-body">
             <div class="d-flex align-items-center">
                 <h3 class="card-title"></h3>
                 <div class="card-tools ml-auto mr-0">
-                    <button type="button" class="btn btn-primary btn-sm mb-4" data-toggle="modal" data-target="#addUserModal">
-                        <i class="fas fa-plus mr-1"></i> Tambah Baru
-                    </button>
+              <a href="{{ route('pengumuman.create') }}" class="btn btn-primary btn-sm mb-4">
+                    <i class="fas fa-plus mr-1"></i> Tambah Baru
+                </a>
                 </div>
             </div>
             <table class="table table-bordered data-table">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama</th>
-                        <th>Email</th>
-                        {{-- <th>Role</th> --}}
+                        <th>tentang_desa</th>
+                        <th>Visi</th>
+                        <th>Misi</th>
+                        <th>geografis</th>
                         <th width="200px">Action</th>
                     </tr>
                 </thead>
@@ -58,7 +59,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('user.store') }}" method="POST">
+            <form action="{{ route('pengumuman.store') }}" method="POST">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
@@ -98,7 +99,7 @@ $(function () {
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('user.index') }}",
+        ajax: "{{ route('profildesa.index') }}",
         columns: [
             // Custom index column
             {
@@ -111,8 +112,10 @@ $(function () {
                     return meta.row + 1;
                 }
             },
-            {data: 'username', name: 'username'},
-            {data: 'email', name: 'email'},
+            {data: 'tentang_desa', name: 'tentang_desa'},
+            {data: 'visi', name: 'visi'},
+            {data: 'misi', name: 'misi'},
+            {data: 'sejarah_desa', name: 'sejarah_desa'},
             
 
             // Action buttons column
@@ -145,7 +148,7 @@ $(function () {
             if (result.isConfirmed) {
                 // Ajax request for deletion
                 $.ajax({
-                    url: '/backoffice/user/' + id,
+                    url: '/backoffice/pengumuman/' + id,
                     type: 'DELETE',
                     data: {
                         '_token': '{{ csrf_token() }}'
