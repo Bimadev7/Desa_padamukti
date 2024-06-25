@@ -113,27 +113,26 @@
       </div>
 
       <div class="section-title mt-5">
-        <h2 class="text-dark">Tentang Desa</h2>
-      </div>
+  <h2 class="text-dark">Tentang Desa</h2>
+</div>
 
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="content text-start">
-            <h3>Desa Padamukti, kecamatan Solokanjeruk, Bandung, Jawa Barat.</h3>
-            <p>
-              Desa Padamukti, dengan segala potensi alam dan budayanya, merupakan contoh desa yang berkembang dengan tetap menjaga kearifan lokal dan tradisi. Kehidupan yang harmonis, alam yang indah, serta nilai-nilai kebersamaan menjadikan Desa Padamukti sebagai tempat yang nyaman untuk tinggal dan berkunjung. Potensi besar yang dimiliki desa ini perlu terus dikembangkan dengan dukungan semua pihak, sehingga kesejahteraan masyarakatnya dapat terus meningkat.
-            </p>
-            <a href="{{ route('tentang-desa') }}" class="btn btn-success d-inline-flex align-items-center gap-1 mt-3">
-              Lanjutkan Membaca <i class="bi bi-arrow-right"></i>
-            </a>                      
-          </div>
-        </div>
-        <div class="col-lg-6 text-center">
-          <img src="green/assets/img/slider 3.jpg" alt="Tentang Desa" class="img-fluid w-80">
-        </div>
-      </div>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="content text-start">
+      <h3>Desa Padamukti, kecamatan Solokanjeruk, Bandung, Jawa Barat.</h3>
+      <p>
+        Desa Padamukti, dengan segala potensi alam dan budayanya, merupakan contoh desa yang berkembang dengan tetap menjaga kearifan lokal dan tradisi. Kehidupan yang harmonis, alam yang indah, serta nilai-nilai kebersamaan menjadikan Desa Padamukti sebagai tempat yang nyaman untuk tinggal dan berkunjung. Potensi besar yang dimiliki desa ini perlu terus dikembangkan dengan dukungan semua pihak, sehingga kesejahteraan masyarakatnya dapat terus meningkat.
+      </p>
+      <a href="{{ route('tentang-desa') }}" class="btn btn-success d-inline-flex align-items-center gap-1 mt-3">
+        Lanjutkan Membaca <i class="bi bi-arrow-right"></i>
+      </a>                      
     </div>
-  </section>
+  </div>
+  <div class="col-lg-6 text-center">
+    <img src="green/assets/img/slider 3.jpg" alt="Tentang Desa" class="img-fluid w-80" style="margin-top: 20px;">
+  </div>
+</div>
+
 
   <!-- ======= Contact Section ======= -->
   <section id="contact" class="contact">
