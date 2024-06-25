@@ -5,7 +5,7 @@
 @section('content')
 
 <!-- Breadcrumbs -->
-<section id="breadcrumbs" class="breadcrumbs">
+<section id="breadcrumbs" class="breadcrumbs mb-5">
     <div class="container">
         <div class="d-flex justify-content-between align-items-center">
             <h2>Berita Desa</h2>
@@ -38,7 +38,7 @@
                         <div class="col-auto d-none d-lg-block">
 
                             {{-- <img src="{{ asset($item->image) }}" alt="Berita" width="200" height="250"> --}}
-                            <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="200" height="250">
+                            <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="250" height="250">
 
                         </div>
                     </div>
