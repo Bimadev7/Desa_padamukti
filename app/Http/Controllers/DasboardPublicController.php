@@ -162,10 +162,12 @@ class DasboardPublicController extends Controller
 
     // INDEX STRUKTUR ORGANISASI
     public function indexStrukturOrganisasi() {
-        $ketua = StrukturOrganisasi::where('jabatan', 'ketua')->first();
+        $ketua = StrukturOrganisasi::where('jabatan', 'Kepala Desa')->first();
+        $sekretaris = StrukturOrganisasi::where('jabatan', 'Sekretaris Desa')->first();
 
         return view('public.struktur', [
             'ketua' => $ketua,
+            'sekretaris' => $sekretaris
         ]);
     }
 
