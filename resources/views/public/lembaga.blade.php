@@ -15,7 +15,7 @@
     </div>
 </section>
 
-<div class="container mt-5 mb-5"> <!-- Added mb-5 class for margin bottom -->
+<div class="container mt-5 mb-5">
     <table class="table table-sm">
         <thead>
             <tr>
