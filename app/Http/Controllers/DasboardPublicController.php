@@ -7,6 +7,8 @@ use App\Models\ProfilDesa;
 use App\Models\DemografiDesa;
 use App\Models\KepengurusanLembaga;
 use App\Models\LembagaDesa;
+use App\Models\StrukturOrganisasi;
+use App\Models\Slider;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -17,6 +19,10 @@ class DasboardPublicController extends Controller
     // Homepage
     public function indexdes()
     {
+        $slider1 = DB::table('slider')->value('slider1');
+        $slider2 = DB::table('slider')->value('slider2');
+        $slider3 = DB::table('slider')->value('slider3');
+
         $berita = Berita::latest()->take(4)->get();
         foreach ($berita as $item) {
             $item->judul = Str::limit($item->judul, 40, '...');
@@ -33,7 +39,10 @@ class DasboardPublicController extends Controller
         return view('home', [
             'berita' => $berita,
             'pengumuman' => $pengumuman,
-            'demografi' => $demografi
+            'demografi' => $demografi,
+            'slider1' => $slider1,
+            'slider2' => $slider2,
+            'slider3' => $slider3,
         ]);
     }
 
@@ -148,6 +157,15 @@ class DasboardPublicController extends Controller
 
         return view('public.detail_lembaga', [
             'lembaga' => $lembaga
+        ]);
+    }
+
+    // INDEX STRUKTUR ORGANISASI
+    public function indexStrukturOrganisasi() {
+        $ketua = StrukturOrganisasi::where('jabatan', 'ketua')->first();
+
+        return view('public.struktur', [
+            'ketua' => $ketua,
         ]);
     }
 

@@ -102,7 +102,7 @@
             <a href="/"><span>Pemerintahan</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="{{ route('struktur-desa') }}">Struktur Desa</a></li>
-              <li><a href="{{ route('perangkat-desa') }}">Perangkat Desa</a></li>
+              {{-- <li><a href="{{ route('perangkat-desa') }}">Perangkat Desa</a></li> --}}
               <li><a href="{{ route('lembaga-desa') }}">Lembaga Desa</a></li>
             </ul>
           </li>

@@ -8,14 +8,14 @@
     <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
       <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
       <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active" style="background-image: url(/image/desa1.jpg)">
+        <div class="carousel-item active" style="background-image: url({{ asset('images/' . $slider1) }})">
           <div class="carousel-container">
             <div class="container">
               <h2 class="animate__animated animate__fadeInDown">Selamat Datang<span> di Website Desa Padamukti</span></h2>
             </div>
           </div>
         </div>
-        <div class="carousel-item" style="background-image: url(/image/desa2.jpg)">
+        <div class="carousel-item" style="background-image: url({{ asset('images/' . $slider2) }})">
           <div class="carousel-container">
             <div class="container">
               <h2 class="animate__animated animate__fadeInDown">Tentang Desa</h2>
@@ -24,7 +24,7 @@
             </div>
           </div>
         </div>
-        <div class="carousel-item" style="background-image: url(/image/desa3.jpg)">
+        <div class="carousel-item" style="background-image: url({{ asset('images/' . $slider3) }})">
           <div class="carousel-container">
             <div class="container">
               <h2 class="animate__animated animate__fadeInDown">Berita Desa</h2>

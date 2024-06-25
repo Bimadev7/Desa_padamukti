@@ -144,7 +144,7 @@
             </div>
             <div class="row">
                 <div class="col-md-3">
-                    <img src="" class="img-fluid" alt="Kades padamukti">
+                    <img src="{{ asset('images/' . $ketua->foto) }}" class="img-fluid" alt="Kades padamukti">
                 </div>
                 <div class="col-md-9">
                     <table class="table table-borderless">
@@ -156,12 +156,12 @@
                         <tr>
                             <th>Nama Pejabat</th>
                             <td>:</td>
-                            <td></td>
+                            <td>{{ $ketua->nama_pejabat }}</td>
                         </tr>
                         <tr>
                         <th>NIP</th>
                             <td>:</td>
-                            <td></td>
+                            <td>{{ $ketua->nip }}</td>
                         </tr>
                     </table>
                 </div>
@@ -181,20 +181,8 @@
                 <hr>
             </div>
             <p class="lead text-justify">
-                Secara eksplisit Pasal 26 ayat (1) mengatur empat tugas utama Kepala Desa yaitu:
+                {{ $ketua->deskripsi }}
             </p>
-            <ul class="lead text-justify">
-                <li>Menyelenggarakan pemerintahan desa</li>
-                <li>Melaksanakan pembangunan desa</li>
-                <li>Melaksanakan pembinaan masyarakat desa</li>
-                <li>Memberdayakan masyarakat desa</li>
-            </ul>
-            <p class="lead text-justify">
-                Dengan tugas yang diberikan, Kepala Desa diharapkan bisa membawa desa ke arah yang diharapkan oleh UU ini.
-            </p>
-            <div class="divider divider-style-4 divider-primary divider-medium">
-                <hr>
-            </div>
         </div>
     </div>
 </div>`;
