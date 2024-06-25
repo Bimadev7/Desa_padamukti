@@ -171,7 +171,7 @@ use Yajra\DataTables\Facades\DataTables;
             } catch (\Exception $e) {
                 return response()->json(['message' => 'Gagal menghapus user. ' . $e->getMessage()], 500);
             }
-            }
+        }
 
     
         

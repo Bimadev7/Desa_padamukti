@@ -78,14 +78,15 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
+      {{-- <li class="nav-item d-none d-sm-inline-block">
         <a href="index3.html" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
-      </li>
+      </li> --}}
     </ul>
 
+  
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Navbar Search -->
@@ -120,8 +121,8 @@
   <aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-
-      <span class="brand-text font-weight-light " text="center">Admin</span>
+     <span class="brand-text font-weight-light">Desa Padamukti</span>
+     <img src="{{ asset('adminlte/dist/img/logopadamukti.svg')}}" alt="AdminLTE Logo" class="brand-image img-circle " style="opacity: .8">
     </a>
 
 
@@ -130,12 +131,9 @@
 
       <!-- SidebarSearch Form -->
       <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group" >
           <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
+            
           </div>
         </div>
       </div>
@@ -156,7 +154,10 @@
           </li>
             <li class="nav-item">
             <a href="/backoffice/pengumuman" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              {{-- <i class="nav-icon fas fa-th"></i> --}}
+              {{-- <i class="fa-regular fa-calendar-days"></i> --}}
+              <i class="nav-icon fas fa-volume-up"></i>
+
               <p>
                 Pengumuman
               </p>
@@ -181,10 +182,28 @@
             </a>
           
           <li class="nav-item">
-            <a href="pages/kanban.html" class="nav-link">
+            <a href="/backoffice/demografidesa" class="nav-link">
               <i class="nav-icon fas fa-columns"></i>
               <p>
-                Kanban Board
+                Demografi Desa
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/backoffice/profildesa" class="nav-link">
+              <i class="nav-icon fas fa-columns"></i>
+              <p>
+                profildesa Desa
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/backoffice/demografidesa" class="nav-link">
+              <i class="nav-icon fas fa-columns"></i>
+              <p>
+                Demografi Desa
               </p>
             </a>
           </li>
@@ -207,13 +226,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            {{-- <h1 class="m-0">Dashboard</h1> --}}
           </div><!-- /.col -->
           <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
+            {{-- <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item active">Dashboard v1</li>
-            </ol>
+            </ol> --}}
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -225,16 +244,10 @@
 
 
 
-    {{-- <div>
-      @section('adminlte_js')
-        @stack('js')
-        @yield('js')
-    @stop --}}
-
-    <div>
-
+   
+{{-- Setting jarak  --}}
+    <div style='margin-top: -30px'>
     @stack('script')
-
     @yield('content')
   </div>
 

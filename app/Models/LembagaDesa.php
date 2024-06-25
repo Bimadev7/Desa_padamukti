@@ -4,17 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\KepengurusanLembaga;
 
-class Demografi_desa extends Model
+class LembagaDesa extends Model
 {
     use HasFactory;
-    protected $table = 'demografi_desa';
+
+    protected $table = 'lembaga_desa';
 
     protected $fillable = [
-        'id',
+        'image',
         'nama_lembaga',
         'alamat',
         'deskripsi_profil',
-  
     ];
+
+    public function kepengurusan()
+    {
+        return $this->hasMany(KepengurusanLembaga::class, 'lembaga_id', 'id');
+    }
 }
