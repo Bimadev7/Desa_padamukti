@@ -21,12 +21,12 @@
             });
         </script>
         @endif
-        <h3 class="card-header p-3">Data Pengumuman</h3>
+        <h3 class="card-header p-3">Data Lembaga Desa</h3>
         <div class="card-body">
             <div class="d-flex align-items-center">
                 <h3 class="card-title"></h3>
-                <div class="card-tools ml-auto mr-0">
-              <a href="{{ route('pengumuman.create') }}" class="btn btn-primary btn-sm mb-4">
+               <div class="card-tools ml-auto mr-0">
+              <a href="{{ route('lembagadesa.create') }}" class="btn btn-primary btn-sm mb-4">
                     <i class="fas fa-plus mr-1"></i> Tambah Baru
                 </a>
                 </div>
@@ -35,10 +35,9 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Judul Pengumuman</th>
-                        <th>Caption Capture</th>
-                        <th>Deskripsi Singkat</th>
-                        <th>Deskripsi Singkat</th>
+                        <th>Nama Lembaga</th>
+                        <th>Alamat</th>
+                        {{-- <th>Role</th> --}}
                         <th width="200px">Action</th>
                     </tr>
                 </thead>
@@ -54,33 +53,42 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="addUserModalLabel">Tambah User Baru</h5>
+                <h5 class="modal-title" id="addUserModalLabel">Tambah Lembaga Desa</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('pengumuman.store') }}" method="POST">
+            <form action="{{ route('lembagadesa.store') }}" method="POST">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" name="username" class="form-control" id="username" required>
+                        <label for="nama_lembaga">Nama Lembaga</label>
+                        <input type="text" name="nama_lembaga" class="form-control" id="nama_lembaga" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" class="form-control" id="email" required>
+                        <label for="alamat">alamat</label>
+                        <input type="text" name="alamat" class="form-control" id="alamat" required>
                     </div>
                     <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" class="form-control" id="password" required>
+                        <label for="deskripsi_profil">Deskripsi Profil</label>
+                        <input type="text" name="deskripsi_profil" class="form-control" id="deskripsi_profil" required>
                     </div>
-                    <div class="form-group">
-                        <label for="role">Role</label>
-                        <select name="role" class="form-control" id="role" required>
-                            <option value="super_admin">Super Admin</option>
-                            <option value="admin">Admin</option>
-                        </select>
+                     <div class="form-group">
+                                <label for="image">Gambar Berita</label>
+                                <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image" required onchange="previewImage('image', 'preview_image')">
+                                @error('image')
+                                <span class="invalid-feedback">{{ $message }}</span>
+                                @enderror
+                                <br>
+                                @if(old('image'))
+                                <img id="preview_image" src="{{ asset('images/' . old('image')) }}" alt="Preview Image" style="max-width: 200px; max-height: 200px;">
+                                @else
+                                <img id="preview_image" src="" alt="Preview Image" style="max-width: 200px; max-height: 200px; display: none;">
+                                @endif
+                            </div>
+                        </div>
                     </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -93,13 +101,14 @@
 @endsection
 
 
+
 @push('script')
 <script type="text/javascript">
 $(function () {
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('pengumuman.index') }}",
+        ajax: "{{ route('lembagadesa.index') }}",
         columns: [
             // Custom index column
             {
@@ -112,11 +121,10 @@ $(function () {
                     return meta.row + 1;
                 }
             },
-            {data: 'judul', name: 'judul'},
-            {data: 'caption_capture', name: 'caption_capture'},
-            {data: 'deskripsi_singkat', name: 'deskripsi_singkat'},
-            {data: 'penulis', name: 'penulis'},
+            {data: 'nama_lembaga', name: 'nama_lembaga'},
+            {data: 'alamat', name: 'alamat'},
             
+          
 
             // Action buttons column
             {
@@ -125,8 +133,8 @@ $(function () {
                 orderable: false,
                 searchable: false,
                 render: function (data) {
-                    return '<a href="/backoffice/pengumuman/' + data + '" class="btn btn-info btn-sm">Show</a>' +
-                           '<a href="/backoffice/pengumuman/' + data + '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' +
+                    return '<a href="/backoffice/lembagadesa/' + data + '" class="btn btn-info btn-sm">Show</a>' +
+                           '<a href="/backoffice/lembagadesa/' + data + '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' +
                            '<button class="btn btn-danger btn-sm mx-1" onclick="confirmDelete(' + data + ')">Delete</button>';
                 }
             },
@@ -148,7 +156,7 @@ $(function () {
             if (result.isConfirmed) {
                 // Ajax request for deletion
                 $.ajax({
-                    url: '/backoffice/pengumuman/' + id,
+                    url: '/backoffice/lembagadesa/' + id,
                     type: 'DELETE',
                     data: {
                         '_token': '{{ csrf_token() }}'
@@ -180,5 +188,21 @@ $(function () {
         });
     };
 });
+</script>
+  <script>
+    function previewImage(inputId, imageId) {
+        const input = document.getElementById(inputId);
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById(imageId).src = e.target.result;
+                document.getElementById(imageId).style.display = 'block'; // Display the previewed image
+            }
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            document.getElementById(imageId).src = '';
+            document.getElementById(imageId).style.display = 'none'; // Clear the preview if no file selected
+        }
+    }
 </script>
 @endpush

@@ -91,8 +91,8 @@
     <ul class="navbar-nav ml-auto">
       <!-- Navbar Search -->
       <li class="nav-item">
-        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-          <i class="fas fa-search"></i>
+        {{-- <a class="nav-link" data-widget="navbar-search" href="#" role="button"> --}}
+          {{-- <i class="fas fa-search"></i> --}}
         </a>
         <div class="navbar-search-block">
           <form class="form-inline">
@@ -200,10 +200,10 @@
           </li>
 
           <li class="nav-item">
-            <a href="/backoffice/demografidesa" class="nav-link">
+            <a href="/backoffice/lembagadesa" class="nav-link">
               <i class="nav-icon fas fa-columns"></i>
               <p>
-                Demografi Desa
+                Lembaga Desa
               </p>
             </a>
           </li>

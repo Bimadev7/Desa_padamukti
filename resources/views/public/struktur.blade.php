@@ -25,10 +25,12 @@
         width: 250px;
         background-color: #FFFFFF;
         padding: 10px;
+        box-sizing: border-box; /* Memastikan padding tidak menambah lebar elemen */
     }
     .sidebar ul {
         list-style-type: none;
         padding: 0;
+        margin: 0; /* Menghilangkan margin default */
     }
     .sidebar ul li {
         padding: 10px;
@@ -41,12 +43,7 @@
     .content {
         flex-grow: 1;
         padding: 20px;
-    }
-    body {
         font-family: Arial, sans-serif;
-    }
-    .container {
-        margin: 20px;
     }
     .title {
         font-size: 24px;
@@ -54,31 +51,51 @@
         color: #2c3e50;
     }
     .profile-card {
-    margin-top: 15px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    width: 200px; /* Increased width */
-    text-align: center;
-    padding: 10px; /* Increased padding */
-}
+        margin-top: 15px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        width: 200px;
+        text-align: center;
+        padding: 10px;
+    }
 
-.profile-card img {
-    width: 100%;
-    border-radius: 10px;
-}
+    .profile-card img {
+        width: 100%;
+        border-radius: 10px;
+    }
 
-.profile-card .name {
-    font-size: 20px; /* Increased font size */
-    font-weight: bold;
-    margin-top: 10px;
-}
+    .profile-card .name {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 10px;
+    }
 
-.profile-card .position {
-    font-size: 15px; /* Increased font size */
-    color: #555;
-    margin-top: 5px;
-}
+    .profile-card .position {
+        font-size: 15px;
+        color: #555;
+        margin-top: 5px;
+    }
+
+    /* Media query untuk layar kecil (misalnya, smartphone) */
+    @media (max-width: 768px) {
+        .layout {
+            flex-direction: column; /* Mengubah orientasi layout menjadi vertikal */
+        }
+        .sidebar {
+            width: 100%; /* Mengisi seluruh lebar ketika di layar kecil */
+            margin-bottom: 20px; /* Memberi jarak antara sidebar dan content */
+        }
+        .content {
+            width: calc(100% - 10px); /* Mengatur lebar content agar tetap di sebelah kanan sidebar */
+            margin-left: 40px; /* Memberi margin agar tidak menempel langsung dengan sidebar */
+        }
+        .profile-card {
+            width: 100%; /* Mengisi seluruh lebar ketika di layar kecil */
+            margin-top: 10px;
+        }
+    }
 </style>
+
 
 <div class="container">
     <div class="layout">
@@ -95,9 +112,10 @@
                 <li><a href="#" data-content="kaur-keuangan">Kaur Keuangan</a></li>
             </ul>
         </div>
-        <div class="content" id="content">
+         <!-- Content -->
+         <div class="content" id="content">
             <h3>Struktur Desa</h3>
-            <p>Content related to Struktur Desa will be displayed here.</p>
+            <p>Selamat datang di menu struktur desa! Di sini, Anda dapat mengeksplorasi informasi mendetail tentang bagaimana Desa Padamukti diatur dan berkembang. Mulai dari pemerintahan desa yang bertanggung jawab mengelola kebijakan dan menyediakan layanan publik yang berkualitas,</p>
         </div>
     </div>
 </div>
