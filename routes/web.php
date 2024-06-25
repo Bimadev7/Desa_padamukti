@@ -16,6 +16,7 @@ use App\Http\Controllers\SliderConttrollers;
 use App\Http\Controllers\StrukturorganisasiConttrollers;
 use App\Http\Controllers\DemografidesaController;
 use App\Http\Controllers\ProfilDesaController;
+use App\Http\Controllers\Lembaga_desaController;
 
 
 
@@ -103,7 +104,8 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::resource('/backoffice/strukturorganisasi', StrukturorganisasiConttrollers::class);
     Route::resource('/backoffice/demografidesa', DemografidesaController::class);
     Route::resource('/backoffice/profildesa', ProfilDesaController::class);
-
+    Route::resource('/backoffice/lembagadesa', Lembaga_desaController::class);
+    
 });
 
     // Login and Registration routes

@@ -200,7 +200,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="/backoffice/demografidesa" class="nav-link">
+            <a href="/backoffice/lembagadesa" class="nav-link">
               <i class="nav-icon fas fa-columns"></i>
               <p>
                 Demografi Desa
