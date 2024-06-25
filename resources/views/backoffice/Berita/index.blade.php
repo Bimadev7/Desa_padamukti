@@ -38,7 +38,7 @@
                         <th>Judul</th>
                         <th>Caption Capture</th>
                         <th>Deskripsi</th>
-                        <th>Kategori Berita</th>
+                        {{-- <th>Kategori Berita</th> --}}
                         <th width="200px">Action</th>
                     </tr>
                 </thead>
@@ -119,10 +119,12 @@ $(function () {
             {data: 'judul', name: 'judul'},
             {data: 'caption_capture', name: 'caption_capture'},
             {data: 'deskripsi_singkat', name: 'deskripsi_singkat'},
-            {data: 'kategori_id', name: 'kategori_id', render: function(data, type, full, meta) {
+            //Buat ngambil relasi ke kategori
+            {{-- {data: 'kategori_id', name: 'kategori_id', render: function(data, type, full, meta) {
                 return full.kategori.nama_kategori; // Menampilkan nama_kategori dari relasi
-            }},
-          
+            }}, --}}
+
+            //Buat nampilin image
             {{-- {data: 'image', name: 'image',
                     render: function(data, type, full, meta) {
                         return '<img src="/images/' + data + '" style="max-width: 100px">';

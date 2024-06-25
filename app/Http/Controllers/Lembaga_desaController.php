@@ -8,6 +8,35 @@ use Yajra\DataTables\Facades\DataTables;
 
 class Lembaga_desaController extends Controller
 {
+
+    public function update(Request $request, $id)
+    {
+        // Temukan data berdasarkan ID
+        $lembagadesa = LembagaDesa::findOrFail($id);
+
+        // Update data
+        $lembagadesa->nama_lembaga = $request->nama_lembaga;
+        $lembagadesa->alamat = $request->alamat;
+        $lembagadesa->deskripsi_profil = $request->deskripsi_profil;
+
+        // Upload dan simpan gambar jika ada
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '_' . $image->hashName();
+            $image->move('images/', $filename); // Simpan gambar ke storage
+            $lembagadesa->image = $filename; // Simpan nama file gambar ke kolom 'image' dalam database
+        }
+
+        // Simpan perubahan data
+        $lembagadesa->save();
+
+        // Redirect dengan pesan sukses
+        return redirect()->route('lembagadesa.index')->with([
+            'alert-type' => 'success',
+            'message' => 'Data berhasil diperbarui.'
+        ]);
+    }
+
      public function index(Request $request)
     {
         if ($request->ajax()) {
@@ -36,26 +65,36 @@ class Lembaga_desaController extends Controller
 
     public function edit($id)
         {
-            $lembagadesa = LembagaDesa::findOrFail($id);
-            return view('backoffice.lembagadesa.edit');
+            $lembagadesa = LembagaDesa::find($id);
+            if (!$lembagadesa) {
+                return redirect()->route('backoffice.lembagadesa.index')->with('error', 'lembagadesa tidak ditemukan.');
+            }
+            return view('backoffice.lembagadesa.edit', compact('lembagadesa'));
+        
         }
 
 
         public function store(Request $request)
         {
 
-            $lembagadesa = new LembagaDesa;
-            $lembagadesa->nama_lembaga            = strip_tags(ucfirst($request->nama_lembaga));
-            $lembagadesa->image            = strip_tags(ucfirst($request->image));
-            $lembagadesa->alamat           = strip_tags($request->alamat);
-            $lembagadesa->deskripsi_profil            = strip_tags($request->deskripsi_profil);
+            $imageName = time().'.'.$request->image->extension();  
+            $request->image->move(public_path('images'), $imageName);
+        
+            // Simpan data ke database
+            $lembagadesa = new LembagaDesa([
+                'nama_lembaga' => $request->get('nama_lembaga'),
+                'alamat' => $request->get('alamat'),
+                'deskripsi_profil' => $request->get('deskripsi_profil'),
+                'image' => $imageName, 
+        
+            ]);
             $lembagadesa->save();
         
-
-            return redirect()->route('lembagadesa.index')->with([
-                'alert-type' => 'success',
-                'message' => 'Data Lembaga Desa Berhasil Ditambahkan!'
-            ]);
+         
+                             return redirect()->route('lembagadesa.index')->with([
+                                'alert-type' => 'success',
+                                'message' => 'Data Order Berhasil Ditambahkan!'
+                            ]); 
             
             
 
