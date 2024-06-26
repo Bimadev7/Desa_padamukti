@@ -122,10 +122,7 @@
                 {{ optional($item->created_at)->format('M Y') }}
               </div>
               <p class="card-text mb-auto">{{ $item->deskripsi }}</p>
-              <a href="{{ route('berita.detailBerita', $item->id) }}" class="icon-link gap-1 icon-link-hover stretched-link">
-                Lanjutkan Membaca
-                <svg class="bi"><use xlink:href="#chevron-right" /></svg>
-              </a>
+             
             </div>
             <div class="col-auto d-none d-lg-block">
               <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="250" height="250">
@@ -153,7 +150,8 @@
           <h5 class="card-title" style="font-size: 1.5em; font-weight: bold; color: #000;">
             <a href="{{ route('pengumuman.detailPengumuman', $item->id) }}" class="mb-0">{{ $item->judul }}</a>
           </h5>
-          <p class="card-text">{{ $item->deskripsi }}</p>
+            <p class="card-text mb-auto">{!! (strlen($item->deskripsi) > 200) ? substr($item->deskripsi, 0, 200) . '...' : $item->deskripsi !!}</p>
+          {{-- <p class="card-text">{{ $item->deskripsi }}</p> --}}
         </div>
       </div>
       @endforeach
