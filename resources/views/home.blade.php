@@ -150,7 +150,8 @@
           <h5 class="card-title" style="font-size: 1.5em; font-weight: bold; color: #000;">
             <a href="{{ route('pengumuman.detailPengumuman', $item->id) }}" class="mb-0">{{ $item->judul }}</a>
           </h5>
-          <p class="card-text">{{ $item->deskripsi }}</p>
+            <p class="card-text mb-auto">{!! (strlen($item->deskripsi) > 200) ? substr($item->deskripsi, 0, 200) . '...' : $item->deskripsi !!}</p>
+          {{-- <p class="card-text">{{ $item->deskripsi }}</p> --}}
         </div>
       </div>
       @endforeach
