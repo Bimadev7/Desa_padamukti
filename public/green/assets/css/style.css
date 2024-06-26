@@ -1464,8 +1464,13 @@ section {
 --------------------------------------------------------------*/
 .breadcrumbs {
   padding: 15px 0;
-  background: #fbfbfb;
+  /* background: #fbfbfb; */
   min-height: 40px;
+}
+
+#breadcrumbs .container {
+    background: #f3eeeeb4;
+    padding: 10px 10px;
 }
 
 @media (max-width: 992px) {
