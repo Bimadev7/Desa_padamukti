@@ -220,6 +220,15 @@
           </li>
           </li>
           <li class="nav-item">
+            <a href="/backoffice/strukturorganisasi" class="nav-link">
+              <i class="nav-icon fas fa-volume-up"></i>
+              <p>
+                Struktur Organisasi
+              </p>
+            </a>
+          </li>
+          </li>
+          <li class="nav-item">
             <a href="/backoffice/user" class="nav-link">
               <i class="nav-icon fas fa-user-circle"></i>
               {{-- <i class="nav-icon far fa-image"></i> --}}
