@@ -18,8 +18,8 @@
 
 <div class="container">
     <article class="blog-post">
-        <h2 class="display-5 link-body-emphasis mb-4 text-center">Tentang Desa Padamukti</h2>
-        <p>{{ $tentang_desa }}</p>
+        <h3 class="link-body-emphasis mb-4">Tentang Desa Padamukti</h3>
+        <p style="max-height: 400px; overflow-y: auto; text-align: justify;">{!! $tentang_desa !!}</p>
         
     </article>
 </div>
