@@ -28,13 +28,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-<<<<<<< HEAD
   <link href="/green/assets/img/logo-padamukti.png" rel="icon">
   <link href="image/logo-padamukti.png" rel="apple-touch-icon">
-=======
-  <link href="{{ asset('image/logopadamukti.svg') }}" rel="icon">
-  <link href="{{ asset('image/logopadamukti.svg') }}" rel="apple-touch-icon">
->>>>>>> 296bf4e55ebde299194f2498d689a0f8c729826f
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -138,11 +133,7 @@
         <div class="row">
             <div class="col-md-4 text-center text-md-left">
                 <div class="d-flex align-items-center mb-3">
-<<<<<<< HEAD
                 <img src="{{ asset('image/logo-padamukti.png') }}" alt="Desa Padamukti Logo" class="img-fluid" style="max-width: 80px; margin-right: 10px;">
-=======
-                <img src="{{ asset('image/logopadamukti.svg') }}" alt="Desa Padamukti Logo" class="img-fluid" style="max-width: 80px; margin-right: 10px;">
->>>>>>> 296bf4e55ebde299194f2498d689a0f8c729826f
                     <h4>
                         <a href="/" class="text-white">
                             <strong>Desa Padamukti</strong><br>
