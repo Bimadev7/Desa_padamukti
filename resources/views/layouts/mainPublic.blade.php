@@ -28,8 +28,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ asset('image/logopadamukti.svg') }}" rel="icon">
-  <link href="{{ asset('image/logopadamukti.svg') }}" rel="apple-touch-icon">
+  <link href="/green/assets/img/logo-padamukti.png" rel="icon">
+  <link href="image/logo-padamukti.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -54,7 +54,7 @@
     <div class="container d-flex justify-content-center justify-content-md-between align-items-center">
       <div class="contact-info d-flex align-items-center">
         <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">Desa_padaMukti@Pemdes.com</a>
-        <i class="bi bi-phone-fill phone-icon"></i><a href="/">082121358207 </a>
+        <i class="bi bi-phone-fill phone-icon"></i><a href="/">082320407767 </a>
       </div>
       <div class="social-links d-none d-md-block">
         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -70,63 +70,55 @@
     <div class="container d-flex align-items-center justify-content-between">
       <div class="d-flex align-items-center">
         <a href="/" class="logo me-auto d-flex align-items-center">
-          <img src="/image/logopadamukti.svg" alt="" style="width: 50px; height: 50px;">
+          <img src="/image/logo-padamukti.png" alt="Logo Padamukti">
           <h6 class="mb-0 ms-2">
             <a href="/" class="text-dark">
               <strong>Desa Padamukti</strong><br/>
-              Kabupaten Bandung
+              Kabupaten Garut
             </a>
           </h6>
         </a>
       </div>
       <nav id="navbar" class="navbar">
-    <ul>
-        <li class="nav-item">
-            <a class="nav-link scrollto {{ request()->is('/') ? 'active' : '' }}" href="/">Home</a>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle {{ request()->is('tentang-desa') || request()->is('visi-misi') || request()->is('sejarah') || request()->is('geografis') || request()->is('demografi') ? 'active' : '' }}" href="#" id="navbarDropdownProfil" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Profil Desa
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownProfil">
-                <li><a class="dropdown-item {{ request()->is('tentang-desa') ? 'active' : '' }}" href="{{ route('tentang-desa') }}">Tentang Desa</a></li>
-                <li><a class="dropdown-item {{ request()->is('visi-misi') ? 'active' : '' }}" href="{{ route('visi-misi') }}">Visi dan Misi</a></li>
-                <li><a class="dropdown-item {{ request()->is('sejarah') ? 'active' : '' }}" href="{{ route('sejarah') }}">Sejarah</a></li>
-                <li><a class="dropdown-item {{ request()->is('geografis') ? 'active' : '' }}" href="{{ route('geografis') }}">Geografis</a></li>
-                <li><a class="dropdown-item {{ request()->is('demografi') ? 'active' : '' }}" href="{{ route('demografi') }}">Demografi</a></li>
+        <ul>
+          <li><a class="nav-link scrollto active" href="/">Home</a></li>
+          <li class="dropdown">
+            <a href="/"><span>Profil Desa</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="{{ route('tentang-desa') }}">Tentang Desa</a></li>
+              <li><a href="{{ route('visi-misi') }}">Visi dan Misi</a></li>
+              <li><a href="{{ route('sejarah') }}">Sejarah</a></li>
+              <li><a href="{{ route('geografis') }}">Geografis</a></li>
+              <li><a href="{{ route('demografi') }}">Demografi </a></li>
+              
             </ul>
-
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle {{ request()->is('struktur-desa') || request()->is('perangkat-desa') || request()->is('lembaga-desa') ? 'active' : '' }}" href="#" id="navbarDropdownPemerintahan" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Pemerintahan
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownPemerintahan">
-                <li><a class="dropdown-item {{ request()->is('struktur-desa') ? 'active' : '' }}" href="{{ route('struktur-desa') }}">Struktur Desa</a></li>
-                <li><a class="dropdown-item {{ request()->is('perangkat-desa') ? 'active' : '' }}" href="{{ route('perangkat-desa') }}">Perangkat Desa</a></li>
-                <li><a class="dropdown-item {{ request()->is('lembaga-desa') ? 'active' : '' }}" href="{{ route('lembaga-desa') }}">Lembaga Desa</a></li>
-
+          </li>
+          <li class="dropdown">
+            <a href="/"><span>Pemerintahan</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="{{ route('struktur-desa') }}">Struktur Desa</a></li>
+              {{-- <li><a href="{{ route('perangkat-desa') }}">Perangkat Desa</a></li> --}}
+              <li><a href="{{ route('lembaga-desa') }}">Lembaga Desa</a></li>
             </ul>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle {{ request()->is('berita-desa') || request()->is('pengumuman') ? 'active' : '' }}" href="#" id="navbarDropdownInformasiPublik" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Informasi Publik
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownInformasiPublik">
-                <li><a class="dropdown-item {{ request()->is('berita-desa') ? 'active' : '' }}" href="{{ route('berita-desa') }}">Berita Desa</a></li>
-                <li><a class="dropdown-item {{ request()->is('pengumuman') ? 'active' : '' }}" href="{{ route('pengumuman') }}">Pengumuman Desa</a></li> 
-            </ul>
-        </li>
-    </ul>
-    
-    <i class="bi bi-list mobile-nav-toggle"></i>
-</nav>
-
-
-
-       <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalLogin">
-            Login
-          </button>
+          </li>
+          <li class="dropdown">
+            <a href="/"><span>Informasi Publik</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="{{ route('berita-desa') }}">Berita Desa</a></li>
+              <li><a href="{{ route('pengumuman') }}">Pengumuman Desa</a></li> 
+             </ul>
+          </li>
+          <li>
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalLogin">
+              Login
+            </button>
+          </li>
+          
+        </ul>
+        
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+       
     </div>
   </header>
   <!-- End Header -->
@@ -141,11 +133,11 @@
         <div class="row">
             <div class="col-md-4 text-center text-md-left">
                 <div class="d-flex align-items-center mb-3">
-                <img src="{{ asset('image/logopadamukti.svg') }}" alt="Desa Padamukti Logo" class="img-fluid" style="max-width: 80px; margin-right: 10px;">
+                <img src="{{ asset('image/logo-padamukti.png') }}" alt="Desa Padamukti Logo" class="img-fluid" style="max-width: 80px; margin-right: 10px;">
                     <h4>
                         <a href="/" class="text-white">
                             <strong>Desa Padamukti</strong><br>
-                                 Kabupaten Bandung
+                                 Kabupaten Garut
                         </a>
                     </h4>
                 </div>
@@ -153,23 +145,23 @@
             <div class="col-md-4 text-center">
                 <h4>Contact Us</h4>
                 <p>
-                Pancak Suji, Padamukti, Kec. Solokanjeruk, Kabupaten Bandung, Jawa Barat 40376<br><br>
-                    <strong>Phone:</strong> 082121358207<br>
+                Padamukti, Kec. Pasirwangi, Kabupaten Garut, Jawa Barat 44161<br><br>
+                    <strong>Phone:</strong> 082320407767<br>
                     <strong>Email:</strong> info@desapadamukti.id
                 </p>
             </div>
             <div class="col-md-4 text-center text-md-right">
-    <h4>Tautan</h4>
-    <div class="text-white">
-        <ul class="list-unstyled">
-            <li><a href="{{ route('tentang-desa') }}" class="text-white">Tentang Desa</a></li>
-            <li><a href="{{ route('visi-misi') }}" class="text-white">Visi dan Misi</a></li>
-            <li><a href="{{ route('sejarah') }}" class="text-white">Sejarah</a></li>
-            <li><a href="{{ route('geografis') }}" class="text-white">Geografis</a></li>
-            <li><a href="{{ route('demografi') }}" class="text-white">Demografi</a></li>
-        </ul>
-    </div>
-</div>
+              <h4>Tautan</h4>
+              <div class="text-white">
+                  <ul class="list-unstyled">
+                      <li><a href="{{ route('tentang-desa') }}" class="text-white">Tentang Desa</a></li>
+                      <li><a href="{{ route('visi-misi') }}" class="text-white">Visi dan Misi</a></li>
+                      <li><a href="{{ route('sejarah') }}" class="text-white">Sejarah</a></li>
+                      <li><a href="{{ route('geografis') }}" class="text-white">Geografis</a></li>
+                      <li><a href="{{ route('demografi') }}" class="text-white">Demografi</a></li>
+                  </ul>
+              </div>
+            </div>
 
         <div class="row mt-3">
             <div class="col-md-12 text-center">

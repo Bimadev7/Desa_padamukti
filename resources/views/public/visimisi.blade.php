@@ -36,15 +36,15 @@
 
 <div class="container">
     <article class="blog-post">
-        <h2 class="display-5 link-body-emphasis mb-4 text-center">Visi Misi Desa</h2>
+        <h4 class="mb-4" style="color: #5cb874"><strong>Visi Misi Desa</strong></h4>
         <br>
         <dl>
-            <dt>Visi</dt>
-            <dd>{{ $visi }}</dd>
+            <h4>Visi</h4>
+            <dd>{!! $visi !!}</dd>
             <br>
 
-            <dt>Misi</dt>
-            <dd>{{ $misi }}</dd>
+            <h4>Misi</h4>
+            <dd>{!! $misi !!}</dd>
         </dl>
     </article>
 </div>

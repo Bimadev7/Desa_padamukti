@@ -17,8 +17,7 @@
 
     <div class="container">
         <article class="blog-post mb-5">
-            <h2 class="display-5 link-body-emphasis mb-4 text-center">Demografi Desa</h2>
-            <hr>
+            <h4 class="mb-4" style="color: #5cb874"><strong>Demografi Desa</strong></h4>
             <p>Demografi desa merujuk pada studi tentang struktur penduduk dan karakteristik populasi di wilayah pedesaan. Ini mencakup berbagai aspek seperti jumlah penduduk, usia, jenis kelamin, tingkat pendidikan, pekerjaan, dan distribusi geografis mereka di dalam desa tersebut.</p>
         </article>
 

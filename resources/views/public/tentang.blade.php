@@ -18,7 +18,7 @@
 
 <div class="container">
     <article class="blog-post">
-        <h3 class="link-body-emphasis mb-4">Tentang Desa Padamukti</h3>
+        <h4 class="mb-4" style="color: #5cb874"><strong>Tentang Desa Padamukti</strong></h4>
         <p style="max-height: 400px; overflow-y: auto; text-align: justify;">{!! $tentang_desa !!}</p>
         
     </article>

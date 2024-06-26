@@ -18,8 +18,8 @@
 
 <div class="container">
     <article class="blog-post">
-        <h2 class="display-5 link-body-emphasis mb-4 text-center">Sejarah Desa</h2>
-        <p>{{ $sejarah }}</p>
+        <h4 class="mb-4" style="color: #5cb874"><strong>Sejarah Desa</strong></h4>
+        <p>{!! $sejarah !!}</p>
         
     </article>
 </div>
