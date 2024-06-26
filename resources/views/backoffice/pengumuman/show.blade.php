@@ -33,7 +33,7 @@
                    <div class="form-group">
                 <label for="deskripsi">Deskripsi</label>
                 <div>
-                    {!! (strlen($pengumuman->deskripsi) > 200) ? substr($pengumuman->deskripsi, 0, 200) . '...' : $pengumuman->deskripsi !!}
+                    {!! (strlen($pengumuman->deskripsi) > 200) ? substr($pengumuman->deskripsi, 0, 300) . '...' : $pengumuman->deskripsi !!}
                     @if (strlen($pengumuman->deskripsi) > 200)
                         <a href="#" class="btn btn-link" data-toggle="modal" data-target="#readMoreModal">Baca Selengkapnya</a>
                     @endif
@@ -93,6 +93,27 @@
     <!-- /.col -->
 </div>
 <!-- /.row -->
+
+<div class="modal fade" id="readMoreModal" tabindex="-1" aria-labelledby="readMoreModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="readMoreModalLabel">Deskripsi Pengumuman</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="max-height: 400px; overflow-y: auto; text-align: justify;">
+                {!! $pengumuman->deskripsi !!}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{-- 
 <div class="modal fade" id="readMoreModal" tabindex="-1" aria-labelledby="readMoreModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -110,7 +131,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 {{-- 
 <div class="modal fade" id="readMoreModal" tabindex="-1" aria-labelledby="readMoreModalLabel" aria-hidden="true">

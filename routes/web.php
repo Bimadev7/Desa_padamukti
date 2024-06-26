@@ -17,8 +17,11 @@ use App\Http\Controllers\StrukturorganisasiConttrollers;
 use App\Http\Controllers\DemografidesaController;
 use App\Http\Controllers\ProfilDesaController;
 use App\Http\Controllers\Lembaga_desaController;
+use App\Http\Controllers\ProfilDesaVisiController;
 
+// Route::get('/backoffice/pengumuman/{id}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
 
+Route::get('/backoffice/profildesa', 'ProfilDesaController@index')->name('profildesa.index');
 
 Route::delete('/backoffice/pengumuman/{id}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
 
@@ -105,6 +108,7 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::resource('/backoffice/demografidesa', DemografidesaController::class);
     Route::resource('/backoffice/profildesa', ProfilDesaController::class);
     Route::resource('/backoffice/lembagadesa', Lembaga_desaController::class);
+    Route::resource('/backoffice/profildesa_visi', ProfilDesaVisiController::class);
     
 });
 

@@ -63,15 +63,15 @@ class Lembaga_desaController extends Controller
     }
 
 
-    public function edit($id)
-        {
+    public function edit($id){
+
             $lembagadesa = LembagaDesa::find($id);
             if (!$lembagadesa) {
                 return redirect()->route('backoffice.lembagadesa.index')->with('error', 'lembagadesa tidak ditemukan.');
             }
             return view('backoffice.lembagadesa.edit', compact('lembagadesa'));
         
-        }
+    }
 
 
         public function store(Request $request)

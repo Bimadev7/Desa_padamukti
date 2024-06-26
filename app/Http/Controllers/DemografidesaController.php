@@ -55,6 +55,12 @@ class DemografidesaController extends Controller
     
     }
 
+    public function show($id)
+        {
+            $demografidesa = Demografidesa::findOrFail($id);
+            return view('backoffice.demografidesa.show')->with(compact('demografidesa'));
+        }
+
     public function update(Request $request, string $id)
     {
         // Temukan data berdasarkan ID

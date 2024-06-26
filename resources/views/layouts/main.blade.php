@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JDA | Dashboard</title>
+  <title> Desa Padamukti</title>
 
 
   {{-- script --}}
@@ -67,9 +67,16 @@
 
 
   <!-- Preloader -->
+  {{-- <div class="preloader flex-column justify-content-center align-items-center">
+  </div> --}}
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="public/adminlte/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-  </div>
+  <svg width="80" height="80" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+    <circle cx="50" cy="50" r="30" stroke-width="10" stroke="#007bff" stroke-dasharray="47.12388980384689 47.12388980384689" fill="none" stroke-linecap="round">
+      <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="0.7213114754098361s" keyTimes="0;1" values="0 50 50;360 50 50"></animateTransform>
+    </circle>
+  </svg>
+  <h4 class="mt-2">Loading...</h4>
+</div>
 
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -142,7 +149,39 @@
 <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-       
+        
+        <li class="nav-item dropdown">
+  <a href="#" class="nav-link active">
+    <i class="nav-icon fas fa-tachometer-alt"></i>
+    <p>
+      Profil Desa
+      <i class="right fas fa-angle-left"></i>
+    </p>
+  </a>
+  <ul class="nav nav-treeview">
+    <li class="nav-item">
+      {{-- <a href="./index.html" class="nav-link active"> --}}
+     <a href="/backoffice/profildesa_visi" class="nav-link active">
+
+        <i class="far fa-circle nav-icon"></i>
+        <p>Visi</p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="./index2.html" class="nav-link">
+        <i class="far fa-circle nav-icon"></i>
+        <p>Misi</p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="./index3.html" class="nav-link">
+        <i class="far fa-circle nav-icon"></i>
+        <p>Sejarah </p>
+      </a>
+    </li>
+  </ul>
+</li>
+
           
           <li class="nav-item">
             <a href="/backoffice/berita" class="nav-link">
@@ -181,23 +220,17 @@
               </p>
             </a>
           
-          <li class="nav-item">
-            <a href="/backoffice/demografidesa" class="nav-link">
-              <i class="nav-icon fas fa-columns"></i>
-              <p>
-                Demografi Desa
-              </p>
-            </a>
-          </li>
+         
 
-          <li class="nav-item">
-            <a href="/backoffice/profildesa" class="nav-link">
+
+          {{-- <li class="nav-item">
+            <a href="/backoffice/profildesa/1/edit" class="nav-link">
               <i class="nav-icon fas fa-columns"></i>
               <p>
                 profildesa Desa
               </p>
             </a>
-          </li>
+          </li> --}}
 
           <li class="nav-item">
             <a href="/backoffice/lembagadesa" class="nav-link">
