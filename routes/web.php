@@ -19,7 +19,15 @@ use App\Http\Controllers\ProfilDesaController;
 use App\Http\Controllers\Lembaga_desaController;
 use App\Http\Controllers\ProfilDesaVisiController;
 
-// Route::get('/backoffice/pengumuman/{id}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
+Route::get('/profildesa/pengumuman/{id}', [ProfilDesaController::class, 'show']);
+
+Route::get('/profildesa/{id}', 'ProfilDesaController@show')->name('profildesa.show');
+
+Route::get('/public/pengumuman/{id}', [DasboardPublicController::class, 'detailPengumuman'])->name('pengumuman.detailPengumuman');
+
+Route::get('/profildesa/visi/{id}', 'ProfilDesaVisiController@index')->name('profildesa_visi.index');
+
+Route::get('/profil-desa/{id}/visi', [ProfilDesaVisiController::class, 'index']);
 
 Route::get('/backoffice/profildesa', 'ProfilDesaController@index')->name('profildesa.index');
 
