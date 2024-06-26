@@ -94,7 +94,6 @@
       <div class="row">
         <div class="col-lg-6">
           <div class="content text-start">
-            <h3>Desa Padamukti, kecamatan Solokanjeruk, Bandung, Jawa Barat.</h3>
             <p>
               {!! $tentang_desa !!}
             </p>
