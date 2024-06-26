@@ -168,8 +168,7 @@
         <div class="col-lg-12 d-flex align-items-stretch">
           <div class="card w-100">
             <div class="card-body">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9599.715435800841!2d107.75721164857325!3d-7.012227205968178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68c6aee51c0af3%3A0xae7bc5e161ed42f9!2sPadamukti%2C%20Solokanjreruk%2C%20Bandung%20Regency%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1718207269561!5m2!1sen!2sid" frameborder="0" style="border:0; width: 100%; height: 290px; border: 2px solid #000;" allowfullscreen></iframe>
-            </div>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15832.109101662118!2d107.80800175113826!3d-7.237728148650926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68bad158ba1a2d%3A0xe5259a25a206e508!2sPadamukti%2C%20Sukaresmi%2C%20Garut%20Regency%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1719412487022!5m2!1sen!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>            </div>
           </div>
         </div>
       </div>
