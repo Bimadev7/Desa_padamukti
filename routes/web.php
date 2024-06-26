@@ -128,9 +128,7 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::get('/public/sejarah', [DasboardPublicController::class, 'sejarah'])->name('sejarah');
     Route::get('/public/geografis', [DasboardPublicController::class, 'geografis'])->name('geografis');
     
-    Route::get('/public/demografi', function () {
-        return view('public.demografi');
-    })->name('demografi');
+    Route::get('/public/demografi', [DasboardPublicController::class, 'demografi'])->name('demografi');
 
 
     Route::get('/public/struktur-desa', [DasboardPublicController::class, 'indexStrukturOrganisasi'])->name('struktur-desa');

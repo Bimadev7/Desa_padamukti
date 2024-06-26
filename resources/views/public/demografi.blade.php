@@ -30,9 +30,9 @@
                     <div class="card-body">
                         <h5 class="card-title">Data Kelahiran</h5>
                         <div class="text-center">
-                            <img src="/image/bayi.jpg" class="img-fluid" style="max-width: 100px; margin-right: 50px;" alt="BPD Image">
+                            <img src="/image/bayi.jpg" class="img-fluid mb-2" style="max-width: 100px; margin-right: 50px;" alt="BPD Image">
                         </div>
-                        <p class="card-text">Jumlah kelahiran di desa tahun ini adalah X orang.</p>
+                        <p class="card-text">Jumlah kelahiran di desa tahun ini adalah {{ $angka_kelahiran }} orang.</p>
                     </div>
                 </div>
             </div>
@@ -42,9 +42,9 @@
                     <div class="card-body">
                         <h5 class="card-title">Data Kematian</h5>
                         <div class="text-center">
-                            <img src="/image/mati1.jpg" class="img-fluid" style="max-width: 100px; margin-right: 50px;" alt="BPD Image">
+                            <img src="/image/mati1.jpg" class="img-fluid mb-2" style="max-width: 100px; margin-right: 50px;" alt="BPD Image">
                         </div>
-                        <p class="card-text">Jumlah kematian di desa tahun ini adalah Y orang.</p>
+                        <p class="card-text">Jumlah kematian di desa tahun ini adalah {{ $angka_kematian }} orang.</p>
                     </div>
                 </div>
             </div>
@@ -54,9 +54,9 @@
                     <div class="card-body">
                         <h5 class="card-title">Jumlah Penduduk</h5>
                         <div class="text-center">
-                            <img src="/image/orang.jpg" class="img-fluid" style="max-width: 100px; margin-right: 50px;" alt="BPD Image">
+                            <img src="/image/orang.jpg" class="img-fluid mb-2" style="max-width: 100px; margin-right: 50px;" alt="BPD Image">
                         </div>
-                        <p class="card-text">Jumlah total penduduk di desa adalah Z orang.</p>
+                        <p class="card-text">Jumlah total penduduk di desa adalah {{ $jumlah_penduduk }} orang.</p>
                     </div>
                 </div>
             </div>
@@ -78,13 +78,13 @@
                 <tbody>
                     <tr>
                         <td>Laki-laki</td>
-                        <td>7.862 Jiwa</td>
-                        <td>50 %</td>
+                        <td>{{ $jumlah_pria }} Jiwa</td>
+                        <td>{{ $persentase_pria }} %</td>
                     </tr>
                     <tr>
                         <td>Perempuan</td>
-                        <td>7.985 Jiwa</td>
-                        <td>50 %</td>
+                        <td>{{ $jumlah_perempuan }} Jiwa</td>
+                        <td>{{ $persentase_perempuan }} %</td>
                     </tr>
                 </tbody>
                 <thead class="thead-light">
@@ -97,23 +97,23 @@
                 <tbody>
                     <tr>
                         <td>0 – 17</td>
-                        <td>5.341 Jiwa</td>
-                        <td>34 %</td>
+                        <td>{{ $jumlah_anak_anak }} Jiwa</td>
+                        <td>{{ $persentase_anak_anak }} %</td>
                     </tr>
                     <tr>
                         <td>18 – 56</td>
-                        <td>9.304 Jiwa</td>
-                        <td>59 %</td>
+                        <td>{{ $jumlah_dewasa }} Jiwa</td>
+                        <td>{{ $persentase_dewasa }} %</td>
                     </tr>
                     <tr>
                         <td>56 ke-atas</td>
-                        <td>1.202 Jiwa</td>
-                        <td>7 %</td>
+                        <td>{{ $jumlah_lansia }} Jiwa</td>
+                        <td>{{ $persentase_lansia }} %</td>
                     </tr>
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th colspan="3" class="text-center bg-success text-white">Total Jumlah Penduduk: 15.847 Jiwa</th>
+                        <th colspan="3" class="text-center bg-success text-white">Total Jumlah Penduduk: {{ $jumlah_penduduk }} Jiwa</th>
                     </tr>
                 </tfoot>
             </table>

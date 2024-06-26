@@ -132,6 +132,71 @@ class DasboardPublicController extends Controller
         return view('public.sejarah', ['sejarah' => $sejarah]);
     }
 
+
+    // Halaman Profil Desa - Demografi
+    public function demografi()
+    {
+        // Angka kelahiran
+        $angka_kelahiran = DB::table('demografi_desa')->value('angka_kelahiran');
+        $angka_kelahiran_formatted = number_format($angka_kelahiran, 0, ',', '.');
+
+        // Angka kematian
+        $angka_kematian = DB::table('demografi_desa')->value('angka_kematian');
+        $angka_kematian_formatted = number_format($angka_kematian, 0, ',', '.');
+
+        //Jumlah Laki-laki
+        $jumlah_pria = DB::table('demografi_desa')->value('jumlah_pria');
+        $jumlah_pria_formatted = number_format($jumlah_pria, 0, ',', '.');
+
+        // Jumlah Perempuan
+        $jumlah_perempuan = DB::table('demografi_desa')->value('jumlah_perempuan');
+        $jumlah_perempuan_formatted = number_format($jumlah_perempuan, 0, ',', '.');
+
+        // Jumlah anak-anak
+        $jumlah_anak_anak = DB::table('demografi_desa')->value('jumlah_anak_anak');
+        $jumlah_anak_anak_formatted = number_format($jumlah_anak_anak, 0, ',', '.');
+
+        $jumlah_dewasa = DB::table('demografi_desa')->value('jumlah_dewasa');
+        $jumlah_dewasa_formatted = number_format($jumlah_dewasa, 0, ',', '.');
+
+        $jumlah_lansia = DB::table('demografi_desa')->value('jumlah_lansia');
+        $jumlah_lansia_formatted = number_format($jumlah_lansia, 0, ',', '.');
+
+        $jumlah_penduduk = DB::table('demografi_desa')->value('jumlah_penduduk');
+        $jumlah_penduduk_formatted = number_format($jumlah_penduduk, 0, ',', '.');
+
+        // Hitung persentase
+        $persentase_pria = number_format(($jumlah_pria / $jumlah_penduduk * 100), 1, ',', '.');
+        $persentase_perempuan = number_format(($jumlah_perempuan / $jumlah_penduduk * 100), 1, ',', '.');
+
+        $persentase_anak_anak = number_format(($jumlah_anak_anak / $jumlah_penduduk * 100), 1, ',', '.');
+        $persentase_dewasa = number_format(($jumlah_dewasa / $jumlah_penduduk * 100), 1, ',', '.');
+        $persentase_lansia = number_format(($jumlah_lansia / $jumlah_penduduk * 100), 1, ',', '.');
+
+        return view('public.demografi', [
+            'angka_kelahiran' => $angka_kelahiran_formatted,
+            'angka_kematian' => $angka_kematian_formatted,
+
+            'jumlah_pria' => $jumlah_pria_formatted,
+            'persentase_pria' => $persentase_pria,
+
+            'jumlah_perempuan' => $jumlah_perempuan_formatted,
+            'persentase_perempuan' => $persentase_perempuan,
+
+            'jumlah_anak_anak' => $jumlah_anak_anak_formatted,
+            'persentase_anak_anak' => $persentase_anak_anak,
+
+            'jumlah_dewasa' => $jumlah_dewasa_formatted,
+            'persentase_dewasa' => $persentase_dewasa,
+
+            'jumlah_lansia' => $jumlah_lansia_formatted,
+            'persentase_lansia' => $persentase_lansia,
+
+            'jumlah_penduduk' => $jumlah_penduduk_formatted
+        ]);
+    }
+
+    // Halaman Profil Desa - Geografis
     public function geografis()
     {
         $geografis = DB::table('profil_desa')->value('geografis');

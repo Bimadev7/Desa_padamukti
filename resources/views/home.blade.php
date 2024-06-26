@@ -59,14 +59,14 @@
           @foreach ($demografi as $item)
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="icon-box text-center">
-                <div class="icon mb-3"><img src="/image/baby.png" style="max-width: 65px;" alt="Kelahiran"></div>
+                <div class="icon mb-3"><img src="/image/penduduk.png" style="max-width: 65px;" alt="Kelahiran"></div>
                 <h2 class="title"><a href="">{{ $item->angka_kelahiran }}</a></h2>
                 <p class="description">Kelahiran</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4">
               <div class="icon-box text-center">
-                <div class="icon mb-3"><img src="/image/kematian.png" style="max-width: 65px;" alt="Kelahiran"></div>
+                <div class="icon mb-3"><img src="/image/penduduk.png" style="max-width: 65px;" alt="Kelahiran"></div>
                   <h2 class="title"><a href="">{{$item->angka_kematian}}</a></h2>
                   <p class="description">Kematian</p>
               </div>
