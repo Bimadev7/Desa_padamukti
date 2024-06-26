@@ -181,3 +181,24 @@ use Yajra\DataTables\Facades\DataTables;
             return view('backoffice.user.show')->with(compact('user'));
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
