@@ -19,6 +19,14 @@ use App\Http\Controllers\ProfilDesaController;
 use App\Http\Controllers\Lembaga_desaController;
 use App\Http\Controllers\ProfilDesaVisiController;
 
+
+Route::get('/backoffice/profildesa_visi/visi/edit', [ProfilDesaVisiController::class, 'edit']);
+Route::get('/backoffice/edit2/edit/{id}', [ProfilDesaVisiController::class, 'edit2']);
+
+
+// Route::get('/profildesa_visi/edit/{id}', 'ProfilDesaVisiController@edit')->name('profildesa_visi.edit');
+
+
 Route::get('/profildesa/pengumuman/{id}', [ProfilDesaController::class, 'show']);
 
 Route::get('/profildesa/{id}', 'ProfilDesaController@show')->name('profildesa.show');

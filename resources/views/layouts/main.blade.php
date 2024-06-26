@@ -193,12 +193,28 @@
           </li>
             <li class="nav-item">
             <a href="/backoffice/pengumuman" class="nav-link">
-              {{-- <i class="nav-icon fas fa-th"></i> --}}
-              {{-- <i class="fa-regular fa-calendar-days"></i> --}}
               <i class="nav-icon fas fa-volume-up"></i>
-
               <p>
                 Pengumuman
+              </p>
+            </a>
+          </li>
+          </li>
+
+            <li class="nav-item">
+            <a href="/backoffice/profildesa_visi" class="nav-link">
+              <i class="nav-icon fas fa-volume-up"></i>
+              <p>
+                Profil Desa
+              </p>
+            </a>
+          </li>
+          </li>
+           <li class="nav-item">
+            <a href="/backoffice/demografidesa" class="nav-link">
+              <i class="nav-icon fas fa-volume-up"></i>
+              <p>
+                Demografi Desa
               </p>
             </a>
           </li>
@@ -212,6 +228,7 @@
               </p>
             </a>
           </li>
+
           <li class="nav-item">
             <a href="/backoffice/slider" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
@@ -402,6 +419,10 @@
 
 <script>
    CKEDITOR.replace('editor');
+   CKEDITOR.replace('editor2');
+   CKEDITOR.replace('editor3');
+   CKEDITOR.replace('editor4');
+   CKEDITOR.replace('editor5');
 </script>
 </body>
 </html>
