@@ -18,7 +18,7 @@ use App\Http\Controllers\DemografidesaController;
 use App\Http\Controllers\ProfilDesaController;
 use App\Http\Controllers\Lembaga_desaController;
 
-Route::get('/backoffice/pengumuman/{id}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
+// Route::get('/backoffice/pengumuman/{id}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
 
 Route::get('/backoffice/profildesa', 'ProfilDesaController@index')->name('profildesa.index');
 
