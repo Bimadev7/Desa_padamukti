@@ -6,68 +6,77 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
-      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
-      <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active" style="background-image: url(/image/desa1.jpg)">
-          <div class="carousel-container">
-            <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">Selamat Datang<span> di Website Desa Padamukti</span></h2>
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active" style="background-image: url({{ asset('images/' . $slider1) }})">
+                <div class="carousel-container">
+                    <div class="container">
+                        <div class="carousel-content">
+                            <h2 class="animate__animated animate__zoomIn">Selamat Datang<span> di Website Desa Padamukti</span></h2>
+                            <p class="animate__animated animate__fadeInUp">Selamat datang di portal informasi Desa Padamukti.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="carousel-item" style="background-image: url(/image/desa2.jpg)">
-          <div class="carousel-container">
-            <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">Tentang Desa</h2>
-              <p class="animate__animated animate__fadeInUp">Beberapa informasi tentang Desa Padamukti</p>
-              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Lihat</a>
+            <div class="carousel-item" style="background-image: url({{ asset('images/' . $slider2) }})">
+                <div class="carousel-container">
+                    <div class="container">
+                        <div class="carousel-content">
+                            <h2 class="animate__animated animate__zoomIn">Tentang Desa</h2>
+                            <p class="animate__animated animate__fadeInUp">Beberapa informasi tentang Desa Padamukti.</p>
+                            <a href="#about" class="btn-get-started animate__animated animate__jackInTheBox scrollto">Lihat</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="carousel-item" style="background-image: url(/image/desa3.jpg)">
-          <div class="carousel-container">
-            <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">Berita Desa</h2>
-              <p class="animate__animated animate__fadeInUp">Tinjau berita terbaru dari Desa Padamukti</p>
-              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Lihat Berita</a>
+            <div class="carousel-item" style="background-image: url({{ asset('images/' . $slider3) }})">
+                <div class="carousel-container">
+                    <div class="container">
+                        <div class="carousel-content">
+                            <h2 class="animate__animated animate__zoomIn">Berita Desa</h2>
+                            <p class="animate__animated animate__fadeInUp">Tinjau berita terbaru dari Desa Padamukti.</p>
+                            <a href="#about" class="btn-get-started animate__animated animate__jackInTheBox scrollto">Lihat Berita</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
-      </a>
-      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
-        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
-      </a>
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
     </div>
   </section><!-- End Hero -->
 
-  <!-- ======= Featured Services Section ======= -->
+
   <section id="featured-services" class="featured-services section-bg">
     <div class="container">
       <div class="row no-gutters">
         @foreach ($demografi as $item)
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="icon-box text-center">
-              <div class="icon mb-3"><i class="bi bi-person-plus"></i></div>
-              <h2 class="title"><a href="">{{ $item->angka_kelahiran }}</a></h2>
-              <p class="description">Kelahiran</p>
+
+                <div class="icon mb-3"><img src="/image/penduduk.png" style="max-width: 65px;" alt="Kelahiran"></div>
+                <h2 class="title"><a href="">{{ $item->angka_kelahiran }}</a></h2>
+                <p class="description">Kelahiran</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4">
-            <div class="icon-box text-center">
-              <div class="icon mb-3"><i class="bi bi-person-dash"></i></div>
-              <h2 class="title"><a href="">{{$item->angka_kematian}}</a></h2>
-              <p class="description">Kematian</p>
-            </div>
+              <div class="icon-box text-center">
+                <div class="icon mb-3"><img src="/image/penduduk.png" style="max-width: 65px;" alt="Kelahiran"></div>
+                  <h2 class="title"><a href="">{{$item->angka_kematian}}</a></h2>
+                  <p class="description">Kematian</p>
+              </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4">
-            <div class="icon-box text-center">
-              <div class="icon mb-3"><i class="bi bi-people"></i></div>
-              <h2 class="title"><a href="">{{ $item->jumlah_penduduk }}</a></h2>
-              <p class="description">Jumlah Penduduk</p>
-            </div>
+              <div class="icon-box text-center">
+                <div class="icon mb-3"><img src="/image/penduduk.png" style="max-width: 65px;" alt="Kelahiran"></div>
+                  <h2 class="title"><a href="">{{ $item->jumlah_penduduk }}</a></h2>
+                  <p class="description">Jumlah Penduduk</p>
+              </div>
+
           </div>
         @endforeach
       </div>
@@ -123,18 +132,44 @@
               <div class="col-auto d-none d-lg-block">
                 <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="200" height="250">
               </div>
+
+              <p class="card-text mb-auto">{{ $item->deskripsi }}</p>
+              <a href="{{ route('berita.detailBerita', $item->id) }}" class="icon-link gap-1 icon-link-hover stretched-link">
+                Lanjutkan Membaca
+                <svg class="bi"><use xlink:href="#chevron-right" /></svg>
+              </a>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+              <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="250" height="250">
+
             </div>
           </div>
         @endforeach
       </div>
-      <div class="text-end mb-4">
-        <a href="{{ route('berita-desa') }}" class="btn btn-success">
-          Lihat Semua Berita 
-          <i class="bi bi-arrow-right"></i>
-        </a>
+
+
+      <div class="section-title mt-5">
+        <h2 class="text-dark">Tentang Desa</h2>
       </div>
-    </div>
-  </section><!-- End News Section -->
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="content text-start">
+            <h3>Desa Padamukti, kecamatan Solokanjeruk, Bandung, Jawa Barat.</h3>
+            <p>
+              Desa Padamukti, dengan segala potensi alam dan budayanya, merupakan contoh desa yang berkembang dengan tetap menjaga kearifan lokal dan tradisi. Kehidupan yang harmonis, alam yang indah, serta nilai-nilai kebersamaan menjadikan Desa Padamukti sebagai tempat yang nyaman untuk tinggal dan berkunjung. Potensi besar yang dimiliki desa ini perlu terus dikembangkan dengan dukungan semua pihak, sehingga kesejahteraan masyarakatnya dapat terus meningkat.
+            </p>
+            <a href="{{ route('tentang-desa') }}" class="btn btn-success d-inline-flex align-items-center gap-1 mt-3">
+              Lanjutkan Membaca <i class="bi bi-arrow-right"></i>
+            </a>                      
+          </div>
+        </div>
+        <div class="col-lg-6 text-center">
+          <img src="green/assets/img/slider 3.jpg" alt="Tentang Desa" class="img-fluid w-80" style="margin-top: 20px;">
+        </div>
+      </div>
+
+
 
   <!-- ======= Announcements Section ======= -->
   <section id="announcements" class="announcements">

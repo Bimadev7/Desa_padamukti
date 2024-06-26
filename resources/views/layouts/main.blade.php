@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JDA | Dashboard</title>
+  <title> Desa Padamukti</title>
 
 
   {{-- script --}}
@@ -67,9 +67,16 @@
 
 
   <!-- Preloader -->
+  {{-- <div class="preloader flex-column justify-content-center align-items-center">
+  </div> --}}
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="public/adminlte/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-  </div>
+  <svg width="80" height="80" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+    <circle cx="50" cy="50" r="30" stroke-width="10" stroke="#007bff" stroke-dasharray="47.12388980384689 47.12388980384689" fill="none" stroke-linecap="round">
+      <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="0.7213114754098361s" keyTimes="0;1" values="0 50 50;360 50 50"></animateTransform>
+    </circle>
+  </svg>
+  <h4 class="mt-2">Loading...</h4>
+</div>
 
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -91,8 +98,8 @@
     <ul class="navbar-nav ml-auto">
       <!-- Navbar Search -->
       <li class="nav-item">
-        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-          <i class="fas fa-search"></i>
+        {{-- <a class="nav-link" data-widget="navbar-search" href="#" role="button"> --}}
+          {{-- <i class="fas fa-search"></i> --}}
         </a>
         <div class="navbar-search-block">
           <form class="form-inline">
@@ -142,7 +149,39 @@
 <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-       
+        
+        <li class="nav-item dropdown">
+  <a href="#" class="nav-link active">
+    <i class="nav-icon fas fa-tachometer-alt"></i>
+    <p>
+      Profil Desa
+      <i class="right fas fa-angle-left"></i>
+    </p>
+  </a>
+  <ul class="nav nav-treeview">
+    <li class="nav-item">
+      {{-- <a href="./index.html" class="nav-link active"> --}}
+     <a href="/backoffice/profildesa_visi/1" class="nav-link active">
+
+        <i class="far fa-circle nav-icon"></i>
+        <p>Visi</p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="./index2.html" class="nav-link">
+        <i class="far fa-circle nav-icon"></i>
+        <p>Misi</p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="./index3.html" class="nav-link">
+        <i class="far fa-circle nav-icon"></i>
+        <p>Sejarah </p>
+      </a>
+    </li>
+  </ul>
+</li>
+
           
           <li class="nav-item">
             <a href="/backoffice/berita" class="nav-link">
@@ -154,12 +193,37 @@
           </li>
             <li class="nav-item">
             <a href="/backoffice/pengumuman" class="nav-link">
-              {{-- <i class="nav-icon fas fa-th"></i> --}}
-              {{-- <i class="fa-regular fa-calendar-days"></i> --}}
               <i class="nav-icon fas fa-volume-up"></i>
-
               <p>
                 Pengumuman
+              </p>
+            </a>
+          </li>
+          </li>
+
+            <li class="nav-item">
+            <a href="/backoffice/profildesa_visi" class="nav-link">
+              <i class="nav-icon fas fa-volume-up"></i>
+              <p>
+                Profil Desa
+              </p>
+            </a>
+          </li>
+          </li>
+           <li class="nav-item">
+            <a href="/backoffice/demografidesa" class="nav-link">
+              <i class="nav-icon fas fa-volume-up"></i>
+              <p>
+                Demografi Desa
+              </p>
+            </a>
+          </li>
+          </li>
+          <li class="nav-item">
+            <a href="/backoffice/strukturorganisasi" class="nav-link">
+              <i class="nav-icon fas fa-volume-up"></i>
+              <p>
+                Struktur Organisasi
               </p>
             </a>
           </li>
@@ -173,6 +237,7 @@
               </p>
             </a>
           </li>
+
           <li class="nav-item">
             <a href="/backoffice/slider" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
@@ -181,29 +246,23 @@
               </p>
             </a>
           
-          <li class="nav-item">
-            <a href="/backoffice/demografidesa" class="nav-link">
-              <i class="nav-icon fas fa-columns"></i>
-              <p>
-                Demografi Desa
-              </p>
-            </a>
-          </li>
+         
 
-          <li class="nav-item">
-            <a href="/backoffice/profildesa" class="nav-link">
+
+          {{-- <li class="nav-item">
+            <a href="/backoffice/profildesa/1/edit" class="nav-link">
               <i class="nav-icon fas fa-columns"></i>
               <p>
                 profildesa Desa
               </p>
             </a>
-          </li>
+          </li> --}}
 
           <li class="nav-item">
-            <a href="/backoffice/demografidesa" class="nav-link">
+            <a href="/backoffice/lembagadesa" class="nav-link">
               <i class="nav-icon fas fa-columns"></i>
               <p>
-                Demografi Desa
+                Lembaga Desa
               </p>
             </a>
           </li>
@@ -369,6 +428,10 @@
 
 <script>
    CKEDITOR.replace('editor');
+   CKEDITOR.replace('editor2');
+   CKEDITOR.replace('editor3');
+   CKEDITOR.replace('editor4');
+   CKEDITOR.replace('editor5');
 </script>
 </body>
 </html>

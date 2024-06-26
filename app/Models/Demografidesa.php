@@ -13,6 +13,11 @@ class DemografiDesa extends Model
         'id',
         'angka_kelahiran',
         'angka_kematian',
-        'jumlah_penduduk'
+        'jumlah_pria',
+        'jumlah_perempuan',
+        'jumlah_anak_anak',
+        'jumlah_remaja',
+        'jumlah_lansia',
+        'jumlah_penduduk',
     ];
 }

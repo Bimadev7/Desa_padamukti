@@ -95,6 +95,7 @@
                 <li><a class="dropdown-item {{ request()->is('geografis') ? 'active' : '' }}" href="{{ route('geografis') }}">Geografis</a></li>
                 <li><a class="dropdown-item {{ request()->is('demografi') ? 'active' : '' }}" href="{{ route('demografi') }}">Demografi</a></li>
             </ul>
+
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle {{ request()->is('struktur-desa') || request()->is('perangkat-desa') || request()->is('lembaga-desa') ? 'active' : '' }}" href="#" id="navbarDropdownPemerintahan" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -104,6 +105,7 @@
                 <li><a class="dropdown-item {{ request()->is('struktur-desa') ? 'active' : '' }}" href="{{ route('struktur-desa') }}">Struktur Desa</a></li>
                 <li><a class="dropdown-item {{ request()->is('perangkat-desa') ? 'active' : '' }}" href="{{ route('perangkat-desa') }}">Perangkat Desa</a></li>
                 <li><a class="dropdown-item {{ request()->is('lembaga-desa') ? 'active' : '' }}" href="{{ route('lembaga-desa') }}">Lembaga Desa</a></li>
+
             </ul>
         </li>
         <li class="nav-item dropdown">

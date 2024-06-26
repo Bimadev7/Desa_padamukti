@@ -30,68 +30,58 @@
           </script>
         @endif
 
-        <form class="card" action="{{ route('pengumuman.update', $pengumuman->id) }}" method="POST" enctype="multipart/form-data">
+        <form class="card" action="{{ route('profildesa.update', $profildesa->id) }}" method="POST" enctype="multipart/form-data">
           @csrf
           @method('PUT')
+
+
+
 
           <div class="row">
             <div class="col-md-6">
               <div class="form-group ml-4">
-                <label for="judul">Judul Pengumuman</label>
-                <input type="text" name="judul" class="form-control @error('judul') is-invalid @enderror" id="judul" placeholder="Judul Berita" value="{{ $pengumuman->judul }}" required>
-                @error('judul')
+                <label for="tentang_desa">Tentang Desa</label>
+                <input type="text" name="tentang_desa" class="form-control @error('tentang_desa') is-invalid @enderror" id="tentang_desa" placeholder="tentang_desa Pengumuman" value="{{ $profildesa->tentang_desa }}" required>
+                @error('tentang_desa')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
               </div>
 
               <div class="form-group ml-4">
-                <label for="caption_capture">Caption</label>
-                <input type="text" name="caption_capture" class="form-control @error('caption_capture') is-invalid @enderror" id="caption_capture" placeholder="Deskripsi Singkat" value="{{ $pengumuman->caption_capture }}" required>
-                @error('caption_capture')
+                <label for="visi">visi</label>
+                <input type="text" name="visi" class="form-control @error('visi') is-invalid @enderror" id="visi" placeholder="Caption" value="{{ $profildesa->visi }}" required>
+                @error('visi')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
               </div>
 
               <div class="form-group ml-4">
-                <label for="deskripsi_singkat">Deskripsi Singkat</label>
-                <input type="text" name="deskripsi_singkat" class="form-control @error('deskripsi_singkat') is-invalid @enderror" id="deskripsi_singkat" placeholder="Deskripsi Singkat" value="{{ $pengumuman->deskripsi_singkat }}" required>
-                @error('deskripsi_singkat')
+                <label for="misi">Misi</label>
+                <input type="text" name="misi" class="form-control @error('misi') is-invalid @enderror" id="misi" placeholder="Deskripsi Singkat" value="{{ $profildesa->misi }}" required>
+                @error('misi')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
               </div>
-         
 
-            
               <div class="form-group ml-4">
-                <label for="deskripsi">Deskripsi</label>
-                <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="editor" placeholder="Deskripsi" required>{{ $pengumuman->deskripsi }}</textarea>
-                @error('deskripsi')
+                <label for="geografis">Geografis</label>
+                <input type="text" name="geografis" class="form-control @error('geografis') is-invalid @enderror" id="geografis" placeholder="Geografis" value="{{ $profildesa->geografis }}" required>
+                @error('geografis')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
-              </div>
-                 </div>
-          <div class="col-md-6">
-            {{-- image --}}
-            <div class="row">
-            <div class="col-md-6">
-              <label for="slider1">Gambar Pengumuman</label>
-              <div class="form-group">
-                @error('slider1')
-                  <span class="invalid-feedback">{{ $message }}</span>
-                @enderror
-                @if($pengumuman->image)
-                  <div class="mt-2">
-                    <img src="{{ asset('images/' . $pengumuman->image) }}" alt="Gambar Slider 1" width="300" height="440" id="preview_slider1">
-                  </div>
-                @endif
-                
-                <br>
-                <p>masukan Gambar</p>
-                <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image" onchange="previewImage('image', 'preview_slider1')">
               </div>
             </div>
 
-          {{-- end --}}
+            <div class="col-md-6">
+              <div class="form-group ml-4">
+                <label for="sejarah_desa">Sejarah Desa</label>
+                <textarea name="sejarah_desa" class="form-control @error('sejarah_desa') is-invalid @enderror" id="editor" placeholder="sejarah_desa" required>{{ $profildesa->sejarah_desa }}</textarea>
+                @error('sejarah_desa')
+                  <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+              </div>
+            </div>
+          </div>
 
           <div class="row">
             <div class="col-12 text-right">
@@ -101,25 +91,10 @@
         </form>
       </div>
       <!-- /.card-body -->
-      {{-- <div class="card-footer">
-        Edit Pengumuman
-      </div> --}}
     </div>
     <!-- /.card -->
   </div>
   <!-- /.container-fluid -->
-  <script>
-  function previewImage(inputId, imageId) {
-    const input = document.getElementById(inputId);
-    if (input.files && input.files[0]) {
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        document.getElementById(imageId).src = e.target.result;
-      }
-      reader.readAsDataURL(input.files[0]);
-    }
-  }
-</script>
 </section>
 <!-- /.content -->
 
@@ -139,4 +114,16 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
+<script>
+  function previewImage(inputId, imageId) {
+    const input = document.getElementById(inputId);
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        document.getElementById(imageId).src = e.target.result;
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+</script>
 @endpush

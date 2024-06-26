@@ -1,119 +1,156 @@
 @extends('layouts.main')
 
 @section('content')
-<!-- Main content -->
-<section class="content">
-  <div class="container-fluid">
-    <!-- SELECT2 EXAMPLE -->
-    <div class="card card-default">
-      <div class="card-header">
-        <h3 class="card-title">Edit Pengumuman</h3>
 
-        <div class="card-tools">
-          <button type="button" class="btn btn-tool" data-card-widget="collapse">
-            <i class="fas fa-minus"></i>
-          </button>
-          <button type="button" class="btn btn-tool" data-card-widget="remove">
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-      </div>
-      <!-- /.card-header -->
-      <div class="card-body">
-        @if(session('success'))
-          <script>
-            Swal.fire({
-              icon: 'success',
-              title: 'Success!',
-              text: '{{ session('success') }}',
-            });
-          </script>
-        @endif
+<div class="row">
+    <div class="col-md-8">
+        <div class="card card-default">
+            <div class="card-header">
+                <h3 class="card-title">Details Pengumuman</h3>
 
-        <form class="card" action="{{ route('pengumuman.update', $pengumuman->id) }}" method="POST" enctype="multipart/form-data">
-          @csrf
-          @method('PUT')
-
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group ml-4">
-                <label for="judul">Judul Pengumuman</label>
-                <input type="text" name="judul" class="form-control @error('judul') is-invalid @enderror" id="judul" placeholder="Judul Berita" value="{{ $pengumuman->judul }}" required>
-                @error('judul')
-                  <span class="invalid-feedback">{{ $message }}</span>
-                @enderror
-              </div>
-
-              <div class="form-group ml-4">
-                <label for="deskripsi_singkat">Deskripsi Singkat</label>
-                <input type="text" name="deskripsi_singkat" class="form-control @error('deskripsi_singkat') is-invalid @enderror" id="deskripsi_singkat" placeholder="Deskripsi Singkat" value="{{ $pengumuman->deskripsi_singkat }}" required>
-                @error('deskripsi_singkat')
-                  <span class="invalid-feedback">{{ $message }}</span>
-                @enderror
-              </div>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
             </div>
-
-            <div class="col-md-6">
-              <div class="form-group ml-4">
+            <!-- /.card-header -->
+            <div class="card-body">
+                <form method="POST" action="#">
+                    @csrf
+                    @method('PUT')
+                    <div class="form-group">
+                        <label for="username">Judul</label>
+                        <input type="text" class="form-control" id="username" name="username" value="{{ $pengumuman->judul }}" readonly>
+                    </div>
+                          <div class="form-group">
+                        <label for="email">Penulis</label>
+                        <input type="email" class="form-control" id="email" name="email" value="{{ $pengumuman->penulis }}" readonly>
+                    </div>
+                   <div class="form-group">
                 <label for="deskripsi">Deskripsi</label>
-                <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" placeholder="Deskripsi" required>{{ $pengumuman->deskripsi }}</textarea>
-                @error('deskripsi')
-                  <span class="invalid-feedback">{{ $message }}</span>
-                @enderror
-              </div>
-
-              <div class="form-group ml-4">
-                <label for="image">Gambar Pengumuman</label>
-                <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image">
-                @error('image')
-                  <span class="invalid-feedback">{{ $message }}</span>
-                @enderror
-
-                @if($pengumuman->image)
-                  <div class="mt-2">
-                            <img src="{{ asset('images/' . $pengumuman->image) }}" text="ro" alt="Berita" width="200" height="150">
-
-                    {{-- <img src="/path/to/images/{{ $pengumuman->image }}" alt="Gambar Berita" height="100"> --}}
-                  </div>
-                @endif
-              </div>
+                <div>
+                    {!! (strlen($pengumuman->deskripsi) > 200) ? substr($pengumuman->deskripsi, 0, 300) . '...' : $pengumuman->deskripsi !!}
+                    @if (strlen($pengumuman->deskripsi) > 200)
+                        <a href="#" class="btn btn-link" data-toggle="modal" data-target="#readMoreModal">Baca Selengkapnya</a>
+                    @endif
+                </div>
             </div>
-            <!-- /.col -->
-          </div>
-          <!-- /.row -->
 
-          <div class="row">
-            <div class="col-12 text-right">
-              <button type="submit" class="btn btn-primary mr-5 mb-4">Update</button>
+                   
+
+                    <div class="form-group">
+                        <label for="email">Deskripsi Singkat</label>
+                        <input type="text" class="form-control" id="email" name="email" value="{{ $pengumuman->deskripsi_singkat }}" readonly>
+                    </div>
+                </form>
             </div>
-          </div>
-        </form>
-      </div>
-      <!-- /.card-body -->
-      <div class="card-footer">
-        Edit Pengumuman
-      </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+                Details lembagadesa
+            </div>
+        </div>
+        <!-- /.card -->
     </div>
-    <!-- /.card -->
-  </div>
-  <!-- /.container-fluid -->
-</section>
-<!-- /.content -->
+    <!-- /.col -->
 
-<style>
-  .short-select {
-    width: auto !important;
-    min-width: 150px;
-  }
-</style>
+    <div class="col-md-4">
+        <div class="card card-default">
+            <div class="card-header">
+                <h3 class="card-title">Informasi Tambahan</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="email">Caption</label>
+                    <input type="text" class="form-control" id="email" name="email" value="{{ $pengumuman->caption_capture }}" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="image">Gambar</label><br>
+                    <img src="{{ asset('images/' . $pengumuman->image) }}" alt="Gambar Pengumuman" width="200" height="250">
+                </div>
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+                Informasi tambahan terkait pengumuman
+            </div>
+        </div>
+        <!-- /.card -->
+    </div>
+    <!-- /.col -->
+</div>
+<!-- /.row -->
+
+<div class="modal fade" id="readMoreModal" tabindex="-1" aria-labelledby="readMoreModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="readMoreModalLabel">Deskripsi Pengumuman</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="max-height: 400px; overflow-y: auto; text-align: justify;">
+                {!! $pengumuman->deskripsi !!}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{-- 
+<div class="modal fade" id="readMoreModal" tabindex="-1" aria-labelledby="readMoreModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="readMoreModalLabel">Deskripsi Pengumuman</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="max-height: 400px; overflow-y: auto;">
+                {!! $pengumuman->deskripsi !!}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div> --}}
+
+{{-- 
+<div class="modal fade" id="readMoreModal" tabindex="-1" aria-labelledby="readMoreModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="readMoreModalLabel">Deskripsi Pengumuman</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {!! $pengumuman->deskripsi !!}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div> --}}
+
 @endsection
-
-@push('scripts')
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
-@endpush

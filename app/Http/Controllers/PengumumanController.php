@@ -71,7 +71,10 @@ class PengumumanController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $pengumuman = Pengumuman::findOrFail($id);
+            return view('backoffice.pengumuman.show')->with(compact('pengumuman'));
+        
+        
     }
 
     /**
@@ -81,8 +84,6 @@ class PengumumanController extends Controller
     {
         $pengumuman = Pengumuman::findOrFail($id);
         return view('backoffice.pengumuman.edit')->with(compact('pengumuman'));
-
-        
     }
 
     /**

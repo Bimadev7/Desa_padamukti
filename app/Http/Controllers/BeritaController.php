@@ -106,7 +106,11 @@ class BeritaController extends Controller
      */
     public function show(string $id)
     {
-        return view('backoffice.berita.show');
+        $berita = Berita::find($id);
+        if (!$berita) {
+            return redirect()->route('backoffice.berita.index')->with('error', 'Berita tidak ditemukan.');
+        }
+        return view('backoffice.berita.edit', compact('berita'));
         
     }
 

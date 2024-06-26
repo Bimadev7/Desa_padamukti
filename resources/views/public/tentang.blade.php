@@ -7,11 +7,10 @@
 <!-- Breadcrumbs -->
 <section id="breadcrumbs" class="breadcrumbs">
     <div class="container">
-        <div class="d-flex justify-content-between align-items-center">
-            <h2>Tentang Tata Kelola Desa</h2>
+        <div class="d-flex align-items-center">
             <ol>
-                <li><a href="/">Home</a></li>
-                <li>Tentang Tata Kelola Desa</li>
+                <li><a href="/"><i class="bi bi-house-door-fill"></i></a></li>
+                <li>Tentang Desa</li>
             </ol>
         </div>
     </div>
@@ -19,8 +18,8 @@
 
 <div class="container">
     <article class="blog-post">
-        <h2 class="display-5 link-body-emphasis mb-4 text-center">Tentang Desa Padamukti</h2>
-        <p>{{ $tentang_desa }}</p>
+        <h3 class="link-body-emphasis mb-4">Tentang Desa Padamukti</h3>
+        <p style="max-height: 400px; overflow-y: auto; text-align: justify;">{!! $tentang_desa !!}</p>
         
     </article>
 </div>

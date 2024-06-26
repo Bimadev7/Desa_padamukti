@@ -16,8 +16,28 @@ use App\Http\Controllers\SliderConttrollers;
 use App\Http\Controllers\StrukturorganisasiConttrollers;
 use App\Http\Controllers\DemografidesaController;
 use App\Http\Controllers\ProfilDesaController;
+use App\Http\Controllers\Lembaga_desaController;
+use App\Http\Controllers\ProfilDesaVisiController;
 
 
+Route::get('/backoffice/profildesa_visi/visi/edit', [ProfilDesaVisiController::class, 'edit']);
+Route::get('/backoffice/edit2/edit/{id}', [ProfilDesaVisiController::class, 'edit2']);
+
+
+// Route::get('/profildesa_visi/edit/{id}', 'ProfilDesaVisiController@edit')->name('profildesa_visi.edit');
+
+
+Route::get('/profildesa/pengumuman/{id}', [ProfilDesaController::class, 'show']);
+
+Route::get('/profildesa/{id}', 'ProfilDesaController@show')->name('profildesa.show');
+
+Route::get('/public/pengumuman/{id}', [DasboardPublicController::class, 'detailPengumuman'])->name('pengumuman.detailPengumuman');
+
+Route::get('/profildesa/visi/{id}', 'ProfilDesaVisiController@index')->name('profildesa_visi.index');
+
+Route::get('/profil-desa/{id}/visi', [ProfilDesaVisiController::class, 'index']);
+
+Route::get('/backoffice/profildesa', 'ProfilDesaController@index')->name('profildesa.index');
 
 Route::delete('/backoffice/pengumuman/{id}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
 
@@ -103,7 +123,9 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::resource('/backoffice/strukturorganisasi', StrukturorganisasiConttrollers::class);
     Route::resource('/backoffice/demografidesa', DemografidesaController::class);
     Route::resource('/backoffice/profildesa', ProfilDesaController::class);
-
+    Route::resource('/backoffice/lembagadesa', Lembaga_desaController::class);
+    Route::resource('/backoffice/profildesa_visi', ProfilDesaVisiController::class);
+    
 });
 
     // Login and Registration routes
@@ -126,13 +148,11 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::get('/public/sejarah', [DasboardPublicController::class, 'sejarah'])->name('sejarah');
     Route::get('/public/geografis', [DasboardPublicController::class, 'geografis'])->name('geografis');
     
-    Route::get('/public/demografi', function () {
-        return view('public.demografi');
-    })->name('demografi');
+    Route::get('/public/demografi', [DasboardPublicController::class, 'demografi'])->name('demografi');
 
-    Route::get('/public/struktur-desa', function () {
-        return view('public.struktur');
-    })->name('struktur-desa');
+
+    Route::get('/public/struktur-desa', [DasboardPublicController::class, 'indexStrukturOrganisasi'])->name('struktur-desa');
+
 
     Route::get('/public/perangkat-desa', function () {
         return view('public.perangkat');

@@ -4,12 +4,11 @@
 
 @section('content')
 <!-- Breadcrumbs -->
-<section id="breadcrumbs" class="breadcrumbs">
+<section id="breadcrumbs" class="breadcrumbs mb-4">
     <div class="container">
-        <div class="d-flex justify-content-between align-items-center">
-            <h2>Struktur Desa</h2>
+        <div class="d-flex align-items-center">
             <ol>
-                <li><a href="/">Home</a></li>
+                <li><a href="/"><i class="bi bi-house-door-fill"></i></a></li>
                 <li>Struktur Desa</li>
             </ol>
         </div>
@@ -162,24 +161,24 @@
             </div>
             <div class="row">
                 <div class="col-md-3">
-                    <img src="" class="img-fluid" alt="Kades padamukti">
+                    <img src="{{ asset('images/' . $ketua->foto) }}" class="img-fluid" alt="Kades padamukti">
                 </div>
                 <div class="col-md-9">
                     <table class="table table-borderless">
                         <tr>
                             <th>Jabatan</th>
                             <td>:</td>
-                            <td>Kepala Desa</td>
+                            <td>{{ $ketua->jabatan }}</td>
                         </tr>
                         <tr>
                             <th>Nama Pejabat</th>
                             <td>:</td>
-                            <td></td>
+                            <td>{{ $ketua->nama_pejabat }}</td>
                         </tr>
                         <tr>
                         <th>NIP</th>
                             <td>:</td>
-                            <td></td>
+                            <td>{{ $ketua->nip }}</td>
                         </tr>
                     </table>
                 </div>
@@ -199,20 +198,8 @@
                 <hr>
             </div>
             <p class="lead text-justify">
-                Secara eksplisit Pasal 26 ayat (1) mengatur empat tugas utama Kepala Desa yaitu:
+                {{ $ketua->deskripsi }}
             </p>
-            <ul class="lead text-justify">
-                <li>Menyelenggarakan pemerintahan desa</li>
-                <li>Melaksanakan pembangunan desa</li>
-                <li>Melaksanakan pembinaan masyarakat desa</li>
-                <li>Memberdayakan masyarakat desa</li>
-            </ul>
-            <p class="lead text-justify">
-                Dengan tugas yang diberikan, Kepala Desa diharapkan bisa membawa desa ke arah yang diharapkan oleh UU ini.
-            </p>
-            <div class="divider divider-style-4 divider-primary divider-medium">
-                <hr>
-            </div>
         </div>
     </div>
 </div>`;
@@ -228,24 +215,24 @@
             </div>
             <div class="row">
                 <div class="col-md-3">
-                    <img src="" class="img-fluid" alt="Kades padamukti">
+                    <img src="{{ asset('images/' . $sekretaris->foto) }}" class="img-fluid" alt="Kades padamukti">
                 </div>
                 <div class="col-md-9">
                     <table class="table table-borderless">
                         <tr>
                             <th>Jabatan</th>
                             <td>:</td>
-                            <td>Sekertaris Desa</td>
+                            <td>{{ $sekretaris->jabatan }}</td>
                         </tr>
                         <tr>
                             <th>Nama Pejabat</th>
                             <td>:</td>
-                            <td></td>
+                            <td>{{ $sekretaris->nama_pejabat }}</td>
                         </tr>
                         <tr>
                             <th>NIP</th>
                             <td>:</td>
-                            <td></td>
+                            <td>{{ $sekretaris->nip }}</td>
                         </tr>
                     </table>
                 </div>
@@ -265,32 +252,8 @@
                 <hr>
             </div>
             <p class="lead text-justify">
-                Sekretaris desa mempunyai tugas sebagai berikut:
+                {{ $sekretaris->deskripsi }}
             </p>
-            <ul class="lead text-justify">
-                <li>Sekretaris desa/kelurahan berkedudukan sebagai unsur staff yang membantu kepala desa/lurah dalam melaksanakan tugas dan wewenangnya serta memimpin sekretariat desa/lurah.</li>
-                <li>Sekretaris desa/kelurahan mempunyai tugas menjalankan fungsi administrasi kelurahan, pembangunan dan kemasyarakatan.</li>
-            </ul>
-            <p class="lead text-justify">
-                Selain tugas tersebut di atas, seorang Sekretaris Desa harus mampu menjalankan fungsi administrator dengan penuh tanggung jawab. Berikut ini fungsi dari Sekdes, yaitu:
-            </p>
-            <ul class="lead text-justify">
-                <li>Sebagai pelaksana urusan surat menyurat, kearsipan dan laporan.</li>
-                <li>Sebagai pelaksana urusan keuangan.</li>
-                <li>Sebagai pelaksana urusan administrasi pemerintahan, pembangunan, dan kemasyarakatan.</li>
-            </ul>
-            <p class="lead text-justify">
-                Dalam melaksanakan tugas dan fungsinya sekretaris desa/kelurahan akan dibantu oleh Kepala Urusan. Merekalah yang menangani pelayanan ketatausahaan yang baik guna membantu Sekdes, diantaranya sebagai berikut:
-            </p>
-            <ul class="lead text-justify">
-                <li>Kepala Urusan Pemerintahan</li>
-                <li>Kepala Urusan Pembangunan</li>
-                <li>Kepala Urusan Keuangan</li>
-                <li>Kepala Urusan Umum</li>
-            </ul>
-            <div class="divider divider-style-4 divider-primary divider-medium">
-                <hr>
-            </div>
         </div>
     </div>
 </div>

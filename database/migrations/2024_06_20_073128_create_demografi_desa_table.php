@@ -15,6 +15,11 @@ return new class extends Migration
             $table->id();
             $table->integer('angka_kelahiran');
             $table->integer('angka_kematian');
+            $table->integer('jumlah_pria');
+            $table->integer('jumlah_perempuan');
+            $table->integer('jumlah_anak_anak');
+            $table->integer('jumlah_dewasa');
+            $table->integer('jumlah_lansia');
             $table->integer('jumlah_penduduk');
             $table->timestamps();
         });
