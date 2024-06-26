@@ -33,7 +33,7 @@
                    <div class="form-group">
                 <label for="deskripsi">Deskripsi</label>
                 <div>
-                    {!! (strlen($pengumuman->deskripsi) > 200) ? substr($pengumuman->deskripsi, 0, 200) . '...' : $pengumuman->deskripsi !!}
+                    {!! (strlen($pengumuman->deskripsi) > 200) ? substr($pengumuman->deskripsi, 0, 300) . '...' : $pengumuman->deskripsi !!}
                     @if (strlen($pengumuman->deskripsi) > 200)
                         <a href="#" class="btn btn-link" data-toggle="modal" data-target="#readMoreModal">Baca Selengkapnya</a>
                     @endif
