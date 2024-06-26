@@ -122,7 +122,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
      <span class="brand-text font-weight-light">Desa Padamukti</span>
-     <img src="{{ asset('adminlte/dist/img/logopadamukti.svg')}}" alt="AdminLTE Logo" class="brand-image img-circle " style="opacity: .8">
+     <img src="{{ asset('adminlte/dist/img/logopadamukti.svg')}}" alt="AdminLTE Logo" class="brand-image img-circle " style="max-width: 100px; margin-right: 8px;">
     </a>
 
 
