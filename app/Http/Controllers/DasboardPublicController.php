@@ -35,11 +35,14 @@ class DasboardPublicController extends Controller
         }
 
         $demografi = DemografiDesa::all();
+        //$tentang = DB::table('profil_desa')->value('tentang_desa');
+        $tentang_desa = Str::limit((DB::table('profil_desa')->value('tentang_desa')), 350, '...');
         
         return view('home', [
             'berita' => $berita,
             'pengumuman' => $pengumuman,
             'demografi' => $demografi,
+            'tentang_desa' => $tentang_desa,
             'slider1' => $slider1,
             'slider2' => $slider2,
             'slider3' => $slider3,

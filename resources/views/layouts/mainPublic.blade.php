@@ -28,8 +28,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="/green/assets/img/favicon.png" rel="icon">
-  <link href="image/logopadamukti.svg" rel="apple-touch-icon">
+  <link href="/green/assets/img/logo-padamukti.png" rel="icon">
+  <link href="image/logo-padamukti.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -54,7 +54,7 @@
     <div class="container d-flex justify-content-center justify-content-md-between align-items-center">
       <div class="contact-info d-flex align-items-center">
         <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">Desa_padaMukti@Pemdes.com</a>
-        <i class="bi bi-phone-fill phone-icon"></i><a href="/">082121358207 </a>
+        <i class="bi bi-phone-fill phone-icon"></i><a href="/">082320407767 </a>
       </div>
       <div class="social-links d-none d-md-block">
         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -70,22 +70,17 @@
     <div class="container d-flex align-items-center justify-content-between">
       <div class="d-flex align-items-center">
         <a href="/" class="logo me-auto d-flex align-items-center">
-          <img src="/image/logopadamukti.svg" alt="" style="width: 50px; height: 50px;">
+          <img src="/image/logo-padamukti.png" alt="Logo Padamukti">
           <h6 class="mb-0 ms-2">
             <a href="/" class="text-dark">
               <strong>Desa Padamukti</strong><br/>
-              Kabupaten Bandung
+              Kabupaten Garut
             </a>
           </h6>
         </a>
       </div>
       <nav id="navbar" class="navbar">
         <ul>
-          {{-- <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalLogin">
-            Login
-          </button> --}}
-
-
           <li><a class="nav-link scrollto active" href="/">Home</a></li>
           <li class="dropdown">
             <a href="/"><span>Profil Desa</span> <i class="bi bi-chevron-down"></i></a>
@@ -113,13 +108,17 @@
               <li><a href="{{ route('pengumuman') }}">Pengumuman Desa</a></li> 
              </ul>
           </li>
+          <li>
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalLogin">
+              Login
+            </button>
+          </li>
+          
         </ul>
         
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-       <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalLogin">
-            Login
-          </button>
+       
     </div>
   </header>
   <!-- End Header -->
@@ -134,11 +133,11 @@
         <div class="row">
             <div class="col-md-4 text-center text-md-left">
                 <div class="d-flex align-items-center mb-3">
-                    <img src="image/logopadamukti.svg" alt="Desa Padamukti Logo" class="img-fluid" style="max-width: 100px; margin-right: 10px;">
+                <img src="{{ asset('image/logo-padamukti.png') }}" alt="Desa Padamukti Logo" class="img-fluid" style="max-width: 80px; margin-right: 10px;">
                     <h4>
                         <a href="/" class="text-white">
                             <strong>Desa Padamukti</strong><br>
-                                 Kabupaten Bandung
+                                 Kabupaten Garut
                         </a>
                     </h4>
                 </div>
@@ -146,23 +145,23 @@
             <div class="col-md-4 text-center">
                 <h4>Contact Us</h4>
                 <p>
-                Pancak Suji, Padamukti, Kec. Solokanjeruk, Kabupaten Bandung, Jawa Barat 40376<br><br>
-                    <strong>Phone:</strong> 082121358207<br>
+                Padamukti, Kec. Pasirwangi, Kabupaten Garut, Jawa Barat 44161<br><br>
+                    <strong>Phone:</strong> 082320407767<br>
                     <strong>Email:</strong> info@desapadamukti.id
                 </p>
             </div>
             <div class="col-md-4 text-center text-md-right">
-    <h4>Tautan</h4>
-    <div class="text-white">
-        <ul class="list-unstyled">
-            <li><a href="{{ route('tentang-desa') }}" class="text-white">Tentang Desa</a></li>
-            <li><a href="{{ route('visi-misi') }}" class="text-white">Visi dan Misi</a></li>
-            <li><a href="{{ route('sejarah') }}" class="text-white">Sejarah</a></li>
-            <li><a href="{{ route('geografis') }}" class="text-white">Geografis</a></li>
-            <li><a href="{{ route('demografi') }}" class="text-white">Demografi</a></li>
-        </ul>
-    </div>
-</div>
+              <h4>Tautan</h4>
+              <div class="text-white">
+                  <ul class="list-unstyled">
+                      <li><a href="{{ route('tentang-desa') }}" class="text-white">Tentang Desa</a></li>
+                      <li><a href="{{ route('visi-misi') }}" class="text-white">Visi dan Misi</a></li>
+                      <li><a href="{{ route('sejarah') }}" class="text-white">Sejarah</a></li>
+                      <li><a href="{{ route('geografis') }}" class="text-white">Geografis</a></li>
+                      <li><a href="{{ route('demografi') }}" class="text-white">Demografi</a></li>
+                  </ul>
+              </div>
+            </div>
 
         <div class="row mt-3">
             <div class="col-md-12 text-center">
@@ -176,6 +175,31 @@
         </div>
     </div>
 </footer>
+ <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="modalLoginLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalLoginLabel">Masuk ke Akun Anda</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- Form login bisa Anda tambahkan di sini -->
+              <form method="POST" action="{{ route('login') }}">
+                @csrf
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-success">Masuk</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -185,6 +209,7 @@
   <script src="/green/assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="/green/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="/green/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/green/assets/vendor/php-email-form/validate.js"></script>
   <script src="/green/assets/vendor/php-email-form/validate.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <!-- Template Main JS File -->
