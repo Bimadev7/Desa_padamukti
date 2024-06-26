@@ -58,21 +58,21 @@
           @foreach ($demografi as $item)
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="icon-box text-center">
-                <div class="icon mb-3"><img src="/image/penduduk.png" style="max-width: 65px;" alt="Kelahiran"></div>
+                <div class="icon mb-3"><img src="{{ asset('image/baby.png') }}" style="max-width: 65px;" alt="Kelahiran"></div>
                 <h2 class="title"><a href="">{{ $item->angka_kelahiran }}</a></h2>
                 <p class="description">Kelahiran</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4">
               <div class="icon-box text-center">
-                <div class="icon mb-3"><img src="/image/penduduk.png" style="max-width: 65px;" alt="Kelahiran"></div>
+                <div class="icon mb-3"><img src="{{ asset('/image/kematian.png') }}" style="max-width: 65px;" alt="Kelahiran"></div>
                   <h2 class="title"><a href="">{{$item->angka_kematian}}</a></h2>
                   <p class="description">Kematian</p>
               </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4">
               <div class="icon-box text-center">
-                <div class="icon mb-3"><img src="/image/penduduk.png" style="max-width: 65px;" alt="Kelahiran"></div>
+                <div class="icon mb-3"><img src="{{ asset('/image/penduduk.png') }}" style="max-width: 65px;" alt="Kelahiran"></div>
                   <h2 class="title"><a href="">{{ $item->jumlah_penduduk }}</a></h2>
                   <p class="description">Jumlah Penduduk</p>
               </div>
@@ -84,12 +84,30 @@
     </div>
   </section>
 
-
-
   <!-- ======= About Us Section ======= -->
   <section id="about" class="about">
     <div class="container">
       <div class="section-title">
+        <h2 class="text-dark">Tentang Desa</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="content text-start">
+            <p>
+              {!! $tentang_desa !!}            </p>
+            <a href="{{ route('tentang-desa') }}" class="btn btn-success d-inline-flex align-items-center mt-3">
+              Lanjutkan Membaca <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-6 text-center mb-5">
+          <img src="green/assets/img/slider 3.jpg" alt="Tentang Desa" class="img-fluid w-80" style="margin-top: 20px;">
+        </div>
+      </div>
+      <hr>
+
+      <div class="section-title mt-5">
         <h2 class="text-dark">Berita Desa</h2>
       </div>
 
@@ -115,65 +133,45 @@
         </div>
         @endforeach
 
-        <div class="text-end mb-4">
+        <div class="text-end">
           <a href="{{ route('berita-desa') }}" class="btn btn-success">
             Lihat Semua Berita 
             <i class="bi bi-arrow-right"></i>
           </a>
         </div>
       </div>
+      <hr class="mt-5">
 
       <div class="section-title mt-5">
-        <h2 class="text-dark">Tentang Desa</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="content text-start">
-            <h3>Desa Padamukti, kecamatan Solokanjeruk, Bandung, Jawa Barat.</h3>
-            <p>
-              Desa Padamukti, dengan segala potensi alam dan budayanya, merupakan contoh desa yang berkembang dengan tetap menjaga kearifan lokal dan tradisi. Kehidupan yang harmonis, alam yang indah, serta nilai-nilai kebersamaan menjadikan Desa Padamukti sebagai tempat yang nyaman untuk tinggal dan berkunjung. Potensi besar yang dimiliki desa ini perlu terus dikembangkan dengan dukungan semua pihak, sehingga kesejahteraan masyarakatnya dapat terus meningkat.
-            </p>
-            <a href="{{ route('tentang-desa') }}" class="btn btn-success d-inline-flex align-items-center gap-1 mt-3">
-              Lanjutkan Membaca <i class="bi bi-arrow-right"></i>
-            </a>                      
-          </div>
-        </div>
-        <div class="col-lg-6 text-center">
-          <img src="green/assets/img/slider 3.jpg" alt="Tentang Desa" class="img-fluid w-80" style="margin-top: 20px;">
-        </div>
-      </div>
-
-
-  <!-- ======= Contact Section ======= -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <div class="section-title">
         <h2>Pengumuman Desa</h2>
-        @foreach($pengumuman as $item)
-        <div class="card text-start mb-3">
-          <div class="card-body">
-            <h5 class="card-title" style="font-size: 1.5em; font-weight: bold; color: #000;">
-              <a href="{{ route('pengumuman.detailPengumuman', $item->id) }}" class="mb-0">{{ $item->judul }}</a>
-            </h5>
-            <p class="card-text">{{ $item->deskripsi }}</p>
-          </div>
-        </div>
-        @endforeach
       </div>
-      <section id="contact" class="contact">
-    <div class="container">
-      <div class="section-title">
+
+      @foreach($pengumuman as $item)
+      <div class="card text-start mb-3">
+        <div class="card-body">
+          <h5 class="card-title" style="font-size: 1.5em; font-weight: bold; color: #000;">
+            <a href="{{ route('pengumuman.detailPengumuman', $item->id) }}" class="mb-0">{{ $item->judul }}</a>
+          </h5>
+          <p class="card-text">{!! $item->deskripsi !!}</p>
+        </div>
+      </div>
+      @endforeach
+      <hr class="mt-5">
+
+      <div class="section-title mt-5">
         <h2>Lokasi Desa</h2>
+      </div>
+
       <div class="row justify-content-center">
-        <div class="col-lg-50 d-flex align-items-stretch mt-5">
-          <div class="info w-100">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9599.715435800841!2d107.75721164857325!3d-7.012227205968178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68c6aee51c0af3%3A0xae7bc5e161ed42f9!2sPadamukti%2C%20Solokanjreruk%2C%20Bandung%20Regency%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1718207269561!5m2!1sen!2sid" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+        <div class="col-lg-12 d-flex align-items-stretch">
+          <div class="card w-100">
+            <div class="card-body">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15832.109101662118!2d107.80800175113826!3d-7.237728148650926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68bad158ba1a2d%3A0xe5259a25a206e508!2sPadamukti%2C%20Sukaresmi%2C%20Garut%20Regency%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1719412487022!5m2!1sen!2sid" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>            </div>
           </div>
         </div>
       </div>
     </div>
-  </section><!-- End Contact Section -->
+  </section><!-- End Section -->
 
   <!-- Modal Login -->
   <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="modalLoginLabel" aria-hidden="true">

@@ -40,11 +40,11 @@
         <br>
         <dl>
             <dt>Visi</dt>
-            <dd>{{ $visi }}</dd>
+            <dd>{!! $visi !!}</dd>
             <br>
 
             <dt>Misi</dt>
-            <dd>{{ $misi }}</dd>
+            <dd>{!! $misi !!}</dd>
         </dl>
     </article>
 </div>
