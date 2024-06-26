@@ -7,11 +7,10 @@
 <!-- Breadcrumbs -->
 <section id="breadcrumbs" class="breadcrumbs">
     <div class="container">
-        <div class="d-flex justify-content-between align-items-center">
-            <h2>Tentang Tata Kelola Desa</h2>
+        <div class="d-flex align-items-center">
             <ol>
-                <li><a href="/">Home</a></li>
-                <li>Tentang Tata Kelola Desa</li>
+                <li><a href="/"><i class="bi bi-house-door-fill"></i></a></li>
+                <li>Tentang Desa</li>
             </ol>
         </div>
     </div>
