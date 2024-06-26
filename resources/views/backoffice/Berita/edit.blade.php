@@ -49,8 +49,8 @@
               </div>
 
               <div class="form-group">
-                <label for="deskripsi_profil">Deskripsi Profil</label>
-                <textarea name="deskripsi_profil" class="form-control @error('deskripsi_profil') is-invalid @enderror" id="deskripsi_profil" rows="4" required>{{ $berita->deskripsi_singkat }}</textarea>
+                <label for="deskripsi_singkat">Deskripsi Profil</label>
+                <textarea name="deskripsi_singkat" class="form-control @error('deskripsi_singkat') is-invalid @enderror" id="deskripsi_singkat" rows="4" required>{{ $berita->deskripsi_singkat }}</textarea>
                 @error('deskripsi_profil')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror

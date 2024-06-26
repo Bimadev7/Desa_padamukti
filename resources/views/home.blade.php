@@ -53,12 +53,16 @@
 
   <section id="featured-services" class="featured-services section-bg">
     <div class="container">
-
-        <div class="row no-gutters">
-          @foreach ($demografi as $item)
+      <div class="row no-gutters">
+        @foreach ($demografi as $item)
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="icon-box text-center">
+<<<<<<< HEAD
                 <div class="icon mb-3"><img src="{{ asset('image/baby.png') }}" style="max-width: 65px;" alt="Kelahiran"></div>
+=======
+
+                <div class="icon mb-3"><img src="/image/penduduk.png" style="max-width: 65px;" alt="Kelahiran"></div>
+>>>>>>> 296bf4e55ebde299194f2498d689a0f8c729826f
                 <h2 class="title"><a href="">{{ $item->angka_kelahiran }}</a></h2>
                 <p class="description">Kelahiran</p>
             </div>
@@ -76,16 +80,46 @@
                   <h2 class="title"><a href="">{{ $item->jumlah_penduduk }}</a></h2>
                   <p class="description">Jumlah Penduduk</p>
               </div>
+
           </div>
-          @endforeach
-            
-        </div>
-
+        @endforeach
+      </div>
     </div>
-  </section>
+  </section><!-- End Featured Services Section -->
 
+<<<<<<< HEAD
   <!-- ======= About Us Section ======= -->
+=======
+  <!-- ======= About Section ======= -->
+  <section id="news" class="news">
+    <div class="container">
+      <div class="section-title">
+        <h2 class="text-dark">Tentang Desa</h2>
+      </div>
+>>>>>>> 296bf4e55ebde299194f2498d689a0f8c729826f
   <section id="about" class="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 d-flex justify-content-center align-items-center">
+        <img src="green/assets/img/slider 3.jpg" alt="Tentang Desa" class="img-fluid w-80" style="margin-top: 20px;">
+      </div>
+      <div class="col-lg-6 d-flex justify-content-center align-items-center">
+        <div class="content text-start">
+          <h3>Desa Padamukti, Kecamatan Solokanjeruk, Bandung, Jawa Barat.</h3>
+          <p>
+            Desa Padamukti, dengan segala potensi alam dan budayanya, merupakan contoh desa yang berkembang dengan tetap menjaga kearifan lokal dan tradisi. Kehidupan yang harmonis, alam yang indah, serta nilai-nilai kebersamaan menjadikan Desa Padamukti sebagai tempat yang nyaman untuk tinggal dan berkunjung. Potensi besar yang dimiliki desa ini perlu terus dikembangkan dengan dukungan semua pihak, sehingga kesejahteraan masyarakatnya dapat terus meningkat.
+          </p>
+          <a href="{{ route('tentang-desa') }}" class="btn btn-success d-inline-flex align-items-center gap-1 mt-3">
+            Lanjutkan Membaca <i class="bi bi-arrow-right"></i>
+          </a>                      
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- End About Section -->
+
+  <!-- ======= News Section ======= -->
+  <section id="news" class="news">
     <div class="container">
       <div class="section-title">
         <h2 class="text-dark">Tentang Desa</h2>
@@ -110,16 +144,23 @@
       <div class="section-title mt-5">
         <h2 class="text-dark">Berita Desa</h2>
       </div>
-
       <div class="row">
         @foreach($berita as $item)
-        <div class="col-md-6 mb-4">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-            <div class="col p-4 d-flex flex-column position-static text-start">
-              <h3 class="mb-0" style="font-size: 1.5em; font-weight: bold; color: #000;">{{ $item->judul }}</h3>
-              <div class="mb-1 text-body-secondary">
-                {{ optional($item->created_at)->format('M Y') }}
+          <div class="col-md-6 mb-4">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+              <div class="col p-4 d-flex flex-column position-static text-start">
+                <h3 class="mb-0" style="font-size: 1.5em; font-weight: bold; color: #000;">{{ $item->judul }}</h3>
+                <div class="mb-1 text-body-secondary">{{ optional($item->created_at)->format('M Y') }}</div>
+                <p class="card-text mb-auto">{{ $item->deskripsi }}</p>
+                <a href="{{ route('berita.detailBerita', $item->id) }}" class="icon-link gap-1 icon-link-hover stretched-link">
+                  Lanjutkan Membaca
+                  <svg class="bi"><use xlink:href="#chevron-right" /></svg>
+                </a>
               </div>
+              <div class="col-auto d-none d-lg-block">
+                <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="200" height="250">
+              </div>
+
               <p class="card-text mb-auto">{{ $item->deskripsi }}</p>
               <a href="{{ route('berita.detailBerita', $item->id) }}" class="icon-link gap-1 icon-link-hover stretched-link">
                 Lanjutkan Membaca
@@ -128,9 +169,9 @@
             </div>
             <div class="col-auto d-none d-lg-block">
               <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="250" height="250">
+
             </div>
           </div>
-        </div>
         @endforeach
 
         <div class="text-end">
@@ -141,6 +182,7 @@
         </div>
       </div>
       <hr class="mt-5">
+
 
       <div class="section-title mt-5">
         <h2>Pengumuman Desa</h2>
@@ -182,7 +224,6 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <!-- Form login bisa Anda tambahkan di sini -->
           <form method="POST" action="{{ route('login') }}">
             @csrf
             <div class="mb-3">
@@ -193,15 +234,11 @@
               <label for="password" class="form-label">Password</label>
               <input type="password" class="form-control" id="password" name="password" required>
             </div>
-            <button type="submit" class="btn btn-primary">Masuk</button>
+            <button type="submit" class="btn btn-success">Masuk</button>
           </form>
         </div>
       </div>
     </div>
-  </div>
-  <!-- End Modal Login -->
-
-  <!-- Tombol Login -->
-  <!-- End Tombol Login -->
+  </div><!-- End Modal Login -->
 
 @endsection

@@ -7,8 +7,7 @@
     <!-- SELECT2 EXAMPLE -->
     <div class="card card-default">
       <div class="card-header">
-        <h3 class="card-title">Dashboard User</h3>
-
+        <h3 class="card-title">Edit visi</h3>
         <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse">
             <i class="fas fa-minus"></i>
@@ -30,44 +29,25 @@
           </script>
         @endif
 
-        <form class="card" action="{{ route('berita.update', $berita->id) }}" method="POST" enctype="multipart/form-data">
+        <form class="card" action="{{ route('profildesa_visi.update', $profildesa_visi->id) }}" method="POST" enctype="multipart/form-data">
           @csrf
           @method('PUT')
-
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group ml-4">
-                <label for="username">Username</label>
-                <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="Username" value="{{ $berita->judul }}" required>
-                @error('username')
-                  <span class="invalid-feedback">{{ $message }}</span>
-                @enderror
-              </div>
-
-              <div class="form-group ml-4">
-                <label for="email">Email address</label>
-                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Email address" value="{{ $berita->penulis }}" required>
-                @error('email')
-                  <span class="invalid-feedback">{{ $message }}</span>
-                @enderror
-              </div>
-            </div>
-
-            <div class="form-group ml-4">
-                <label for="email">Email address</label>
-                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Email address" value="{{ $berita->deskripsi_singkat }}" required>
-                @error('email')
-                  <span class="invalid-feedback">{{ $message }}</span>
-                @enderror
-              </div>
-            </div>
-
-          
-
-              
-            <!-- /.col -->
+          <div class="form-group ml-4">
+            <label for="visi">Deskripsi</label>
+            <textarea name="visi" class="form-control @error('visi') is-invalid @enderror" id="editor" placeholder="Deskripsi" required>{{ $profildesa_visi->visi }}</textarea>
+            @error('visi')
+              <span class="invalid-feedback">{{ $message }}</span>
+            @enderror
           </div>
-          <!-- /.row -->
+
+          {{-- Contoh input type text jika diperlukan --}}
+          {{-- <div class="form-group ml-4">
+            <label for="visi">visi</label>
+            <input type="text" name="visi" class="form-control @error('visi') is-invalid @enderror" id="visi" placeholder="Caption" value="{{ $profildesa_visi->visi }}" required>
+            @error('visi')
+              <span class="invalid-feedback">{{ $message }}</span>
+            @enderror
+          </div> --}}
 
           <div class="row">
             <div class="col-12 text-right">
@@ -77,9 +57,6 @@
         </form>
       </div>
       <!-- /.card-body -->
-      <div class="card-footer">
-        Dashboard
-      </div>
     </div>
     <!-- /.card -->
   </div>
@@ -103,4 +80,16 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
+<script>
+  function previewImage(inputId, imageId) {
+    const input = document.getElementById(inputId);
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        document.getElementById(imageId).src = e.target.result;
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+</script>
 @endpush

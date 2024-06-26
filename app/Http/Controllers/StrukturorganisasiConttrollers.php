@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Struktur_organisasi;
+use App\Models\StrukturOrganisasi;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -14,7 +14,7 @@ class StrukturorganisasiConttrollers extends Controller
     {
         if ($request->ajax()) {
 
-            $strukturorganisasi = Strukturorganisasi::query();
+            $data = StrukturOrganisasi::query();
 
             return Datatables::of($data)
                     ->addIndexColumn()

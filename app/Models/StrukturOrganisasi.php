@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class StrukturOrganisasi extends Model
 {
     use HasFactory;
-    protected $table = 'struktur_organisasi';
+    protected $table = 'strukturorganisasi';
 
     protected $fillable = [
         'id',
-        'nama_pejabat',
+        'nama',
         'jabatan',
         'foto',
         'nip',

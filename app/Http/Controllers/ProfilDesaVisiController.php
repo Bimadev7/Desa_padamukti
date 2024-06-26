@@ -12,6 +12,7 @@ class ProfilDesaVisiController extends Controller
         // $data = DataModel::findOrFail($id);
         $profildesa_visi = ProfilDesa::findOrFail($id);
 
+        
         // Update data
         $profildesa_visi->visi = $request->visi;
 
@@ -56,6 +57,8 @@ class ProfilDesaVisiController extends Controller
         $profildesa_visi = ProfilDesa::findOrFail($id);
         return view('backoffice.profildesa_visi.edit')->with(compact('profildesa_visi'));
     }
+
+  
 
     // public function index($id)
     // {

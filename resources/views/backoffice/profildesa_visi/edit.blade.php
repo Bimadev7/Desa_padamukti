@@ -8,7 +8,6 @@
     <div class="card card-default">
       <div class="card-header">
         <h3 class="card-title">Edit visi</h3>
-
         <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse">
             <i class="fas fa-minus"></i>
@@ -30,25 +29,94 @@
           </script>
         @endif
 
+        
+
         <form class="card" action="{{ route('profildesa_visi.update', $profildesa_visi->id) }}" method="POST" enctype="multipart/form-data">
           @csrf
           @method('PUT')
-
-
-              <div class="form-group ml-4">
-                <label for="visi">visi</label>
-                <input type="text" name="visi" class="form-control @error('visi') is-invalid @enderror" id="visi" placeholder="Caption" value="{{ $profildesa_visi->visi }}" required>
-                @error('visi')
-                  <span class="invalid-feedback">{{ $message }}</span>
-                @enderror
-              </div>
-
+          <div class="form-group ml-4">
+            <label for="visi">visi</label>
+            <textarea name="visi" class="form-control @error('visi') is-invalid @enderror" id="editor" placeholder="Deskripsi" required>{{ $profildesa_visi->visi }}</textarea>
+            @error('visi')
+              <span class="invalid-feedback">{{ $message }}</span>
+            @enderror
+          </div>
           <div class="row">
             <div class="col-12 text-right">
               <button type="submit" class="btn btn-primary mr-5 mb-4">Update</button>
             </div>
           </div>
         </form>
+
+      <form class="card" action="{{ route('profildesa_visi.update', $profildesa_visi->id) }}" method="POST" enctype="multipart/form-data">
+          @csrf
+          @method('PUT')
+          <div class="form-group ml-4">
+            <label for="visi">Misi</label>
+            <textarea name="visi" class="form-control @error('visi') is-invalid @enderror" id="editor2" placeholder="Deskripsi" required>{{ $profildesa_visi->misi }}</textarea>
+            @error('visi')
+              <span class="invalid-feedback">{{ $message }}</span>
+            @enderror
+          </div>
+          <div class="row">
+            <div class="col-12 text-right">
+              <button type="submit" class="btn btn-primary mr-5 mb-4">Update</button>
+            </div>
+          </div>
+        </form>
+
+          <form class="card" action="{{ route('profildesa_visi.update', $profildesa_visi->id) }}" method="POST" enctype="multipart/form-data">
+          @csrf
+          @method('PUT')
+          <div class="form-group ml-4">
+            <label for="visi">Tentang Desa</label>
+            <textarea name="visi" class="form-control @error('visi') is-invalid @enderror" id="editor3" placeholder="Deskripsi" required>{{ $profildesa_visi->tentang_desa }}</textarea>
+            @error('visi')
+              <span class="invalid-feedback">{{ $message }}</span>
+            @enderror
+          </div>
+          <div class="row">
+            <div class="col-12 text-right">
+              <button type="submit" class="btn btn-primary mr-5 mb-4">Update</button>
+            </div>
+          </div>
+        </form>
+
+          <form class="card" action="{{ route('profildesa_visi.update', $profildesa_visi->id) }}" method="POST" enctype="multipart/form-data">
+          @csrf
+          @method('PUT')
+          <div class="form-group ml-4">
+            <label for="visi">Geografis</label>
+            <textarea name="visi" class="form-control @error('visi') is-invalid @enderror" id="editor4" placeholder="Deskripsi" required>{{ $profildesa_visi->geografis }}</textarea>
+            @error('visi')
+              <span class="invalid-feedback">{{ $message }}</span>
+            @enderror
+          </div>
+          <div class="row">
+            <div class="col-12 text-right">
+              <button type="submit" class="btn btn-primary mr-5 mb-4">Update</button>
+            </div>
+          </div>
+        </form>
+
+          <form class="card" action="{{ route('profildesa_visi.update', $profildesa_visi->id) }}" method="POST" enctype="multipart/form-data">
+          @csrf
+          @method('PUT')
+          <div class="form-group ml-4">
+            <label for="visi">Sejarah Desa</label>
+            <textarea name="visi" class="form-control @error('visi') is-invalid @enderror" id="editor5" placeholder="Deskripsi" required>{{ $profildesa_visi->sejarah_desa }}</textarea>
+            @error('visi')
+              <span class="invalid-feedback">{{ $message }}</span>
+            @enderror
+          </div>
+          <div class="row">
+            <div class="col-12 text-right">
+              <button type="submit" class="btn btn-primary mr-5 mb-4">Update</button>
+            </div>
+          </div>
+        </form>
+
+
       </div>
       <!-- /.card-body -->
     </div>
