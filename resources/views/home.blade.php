@@ -6,42 +6,51 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
-      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
-      <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active" style="background-image: url({{ asset('images/' . $slider1) }})">
-          <div class="carousel-container">
-            <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">Selamat Datang<span> di Website Desa Padamukti</span></h2>
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active" style="background-image: url({{ asset('images/' . $slider1) }})">
+                <div class="carousel-container">
+                    <div class="container">
+                        <div class="carousel-content">
+                            <h2 class="animate__animated animate__zoomIn">Selamat Datang<span> di Website Desa Padamukti</span></h2>
+                            <p class="animate__animated animate__fadeInUp">Selamat datang di portal informasi dan layanan Desa Padamukti.</p>
+                            <a href="#about" class="btn-get-started animate__animated animate__jackInTheBox scrollto">Lihat</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="carousel-item" style="background-image: url({{ asset('images/' . $slider2) }})">
-          <div class="carousel-container">
-            <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">Tentang Desa</h2>
-              <p class="animate__animated animate__fadeInUp">Beberapa informasi tentang Desa Padamukti</p>
-              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Lihat</a>
+            <div class="carousel-item" style="background-image: url({{ asset('images/' . $slider2) }})">
+                <div class="carousel-container">
+                    <div class="container">
+                        <div class="carousel-content">
+                            <h2 class="animate__animated animate__zoomIn">Tentang Desa</h2>
+                            <p class="animate__animated animate__fadeInUp">Beberapa informasi tentang Desa Padamukti.</p>
+                            <a href="#about" class="btn-get-started animate__animated animate__jackInTheBox scrollto">Lihat</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="carousel-item" style="background-image: url({{ asset('images/' . $slider3) }})">
-          <div class="carousel-container">
-            <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">Berita Desa</h2>
-              <p class="animate__animated animate__fadeInUp">Tinjau berita terbaru dari Desa Padamukti</p>
-              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Lihat Berita</a>
+            <div class="carousel-item" style="background-image: url({{ asset('images/' . $slider3) }})">
+                <div class="carousel-container">
+                    <div class="container">
+                        <div class="carousel-content">
+                            <h2 class="animate__animated animate__zoomIn">Berita Desa</h2>
+                            <p class="animate__animated animate__fadeInUp">Tinjau berita terbaru dari Desa Padamukti.</p>
+                            <a href="#about" class="btn-get-started animate__animated animate__jackInTheBox scrollto">Lihat Berita</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
-      </a>
-      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
-        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
-      </a>
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
     </div>
   </section><!-- End Hero -->
+
 
   <section id="featured-services" class="featured-services section-bg">
     <div class="container">
@@ -50,21 +59,21 @@
           @foreach ($demografi as $item)
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="icon-box text-center">
-                <div class="icon mb-3"><i class="bi bi-person-plus"></i></div>
+                <div class="icon mb-3"><img src="/image/baby.png" style="max-width: 65px;" alt="Kelahiran"></div>
                 <h2 class="title"><a href="">{{ $item->angka_kelahiran }}</a></h2>
                 <p class="description">Kelahiran</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4">
               <div class="icon-box text-center">
-                  <div class="icon mb-3"><i class="bi bi-person-dash"></i></div>
+                <div class="icon mb-3"><img src="/image/kematian.png" style="max-width: 65px;" alt="Kelahiran"></div>
                   <h2 class="title"><a href="">{{$item->angka_kematian}}</a></h2>
                   <p class="description">Kematian</p>
               </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4">
               <div class="icon-box text-center">
-                  <div class="icon mb-3"><i class="bi bi-people"></i></div>
+                <div class="icon mb-3"><img src="/image/penduduk.png" style="max-width: 65px;" alt="Kelahiran"></div>
                   <h2 class="title"><a href="">{{ $item->jumlah_penduduk }}</a></h2>
                   <p class="description">Jumlah Penduduk</p>
               </div>
@@ -101,7 +110,7 @@
               </a>
             </div>
             <div class="col-auto d-none d-lg-block">
-              <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="200" height="250">
+              <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="250" height="250">
             </div>
           </div>
         </div>
