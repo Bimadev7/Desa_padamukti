@@ -18,6 +18,7 @@ use App\Http\Controllers\DemografidesaController;
 use App\Http\Controllers\ProfilDesaController;
 use App\Http\Controllers\Lembaga_desaController;
 use App\Http\Controllers\ProfilDesaVisiController;
+use App\Http\Controllers\ProfilDesaMisiController;
 
 
 Route::get('/backoffice/profildesa_visi/visi/edit', [ProfilDesaVisiController::class, 'edit']);
@@ -125,6 +126,7 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::resource('/backoffice/profildesa', ProfilDesaController::class);
     Route::resource('/backoffice/lembagadesa', Lembaga_desaController::class);
     Route::resource('/backoffice/profildesa_visi', ProfilDesaVisiController::class);
+    Route::resource('/backoffice/profildesa_misi', ProfilDesaMisiController::class);
     
 });
 

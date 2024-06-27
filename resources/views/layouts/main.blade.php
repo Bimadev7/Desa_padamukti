@@ -154,13 +154,13 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         
         <li class="nav-item dropdown">
-  {{-- <a href="#" class="nav-link active">
+  <a href="#" class="nav-link active">
     <i class="nav-icon fas fa-tachometer-alt"></i>
     <p>
       Profil Desa
       <i class="right fas fa-angle-left"></i>
     </p>
-  </a> --}}
+  </a>
   <ul class="nav nav-treeview">
     <li class="nav-item">
       {{-- <a href="./index.html" class="nav-link active"> --}}
@@ -170,7 +170,7 @@
         <p>Visi</p>
       </a>
     </li>
-    {{-- <li class="nav-item">
+    <li class="nav-item">
       <a href="./index2.html" class="nav-link">
         <i class="far fa-circle nav-icon"></i>
         <p>Misi</p>
@@ -180,7 +180,7 @@
       <a href="./index3.html" class="nav-link">
         <i class="far fa-circle nav-icon"></i>
         <p>Sejarah </p>
-      </a> --}}
+      </a>
     </li>
   </ul>
 </li>

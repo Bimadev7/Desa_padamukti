@@ -56,12 +56,13 @@ class ProfilDesaVisiController extends Controller
         
     }
 
-    public function index()
-    {
+    public function index(){
         $profildesa_visi = ProfilDesa::all(); // Ambil semua data dari model
 
         return view('backoffice.profildesa_visi.index', compact('profildesa_visi'));
     }
+
+    
     // public function index()
     // {
     //     // Ambil semua data profil desa dari model
