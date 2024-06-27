@@ -21,7 +21,7 @@
             });
         </script>
         @endif
-        <h3 class="card-header p-3">Data User</h3>
+        <h3 class="card-header p-3">Data Struktur Organisasi</h3>
         <div class="card-body">
             <div class="d-flex align-items-center mb-3">
                 <h3 class="card-title"></h3>
@@ -73,6 +73,10 @@
                         <input type="text" name="deskripsi" class="form-control" id="deskripsi" required>
                     </div>
                     <div class="form-group">
+                        <label for="nip">NIP</label>
+                        <input type="text" name="nip" class="form-control" id="nip" required>
+                    </div>
+                    <div class="form-group">
                         <label for="image">Gambar</label>
                         <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image" required onchange="previewImage('image', 'preview_image')">
                         @error('image')
@@ -91,6 +95,9 @@
     </div>
 </div>
 @endsection
+
+
+ 
 
 @push('script')
 <script type="text/javascript">
@@ -124,6 +131,21 @@
                 },
             ]
         });
+function previewImage(inputId, imageId) {
+            const input = document.getElementById(inputId);
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById(imageId).src = e.target.result;
+                    document.getElementById(imageId).style.display = 'block';
+                }
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                document.getElementById(imageId).src = '';
+                document.getElementById(imageId).style.display = 'none';
+            }
+        }
+   
 
         window.confirmDelete = function(id) {
             Swal.fire({
@@ -137,7 +159,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                        url: '/backoffice/user/' + id,
+                        url: '/backoffice/strukturorganisasi/' + id,
                         type: 'DELETE',
                         data: {
                             '_token': '{{ csrf_token() }}'
@@ -169,20 +191,7 @@
             });
         };
 
-        function previewImage(inputId, imageId) {
-            const input = document.getElementById(inputId);
-            if (input.files && input.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById(imageId).src = e.target.result;
-                    document.getElementById(imageId).style.display = 'block';
-                }
-                reader.readAsDataURL(input.files[0]);
-            } else {
-                document.getElementById(imageId).src = '';
-                document.getElementById(imageId).style.display = 'none';
-            }
-        }
-    });
+});
+       
 </script>
 @endpush

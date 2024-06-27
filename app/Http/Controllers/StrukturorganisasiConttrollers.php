@@ -60,7 +60,7 @@ class StrukturorganisasiConttrollers extends Controller
     $data->save();
 
  
-                     return redirect()->route('backoffice.strukturorganisasi.index')->with([
+                     return redirect()->route('strukturorganisasi.index')->with([
                         'alert-type' => 'success',
                         'message' => 'Data Order Berhasil Ditambahkan!'
                     ]); 
@@ -102,14 +102,14 @@ class StrukturorganisasiConttrollers extends Controller
             $filename = time() . '_' . $images->getClientOriginalName();
             // $foto->storeAs('public/fotos', $filename); // Simpan gambar ke storage
             $foto->move('fotos/', $filename); // Simpan gambar ke storage
-            $pengumuman->foto = $filename; // Simpan nama file gambar ke kolom 'foto' dalam database
+            $strukturorganisasi->foto = $filename; // Simpan nama file gambar ke kolom 'foto' dalam database
         }
 
         // Simpan perubahan data
-        $pengumuman->save();
+        $strukturorganisasi->save();
 
         // Redirect dengan pesan sukses
-        return redirect()->route('backoffice.pengumuman.index')->with([
+        return redirect()->route('strukturorganisasi.index')->with([
             'alert-type' => 'success',
             'message' => 'Data berhasil diperbarui.'
         ]);
@@ -120,6 +120,13 @@ class StrukturorganisasiConttrollers extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $strukturorganisasi = StrukturOrganisasi::findOrFail($id);
+            $strukturorganisasi->delete();
+
+            return response()->json(['message' => 'User berhasil dihapus.'], 200);
+             } catch (\Exception $e) {
+            return response()->json(['message' => 'Gagal menghapus user. ' . $e->getMessage()], 500);
+        }
     }
 }

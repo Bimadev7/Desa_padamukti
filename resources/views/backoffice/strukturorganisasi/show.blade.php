@@ -69,13 +69,7 @@
                 @enderror
               </div>
 
-              <div class="form-group ml-4">
-                <label for="deskripsi_singkat">Deskripsi Singkat</label>
-                <textarea name="deskripsi_singkat" class="form-control @error('deskripsi_singkat') is-invalid @enderror" id="deskripsi_singkat" rows="3" placeholder="Deskripsi Singkat" readonly>{{ $strukturorganisasi->deskripsi_singkat }}</textarea>
-                @error('deskripsi_singkat')
-                  <span class="invalid-feedback">{{ $message }}</span>
-                @enderror
-              </div>
+              
             </div>
           </div>
           <!-- /.row -->
