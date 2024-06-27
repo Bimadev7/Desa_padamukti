@@ -16,7 +16,8 @@ class StrukturOrganisasi extends Model
         'jabatan',
         'foto',
         'nip',
-        'deskripsi'
+        'deskripsi',
+        'image'
         
     ];
 }
