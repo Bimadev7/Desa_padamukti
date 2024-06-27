@@ -29,11 +29,32 @@
           </script>
         @endif
 
+        <!-- Navigation Buttons -->
+        <div class="row mb-4 justify-content-end">
+          <div class="col-auto">
+            <a href="#tentang_desa" class="btn btn-primary">Tentang Desa</a>
+          </div>
+          <div class="col-auto">
+            <a href="#visi" class="btn btn-primary">Visi</a>
+          </div>
+          <div class="col-auto">
+            <a href="#misi" class="btn btn-primary">Misi</a>
+          </div>
+          <div class="col-auto">
+            <a href="#sejarah_desa" class="btn btn-primary">Sejarah Desa</a>
+          </div>
+          <div class="col-auto">
+            <a href="#geografis" class="btn btn-primary">Geografis</a>
+          </div>
+        </div>
+
+        <!-- Form for editing -->
         <form class="card" action="{{ route('profildesa_visi.update', $profildesa_visi->id) }}" method="POST" enctype="multipart/form-data">
           @csrf
           @method('PUT')
 
-          <div class="form-group ml-4">
+          <!-- Tentang Desa Section -->
+          <div id="tentang_desa" class="form-group ml-4">
             <label for="tentang_desa">Tentang Desa</label>
             <textarea name="tentang_desa" class="form-control @error('tentang_desa') is-invalid @enderror" id="editor1" placeholder="Deskripsi" required>{{ $profildesa_visi->tentang_desa }}</textarea>
             @error('tentang_desa')
@@ -41,7 +62,8 @@
             @enderror
           </div>
 
-          <div class="form-group ml-4">
+          <!-- Visi Section -->
+          <div id="visi" class="form-group ml-4">
             <label for="visi">Visi</label>
             <textarea name="visi" class="form-control @error('visi') is-invalid @enderror" id="editor2" placeholder="Deskripsi" required>{{ $profildesa_visi->visi }}</textarea>
             @error('visi')
@@ -49,7 +71,8 @@
             @enderror
           </div>
 
-          <div class="form-group ml-4">
+          <!-- Misi Section -->
+          <div id="misi" class="form-group ml-4">
             <label for="misi">Misi</label>
             <textarea name="misi" class="form-control @error('misi') is-invalid @enderror" id="editor3" placeholder="Deskripsi" required>{{ $profildesa_visi->misi }}</textarea>
             @error('misi')
@@ -57,7 +80,8 @@
             @enderror
           </div>
 
-          <div class="form-group ml-4">
+          <!-- Sejarah Desa Section -->
+          <div id="sejarah_desa" class="form-group ml-4">
             <label for="sejarah_desa">Sejarah Desa</label>
             <textarea name="sejarah_desa" class="form-control @error('sejarah_desa') is-invalid @enderror" id="editor4" placeholder="Deskripsi" required>{{ $profildesa_visi->sejarah_desa }}</textarea>
             @error('sejarah_desa')
@@ -65,7 +89,8 @@
             @enderror
           </div>
 
-          <div class="form-group ml-4">
+          <!-- Geografis Section -->
+          <div id="geografis" class="form-group ml-4">
             <label for="geografis">Geografis</label>
             <textarea name="geografis" class="form-control @error('geografis') is-invalid @enderror" id="editor5" placeholder="Deskripsi" required>{{ $profildesa_visi->geografis }}</textarea>
             @error('geografis')
