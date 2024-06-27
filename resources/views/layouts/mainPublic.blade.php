@@ -68,59 +68,56 @@
   <!-- ======= Header ======= -->
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
-      <div class="d-flex align-items-center">
-        <a href="/" class="logo me-auto d-flex align-items-center">
-          <img src="/image/logo-padamukti.png" alt="Logo Padamukti">
-          <h6 class="mb-0 ms-2">
-            <a href="/" class="text-dark">
-              <strong>Desa Padamukti</strong><br/>
-              Kabupaten Garut
+        <div class="d-flex align-items-center">
+            <a href="/" class="logo me-auto d-flex align-items-center">
+                <img src="/image/logo-padamukti.png" alt="Logo Padamukti">
+                <h6 class="mb-0 ms-2">
+                    <a href="/" class="text-dark">
+                        <strong>Desa Padamukti</strong><br />
+                        Kabupaten Garut
+                    </a>
+                </h6>
             </a>
-          </h6>
-        </a>
-      </div>
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="/">Home</a></li>
-          <li class="dropdown">
-            <a href="/"><span>Profil Desa</span> <i class="bi bi-chevron-down"></i></a>
+        </div>
+        <nav id="navbar" class="navbar">
             <ul>
-              <li><a href="{{ route('tentang-desa') }}">Tentang Desa</a></li>
-              <li><a href="{{ route('visi-misi') }}">Visi dan Misi</a></li>
-              <li><a href="{{ route('sejarah') }}">Sejarah</a></li>
-              <li><a href="{{ route('geografis') }}">Geografis</a></li>
-              <li><a href="{{ route('demografi') }}">Demografi </a></li>
-              
+                <li><a class="nav-link scrollto" href="/">Home</a></li>
+                <li class="dropdown">
+                    <a href="/"><span>Profil Desa</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="{{ route('tentang-desa') }}">Tentang Desa</a></li>
+                        <li><a href="{{ route('visi-misi') }}">Visi dan Misi</a></li>
+                        <li><a href="{{ route('sejarah') }}">Sejarah</a></li>
+                        <li><a href="{{ route('geografis') }}">Geografis</a></li>
+                        <li><a href="{{ route('demografi') }}">Demografi </a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="/"><span>Pemerintahan</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a class="nav-link scrollto active" href="{{ route('struktur-desa') }}">Struktur Desa</a></li>
+                        {{-- <li><a href="{{ route('perangkat-desa') }}">Perangkat Desa</a></li> --}}
+                        <li><a href="{{ route('lembaga-desa') }}">Lembaga Desa</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="/"><span>Informasi Publik</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="{{ route('berita-desa') }}">Berita Desa</a></li>
+                        <li><a href="{{ route('pengumuman') }}">Pengumuman Desa</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalLogin">
+                        Login
+                    </button>
+                </li>
             </ul>
-          </li>
-          <li class="dropdown">
-            <a href="/"><span>Pemerintahan</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="{{ route('struktur-desa') }}">Struktur Desa</a></li>
-              {{-- <li><a href="{{ route('perangkat-desa') }}">Perangkat Desa</a></li> --}}
-              <li><a href="{{ route('lembaga-desa') }}">Lembaga Desa</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="/"><span>Informasi Publik</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="{{ route('berita-desa') }}">Berita Desa</a></li>
-              <li><a href="{{ route('pengumuman') }}">Pengumuman Desa</a></li> 
-             </ul>
-          </li>
-          <li>
-            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalLogin">
-              Login
-            </button>
-          </li>
-          
-        </ul>
-        
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-       
+
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
     </div>
-  </header>
+</header>
   <!-- End Header -->
 
   <main>

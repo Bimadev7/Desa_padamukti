@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class StrukturOrganisasi extends Model
 {
     use HasFactory;
-    protected $table = 'strukturorganisasi';
+    protected $table = 'struktur_organisasi';
 
     protected $fillable = [
         'id',
@@ -16,7 +16,8 @@ class StrukturOrganisasi extends Model
         'jabatan',
         'foto',
         'nip',
-        'deskripsi'
+        'deskripsi',
+        'image'
         
     ];
 }

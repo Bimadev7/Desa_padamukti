@@ -152,6 +152,7 @@ Route::middleware(['isAdmin'])->group(function () {
 
 
     Route::get('/public/struktur-desa', [DasboardPublicController::class, 'indexStrukturOrganisasi'])->name('struktur-desa');
+    Route::get('/public/struktur-desa/{id}', [DasboardPublicController::class, 'getJabatan'])->name('struktur-desa.jabatan');
 
 
     Route::get('/public/perangkat-desa', function () {

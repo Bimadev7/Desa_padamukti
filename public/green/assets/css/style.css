@@ -271,6 +271,26 @@ h6 {
   color: #5cb874;
 }
 
+.navbar .nav-link.active,
+    .navbar .dropdown > a.active {
+        background-color: #28a745; /* Warna latar belakang untuk link aktif */
+        color: #fff; /* Warna teks untuk link aktif */
+        border-radius: 5px; /* Menambahkan border-radius untuk sudut melengkung */
+    }
+
+    .navbar .nav-link:hover,
+    .navbar .dropdown > a:hover {
+        color: #28a745; /* Warna teks untuk link hover */
+    }
+
+    .navbar .nav-link {
+        padding: 8px 15px; /* Menambahkan padding agar link lebih mudah diklik */
+    }
+
+    .navbar .dropdown ul li a {
+        padding: 8px 15px; /* Menambahkan padding agar link dropdown lebih mudah diklik */
+    }
+
 .navbar .getstarted,
 .navbar .getstarted:focus {
   color: #5cb874;
@@ -1471,6 +1491,7 @@ section {
 #breadcrumbs .container {
     background: #f3eeeeb4;
     padding: 10px 10px;
+    border-radius: 5px; /* Mengatur sudut agar melengkung */
 }
 
 @media (max-width: 992px) {

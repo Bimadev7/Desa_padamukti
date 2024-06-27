@@ -40,7 +40,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="image">Gambar Berita</label>
+                                <label for="image">Gambar Lembaga</label>
                                 @if(old('image'))
                                 <img id="preview_image" src="{{ asset('images/' . old('image')) }}" alt="Preview Image" style="max-width: 200px; max-height: 200px;">
                                 @else

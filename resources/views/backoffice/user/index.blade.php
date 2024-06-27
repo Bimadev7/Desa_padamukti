@@ -73,13 +73,14 @@
                         <label for="password">Password</label>
                         <input type="password" name="password" class="form-control" id="password" required>
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="role">Role</label>
                         <select name="role" class="form-control" id="role" required>
+                            <option value="admin">Admin</option>
                             <option value="super_admin">Super Admin</option>
                             <option value="admin">Admin</option>
                         </select>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

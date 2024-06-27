@@ -44,23 +44,23 @@ class StrukturorganisasiConttrollers extends Controller
     public function store(Request $request)
     {
            // Simpan gambar ke direktori yang ditentukan
-    $imageName = time().'.'.$request->image->extension();  
+    $imageName = time().'.'.$request->file('image')->extension();  
     $request->image->move(public_path('images'), $imageName);
 
     // Simpan data ke database
-    $berita = new Berita([
-        'judul' => $request->get('judul'),
-        'caption_capture' => $request->get('caption_capture'),
+    $data = new StrukturOrganisasi([
+        'nama' => $request->get('nama'),
+        'jabatan' => $request->get('jabatan'),
         'deskripsi_singkat' => $request->get('deskripsi_singkat'),
-        'penulis' => $request->get('penulis'),
+        'nip' => $request->get('nip'),
         'image' => $imageName, 
-        'kategori_id' => $request->get('kategori_id'),
+        'deskripsi' => $request->get('deskripsi'),
 
     ]);
-    $berita->save();
+    $data->save();
 
  
-                     return redirect()->route('backoffice.berita.index')->with([
+                     return redirect()->route('strukturorganisasi.index')->with([
                         'alert-type' => 'success',
                         'message' => 'Data Order Berhasil Ditambahkan!'
                     ]); 
@@ -71,7 +71,8 @@ class StrukturorganisasiConttrollers extends Controller
      */
     public function show(string $id)
     {
-        //
+        $strukturorganisasi = StrukturOrganisasi::findOrFail($id);
+        return view('backoffice.strukturorganisasi.show')->with(compact('strukturorganisasi'));
     }
 
     /**
@@ -79,7 +80,8 @@ class StrukturorganisasiConttrollers extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $strukturorganisasi = StrukturOrganisasi::findOrFail($id);
+        return view('backoffice.strukturorganisasi.edit')->with(compact('strukturorganisasi'));
     }
 
     /**
@@ -87,7 +89,30 @@ class StrukturorganisasiConttrollers extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $strukturorganisasi = StrukturOrganisasi::findOrFail($id);
+
+        // Update data
+        $strukturorganisasi->nama = $request->nama;
+        $strukturorganisasi->jabatan = $request->jabatan;
+        $strukturorganisasi->nip = $request->nip;
+
+        // Upload dan simpan gambar jika ada
+        if ($request->hasFile('foto')) {
+            $foto = $request->file('foto');
+            $filename = time() . '_' . $images->getClientOriginalName();
+            // $foto->storeAs('public/fotos', $filename); // Simpan gambar ke storage
+            $foto->move('fotos/', $filename); // Simpan gambar ke storage
+            $strukturorganisasi->foto = $filename; // Simpan nama file gambar ke kolom 'foto' dalam database
+        }
+
+        // Simpan perubahan data
+        $strukturorganisasi->save();
+
+        // Redirect dengan pesan sukses
+        return redirect()->route('strukturorganisasi.index')->with([
+            'alert-type' => 'success',
+            'message' => 'Data berhasil diperbarui.'
+        ]);
     }
 
     /**
@@ -95,6 +120,13 @@ class StrukturorganisasiConttrollers extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $strukturorganisasi = StrukturOrganisasi::findOrFail($id);
+            $strukturorganisasi->delete();
+
+            return response()->json(['message' => 'User berhasil dihapus.'], 200);
+             } catch (\Exception $e) {
+            return response()->json(['message' => 'Gagal menghapus user. ' . $e->getMessage()], 500);
+        }
     }
 }

@@ -38,7 +38,7 @@
             <div class="col-md-6">
               <div class="form-group ml-4">
                 <label for="username">Username</label>
-                <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="Username" value="{{ $berita->judul }}" required>
+                <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="Username" value="{{ $berita->judul }}" readonly>
                 @error('username')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
@@ -46,7 +46,7 @@
 
               <div class="form-group ml-4">
                 <label for="email">Email address</label>
-                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Email address" value="{{ $berita->penulis }}" required>
+                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Email address" value="{{ $berita->penulis }}" readonly>
                 @error('email')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
@@ -55,7 +55,7 @@
 
             <div class="form-group ml-4">
                 <label for="email">Email address</label>
-                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Email address" value="{{ $berita->deskripsi_singkat }}" required>
+                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Email address" value="{{ $berita->deskripsi_singkat }}" readonly>
                 @error('email')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror

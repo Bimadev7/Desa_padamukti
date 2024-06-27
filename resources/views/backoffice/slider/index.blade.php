@@ -26,9 +26,9 @@
             <div class="d-flex align-items-center">
                 <h3 class="card-title"></h3>
                 <div class="card-tools ml-auto mr-0">
-                    <button type="button" class="btn btn-primary btn-sm mb-4" data-toggle="modal" data-target="#addUserModal">
+                    {{-- <button type="button" class="btn btn-primary btn-sm mb-4" data-toggle="modal" data-target="#addUserModal">
                         <i class="fas fa-plus mr-1"></i> Tambah Baru
-                    </button>
+                    </button> --}}
                 </div>
             </div>
             <table class="table table-bordered data-table">

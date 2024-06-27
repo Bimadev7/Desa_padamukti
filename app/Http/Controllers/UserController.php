@@ -141,16 +141,23 @@ use Yajra\DataTables\Facades\DataTables;
         {
 
             $data = new User;
-            $data->username            = strip_tags(ucfirst($request->username));
-            $data->email           = strip_tags($request->email);
-            $data->password         =Hash::make($request->password);
-            $data->role            = strip_tags($request->role);
+            $data->username = strip_tags(ucfirst($request->username));
+            $data->email = strip_tags($request->email);
+            $data->password = Hash::make($request->password);
+            
+            // Menggunakan strip_tags untuk membersihkan inputan role dari tag HTML
+            $data->role = strip_tags($request->role);
+            
+            // Set default role jika $data->role kosong atau tidak ada inputan
+            if (empty($data->role)) {
+                $data->role = 'admin'; // Atur nilai default role di sini
+            }
+            
             $data->save();
-        
-
+            
             return redirect()->route('backoffice.user.index')->with([
                 'alert-type' => 'success',
-                'message' => 'Data Order Berhasil Ditambahkan!'
+                'message' => 'Data User Berhasil Ditambahkan!'
             ]);
             
             

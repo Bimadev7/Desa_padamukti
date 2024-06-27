@@ -39,6 +39,10 @@
         text-decoration: none;
         color: black;
     }
+    .sidebar ul li a.active {
+        color: green; /* Warna hijau untuk link aktif */
+        font-weight: bold; /* Menebalkan teks link aktif */
+    }
     .content {
         flex-grow: 1;
         padding: 20px;
@@ -100,21 +104,15 @@
     <div class="layout">
         <div class="sidebar">
             <ul>
-                <li><a href="#" data-content="struktur-organisasi">Struktur Organisasi</a></li>
-                <li><a href="#" data-content="kepala-desa">Kepala Desa</a></li>
-                <li><a href="#" data-content="sekretaris-desa">Sekretaris Desa</a></li>
-                <li><a href="#" data-content="kaur-pemerintahan">Kaur Pemerintahan</a></li>
-                <li><a href="#" data-content="kaur-pembangunan">Kaur Pembangunan</a></li>
-                <li><a href="#" data-content="kaur-pemberdayaan-masyarakat">Kaur Pemberdayaan Masyarakat</a></li>
-                <li><a href="#" data-content="kaur-kesejahteraan-rakyat">Kaur Kesejahteraan Rakyat</a></li>
-                <li><a href="#" data-content="kaur-umum">Kaur Umum</a></li>
-                <li><a href="#" data-content="kaur-keuangan">Kaur Keuangan</a></li>
+                <li><a href="#content" data-content="struktur-organisasi">Struktur Organisasi</a></li>
+                @foreach($jabatans as $jabatan)
+                    <li><a href="#" data-content="{{ $jabatan->id }}">{{ $jabatan->jabatan }}</a></li>
+                @endforeach
             </ul>
         </div>
-         <!-- Content -->
-         <div class="content" id="content">
+        <div class="content" id="content">
             <h3>Struktur Desa</h3>
-            <p>Selamat datang di menu struktur desa! Di sini, Anda dapat mengeksplorasi informasi mendetail tentang bagaimana Desa Padamukti diatur dan berkembang. Mulai dari pemerintahan desa yang bertanggung jawab mengelola kebijakan dan menyediakan layanan publik yang berkualitas,</p>
+            <p>Selamat datang di menu struktur desa! Di sini, Anda dapat mengeksplorasi informasi mendetail tentang bagaimana Desa Padamukti diatur dan berkembang. Mulai dari pemerintahan desa yang bertanggung jawab mengelola kebijakan dan menyediakan layanan publik yang berkualitas.</p>
         </div>
     </div>
 </div>
@@ -124,484 +122,105 @@
         const links = document.querySelectorAll('.sidebar ul li a');
         const content = document.getElementById('content');
 
+        function activateLink(link) {
+            links.forEach(link => link.classList.remove('active'));
+            link.classList.add('active');
+        }
+
         links.forEach(link => {
             link.addEventListener('click', function(event) {
                 event.preventDefault();
+                activateLink(this);
+                
                 const contentId = this.getAttribute('data-content');
-                loadContent(contentId);
+                if (contentId === 'struktur-organisasi') {
+                    // Load default content for Struktur Organisasi
+                    content.innerHTML = `
+                        <h3>Struktur Desa</h3>
+                        <p>Selamat datang di menu struktur desa! Di sini, Anda dapat mengeksplorasi informasi mendetail tentang bagaimana Desa Padamukti diatur dan berkembang. Mulai dari pemerintahan desa yang bertanggung jawab mengelola kebijakan dan menyediakan layanan publik yang berkualitas.</p>
+                    `;
+                } else {
+                    loadContent(contentId);
+                }
             });
         });
 
-        function loadContent(contentId) {
-            let contentHtml = '';
+        function loadContent(id) {
+            fetch(`/public/struktur-desa/${id}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data) {
+                        let contentHtml = `
+                        <div class="container py-3">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h2 class="font-weight-bold">${data.jabatan}</h2>
+                                    <div class="divider divider-primary divider-small divider-small-center mb-3">
+                                        <hr>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <img src="{{ asset('images/${data.foto}') }}" class="img-fluid" alt="${data.jabatan}">
+                                        </div>
+                                        <div class="col-md-9">
+                                            <table class="table table-borderless">
+                                                <tr>
+                                                    <th>Jabatan</th>
+                                                    <td>:</td>
+                                                    <td>${data.jabatan}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Nama Pejabat</th>
+                                                    <td>:</td>
+                                                    <td>${data.nama_pejabat}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>NIP</th>
+                                                    <td>:</td>
+                                                    <td>${data.nip}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="divider divider-style-4 divider-primary divider-medium mt-4">
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-            switch(contentId) {
-                case 'struktur-organisasi':
-                    contentHtml = `
-                    <div class="container py-3">
-    <div class="row">
-        <div class="col-lg-12">
-            <h2 class="font-weight-bold">Struktur Desa</h2>
-            <div class="divider divider-primary divider-small divider-small-center mb-3">
-                <hr>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <img src="" class="img-fluid" alt="Kades padamukti">
-                </div>`;
-                    break;
-                    case 'kepala-desa':
-                    contentHtml = `
-                    <div class="container py-3">
-    <div class="row">
-        <div class="col-lg-12">
-            <h2 class="font-weight-bold">Kepala Desa</h2>
-            <div class="divider divider-primary divider-small divider-small-center mb-3">
-                <hr>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <img src="{{ asset('images/' . $ketua->foto) }}" class="img-fluid" alt="Kades padamukti">
-                </div>
-                <div class="col-md-9">
-                    <table class="table table-borderless">
-                        <tr>
-                            <th>Jabatan</th>
-                            <td>:</td>
-                            <td>{{ $ketua->jabatan }}</td>
-                        </tr>
-                        <tr>
-                            <th>Nama Pejabat</th>
-                            <td>:</td>
-                            <td>{{ $ketua->nama_pejabat }}</td>
-                        </tr>
-                        <tr>
-                        <th>NIP</th>
-                            <td>:</td>
-                            <td>{{ $ketua->nip }}</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <div class="divider divider-style-4 divider-primary divider-medium mt-4">
-                <hr>
-            </div>
-        </div>
-    </div>
-</div>
+                        <div class="container py-3">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h2 class="font-weight-bold">Tugas Pokok ${data.jabatan}</h2>
+                                    <div class="divider divider-primary divider-small divider-small-center mb-3">
+                                        <hr>
+                                    </div>
+                                    <p class="lead text-justify">
+                                        ${data.deskripsi}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>`;
+                        content.innerHTML = contentHtml;
+                    } else {
+                        content.innerHTML = '<p>Data tidak ditemukan.</p>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    content.innerHTML = '<p>Terjadi kesalahan saat mengambil data.</p>';
+                });
+        }
 
-<div class="container py-3">
-    <div class="row">
-        <div class="col-lg-12">
-            <h2 class="font-weight-bold">Tugas Pokok Kepala Desa</h2>
-            <div class="divider divider-primary divider-small divider-small-center mb-3">
-                <hr>
-            </div>
-            <p class="lead text-justify">
-                {{ $ketua->deskripsi }}
-            </p>
-        </div>
-    </div>
-</div>`;
-                    break;
-                case 'sekretaris-desa':
-                    contentHtml = `
-                    <div class="container py-3">
-    <div class="row">
-        <div class="col-lg-12">
-            <h2 class="font-weight-bold">Sekertaris Desa</h2>
-            <div class="divider divider-primary divider-small divider-small-center mb-3">
-                <hr>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <img src="{{ asset('images/' . $sekretaris->foto) }}" class="img-fluid" alt="Kades padamukti">
-                </div>
-                <div class="col-md-9">
-                    <table class="table table-borderless">
-                        <tr>
-                            <th>Jabatan</th>
-                            <td>:</td>
-                            <td>{{ $sekretaris->jabatan }}</td>
-                        </tr>
-                        <tr>
-                            <th>Nama Pejabat</th>
-                            <td>:</td>
-                            <td>{{ $sekretaris->nama_pejabat }}</td>
-                        </tr>
-                        <tr>
-                            <th>NIP</th>
-                            <td>:</td>
-                            <td>{{ $sekretaris->nip }}</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <div class="divider divider-style-4 divider-primary divider-medium mt-4">
-                <hr>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container py-3">
-    <div class="row">
-        <div class="col-lg-12">
-            <h2 class="font-weight-bold">Tugas Pokok Sekretaris Desa</h2>
-            <div class="divider divider-primary divider-small divider-small-center mb-3">
-                <hr>
-            </div>
-            <p class="lead text-justify">
-                {{ $sekretaris->deskripsi }}
-            </p>
-        </div>
-    </div>
-</div>
-`;
-                    break;
-                case 'kaur-pemerintahan':
-                    contentHtml = `
-                    <div class="container py-3">
-    <div class="row">
-        <div class="col-lg-12">
-            <h2 class="font-weight-bold">Kaur Pemerintahan</h2>
-            <div class="divider divider-primary divider-small divider-small-center mb-3">
-                <hr>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <img src="" class="img-fluid" alt="Kaur Pemerintahan">
-                </div>
-                <div class="col-md-9">
-                    <table class="table table-borderless">
-                        <tr>
-                            <th>Jabatan</th>
-                            <td>:</td>
-                            <td>Kaur Pemerintahan</td>
-                        </tr>
-                        <tr>
-                            <th>Nama Pejabat</th>
-                            <td>:</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th>NIP</th>
-                            <td>:</td>
-                            <td></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <div class="divider divider-style-4 divider-primary divider-medium mt-4">
-                <hr>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container py-3">
-    <div class="row">
-        <div class="col-lg-12">
-            <h2 class="font-weight-bold">Tugas Pokok Kaur Pemerintahan</h2>
-            <div class="divider divider-primary divider-small divider-small-center mb-3">
-                <hr>
-            </div>
-            <p class="lead text-justify">
-                Deskripsi Kaur Pemerintahan
-            </p>
-            </ul>
-            </div>
-        </div>
-    </div>
-</div>
-`;
-                    break;
-                case 'kaur-pembangunan':
-                    contentHtml = `
-<div class="container py-3">
-    <div class="row">
-        <div class="col-lg-12">
-            <h2 class="font-weight-bold">Kaur Pembangunan</h2>
-            <div class="divider divider-primary divider-small divider-small-center mb-3">
-                <hr>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <img src="" class="img-fluid" alt="Kaur Pembangunan">
-                </div>
-                <div class="col-md-9">
-                    <table class="table table-borderless">
-                        <tr>
-                            <th>Jabatan</th>
-                            <td>:</td>
-                            <td>Kaur Pembangunan</td>
-                        </tr>
-                        <tr>
-                            <th>Nama Pejabat</th>
-                            <td>:</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th>NIP</th>
-                            <td>:</td>
-                            <td></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <div class="divider divider-style-4 divider-primary divider-medium mt-4">
-                <hr>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container py-3">
-    <div class="row">
-        <div class="col-lg-12">
-            <h2 class="font-weight-bold">Tugas Pokok Kaur Pembangunan</h2>
-            <div class="divider divider-primary divider-small divider-small-center mb-3">
-                <hr>
-            </div>
-            <p class="lead text-justify">
-                Deskripsi Kaur Pembangunan
-            </p>
-        </div>
-    </div>
-</div>
-`;
-break;
-
-                case 'kaur-pemberdayaan-masyarakat':
-                    contentHtml = `
-<div class="container py-3">
-    <div class="row">
-        <div class="col-lg-12">
-            <h2 class="font-weight-bold">Kaur Pemberdayaan Masyarakat</h2>
-            <div class="divider divider-primary divider-small divider-small-center mb-3">
-                <hr>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <img src="" class="img-fluid" alt="Kaur Pemberdayaan Masyarakat">
-                </div>
-                <div class="col-md-9">
-                    <table class="table table-borderless">
-                        <tr>
-                            <th>Jabatan</th>
-                            <td>:</td>
-                            <td>Kaur Pemberdayaan Masyarakat</td>
-                        </tr>
-                        <tr>
-                            <th>Nama Pejabat</th>
-                            <td>:</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th>NIP</th>
-                            <td>:</td>
-                            <td></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <div class="divider divider-style-4 divider-primary divider-medium mt-4">
-                <hr>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container py-3">
-    <div class="row">
-        <div class="col-lg-12">
-            <h2 class="font-weight-bold">Tugas Pokok Kaur Pemberdayaan Masyarakat</h2>
-            <div class="divider divider-primary divider-small divider-small-center mb-3">
-                <hr>
-            </div>
-            <p class="lead text-justify">
-                Deskripsi Kaur Pemberdayaan Masyarakat
-            </p>
-        </div>
-    </div>
-</div>
-`;
-break;
-
-                case 'kaur-kesejahteraan-rakyat':
-                    contentHtml = `
-<div class="container py-3">
-    <div class="row">
-        <div class="col-lg-12">
-            <h2 class="font-weight-bold">Kaur Kesejahteraan Rakyat</h2>
-            <div class="divider divider-primary divider-small divider-small-center mb-3">
-                <hr>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <img src="" class="img-fluid" alt="Kaur Kesejahteraan Rakyat">
-                </div>
-                <div class="col-md-9">
-                    <table class="table table-borderless">
-                        <tr>
-                            <th>Jabatan</th>
-                            <td>:</td>
-                            <td>Kaur Kesejahteraan Rakyat</td>
-                        </tr>
-                        <tr>
-                            <th>Nama Pejabat</th>
-                            <td>:</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th>NIP</th>
-                            <td>:</td>
-                            <td></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <div class="divider divider-style-4 divider-primary divider-medium mt-4">
-                <hr>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container py-3">
-    <div class="row">
-        <div class="col-lg-12">
-            <h2 class="font-weight-bold">Tugas Pokok Kaur Kesejahteraan Rakyat</h2>
-            <div class="divider divider-primary divider-small divider-small-center mb-3">
-                <hr>
-            </div>
-            <p class="lead text-justify">
-                Deskripsi Kaur Kesejahteraan Rakyat
-            </p>
-        </div>
-    </div>
-</div>
-`;
-break;
-
-                case 'kaur-umum':
-                    contentHtml = `
-<div class="container py-3">
-    <div class="row">
-        <div class="col-lg-12">
-            <h2 class="font-weight-bold">Kaur Umum</h2>
-            <div class="divider divider-primary divider-small divider-small-center mb-3">
-                <hr>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <img src="" class="img-fluid" alt="Kaur Umum">
-                </div>
-                <div class="col-md-9">
-                    <table class="table table-borderless">
-                        <tr>
-                            <th>Jabatan</th>
-                            <td>:</td>
-                            <td>Kaur Umum</td>
-                        </tr>
-                        <tr>
-                            <th>Nama Pejabat</th>
-                            <td>:</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th>NIP</th>
-                            <td>:</td>
-                            <td></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <div class="divider divider-style-4 divider-primary divider-medium mt-4">
-                <hr>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container py-3">
-    <div class="row">
-        <div class="col-lg-12">
-            <h2 class="font-weight-bold">Tugas Pokok Kaur Umum</h2>
-            <div class="divider divider-primary divider-small divider-small-center mb-3">
-                <hr>
-            </div>
-            <p class="lead text-justify">
-                Deskripsi Kaur Umum
-            </p>
-        </div>
-    </div>
-</div>
-`;
-break;
-
-                case 'kaur-keuangan':
-                    contentHtml = `
-<div class="container py-3">
-    <div class="row">
-        <div class="col-lg-12">
-            <h2 class="font-weight-bold">Kaur Keuangan</h2>
-            <div class="divider divider-primary divider-small divider-small-center mb-3">
-                <hr>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <img src="" class="img-fluid" alt="Kaur Keuangan">
-                </div>
-                <div class="col-md-9">
-                    <table class="table table-borderless">
-                        <tr>
-                            <th>Jabatan</th>
-                            <td>:</td>
-                            <td>Kaur Keuangan</td>
-                        </tr>
-                        <tr>
-                            <th>Nama Pejabat</th>
-                            <td>:</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th>NIP</th>
-                            <td>:</td>
-                            <td></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <div class="divider divider-style-4 divider-primary divider-medium mt-4">
-                <hr>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container py-3">
-    <div class="row">
-        <div class="col-lg-12">
-            <h2 class="font-weight-bold">Tugas Pokok Kaur Keuangan</h2>
-            <div class="divider divider-primary divider-small divider-small-center mb-3">
-                <hr>
-            </div>
-            <p class="lead text-justify">
-                Deskripsi Kaur Keuangan
-            </p>
-        </div>
-    </div>
-</div>
-`;
-break;
-
-                default:
-                    contentHtml = '<h3>Struktur Desa</h3><p>Content related to Struktur Desa will be displayed here.</p>';
-            }
-
-            content.innerHTML = contentHtml;
+        // Activate the "Struktur Organisasi" link by default
+        const defaultLink = document.querySelector('.sidebar ul li a[data-content="struktur-organisasi"]');
+        if (defaultLink) {
+            activateLink(defaultLink);
         }
     });
 </script>
+
+
+
 @endsection

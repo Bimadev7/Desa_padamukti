@@ -53,7 +53,8 @@ class SliderConttrollers extends Controller
      */
     public function show(string $id)
     {
-        //
+        $slider = Slider::findOrFail($id);
+        return view('backoffice.slider.show')->with(compact('slider'));
     }
 
     /**

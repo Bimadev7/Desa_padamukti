@@ -17,10 +17,9 @@
 </style>
 <section id="breadcrumbs" class="breadcrumbs">
     <div class="container">
-        <div class="d-flex justify-content-between align-items-center">
-            <h2>Lembaga Desa</h2>
+        <div class="d-flex align-items-center">
             <ol>
-                <li><a href="/">Home</a></li>
+                <li><a href="/"><i class="bi bi-house-door-fill"></i></a></li>
                 <li>Lembaga Desa</li>
             </ol>
         </div>

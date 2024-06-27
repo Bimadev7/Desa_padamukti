@@ -141,10 +141,7 @@
                         </div>
                     </div>
                 </td>
-                  
-                {{-- <td class="text-right"> 
-                    <a href="{{ route('profildesa_visi.edit', $item->id) }}" class="btn btn-primary">Edit Geografis</a>
-                </td> --}}
+
             </tr>
             <td class="text-right"> {{-- Tombol edit --}}
                     <a href="{{ route('profildesa_visi.edit', $item->id) }}" class="btn btn-primary">Edit Profil Desa</a>

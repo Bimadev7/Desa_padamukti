@@ -7,7 +7,7 @@
     <!-- SELECT2 EXAMPLE -->
     <div class="card card-default">
       <div class="card-header">
-        <h3 class="card-title">Edit Pengumuman</h3>
+        <h3 class="card-title">Edit strukturorganisasi</h3>
 
         <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -30,24 +30,24 @@
           </script>
         @endif
 
-        <form class="card" action="{{ route('pengumuman.update', $pengumuman->id) }}" method="POST" enctype="multipart/form-data">
+        <form class="card" action="{{ route('strukturorganisasi.update', $strukturorganisasi->id) }}" method="POST" enctype="multipart/form-data">
           @csrf
           @method('PUT')
 
           <div class="row">
             <div class="col-md-6">
               <div class="form-group ml-4">
-                <label for="judul">Judul Pengumuman</label>
-                <input type="text" name="judul" class="form-control @error('judul') is-invalid @enderror" id="judul" placeholder="Judul Berita" value="{{ $pengumuman->judul }}" required>
-                @error('judul')
+                <label for="judul">nama</label>
+                <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="nama Berita" value="{{ $strukturorganisasi->nama }}" required>
+                @error('nama')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
               </div>
 
               <div class="form-group ml-4">
-                <label for="deskripsi_singkat">Deskripsi Singkat</label>
-                <input type="text" name="deskripsi_singkat" class="form-control @error('deskripsi_singkat') is-invalid @enderror" id="deskripsi_singkat" placeholder="Deskripsi Singkat" value="{{ $pengumuman->deskripsi_singkat }}" required>
-                @error('deskripsi_singkat')
+                <label for="jabatan">Jabatan</label>
+                <input type="text" name="jabatan" class="form-control @error('jabatan') is-invalid @enderror" id="jabatan" placeholder="Deskripsi Singkat" value="{{ $strukturorganisasi->jabatan }}" required>
+                @error('jabatan')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
               </div>
@@ -55,25 +55,25 @@
 
             <div class="col-md-6">
               <div class="form-group ml-4">
-                <label for="deskripsi">Deskripsi</label>
-                <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" placeholder="Deskripsi" required>{{ $pengumuman->deskripsi }}</textarea>
-                @error('deskripsi')
+                <label for="deskripsi">NIP</label>
+                <textarea name="nip" class="form-control @error('nip') is-invalid @enderror" id="nip" placeholder="nip" required>{{ $strukturorganisasi->nip }}</textarea>
+                @error('nip')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
               </div>
 
               <div class="form-group ml-4">
-                <label for="image">Gambar Pengumuman</label>
+                <label for="image">Gambar strukturorganisasi</label>
                 <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image">
                 @error('image')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
 
-                @if($pengumuman->image)
+                @if($strukturorganisasi->image)
                   <div class="mt-2">
-                            <img src="{{ asset('images/' . $pengumuman->image) }}" text="ro" alt="Berita" width="200" height="150">
+                            <img src="{{ asset('images/' . $strukturorganisasi->image) }}" text="ro" alt="Berita" width="200" height="150">
 
-                    {{-- <img src="/path/to/images/{{ $pengumuman->image }}" alt="Gambar Berita" height="100"> --}}
+                    {{-- <img src="/path/to/images/{{ $strukturorganisasi->image }}" alt="Gambar Berita" height="100"> --}}
                   </div>
                 @endif
               </div>
@@ -91,7 +91,7 @@
       </div>
       <!-- /.card-body -->
       <div class="card-footer">
-        Edit Pengumuman
+        Edit strukturorganisasi
       </div>
     </div>
     <!-- /.card -->
