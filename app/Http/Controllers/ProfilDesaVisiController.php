@@ -1,20 +1,48 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\ProfilDesa;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\ProfilDesa;
+use Illuminate\Support\Facades\Hash;
+use Yajra\DataTables\Facades\DataTables;
 
 class ProfilDesaVisiController extends Controller
 {
+
+    public function store(Request $request){
+    
+
+    // Simpan data ke database
+    $profildesa_visi = new ProfilDesa([
+        'tentang_desa' => $request->get('tentang_desa'),
+        'visi' => $request->get('visi'),
+        'misi' => $request->get('misi'),
+        'sejarah_desa' => $request->get('sejarah_desa'),
+        'geografis' => $request->get('geografis'),
+    ]);
+    $profildesa_visi->save();
+
+
+                    return redirect()->route('profildesa_visi.index')->with([
+                        'alert-type' => 'success',
+                        'message' => 'Data Order Berhasil Ditambahkan!'
+                    ]); 
+    }
 
     public function update(Request $request, string $id)
     {
         // $data = DataModel::findOrFail($id);
         $profildesa_visi = ProfilDesa::findOrFail($id);
 
+        $profildesa_visi->tentang_desa = $request->tentang_desa;
+        $profildesa_visi->visi = $request->visi;
+        $profildesa_visi->misi = $request->misi;
+        $profildesa_visi->sejarah_desa = $request->sejarah_desa;
+        $profildesa_visi->geografis = $request->geografis;
+
         
         // Update data
-        $profildesa_visi->visi = $request->visi;
 
         // Simpan perubahan data
         $profildesa_visi->save();
