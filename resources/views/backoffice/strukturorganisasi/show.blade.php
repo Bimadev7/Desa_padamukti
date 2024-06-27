@@ -52,7 +52,7 @@
               </div>
 
               <div class="form-group ml-4">
-                <label for="nip">NIP</label>
+                <label for="nip">NIPD</label>
                 <input type="text" name="nip" class="form-control @error('nip') is-invalid @enderror" id="nip" placeholder="NIP" value="{{ $strukturorganisasi->nip }}" readonly>
                 @error('nip')
                   <span class="invalid-feedback">{{ $message }}</span>

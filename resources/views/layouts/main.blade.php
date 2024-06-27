@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+     {{-- <img src="{{ asset('green/assets/img/logo-padamukti.png')}}" alt="AdminLTE Logo" class="brand-image img-circle " style="max-width: 100px; margin-right: 8px;"> --}}
   <title> Desa Padamukti</title>
 
 
@@ -129,7 +130,9 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
      <span class="brand-text font-weight-light">Desa Padamukti</span>
-     <img src="{{ asset('adminlte/dist/img/logopadamukti.svg')}}" alt="AdminLTE Logo" class="brand-image img-circle " style="max-width: 100px; margin-right: 8px;">
+  {{-- <img src="{{ asset('green/assets/img/logo-padamukti.png')}}" rel="icon"> --}}
+
+     <img src="{{ asset('green/assets/img/logo-padamukti.png')}}" alt="AdminLTE Logo" class="brand-image img-circle " style="max-width: 100px; margin-right: 8px;">
     </a>
 
 
@@ -151,23 +154,23 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         
         <li class="nav-item dropdown">
-  <a href="#" class="nav-link active">
+  {{-- <a href="#" class="nav-link active">
     <i class="nav-icon fas fa-tachometer-alt"></i>
     <p>
       Profil Desa
       <i class="right fas fa-angle-left"></i>
     </p>
-  </a>
+  </a> --}}
   <ul class="nav nav-treeview">
     <li class="nav-item">
       {{-- <a href="./index.html" class="nav-link active"> --}}
-     <a href="/backoffice/profildesa_visi/1" class="nav-link active">
+     <a href="/backoffice/profildesa_visi" class="nav-link active">
 
         <i class="far fa-circle nav-icon"></i>
         <p>Visi</p>
       </a>
     </li>
-    <li class="nav-item">
+    {{-- <li class="nav-item">
       <a href="./index2.html" class="nav-link">
         <i class="far fa-circle nav-icon"></i>
         <p>Misi</p>
@@ -177,7 +180,7 @@
       <a href="./index3.html" class="nav-link">
         <i class="far fa-circle nav-icon"></i>
         <p>Sejarah </p>
-      </a>
+      </a> --}}
     </li>
   </ul>
 </li>
@@ -432,6 +435,7 @@
    CKEDITOR.replace('editor3');
    CKEDITOR.replace('editor4');
    CKEDITOR.replace('editor5');
+   CKEDITOR.replace('editor9');
 </script>
 </body>
 </html>

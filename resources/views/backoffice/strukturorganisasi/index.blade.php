@@ -73,7 +73,7 @@
                         <input type="text" name="deskripsi" class="form-control" id="deskripsi" required>
                     </div>
                     <div class="form-group">
-                        <label for="nip">NIP</label>
+                        <label for="nip">NIPD</label>
                         <input type="text" name="nip" class="form-control" id="nip" required>
                     </div>
                     <div class="form-group">
