@@ -28,8 +28,8 @@
 
                             <h6>{{ $pengumuman->caption_capture }}</h6>
                             <hr>
-
-                            <p>{{ $pengumuman->deskripsi }}</p>
+                    
+                            {{-- <p>{{ $pengumuman->deskripsi }}</p> --}}
                             <p>{!! $pengumuman->deskripsi !!}</p>
 
                         </article>

@@ -27,8 +27,13 @@
                             <h3 class="mb-0">{{ $item->judul }}</h3>
                             
                             {{-- <div class="mb-1 text-body-secondary">{{ $item->created_at->format('d F Y') }}</div> --}}
-                            <p class="card-text mb-auto">{{ $item->deskripsi }}</p>
-
+                            {{-- <p class="card-text mb-auto">{{ $item->deskripsi }}</p> --}}
+                <div>
+                    {!! (strlen($item->deskripsi) > 200) ? substr($item->deskripsi, 0, 300) . '...' : $item->deskripsi !!}
+                    @if (strlen($item->deskripsi) > 200)
+                        <a href="#" class="btn btn-link" data-toggle="modal" data-target="#readMoreModal">Baca Selengkapnya</a>
+                    @endif
+                </div>
                             <a href="{{ route('pengumuman.detailPengumuman', $item->id) }}" class="icon-link gap-1 icon-link-hover stretched-link">Lanjutkan Membaca
                                 <svg class="bi">
                                     <use xlink:href="#chevron-right"></use>

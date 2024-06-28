@@ -14,7 +14,10 @@ class ProfilDesaMisiController extends Controller
 
         $profildesa_misi = ProfilDesa::all(); // Ambil semua data dari model
         return view('backoffice.profildesa_misi.index');
-        
+
+        // return view('backoffice.profildesa_misi.index', compact('profildesa_misi'));
+
+
     }
 
 

@@ -59,12 +59,14 @@
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
               </div>
+
+              
          
 
             
               <div class="form-group ml-4">
                 <label for="deskripsi">Deskripsi</label>
-                <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="editor" placeholder="Deskripsi" required>{{ $pengumuman->deskripsi }}</textarea>
+                <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="editor2" placeholder="Deskripsi" required>{{ $pengumuman->deskripsi }}</textarea>
                 @error('deskripsi')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror

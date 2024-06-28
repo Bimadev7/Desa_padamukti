@@ -29,9 +29,12 @@
                         <label for="deskripsi_singkat">Deskripsi Singkat</label>
                         <input type="text" name="deskripsi_singkat" class="form-control" id="deskripsi_singkat" required>
                     </div>
+                    
+      
+
                     <div class="form-group">
                         <label for="deskripsi">Deskripsi Detail</label>
-                        <textarea name="deskripsi" class="form-control" id="editor" required></textarea>
+                        <textarea name="deskripsi" class="form-control" id="editor2" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="penulis">Penulis</label>
@@ -55,7 +58,7 @@
 
                     <div class="row">
                         <div class="col-12 text-right">
-                            <button type="submit" class="btn btn-primary mr-5 mb-4">Tambah Berita</button>
+                            <button type="submit" class="btn btn-primary mr-5 mb-4">Tambah Pengumuman</button>
                         </div>
                     </div>
                 </form>

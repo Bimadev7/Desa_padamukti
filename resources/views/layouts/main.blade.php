@@ -205,7 +205,7 @@
           </li>
 
             <li class="nav-item">
-            <a href="/backoffice/profildesa_visi" class="nav-link">
+            <a href="/backoffice/profildesa_visi/1/edit" class="nav-link">
               <i class="nav-icon fas fa-volume-up"></i>
               <p>
                 Profil Desa
@@ -430,6 +430,7 @@
 </script>
 
 <script>
+   CKEDITOR.replace('editor');
    CKEDITOR.replace('editor1');
    CKEDITOR.replace('editor2');
    CKEDITOR.replace('editor3');

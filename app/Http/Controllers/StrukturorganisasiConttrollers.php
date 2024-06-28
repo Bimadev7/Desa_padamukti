@@ -97,12 +97,12 @@ class StrukturorganisasiConttrollers extends Controller
         $strukturorganisasi->nip = $request->nip;
 
         // Upload dan simpan gambar jika ada
-        if ($request->hasFile('foto')) {
-            $foto = $request->file('foto');
-            $filename = time() . '_' . $images->getClientOriginalName();
-            // $foto->storeAs('public/fotos', $filename); // Simpan gambar ke storage
-            $foto->move('fotos/', $filename); // Simpan gambar ke storage
-            $strukturorganisasi->foto = $filename; // Simpan nama file gambar ke kolom 'foto' dalam database
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '_' . $image->getClientOriginalName();
+            // $image->storeAs('public/images', $filename); // Simpan gambar ke storage
+            $image->move('images/', $filename); // Simpan gambar ke storage
+            $strukturorganisasi->image = $filename; // Simpan nama file gambar ke kolom 'foto' dalam database
         }
 
         // Simpan perubahan data
