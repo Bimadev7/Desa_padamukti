@@ -104,9 +104,7 @@
         </form>
       </div>
       <!-- /.card-body -->
-      {{-- <div class="card-footer">
-        Edit Pengumuman
-      </div> --}}
+     
     </div>
     <!-- /.card -->
   </div>

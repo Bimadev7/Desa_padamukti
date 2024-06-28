@@ -7,7 +7,7 @@
     <!-- SELECT2 EXAMPLE -->
     <div class="card card-default">
       <div class="card-header">
-        <h3 class="card-title">Edit strukturorganisasi</h3>
+        <h3 class="card-title">Edit Struktur Organisasi</h3>
 
         <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -37,8 +37,8 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group ml-4">
-                <label for="judul">nama</label>
-                <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="nama Berita" value="{{ $strukturorganisasi->nama }}" required>
+                <label for="nama">Nama</label>
+                <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Nama" value="{{ $strukturorganisasi->nama }}" required>
                 @error('nama')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
@@ -46,7 +46,7 @@
 
               <div class="form-group ml-4">
                 <label for="jabatan">Jabatan</label>
-                <input type="text" name="jabatan" class="form-control @error('jabatan') is-invalid @enderror" id="jabatan" placeholder="Deskripsi Singkat" value="{{ $strukturorganisasi->jabatan }}" required>
+                <input type="text" name="jabatan" class="form-control @error('jabatan') is-invalid @enderror" id="jabatan" placeholder="Jabatan" value="{{ $strukturorganisasi->jabatan }}" required>
                 @error('jabatan')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
@@ -55,25 +55,27 @@
 
             <div class="col-md-6">
               <div class="form-group ml-4">
-                <label for="deskripsi">NIP</label>
-                <textarea name="nip" class="form-control @error('nip') is-invalid @enderror" id="nip" placeholder="nip" required>{{ $strukturorganisasi->nip }}</textarea>
+                <label for="nip">NIP</label>
+                <textarea name="nip" class="form-control @error('nip') is-invalid @enderror" id="nip" placeholder="NIP" required>{{ $strukturorganisasi->nip }}</textarea>
                 @error('nip')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
               </div>
 
               <div class="form-group ml-4">
-                <label for="image">Gambar strukturorganisasi</label>
-                <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image">
+                <label for="image">Gambar Struktur Organisasi</label>
+                <input type="file" name="image" class="form-control-file @error('image') is-invalid @enderror" id="image" onchange="validateImageSize('image', 'previewImage')">
                 @error('image')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
 
                 @if($strukturorganisasi->image)
                   <div class="mt-2">
-                            <img src="{{ asset('images/' . $strukturorganisasi->image) }}" text="ro" alt="Berita" width="200" height="150">
-
-                    {{-- <img src="/path/to/images/{{ $strukturorganisasi->image }}" alt="Gambar Berita" height="100"> --}}
+                    <img src="{{ asset('images/' . $strukturorganisasi->image) }}" alt="Gambar Struktur Organisasi" width="300" height="440" id="previewImage">
+                  </div>
+                @else
+                  <div class="mt-2">
+                    <img src="#" alt="Preview" style="display:none; width:300px; height:440px;" id="previewImage">
                   </div>
                 @endif
               </div>
@@ -91,7 +93,7 @@
       </div>
       <!-- /.card-body -->
       <div class="card-footer">
-        Edit strukturorganisasi
+        Edit Struktur Organisasi
       </div>
     </div>
     <!-- /.card -->
@@ -106,6 +108,37 @@
     min-width: 150px;
   }
 </style>
+
+<script>
+  function previewImage(inputId, imageId) {
+    const input = document.getElementById(inputId);
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        document.getElementById(imageId).src = e.target.result;
+        document.getElementById(imageId).style.display = 'block';
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  function validateImageSize(inputId, previewImageId) {
+    const input = document.getElementById(inputId);
+    if (input.files && input.files[0]) {
+      const fileSize = input.files[0].size; // in bytes
+      const maxSize = 5 * 1024 * 1024; // 5 MB (adjust as needed)
+
+      if (fileSize > maxSize) {
+        alert('Ukuran file gambar terlalu besar. Maksimal 5 MB.');
+        input.value = ''; // reset the input
+        document.getElementById(previewImageId).style.display = 'none'; // hide preview
+      } else {
+        previewImage(inputId, previewImageId); // show preview
+      }
+    }
+  }
+</script>
+
 @endsection
 
 @push('scripts')
