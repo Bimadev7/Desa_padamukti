@@ -103,7 +103,7 @@
                 <li class="dropdown">
                     <a href="/"><span>Informasi Publik</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li><a href="{{ route('pengumuman') }}">Berita Desa</a></li>
+                        {{-- <li><a href="{{ route('berita-desa') }}">Berita Desa</a></li> --}}
                         <li><a href="{{ route('pengumuman') }}">Pengumuman Desa</a></li>
                     </ul>
                 </li>
