@@ -3,19 +3,18 @@
 @section('title', 'Lembaga Desa')
 
 @section('content')
-<section id="breadcrumbs" class="breadcrumbs">
+<section id="breadcrumbs" class="breadcrumbs mb-4">
     <div class="container">
-        <div class="d-flex justify-content-between align-items-center">
-            <h2>Lembaga Desa</h2>
+        <div class="d-flex align-items-center">
             <ol>
-                <li><a href="/">Home</a></li>
+                <li><a href="/"><i class="bi bi-house-door-fill"></i></a></li>
                 <li>Lembaga Desa</li>
             </ol>
         </div>
     </div>
 </section>
 
-<div class="container mt-5 mb-5"> <!-- Added mb-5 class for margin bottom -->
+<div class="container mt-5 mb-5">
     <table class="table table-sm">
         <thead>
             <tr>
@@ -25,20 +24,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
+            @foreach ($lembaga as $item)
+            <tr onclick="window.location='{{ route('lembaga-desa.detail', $item->id) }}';" style="cursor: pointer;">
+                <th scope="row">{{ $loop->iteration }}</th>
+                <td>{{ $item -> nama_lembaga }}</td>
+                <td>{{ $item -> alamat }}</td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-            </tr>
+            @endforeach
         </tbody>
     </table>
 </div>

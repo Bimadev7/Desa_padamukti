@@ -42,8 +42,7 @@ class PengumumanController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request){
            // Simpan gambar ke direktori yang ditentukan
     $imageName = time().'.'.$request->image->extension();  
     $request->image->move(public_path('images'), $imageName);
@@ -71,7 +70,10 @@ class PengumumanController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $pengumuman = Pengumuman::findOrFail($id);
+            return view('backoffice.pengumuman.show')->with(compact('pengumuman'));
+        
+        
     }
 
     /**
@@ -81,8 +83,6 @@ class PengumumanController extends Controller
     {
         $pengumuman = Pengumuman::findOrFail($id);
         return view('backoffice.pengumuman.edit')->with(compact('pengumuman'));
-
-        
     }
 
     /**
@@ -102,8 +102,9 @@ class PengumumanController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $filename = time() . '_' . $image->getClientOriginalName();
-            $image->storeAs('public/images', $filename); // Simpan gambar ke storage
-            $data->image = $filename; // Simpan nama file gambar ke kolom 'image' dalam database
+            // $image->storeAs('public/images', $filename); // Simpan gambar ke storage
+            $image->move('images/', $filename); // Simpan gambar ke storage
+            $pengumuman->image = $filename; // Simpan nama file gambar ke kolom 'image' dalam database
         }
 
         // Simpan perubahan data
@@ -121,10 +122,13 @@ class PengumumanController extends Controller
      */
     public function destroy(string $id)
     {
-        Pengumuman::findOrFail($id)->delete();
-        return redirect()->route('backoffice.pengumuman.index')->with([
-            'alert-type' => 'success',
-            'message' => 'Data Order Berhasil Ditambahkan!'
-        ]); 
+        try {
+            $pengumuman = Pengumuman::findOrFail($id);
+            $pengumuman->delete();
+
+            return response()->json(['message' => 'User berhasil dihapus.'], 200);
+             } catch (\Exception $e) {
+            return response()->json(['message' => 'Gagal menghapus user. ' . $e->getMessage()], 500);
+        }
     }
 }

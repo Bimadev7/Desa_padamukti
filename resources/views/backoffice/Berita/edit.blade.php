@@ -1,14 +1,11 @@
 @extends('layouts.main')
 
 @section('content')
-<!-- Main content -->
 <section class="content">
   <div class="container-fluid">
-    <!-- SELECT2 EXAMPLE -->
     <div class="card card-default">
       <div class="card-header">
-        <h3 class="card-title">Edit Berita</h3>
-
+        <h3 class="card-title">Edit Lembaga</h3>
         <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse">
             <i class="fas fa-minus"></i>
@@ -18,87 +15,99 @@
           </button>
         </div>
       </div>
-      <!-- /.card-header -->
       <div class="card-body">
         @if(session('success'))
-        <script>
-          Swal.fire({
-            icon: 'success',
-            title: 'Success!',
-            text: '{{ session('success') }}',
-          });
-        </script>
+          <script>
+            Swal.fire({
+              icon: 'success',
+              title: 'Success!',
+              text: '{{ session('success') }}',
+            });
+          </script>
         @endif
 
-        <form class="card" action="{{ route('berita.update', $berita->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('berita.update', $berita->id) }}" method="POST" enctype="multipart/form-data">
           @csrf
           @method('PUT')
 
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label for="judul">Judul Berita</label>
-                <input type="text" name="judul" class="form-control @error('judul') is-invalid @enderror" id="judul" placeholder="Judul Berita" value="{{ $berita->judul }}" required>
+                <label for="nama_lembaga">Nama Lembaga</label>
+                <input type="text" name="judul" class="form-control @error('judul') is-invalid @enderror" id="judul" value="{{ $berita->judul }}" required>
                 @error('judul')
-                <span class="invalid-feedback">{{ $message }}</span>
+                  <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
               </div>
 
               <div class="form-group">
-                <label for="deskripsi_singkat">Deskripsi Singkat</label>
-                <input type="text" name="deskripsi_singkat" class="form-control @error('deskripsi_singkat') is-invalid @enderror" id="deskripsi_singkat" placeholder="Deskripsi Singkat" value="{{ $berita->deskripsi_singkat }}" required>
-                @error('deskripsi_singkat')
-                <span class="invalid-feedback">{{ $message }}</span>
+                <label for="alamat">Alamat</label>
+                <input type="text" name="caption_capture" class="form-control @error('caption_capture') is-invalid @enderror" id="caption_capture" value="{{ $berita->caption_capture }}" required>
+                @error('caption_capture')
+                  <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+              </div>
+
+              <div class="form-group">
+                <label for="deskripsi_singkat">Deskripsi Profil</label>
+                <textarea name="deskripsi_singkat" class="form-control @error('deskripsi_singkat') is-invalid @enderror" id="deskripsi_singkat" rows="4" required>{{ $berita->deskripsi_singkat }}</textarea>
+                @error('deskripsi_profil')
+                  <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
               </div>
             </div>
 
             <div class="col-md-6">
               <div class="form-group">
-                <label for="deskripsi">Deskripsi</label>
-                <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" placeholder="Deskripsi" required>{{ $berita->deskripsi }}</textarea>
-                @error('deskripsi')
-                <span class="invalid-feedback">{{ $message }}</span>
-                @enderror
-              </div>
-
-              <div class="form-group">
+                <label for="image">Gambar Lembaga</label>
+                <br>
                 @if($berita->image)
-                <div class="mt-2">
-                  <label for="current_image">Gambar saat ini:</label><br>
-                  <img src="{{ asset('images/' . $berita->image) }}" alt="Gambar Berita" width="200" height="250">
-                </div>
+                  <img src="{{ asset('images/' . $berita->image) }}" alt="Gambar Lembaga" width="200" height="200" id="preview_image">
+                @else
+                  <img src="" alt="Gambar Lembaga" style="display: none;" id="preview_image">
                 @endif
-              </div>
-                <label for="image">Gambar</label>
-                <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image">
+                <br><br>
+                <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image" onchange="previewImage('image', 'preview_image')">
                 @error('image')
-                <span class="invalid-feedback">{{ $message }}</span>
+                  <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
+              </div>
             </div>
-            <!-- /.col -->
           </div>
-          <!-- /.row -->
-<br>
+
           <div class="row">
             <div class="col-12 text-right">
-              <button type="submit" class="btn btn-primary mr-5 mb-4">Update</button>
+              <button type="submit" class="btn btn-primary">Update</button>
             </div>
           </div>
         </form>
       </div>
-      <!-- /.card-body -->
       <div class="card-footer">
-        Edit Berita
+        Edit Lembaga
       </div>
     </div>
-    <!-- /.card -->
   </div>
-  <!-- /.container-fluid -->
 </section>
-<!-- /.content -->
 @endsection
 
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+<script>
+  function previewImage(inputId, imageId) {
+    const input = document.getElementById(inputId);
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const preview = document.getElementById(imageId);
+        preview.src = e.target.result;
+        preview.style.display = 'block';
+      }
+      reader.readAsDataURL(input.files[0]);
+    } else {
+      const preview = document.getElementById(imageId);
+      preview.src = '';
+      preview.style.display = 'none';
+    }
+  }
+</script>
 @endpush

@@ -23,10 +23,10 @@
         @endif
         <h3 class="card-header p-3">Data User</h3>
         <div class="card-body">
-            <div class="card-header d-flex align-items-center">
+            <div class="d-flex align-items-center">
                 <h3 class="card-title"></h3>
                 <div class="card-tools ml-auto mr-0">
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addUserModal">
+                    <button type="button" class="btn btn-primary btn-sm mb-4" data-toggle="modal" data-target="#addUserModal">
                         <i class="fas fa-plus mr-1"></i> Tambah Baru
                     </button>
                 </div>
@@ -37,7 +37,7 @@
                         <th>No</th>
                         <th>Nama</th>
                         <th>Email</th>
-                        <th>Role</th>
+                        {{-- <th>Role</th> --}}
                         <th width="200px">Action</th>
                     </tr>
                 </thead>
@@ -73,13 +73,14 @@
                         <label for="password">Password</label>
                         <input type="password" name="password" class="form-control" id="password" required>
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="role">Role</label>
                         <select name="role" class="form-control" id="role" required>
+                            <option value="admin">Admin</option>
                             <option value="super_admin">Super Admin</option>
                             <option value="admin">Admin</option>
                         </select>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -100,10 +101,22 @@ $(function () {
         serverSide: true,
         ajax: "{{ route('user.index') }}",
         columns: [
-            {data: 'id', name: 'id'},
+            // Custom index column
+            {
+                data: null,
+                name: 'index',
+                searchable: false,
+                orderable: false,
+                render: function (data, type, row, meta) {
+                    // Calculate row index
+                    return meta.row + 1;
+                }
+            },
             {data: 'username', name: 'username'},
             {data: 'email', name: 'email'},
-            {data: 'role', name: 'role'},
+            
+
+            // Action buttons column
             {
                 data: 'id',
                 name: 'action',
@@ -115,43 +128,44 @@ $(function () {
                            '<button class="btn btn-danger btn-sm mx-1" onclick="confirmDelete(' + data + ')">Delete</button>';
                 }
             },
-        ]
+         ]
     });
 
+   
     // Function to handle delete confirmation
     window.confirmDelete = function(id) {
         Swal.fire({
             title: 'Apakah Anda Yakin Hapus Data?',
+            text: "Anda tidak akan dapat mengembalikan data ini!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonText: 'Ya, Hapus!',
             cancelButtonText: 'Tidak, Batalkan!',
-            reverseButtons: true,
+            reverseButtons: true
         }).then((result) => {
             if (result.isConfirmed) {
+                // Ajax request for deletion
                 $.ajax({
                     url: '/backoffice/user/' + id,
                     type: 'DELETE',
                     data: {
-                        '_token': '{{ csrf_token() }}',
+                        '_token': '{{ csrf_token() }}'
                     },
-                    success: function () {
+                    success: function(response) {
                         table.ajax.reload(); // Reload DataTable after deletion
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Data berhasil dihapus',
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
+                        Swal.fire(
+                            'Terhapus!',
+                            'Data telah dihapus.',
+                            'success'
+                        );
                     },
-                    error: function (xhr, status, error) {
-                        var err = eval("(" + xhr.responseText + ")");
-                        console.log(err);
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Terjadi Kesalahan',
-                            text: 'Gagal menghapus data.'
-                        });
+                    error: function(xhr) {
+                        Swal.fire(
+                            'Gagal!',
+                            'Terjadi kesalahan saat menghapus data.',
+                            'error'
+                        );
+                        console.error(xhr);
                     }
                 });
             } else if (result.dismiss === Swal.DismissReason.cancel) {

@@ -14,23 +14,49 @@ class BeritaController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            // $kategori_berita = kategori_berita::pluck('nama', 'id');
-            $data = Berita::query();
-
-            
-            return Datatables::of($data)
-                    ->addIndexColumn()
-                    ->addColumn('action', function($row){
-
-                            $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
-
-                            return $btn;
-                    })
-                    ->rawColumns(['action'])
-                    ->make(true);
+            $data = Berita::with('kategori')->latest()->get();
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function($row){
+                    $btn = '<a href="/backoffice/berita/' . $row->id . '" class="btn btn-info btn-sm">Show</a>' .
+                           '<a href="/backoffice/berita/' . $row->id . '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' .
+                           '<form action="/backoffice/berita/' . $row->id . '" method="POST" style="display:inline">' .
+                               csrf_field() .
+                               method_field("DELETE") .
+                               '<button type="submit" class="btn btn-danger btn-sm mx-1">Delete</button>' .
+                           '</form>';
+                    return $btn;
+                })
+                ->addColumn('kategori_id', function($row){
+                    return $row->kategori->nama_kategori;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
         }
         return view('backoffice.berita.index');
     }
+
+    // Tanpa relasi
+    // public function index(Request $request)
+    // {
+    //     if ($request->ajax()) {
+    //         // $kategori_berita = kategori_berita::pluck('nama', 'id');
+    //         $data = Berita::query();
+
+            
+    //         return Datatables::of($data)
+    //                 ->addIndexColumn()
+    //                 ->addColumn('action', function($row){
+
+    //                         $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
+
+    //                         return $btn;
+    //                 })
+    //                 ->rawColumns(['action'])
+    //                 ->make(true);
+    //     }
+    //     return view('backoffice.berita.index');
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -53,7 +79,6 @@ class BeritaController extends Controller
         'judul' => $request->get('judul'),
         'caption_capture' => $request->get('caption_capture'),
         'deskripsi_singkat' => $request->get('deskripsi_singkat'),
-        'deskripsi' => $request->get('deskripsi'),
         'penulis' => $request->get('penulis'),
         'image' => $imageName, 
         'kategori_id' => $request->get('kategori_id'),
@@ -62,7 +87,7 @@ class BeritaController extends Controller
     $berita->save();
 
  
-                     return redirect()->route('backoffice.berita.index')->with([
+                     return redirect()->route('berita.index')->with([
                         'alert-type' => 'success',
                         'message' => 'Data Order Berhasil Ditambahkan!'
                     ]); 
@@ -81,7 +106,11 @@ class BeritaController extends Controller
      */
     public function show(string $id)
     {
-        return view('backoffice.berita.show');
+        $berita = Berita::find($id);
+        if (!$berita) {
+            return redirect()->route('backoffice.berita.index')->with('error', 'Berita tidak ditemukan.');
+        }
+        return view('backoffice.berita.edit', compact('berita'));
         
     }
 
@@ -109,7 +138,7 @@ class BeritaController extends Controller
         // Update data
         $berita->judul = $request->judul;
         $berita->deskripsi_singkat = $request->deskripsi_singkat;
-        $berita->deskripsi = $request->deskripsi;
+        $berita->caption_capture = $request->caption_capture;
 
         // Upload dan simpan gambar jika ada
         if ($request->hasFile('image')) {

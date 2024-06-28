@@ -45,42 +45,56 @@
               </div>
 
               <div class="form-group ml-4">
+                <label for="caption_capture">Caption</label>
+                <input type="text" name="caption_capture" class="form-control @error('caption_capture') is-invalid @enderror" id="caption_capture" placeholder="Deskripsi Singkat" value="{{ $pengumuman->caption_capture }}" required>
+                @error('caption_capture')
+                  <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+              </div>
+
+              <div class="form-group ml-4">
                 <label for="deskripsi_singkat">Deskripsi Singkat</label>
                 <input type="text" name="deskripsi_singkat" class="form-control @error('deskripsi_singkat') is-invalid @enderror" id="deskripsi_singkat" placeholder="Deskripsi Singkat" value="{{ $pengumuman->deskripsi_singkat }}" required>
                 @error('deskripsi_singkat')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
               </div>
-            </div>
 
-            <div class="col-md-6">
+              
+         
+
+            
               <div class="form-group ml-4">
                 <label for="deskripsi">Deskripsi</label>
-                <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" placeholder="Deskripsi" required>{{ $pengumuman->deskripsi }}</textarea>
+                <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="editor2" placeholder="Deskripsi" required>{{ $pengumuman->deskripsi }}</textarea>
                 @error('deskripsi')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
               </div>
-
-              <div class="form-group ml-4">
-                <label for="image">Gambar Pengumuman</label>
-                <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image">
-                @error('image')
+                 </div>
+                 
+          <div class="col-md-6">
+            {{-- image --}}
+            <div class="row">
+            <div class="col-md-6">
+              <label for="slider1">Gambar Pengumuman</label>
+              <div class="form-group">
+                @error('slider1')
                   <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
-
                 @if($pengumuman->image)
                   <div class="mt-2">
-                            <img src="{{ asset('images/' . $pengumuman->image) }}" text="ro" alt="Berita" width="200" height="150">
-
-                    {{-- <img src="/path/to/images/{{ $pengumuman->image }}" alt="Gambar Berita" height="100"> --}}
+                    <img src="{{ asset('images/' . $pengumuman->image) }}" alt="Gambar Slider 1" width="300" height="440" id="preview_slider1">
                   </div>
                 @endif
+                
+                <br>
+                <p>masukan Gambar</p>
+                <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image" onchange="previewImage('image', 'preview_slider1')">
               </div>
             </div>
-            <!-- /.col -->
-          </div>
-          <!-- /.row -->
+
+          {{-- end --}}
 
           <div class="row">
             <div class="col-12 text-right">
@@ -90,13 +104,23 @@
         </form>
       </div>
       <!-- /.card-body -->
-      <div class="card-footer">
-        Edit Pengumuman
-      </div>
+     
     </div>
     <!-- /.card -->
   </div>
   <!-- /.container-fluid -->
+  <script>
+  function previewImage(inputId, imageId) {
+    const input = document.getElementById(inputId);
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        document.getElementById(imageId).src = e.target.result;
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+</script>
 </section>
 <!-- /.content -->
 

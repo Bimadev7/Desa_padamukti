@@ -23,10 +23,10 @@
         @endif
         <h3 class="card-header p-3">Data Berita</h3>
         <div class="card-body">
-            <div class="card-header d-flex align-items-center">
+            <div class="d-flex align-items-center">
                 <h3 class="card-title"></h3>
                 <div class="card-tools ml-auto mr-0">
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addUserModal">
+                    <button type="button" class="btn btn-primary btn-sm mb-4" data-toggle="modal" data-target="#addUserModal">
                         <i class="fas fa-plus mr-1"></i> Tambah Baru
                     </button>
                 </div>
@@ -36,9 +36,9 @@
                     <tr>
                         <th>No</th>
                         <th>Judul</th>
-                        <th>caption_capture</th>
+                        <th>Caption Capture</th>
                         <th>Deskripsi</th>
-                        <th>Kategori_berita</th>
+                        {{-- <th>Kategori Berita</th> --}}
                         <th width="200px">Action</th>
                     </tr>
                 </thead>
@@ -54,12 +54,12 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="addUserModalLabel">Tambah User Baru</h5>
+                <h5 class="modal-title" id="addUserModalLabel">Tambah Berita Baru</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-        <form action="{{ route('berita.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('demografidesa.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="modal-body">
         <div class="form-group">
@@ -76,7 +76,7 @@
         </div>
         <div class="form-group">
             <label for="deskripsi">Deskripsi</label>
-            <input type="text" name="deskripsi" class="form-control" id="deskripsi" required>
+            <input type="text" name="deskripsi" class="form-control" id="editor" required>
         </div>
 
            <div class="form-group">
@@ -118,9 +118,13 @@ $(function () {
             {data: 'id', name: 'id'},
             {data: 'judul', name: 'judul'},
             {data: 'caption_capture', name: 'caption_capture'},
-            {data: 'deskripsi', name: 'deskripsi'},
-            {data: 'kategori_id', name: 'kategori_id'},
-          
+            {data: 'deskripsi_singkat', name: 'deskripsi_singkat'},
+            //Buat ngambil relasi ke kategori
+            {{-- {data: 'kategori_id', name: 'kategori_id', render: function(data, type, full, meta) {
+                return full.kategori.nama_kategori; // Menampilkan nama_kategori dari relasi
+            }}, --}}
+
+            //Buat nampilin image
             {{-- {data: 'image', name: 'image',
                     render: function(data, type, full, meta) {
                         return '<img src="/images/' + data + '" style="max-width: 100px">';

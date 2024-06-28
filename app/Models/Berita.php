@@ -11,14 +11,12 @@ class Berita extends Model
 
     use HasFactory;
     protected $table = 'berita';
-
     protected $fillable = [
         'id',
         'judul',
         'image',
-        'caption_capture',
+        'caption_capture',  
         'deskripsi_singkat',
-        'deskripsi',
         'penulis',
         'kategori_id'
     ];
