@@ -87,7 +87,7 @@ class BeritaController extends Controller
     $berita->save();
 
  
-                     return redirect()->route('backoffice.berita.index')->with([
+                     return redirect()->route('berita.index')->with([
                         'alert-type' => 'success',
                         'message' => 'Data Order Berhasil Ditambahkan!'
                     ]); 

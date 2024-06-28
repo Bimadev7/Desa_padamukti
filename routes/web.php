@@ -43,8 +43,8 @@ Route::get('/backoffice/profildesa', 'ProfilDesaController@index')->name('profil
 Route::delete('/backoffice/pengumuman/{id}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
 
 // Berita
-Route::get('/public/berita', [DasboardPublicController::class, 'indexBerita'])->name('berita-desa');
-Route::get('/public/berita/{id}', [DasboardPublicController::class, 'detailBerita'])->name('berita.detailBerita');
+// Route::get('/public/berita', [DasboardPublicController::class, 'indexBerita'])->name('berita-desa');
+// Route::get('/public/berita/{id}', [DasboardPublicController::class, 'detailBerita'])->name('berita.detailBerita');
 
 // Route Public createn 
 // Route::get('/backoffice/users', [UserController::class, 'index'])->name('backoffice.user.index');
@@ -57,7 +57,7 @@ Route::prefix('backoffice')->group(function () {
 Route::get('/', [DasboardPublicController::class, 'indexdes']);
 
 // Route untuk Berita Barang Simpen data
-Route::post('/berita', [BeritaController::class, 'store'])->name('berita.store');
+// Route::post('/berita', [BeritaController::class, 'store'])->name('berita.store');
 
 // Route menampilkan data view
 Route::get('/public/index', [DasboardController::class, 'index']);
@@ -101,22 +101,23 @@ Route::middleware(['isAdmin'])->group(function () {
 
 
     // Route Berita
-    Route::prefix('backoffice/berita')->group(function () {
-        Route::get('/', [BeritaController::class, 'index'])->name('backoffice.berita.index');
-        Route::post('/create', [BeritaController::class, 'create'])->name('backoffice.berita.create');
-        Route::get('/edit', [BeritaController::class, 'edit'])->name('backoffice.berita.edit');
-        Route::put('/{id}', [BeritaController::class, 'update'])->name('berita.update');
-        Route::post('/berita', [BeritaController::class, 'store'])->name('backoffice.berita.store');
-        Route::get('/berita', [BeritaController::class, 'index'])->name('backoffice.berita.index');
+    // Route::prefix('backoffice/berita')->group(function () {
+    //     Route::get('/', [BeritaController::class, 'index'])->name('backoffice.berita.index');
+    //     Route::post('/create', [BeritaController::class, 'create'])->name('backoffice.berita.create');
+    //     Route::get('/edit', [BeritaController::class, 'edit'])->name('backoffice.berita.edit');
+    //     Route::put('/{id}', [BeritaController::class, 'update'])->name('berita.update');
+    //     Route::post('/berita', [BeritaController::class, 'store'])->name('backoffice.berita.store');
+    //     Route::get('/berita', [BeritaController::class, 'index'])->name('backoffice.berita.index');
 
 
-    });
+    // });
 
 
     // CRUD User
     Route::resource('/backoffice/user', UserController::class);
 
     // CRUD Berita
+    // Route::resource('/backoffice/berita', BeritaController::class);
     Route::resource('/backoffice/berita', BeritaController::class);
     Route::resource('/backoffice/pengumuman', PengumumanController::class);
     Route::resource('/backoffice/demografi_desa', Demografi_desaControllers::class);
