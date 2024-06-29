@@ -62,6 +62,36 @@ class ProfilDesaVisiController extends Controller
         return view('backoffice.profildesa_visi.index', compact('profildesa_visi'));
     }
 
+    public function index_visi(){
+
+        $profildesa_visi = ProfilDesa::all(); // Ambil semua data dari model
+        return view('backoffice.profildesa_visi.index_visi', compact('profildesa_visi'));
+    }
+
+    public function index_misi(){
+
+        $profildesa_visi = ProfilDesa::all(); // Ambil semua data dari model
+        return view('backoffice.profildesa_visi.index_misi', compact('profildesa_visi'));
+    }
+
+    public function index_sejarah_desa(){
+
+        $profildesa_visi = ProfilDesa::all(); // Ambil semua data dari model
+        return view('backoffice.profildesa_visi.index_sejarah_desa', compact('profildesa_visi'));
+    }
+
+    public function geografis(){
+
+        $profildesa_visi = ProfilDesa::all(); // Ambil semua data dari model
+        return view('backoffice.profildesa_visi.geografis', compact('profildesa_visi'));
+    }
+
+
+    public function tentang_desa(){
+
+        $profildesa_visi = ProfilDesa::all(); // Ambil semua data dari model
+        return view('backoffice.profildesa_visi.tentang_desa', compact('profildesa_visi'));
+    }
     
     // public function index()
     // {

@@ -2,12 +2,21 @@
 
 @section('content')
 
-<div class="row justify-content-center">
-    <div class="col-md-8">
-        <div class="card card-default">
-            <div class="card-header">
-                <h3 class="card-title">Details Slider</h3>
-            </div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card mt-5">
+                <div class="card-header">
+                    <h3 class="card-title">Detail Gambar</h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
             <div class="card-body">
                 <div class="form-group text-center">
                     <label for="image">Gambar</label><br>

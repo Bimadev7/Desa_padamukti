@@ -110,6 +110,15 @@
                 @endforeach
             </ul>
         </div>
+            {{-- <div class="sidebar">
+            <ul>
+                <li><a href="#content" data-content="struktur-organisasi">Struktur Organisasi</a></li>
+                @foreach($sliders as $slider)
+                    <li><a href="#" data-content="{{ $slider->id }}">{{ $slider->slider1 }}</a></li>
+                @endforeach
+            </ul>
+        </div> --}}
+
         <div class="content" id="content">
             <h3>Struktur Desa</h3>
             <p>Selamat datang di menu struktur desa! Di sini, Anda dapat mengeksplorasi informasi mendetail tentang bagaimana Desa Padamukti diatur dan berkembang. Mulai dari pemerintahan desa yang bertanggung jawab mengelola kebijakan dan menyediakan layanan publik yang berkualitas.</p>

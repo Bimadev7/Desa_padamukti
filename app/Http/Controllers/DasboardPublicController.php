@@ -233,10 +233,11 @@ class DasboardPublicController extends Controller
         // $ketua = StrukturOrganisasi::where('jabatan', 'Kepala Desa')->first();
         // $sekretaris = StrukturOrganisasi::where('jabatan', 'Sekretaris Desa')->first();
         $jabatans = StrukturOrganisasi::all();
+        // $sliders = Slider::all();
 
         return view('public.struktur', [
-            'jabatans' => $jabatans
-            // 'ketua' => $ketua,
+            'jabatans' => $jabatans,
+            // 'sliders' => $sliders,
             // 'sekretaris' => $sekretaris
         ]);
     }
