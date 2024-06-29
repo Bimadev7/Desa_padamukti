@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('lembaga_desa', function (Blueprint $table) {
             $table->id();
+            $table->string('image');
             $table->string('nama_lembaga');
             $table->text('alamat');
             $table->longText('deskripsi_profil');

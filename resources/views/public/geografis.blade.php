@@ -1,16 +1,14 @@
 @extends('layouts.mainPublic')
 
-
 @section('title', 'Geografis Desa')
 
 @section('content')
 <!-- Breadcrumbs -->
 <section id="breadcrumbs" class="breadcrumbs">
     <div class="container">
-        <div class="d-flex justify-content-between align-items-center">
-            <h2>Geografis Desa</h2>
+        <div class="d-flex align-items-center">
             <ol>
-                <li><a href="/">Home</a></li>
+                <li><a href="/"><i class="bi bi-house-door-fill"></i></a></li>
                 <li>Geografis Desa</li>
             </ol>
         </div>
@@ -18,44 +16,41 @@
 </section>
 
 <div class="container">
-    <article class="blog-post">
-        <h2 class="display-5 link-body-emphasis mb-4 text-center">Geografis Desa</h2>
-        <p>This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, lists, tables, images, code, and more are all supported as expected.</p>
-        <hr>
-        <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
-        
-        <h2 class="mt-5">Blockquotes</h2>
-        <p>This is an example blockquote in action:</p>
-        <blockquote class="blockquote">
-            <p>Quoted text goes here.</p>
-        </blockquote>
-        
-        <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
-        
-        <h3 class="mt-5">Example lists</h3>
-        <p>This is some additional paragraph placeholder content. It's a slightly shorter version of the other highly repetitive body of text used throughout. This is an example unordered list:</p>
-        <ul>
-            <li>First list item</li>
-            <li>Second list item with a longer description</li>
-            <li>Third list item to close it out</li>
-        </ul>
-        
-        <p>And this is an ordered list:</p>
-        <ol>
-            <li>First list item</li>
-            <li>Second list item with a longer description</li>
-            <li>Third list item to close it out</li>
-        </ol>
-        
-        <p>And this is a definition list:</p>
-        <dl>
-            <dt>HyperText Markup Language (HTML)</dt>
-            <dd>The language used to describe and define the content of a Web page</dd>
-            <dt>Cascading Style Sheets (CSS)</dt>
-            <dd>Used to describe the appearance of Web content</dd>
-            <dt>JavaScript (JS)</dt>
-            <dd>The programming language used to build advanced Web sites and applications</dd>
-        </dl>
-    </article>
+    <div class="row">
+        <div class="col-md-6">
+            <article class="blog-post">
+                <h4 class="mb-4" style="color: #5cb874"><strong>Geografis Desa Padamukti</strong></h4>
+                {{-- <h2 class="display-5 link-body-emphasis mb-7 text-center">Informasi Geografis Desa Padamukti</h2> --}}
+                <p><strong>Lokasi Geografis:</strong></p>
+                <ul>
+                    <li><strong>Koordinat:</strong>-7.24472830646825, 107.8169834044204</li>
+                    <li><strong>Topografi:</strong> Dataran Tinggi</li>
+                    <li><strong>Ketinggian:</strong> 967 mdpl</li>
+                    <li><strong>Administrasi:</strong></li>
+                    <ul>
+                        <li><strong>Kecamatan:</strong> Pasirwangi</li>
+                        <li><strong>Kabupaten:</strong> Garut</li>
+                        <li><strong>Provinsi:</strong> Jawa Barat</li>
+                    </ul>
+
+                    <li><strong>Potensi dan Industri:</strong></li>
+                    <ul>
+                        <li><strong>Pertanian:</strong> Sawah, kebun sayuran (mentimun, tomat, ubi jalar, singkong)</li>
+                        {{-- <li><strong>Industri:</strong> Home Industri (pengrajin kerudung, pengrajin ciput)</li>
+                        <li><strong>Pariwisata:</strong> Villa Kancil</li> --}}
+                    </ul>
+
+                </ul>
+            </article>
+        </div>
+        <div class="col-md-6">
+            <article class="blog-post">
+                {{-- <h2 class="display-5 link-body-emphasis mb-4 text-center">Peta Lokasi Desa Padamukti</h2> --}}
+                <div class="info w-100">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15832.109101662118!2d107.80800175113826!3d-7.237728148650926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68bad158ba1a2d%3A0xe5259a25a206e508!2sPadamukti%2C%20Sukaresmi%2C%20Garut%20Regency%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1719412487022!5m2!1sen!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>            </div>
+              </div>
+            </article>
+        </div>
+    </div>
 </div>
 @endsection

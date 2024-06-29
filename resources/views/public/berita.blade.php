@@ -3,14 +3,12 @@
 @section('title', 'Berita Desa')
 
 @section('content')
-
 <!-- Breadcrumbs -->
-<section id="breadcrumbs" class="breadcrumbs">
+<section id="breadcrumbs" class="breadcrumbs mb-4">
     <div class="container">
-        <div class="d-flex justify-content-between align-items-center">
-            <h2>Berita Desa</h2>
+        <div class="d-flex align-items-center">
             <ol>
-                <li><a href="/">Home</a></li>
+                <li><a href="/"><i class="bi bi-house-door-fill"></i></a></li>
                 <li>Berita Desa</li>
             </ol>
         </div>
@@ -36,7 +34,9 @@
                             </a>
                         </div>
                         <div class="col-auto d-none d-lg-block">
-                            <img src="{{ asset($item->image) }}" alt="Berita" width="200" height="250">
+
+                            {{-- <img src="{{ asset($item->image) }}" alt="Berita" width="200" height="250"> --}}
+                            <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="250" height="250">
 
                         </div>
                     </div>
@@ -47,23 +47,25 @@
 
         <div class="col-md-4">
             <!-- Sidebar Section -->
-            <div class="position-sticky" style="top: 2rem;">
+            <div class="position-sticky" style="top: 4rem;">
                 <!-- Categories Section -->
-                <div class="p-4 mb-3 bg-light rounded">
-                    <h4 class="fst-italic">Kategori</h4>
-                    <ul class="mb-0">
+                <div class="p-4 mb-2 bg-light rounded">
+                    <h4 class="fst-italic">Berita Kategori</h4>
+                    <ul class="mb-2 ">
+
                         <li><a href="#">Berita Desa</a></li>
                         <li><a href="#">Berita Kementrian</a></li>
                         <li><a href="#">Berita Pemerintahan Kabupaten</a></li>
                         <li><a href="#">Berita Pemerintahan Provinsi</a></li>
                         {{-- <li><a href="#">Info Pemerintahan Provinsi</a></li> --}}
+
                     </ul>
                 </div>
-               <div class="p-4">
+                <div class="p-4">
                     <h4 class="fst-italic">Berita Terakhir</h4>
                     <ol class="list-unstyled mb-0">
-                        @foreach($news as $item)
-                        <li><a href="#">{{ $item->judul }}</a></li>
+                        @foreach($news as $new)
+                        <li class="bg-light rounded mt-2 p-3"><a href="{{ route('berita.detailBerita', $new->id) }}">{{ $new->judul }}</a></li>
                         @endforeach
                     </ol>
                 </div>

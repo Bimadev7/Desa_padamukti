@@ -11,18 +11,22 @@ class Berita extends Model
 
     use HasFactory;
     protected $table = 'berita';
-
     protected $fillable = [
         'id',
         'judul',
-        'deskripsi_singkat',
-        'deskripsi',
         'image',
-        'category_id'
+        'caption_capture',  
+        'deskripsi_singkat',
+        'penulis',
+        'kategori_id'
     ];
 
+    // public function kategori()
+    // {
+    //     return $this->belongsTo(KategoriBerita::class);
+    // }
     public function kategori()
     {
-        return $this->belongsTo(KategoriBerita::class);
+        return $this->belongsTo(KategoriBerita::class, 'kategori_id', 'id');
     }
 }

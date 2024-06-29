@@ -1,16 +1,14 @@
 @extends('layouts.mainPublic')
 
-
 @section('title', 'Struktur Desa')
 
 @section('content')
 <!-- Breadcrumbs -->
-<section id="breadcrumbs" class="breadcrumbs">
+<section id="breadcrumbs" class="breadcrumbs mb-4">
     <div class="container">
-        <div class="d-flex justify-content-between align-items-center">
-            <h2>Struktur Desa</h2>
+        <div class="d-flex align-items-center">
             <ol>
-                <li><a href="/">Home</a></li>
+                <li><a href="/"><i class="bi bi-house-door-fill"></i></a></li>
                 <li>Struktur Desa</li>
             </ol>
         </div>
@@ -24,12 +22,14 @@
     }
     .sidebar {
         width: 250px;
-        background-color: #f0f0f0;
+        background-color: #FFFFFF;
         padding: 10px;
+        box-sizing: border-box; /* Memastikan padding tidak menambah lebar elemen */
     }
     .sidebar ul {
         list-style-type: none;
         padding: 0;
+        margin: 0; /* Menghilangkan margin default */
     }
     .sidebar ul li {
         padding: 10px;
@@ -39,33 +39,89 @@
         text-decoration: none;
         color: black;
     }
+    .sidebar ul li a.active {
+        color: green; /* Warna hijau untuk link aktif */
+        font-weight: bold; /* Menebalkan teks link aktif */
+    }
     .content {
         flex-grow: 1;
         padding: 20px;
+        font-family: Arial, sans-serif;
+    }
+    .title {
+        font-size: 24px;
+        font-weight: bold;
+        color: #2c3e50;
+    }
+    .profile-card {
+        margin-top: 15px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        width: 200px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .profile-card img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .profile-card .name {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .profile-card .position {
+        font-size: 15px;
+        color: #555;
+        margin-top: 5px;
+    }
+
+    /* Media query untuk layar kecil (misalnya, smartphone) */
+    @media (max-width: 768px) {
+        .layout {
+            flex-direction: column; /* Mengubah orientasi layout menjadi vertikal */
+        }
+        .sidebar {
+            width: 100%; /* Mengisi seluruh lebar ketika di layar kecil */
+            margin-bottom: 20px; /* Memberi jarak antara sidebar dan content */
+        }
+        .content {
+            width: calc(100% - 10px); /* Mengatur lebar content agar tetap di sebelah kanan sidebar */
+            margin-left: 40px; /* Memberi margin agar tidak menempel langsung dengan sidebar */
+        }
+        .profile-card {
+            width: 100%; /* Mengisi seluruh lebar ketika di layar kecil */
+            margin-top: 10px;
+        }
     }
 </style>
+
 
 <div class="container">
     <div class="layout">
         <div class="sidebar">
             <ul>
-                <li><a href="#" data-content="struktur-organisasi">Struktur Organisasi</a></li>
-                <li><a href="#" data-content="kepala-desa">Kepala Desa</a></li>
-                <li><a href="#" data-content="sekretaris-desa">Sekretaris Desa</a></li>
-                <li><a href="#" data-content="kaur-pemerintahan">Kaur Pemerintahan</a></li>
-                <li><a href="#" data-content="kaur-pembangunan">Kaur Pembangunan</a></li>
-                <li><a href="#" data-content="kaur-pemberdayaan-masyarakat">Kaur Pemberdayaan Masyarakat</a></li>
-                <li><a href="#" data-content="kaur-kesejahteraan-rakyat">Kaur Kesejahteraan Rakyat</a></li>
-                <li><a href="#" data-content="kaur-umum">Kaur Umum</a></li>
-                <li><a href="#" data-content="kaur-keuangan">Kaur Keuangan</a></li>
-                <li><a href="#" data-content="ketua-karang-taruna">Ketua Karang Taruna</a></li>
-                <li><a href="#" data-content="pranata-komputer">Pranata Komputer</a></li>
-                <li><a href="#" data-content="badan-permusyawaratan-desa">Badan Permusyawaratan Desa</a></li>
+                <li><a href="#content" data-content="struktur-organisasi">Struktur Organisasi</a></li>
+                @foreach($jabatans as $jabatan)
+                    <li><a href="#" data-content="{{ $jabatan->id }}">{{ $jabatan->jabatan }}</a></li>
+                @endforeach
             </ul>
         </div>
+            {{-- <div class="sidebar">
+            <ul>
+                <li><a href="#content" data-content="struktur-organisasi">Struktur Organisasi</a></li>
+                @foreach($sliders as $slider)
+                    <li><a href="#" data-content="{{ $slider->id }}">{{ $slider->slider1 }}</a></li>
+                @endforeach
+            </ul>
+        </div> --}}
+
         <div class="content" id="content">
             <h3>Struktur Desa</h3>
-            <p>Content related to Struktur Desa will be displayed here.</p>
+            <p>Selamat datang di menu struktur desa! Di sini, Anda dapat mengeksplorasi informasi mendetail tentang bagaimana Desa Padamukti diatur dan berkembang. Mulai dari pemerintahan desa yang bertanggung jawab mengelola kebijakan dan menyediakan layanan publik yang berkualitas.</p>
         </div>
     </div>
 </div>
@@ -75,60 +131,105 @@
         const links = document.querySelectorAll('.sidebar ul li a');
         const content = document.getElementById('content');
 
+        function activateLink(link) {
+            links.forEach(link => link.classList.remove('active'));
+            link.classList.add('active');
+        }
+
         links.forEach(link => {
             link.addEventListener('click', function(event) {
                 event.preventDefault();
+                activateLink(this);
+                
                 const contentId = this.getAttribute('data-content');
-                loadContent(contentId);
+                if (contentId === 'struktur-organisasi') {
+                    // Load default content for Struktur Organisasi
+                    content.innerHTML = `
+                        <h3>Struktur Desa</h3>
+                        <p>Selamat datang di menu struktur desa! Di sini, Anda dapat mengeksplorasi informasi mendetail tentang bagaimana Desa Padamukti diatur dan berkembang. Mulai dari pemerintahan desa yang bertanggung jawab mengelola kebijakan dan menyediakan layanan publik yang berkualitas.</p>
+                    `;
+                } else {
+                    loadContent(contentId);
+                }
             });
         });
 
-        function loadContent(contentId) {
-            let contentHtml = '';
+        function loadContent(id) {
+            fetch(`/public/struktur-desa/${id}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data) {
+                        let contentHtml = `
+                        <div class="container py-3">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h2 class="font-weight-bold">${data.jabatan}</h2>
+                                    <div class="divider divider-primary divider-small divider-small-center mb-3">
+                                        <hr>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <img src="{{ asset('images/${data.image}') }}" class="img-fluid" alt="${data.jabatan}">
+                                        </div>
+                                        <div class="col-md-9">
+                                            <table class="table table-borderless">
+                                                <tr>
+                                                    <th>Jabatan</th>
+                                                    <td>:</td>
+                                                    <td>${data.jabatan}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Nama Pejabat</th>
+                                                    <td>:</td>
+                                                    <td>${data.nama_pejabat}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>NIPD</th>
+                                                    <td>:</td>
+                                                    <td>${data.nip}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="divider divider-style-4 divider-primary divider-medium mt-4">
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-            switch(contentId) {
-                case 'struktur-organisasi':
-                    contentHtml = '<h3>Struktur Organisasi</h3><p>Content for Struktur Organisasi.</p>';
-                    break;
-                case 'kepala-desa':
-                    contentHtml = '<h3>Kepala Desa</h3><p>Content for Kepala Desa.</p>';
-                    break;
-                case 'sekretaris-desa':
-                    contentHtml = '<h3>Sekretaris Desa</h3><p>Content for Sekretaris Desa.</p>';
-                    break;
-                case 'kaur-pemerintahan':
-                    contentHtml = '<h3>Kaur Pemerintahan</h3><p>Content for Kaur Pemerintahan.</p>';
-                    break;
-                case 'kaur-pembangunan':
-                    contentHtml = '<h3>Kaur Pembangunan</h3><p>Content for Kaur Pembangunan.</p>';
-                    break;
-                case 'kaur-pemberdayaan-masyarakat':
-                    contentHtml = '<h3>Kaur Pemberdayaan Masyarakat</h3><p>Content for Kaur Pemberdayaan Masyarakat.</p>';
-                    break;
-                case 'kaur-kesejahteraan-rakyat':
-                    contentHtml = '<h3>Kaur Kesejahteraan Rakyat</h3><p>Content for Kaur Kesejahteraan Rakyat.</p>';
-                    break;
-                case 'kaur-umum':
-                    contentHtml = '<h3>Kaur Umum</h3><p>Content for Kaur Umum.</p>';
-                    break;
-                case 'kaur-keuangan':
-                    contentHtml = '<h3>Kaur Keuangan</h3><p>Content for Kaur Keuangan.</p>';
-                    break;
-                case 'ketua-karang-taruna':
-                    contentHtml = '<h3>Ketua Karang Taruna</h3><p>Content for Ketua Karang Taruna.</p>';
-                    break;
-                case 'pranata-komputer':
-                    contentHtml = '<h3>Pranata Komputer</h3><p>Content for Pranata Komputer.</p>';
-                    break;
-                case 'badan-permusyawaratan-desa':
-                    contentHtml = '<h3>Badan Permusyawaratan Desa</h3><p>Content for Badan Permusyawaratan Desa.</p>';
-                    break;
-                default:
-                    contentHtml = '<h3>Struktur Desa</h3><p>Content related to Struktur Desa will be displayed here.</p>';
-            }
+                        <div class="container py-3">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h2 class="font-weight-bold">Tugas Pokok ${data.jabatan}</h2>
+                                    <div class="divider divider-primary divider-small divider-small-center mb-3">
+                                        <hr>
+                                    </div>
+                                    <p class="lead text-justify">
+                                        ${data.deskripsi}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>`;
+                        content.innerHTML = contentHtml;
+                    } else {
+                        content.innerHTML = '<p>Data tidak ditemukan.</p>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    content.innerHTML = '<p>Terjadi kesalahan saat mengambil data.</p>';
+                });
+        }
 
-            content.innerHTML = contentHtml;
+        // Activate the "Struktur Organisasi" link by default
+        const defaultLink = document.querySelector('.sidebar ul li a[data-content="struktur-organisasi"]');
+        if (defaultLink) {
+            activateLink(defaultLink);
         }
     });
 </script>
+
+
+
 @endsection

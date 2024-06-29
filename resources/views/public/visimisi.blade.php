@@ -3,14 +3,32 @@
 @section('title', 'Visi & Misi')
 
 @section('content')
+<style>
+    dt {
+        text-align: center; /* Menengahkan teks di dalam elemen <dt> */
+        font-size: 2rem; /* Ubah ukuran font menjadi lebih besar */
+        font-weight: bold; /* Berikan tebal pada teks */
+        margin-bottom: 10px; /* Berikan margin di bawah teks */
+        position: relative; /* Atur posisi relatif untuk menempatkan garis bawah */
+    }
+
+    dt::after {
+        content: ''; /* Tambahkan konten kosong */
+        position: absolute; /* Atur posisi absolut untuk garis bawah */
+        bottom: -5px; /* Geser garis bawah ke bawah sejauh 5px */
+        left: 50%; /* Tempatkan garis bawah di tengah */
+        transform: translateX(-50%); /* Geser ke kiri sebesar 50% dari lebar elemen <dt> */
+        width: 50px; /* Lebar garis bawah */
+        border-bottom: 2px solid #000; /* Tambahkan garis bawah dengan ketebalan 2px dan warna hitam */
+    }
+</style>
 <!-- Breadcrumbs -->
 <section id="breadcrumbs" class="breadcrumbs">
     <div class="container">
-        <div class="d-flex justify-content-between align-items-center">
-            <h2>Visi & Misi</h2>
+        <div class="d-flex align-items-center">
             <ol>
-                <li><a href="/">Home</a></li>
-                <li>Visi & Misi</li>
+                <li><a href="/"><i class="bi bi-house-door-fill"></i></a></li>
+                <li>Visi dan Misi Desa</li>
             </ol>
         </div>
     </div>
@@ -18,42 +36,15 @@
 
 <div class="container">
     <article class="blog-post">
-        <h2 class="display-5 link-body-emphasis mb-4 text-center">Visi Misi Desa</h2>
-        <p>Menu Visi Misi Desa, adalah menu yang berisi informasi terkait VISI MISI Desa yang tertuang dalam RPJMDES yang merupakan  arah pembangunan desa selama kepala desa menjabat atau 6 tahun kedepan.</p>
-        <hr>
-        <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
-        
-        <h2 class="mt-5">Blockquotes</h2>
-        <p>This is an example blockquote in action:</p>
-        <blockquote class="blockquote">
-            <p>Quoted text goes here.</p>
-        </blockquote>
-        
-        <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
-        
-        <h3 class="mt-5">Example lists</h3>
-        <p>This is some additional paragraph placeholder content. It's a slightly shorter version of the other highly repetitive body of text used throughout. This is an example unordered list:</p>
-        <ul>
-            <li>First list item</li>
-            <li>Second list item with a longer description</li>
-            <li>Third list item to close it out</li>
-        </ul>
-        
-        <p>And this is an ordered list:</p>
-        <ol>
-            <li>First list item</li>
-            <li>Second list item with a longer description</li>
-            <li>Third list item to close it out</li>
-        </ol>
-        
-        <p>And this is a definition list:</p>
+        <h4 class="mb-4" style="color: #5cb874"><strong>Visi Misi Desa</strong></h4>
+        <br>
         <dl>
-            <dt>HyperText Markup Language (HTML)</dt>
-            <dd>The language used to describe and define the content of a Web page</dd>
-            <dt>Cascading Style Sheets (CSS)</dt>
-            <dd>Used to describe the appearance of Web content</dd>
-            <dt>JavaScript (JS)</dt>
-            <dd>The programming language used to build advanced Web sites and applications</dd>
+            <h4>Visi</h4>
+            <dd>{!! $visi !!}</dd>
+            <br>
+
+            <h4>Misi</h4>
+            <dd>{!! $misi !!}</dd>
         </dl>
     </article>
 </div>

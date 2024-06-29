@@ -42,9 +42,27 @@ class PengumumanController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request){
+           // Simpan gambar ke direktori yang ditentukan
+    $imageName = time().'.'.$request->image->extension();  
+    $request->image->move(public_path('images'), $imageName);
+
+    // Simpan data ke database
+    $pengumuman = new Pengumuman([
+        'judul' => $request->get('judul'),
+        'caption_capture' => $request->get('caption_capture'),
+        'deskripsi_singkat' => $request->get('deskripsi_singkat'),
+        'deskripsi' => $request->get('deskripsi'),
+        'penulis' => $request->get('penulis'),
+        'image' => $imageName, // simpan nama file gambar ke dalam kolom 'image'
+    ]);
+    $pengumuman->save();
+
+ 
+                     return redirect()->route('backoffice.pengumuman.index')->with([
+                        'alert-type' => 'success',
+                        'message' => 'Data Order Berhasil Ditambahkan!'
+                    ]); 
     }
 
     /**
@@ -52,7 +70,10 @@ class PengumumanController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $pengumuman = Pengumuman::findOrFail($id);
+            return view('backoffice.pengumuman.show')->with(compact('pengumuman'));
+        
+        
     }
 
     /**
@@ -60,11 +81,8 @@ class PengumumanController extends Controller
      */
     public function edit(string $id)
     {
-        $pengumuman = Pengumuman::find($id);
-        if (!$pengumuman) {
-            return redirect()->route('backoffice.pengumuman.index')->with('error', 'Berita tidak ditemukan.');
-        }
-        return view('backoffice.pengumuman.edit', compact('pengumuman'));
+        $pengumuman = Pengumuman::findOrFail($id);
+        return view('backoffice.pengumuman.edit')->with(compact('pengumuman'));
     }
 
     /**
@@ -72,26 +90,28 @@ class PengumumanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = DataModel::findOrFail($id);
+        // $data = DataModel::findOrFail($id);
+        $pengumuman = Pengumuman::findOrFail($id);
 
         // Update data
-        $data->judul = $request->judul;
-        $data->deskripsi_singkat = $request->deskripsi_singkat;
-        $data->deskripsi = $request->deskripsi;
+        $pengumuman->judul = $request->judul;
+        $pengumuman->deskripsi_singkat = $request->deskripsi_singkat;
+        $pengumuman->deskripsi = $request->deskripsi;
 
         // Upload dan simpan gambar jika ada
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $filename = time() . '_' . $image->getClientOriginalName();
-            $image->storeAs('public/images', $filename); // Simpan gambar ke storage
-            $data->image = $filename; // Simpan nama file gambar ke kolom 'image' dalam database
+            // $image->storeAs('public/images', $filename); // Simpan gambar ke storage
+            $image->move('images/', $filename); // Simpan gambar ke storage
+            $pengumuman->image = $filename; // Simpan nama file gambar ke kolom 'image' dalam database
         }
 
         // Simpan perubahan data
-        $data->save();
+        $pengumuman->save();
 
         // Redirect dengan pesan sukses
-        return redirect()->route('route.name')->with([
+        return redirect()->route('backoffice.pengumuman.index')->with([
             'alert-type' => 'success',
             'message' => 'Data berhasil diperbarui.'
         ]);
@@ -102,6 +122,13 @@ class PengumumanController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $pengumuman = Pengumuman::findOrFail($id);
+            $pengumuman->delete();
+
+            return response()->json(['message' => 'User berhasil dihapus.'], 200);
+             } catch (\Exception $e) {
+            return response()->json(['message' => 'Gagal menghapus user. ' . $e->getMessage()], 500);
+        }
     }
 }
