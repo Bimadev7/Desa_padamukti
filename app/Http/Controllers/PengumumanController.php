@@ -42,8 +42,7 @@ class PengumumanController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request){
            // Simpan gambar ke direktori yang ditentukan
     $imageName = time().'.'.$request->image->extension();  
     $request->image->move(public_path('images'), $imageName);

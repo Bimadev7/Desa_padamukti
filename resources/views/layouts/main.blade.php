@@ -80,19 +80,36 @@
 </div>
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+  {{-- <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      {{-- <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li> --}}
-    </ul>
+    </ul> --}}
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Fixed</title>
+    <style>
+        .main-header {
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            top: 0;
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            </li>
+        </ul>
+    </nav>
 
   
     <!-- Right navbar links -->
@@ -154,34 +171,47 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         
         <li class="nav-item dropdown">
-  {{-- <a href="#" class="nav-link active">
+  <a href="#" class="nav-link active">
     <i class="nav-icon fas fa-tachometer-alt"></i>
     <p>
       Profil Desa
       <i class="right fas fa-angle-left"></i>
     </p>
-  </a> --}}
+  </a>
   <ul class="nav nav-treeview">
     <li class="nav-item">
       {{-- <a href="./index.html" class="nav-link active"> --}}
-     <a href="/backoffice/profildesa_visi" class="nav-link active">
-
+     <a href="/backoffice/profildesa_visi/index_visi" class="nav-link active">
         <i class="far fa-circle nav-icon"></i>
         <p>Visi</p>
       </a>
     </li>
-    {{-- <li class="nav-item">
-      <a href="./index2.html" class="nav-link">
+     <li class="nav-item">
+      <a href="/backoffice/profildesa_visi/index_misi" class="nav-link">
         <i class="far fa-circle nav-icon"></i>
         <p>Misi</p>
       </a>
     </li>
-    <li class="nav-item">
-      <a href="./index3.html" class="nav-link">
+      <li class="nav-item">
+      <a href="/backoffice/profildesa_visi/geografis" class="nav-link">
         <i class="far fa-circle nav-icon"></i>
-        <p>Sejarah </p>
-      </a> --}}
+        <p>Geografis</p>
+      </a>
     </li>
+    <li class="nav-item">
+      <a href="/backoffice/profildesa_visi/index_sejarah_desa" class="nav-link">
+        <i class="far fa-circle nav-icon"></i>
+        <p>Sejarah Desa</p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="/backoffice/profildesa_visi/tentang_desa" class="nav-link">
+        <i class="far fa-circle nav-icon"></i>
+        <p>Tentang Desa</p>
+      </a>
+    </li>
+   
+    
   </ul>
 </li>
 
@@ -205,7 +235,7 @@
           </li>
 
             <li class="nav-item">
-            <a href="/backoffice/profildesa_visi" class="nav-link">
+            <a href="/backoffice/profildesa_visi/1/edit" class="nav-link">
               <i class="nav-icon fas fa-volume-up"></i>
               <p>
                 Profil Desa
@@ -270,9 +300,6 @@
             </a>
           </li>
 
-        
-         
-          
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
@@ -283,22 +310,18 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            {{-- <h1 class="m-0">Dashboard</h1> --}}
           </div><!-- /.col -->
           <div class="col-sm-6">
-            {{-- <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
-            </ol> --}}
+           
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
+    
 
 
     
@@ -308,7 +331,7 @@
 
    
 {{-- Setting jarak  --}}
-    <div style='margin-top: -30px'>
+    <div style='margin-top: -10px'>
     @stack('script')
     @yield('content')
   </div>
@@ -431,11 +454,12 @@
 
 <script>
    CKEDITOR.replace('editor');
+   CKEDITOR.replace('editor1');
    CKEDITOR.replace('editor2');
    CKEDITOR.replace('editor3');
    CKEDITOR.replace('editor4');
    CKEDITOR.replace('editor5');
-   CKEDITOR.replace('editor9');
+   CKEDITOR.replace('editor6');
 </script>
 </body>
 </html>

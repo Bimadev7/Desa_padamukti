@@ -2,22 +2,21 @@
 
 @section('content')
 <!-- Main content -->
-<section class="content">
-  <div class="container-fluid">
-    <!-- SELECT2 EXAMPLE -->
-    <div class="card card-default">
-      <div class="card-header">
-        <h3 class="card-title">Edit Struktur Organisasi</h3>
-
-        <div class="card-tools">
-          <button type="button" class="btn btn-tool" data-card-widget="collapse">
-            <i class="fas fa-minus"></i>
-          </button>
-          <button type="button" class="btn btn-tool" data-card-widget="remove">
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-      </div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card mt-5">
+                <div class="card-header">
+                    <h3 class="card-title">Detail berita</h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
       <!-- /.card-header -->
       <div class="card-body">
         @if(session('success'))
@@ -29,57 +28,46 @@
             });
           </script>
         @endif
-        <form class="card" action="{{ route('strukturorganisasi.update', $strukturorganisasi->id) }}" method="POST" enctype="multipart/form-data">
-          @csrf
-          @method('PUT')
-
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group ml-4">
-                <label for="username">Nama</label>
-                <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="Username" value="{{ $strukturorganisasi->nama }}" readonly>
-                @error('username')
-                  <span class="invalid-feedback">{{ $message }}</span>
-                @enderror
-              </div>
-
-              <div class="form-group ml-4">
-                <label for="jabatan">Jabatan</label>
-                <input type="text" name="jabatan" class="form-control @error('jabatan') is-invalid @enderror" id="jabatan" placeholder="Jabatan" value="{{ $strukturorganisasi->jabatan }}" readonly>
-                @error('jabatan')
-                  <span class="invalid-feedback">{{ $message }}</span>
-                @enderror
-              </div>
-
-              <div class="form-group ml-4">
-                <label for="nip">NIPD</label>
-                <input type="text" name="nip" class="form-control @error('nip') is-invalid @enderror" id="nip" placeholder="NIP" value="{{ $strukturorganisasi->nip }}" readonly>
-                @error('nip')
-                  <span class="invalid-feedback">{{ $message }}</span>
-                @enderror
-              </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group ml-4">
+              <label for="username">Nama</label>
+              <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="Nama" value="{{ $strukturorganisasi->nama }}" readonly>
+              @error('username')
+                <span class="invalid-feedback">{{ $message }}</span>
+              @enderror
             </div>
 
-            <div class="col-md-6">
-              <div class="form-group ml-4">
-                <label for="deskripsi">Deskripsi</label>
-                <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" rows="5" placeholder="Deskripsi" readonly>{{ $strukturorganisasi->deskripsi }}</textarea>
-                @error('deskripsi')
-                  <span class="invalid-feedback">{{ $message }}</span>
-                @enderror
-              </div>
+            <div class="form-group ml-4">
+              <label for="jabatan">Jabatan</label>
+              <input type="text" name="jabatan" class="form-control @error('jabatan') is-invalid @enderror" id="jabatan" placeholder="Jabatan" value="{{ $strukturorganisasi->jabatan }}" readonly>
+              @error('jabatan')
+                <span class="invalid-feedback">{{ $message }}</span>
+              @enderror
+            </div>
 
-              
+            <div class="form-group ml-4">
+              <label for="nip">NIPD</label>
+              <input type="text" name="nip" class="form-control @error('nip') is-invalid @enderror" id="nip" placeholder="NIP" value="{{ $strukturorganisasi->nip }}" readonly>
+              @error('nip')
+                <span class="invalid-feedback">{{ $message }}</span>
+              @enderror
             </div>
           </div>
-          <!-- /.row -->
 
-          <div class="row">
-            <div class="col-12 text-right">
-              <button type="submit" class="btn btn-primary mr-5 mb-4">Update</button>
+          <div class="col-md-6">
+            <div class="ml-4">
+              @if($strukturorganisasi->image)
+                <img src="{{ asset('images/' . $strukturorganisasi->image) }}" alt="Gambar Struktur Organisasi" width="200" height="200" id="previewImage">
+              @endif
             </div>
           </div>
-        </form>
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+       
+        </div>
       </div>
       <!-- /.card-body -->
       <div class="card-footer">

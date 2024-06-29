@@ -87,7 +87,7 @@ class BeritaController extends Controller
     $berita->save();
 
  
-                     return redirect()->route('backoffice.berita.index')->with([
+                     return redirect()->route('berita.index')->with([
                         'alert-type' => 'success',
                         'message' => 'Data Order Berhasil Ditambahkan!'
                     ]); 
@@ -110,7 +110,7 @@ class BeritaController extends Controller
         if (!$berita) {
             return redirect()->route('backoffice.berita.index')->with('error', 'Berita tidak ditemukan.');
         }
-        return view('backoffice.berita.edit', compact('berita'));
+        return view('backoffice.berita.show', compact('berita'));
         
     }
 
@@ -152,7 +152,7 @@ class BeritaController extends Controller
         $berita->save();
 
         // Redirect dengan pesan sukses
-        return redirect()->route('backoffice.berita.index')->with([
+        return redirect()->route('berita.index')->with([
             'alert-type' => 'success',
             'message' => 'Data berhasil diperbarui.'
         ]);
@@ -164,6 +164,13 @@ class BeritaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $berita = Berita::findOrFail($id);
+            $berita->delete();
+
+            return response()->json(['message' => 'User berhasil dihapus.'], 200);
+             } catch (\Exception $e) {
+            return response()->json(['message' => 'Gagal menghapus user. ' . $e->getMessage()], 500);
+        }
     }
 }
