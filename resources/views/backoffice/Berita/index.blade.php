@@ -26,9 +26,9 @@
             <div class="d-flex align-items-center">
                 <h3 class="card-title"></h3>
                 <div class="card-tools ml-auto mr-0">
-                    <button type="button" class="btn btn-primary btn-sm mb-4" data-toggle="modal" data-target="#addUserModal">
-                        <i class="fas fa-plus mr-1"></i> Tambah Baru
-                    </button>
+                   <a href="{{ route('berita.create') }}" class="btn btn-primary btn-sm mb-4">
+                    <i class="fas fa-plus mr-1"></i> Tambah Baru
+                </a>
                 </div>
             </div>
             <table class="table table-bordered data-table">
@@ -37,7 +37,7 @@
                         <th>No</th>
                         <th>Judul</th>
                         <th>Caption Capture</th>
-                        <th>Deskripsi</th>
+                        <th>penulis</th>
                         {{-- <th>Kategori Berita</th> --}}
                         <th width="200px">Action</th>
                     </tr>
@@ -107,6 +107,9 @@
 @endsection
 
 
+
+
+
 @push('script')
 <script type="text/javascript">
 $(function () {
@@ -115,22 +118,24 @@ $(function () {
         serverSide: true,
         ajax: "{{ route('berita.index') }}",
         columns: [
-            {data: 'id', name: 'id'},
+            // Custom index column
+            {
+                data: null,
+                name: 'index',
+                searchable: false,
+                orderable: false,
+                render: function (data, type, row, meta) {
+                    // Calculate row index
+                    return meta.row + 1;
+                }
+            },
             {data: 'judul', name: 'judul'},
             {data: 'caption_capture', name: 'caption_capture'},
-            {data: 'deskripsi_singkat', name: 'deskripsi_singkat'},
-            //Buat ngambil relasi ke kategori
-            {{-- {data: 'kategori_id', name: 'kategori_id', render: function(data, type, full, meta) {
-                return full.kategori.nama_kategori; // Menampilkan nama_kategori dari relasi
-            }}, --}}
+            {{-- {data: 'deskripsi_singkat', name: 'deskripsi_singkat'}, --}}
+            {data: 'penulis', name: 'penulis'},
+            
 
-            //Buat nampilin image
-            {{-- {data: 'image', name: 'image',
-                    render: function(data, type, full, meta) {
-                        return '<img src="/images/' + data + '" style="max-width: 100px">';
-                    }
-                }, --}}
-
+            // Action buttons column
             {
                 data: 'id',
                 name: 'action',
@@ -139,15 +144,56 @@ $(function () {
                 render: function (data) {
                     return '<a href="/backoffice/berita/' + data + '" class="btn btn-info btn-sm">Show</a>' +
                            '<a href="/backoffice/berita/' + data + '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' +
-                           '<form action="/backoffice/berita/' + data + '" method="POST" style="display:inline">' +
-                               '@csrf' +
-                               '@method("DELETE")' +
-                               '<button type="submit" class="btn btn-danger btn-sm mx-1">Delete</button>' +
-                           '</form>';
+                           '<button class="btn btn-danger btn-sm mx-1" onclick="confirmDelete(' + data + ')">Delete</button>';
                 }
             },
-        ]
+         ]
     });
+     // Function to handle delete confirmation
+    window.confirmDelete = function(id) {
+        Swal.fire({
+            title: 'Apakah Anda Yakin Hapus Data?',
+            text: "Anda tidak akan dapat mengembalikan data ini!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Ya, Hapus!',
+            cancelButtonText: 'Tidak, Batalkan!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Ajax request for deletion
+                $.ajax({
+                    url: '/backoffice/berita/' + id,
+                    type: 'DELETE',
+                    data: {
+                        '_token': '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                        table.ajax.reload(); // Reload DataTable after deletion
+                        Swal.fire(
+                            'Terhapus!',
+                            'Data telah dihapus.',
+                            'success'
+                        );
+                    },
+                    error: function(xhr) {
+                        Swal.fire(
+                            'Gagal!',
+                            'Terjadi kesalahan saat menghapus data.',
+                            'error'
+                        );
+                        console.error(xhr);
+                    }
+                });
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                Swal.fire(
+                    'Dibatalkan',
+                    'Data tidak jadi dihapus :)',
+                    'info'
+                );
+            }
+        });
+    };
 });
 </script>
 @endpush

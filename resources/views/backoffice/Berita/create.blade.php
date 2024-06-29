@@ -25,23 +25,22 @@
                         <label for="caption_capture">Caption Gambar</label>
                         <input type="text" name="caption_capture" class="form-control" id="caption_capture" required>
                     </div>
+
                     <div class="form-group">
-                        <label for="deskripsi_singkat">Deskripsi Singkat</label>
-                        <input type="text" name="deskripsi_singkat" class="form-control" id="deskripsi_singkat" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="penulis">penulis Detail</label>
-                        <textarea name="penulis" class="form-control" id="penulis" required></textarea>
+                        <label for="deskripsi_singkat">Deskripsi Singkat </label>
+                        <textarea name="deskripsi_singkat" class="form-control" id="editor" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="penulis">Penulis</label>
                         <input type="text" name="penulis" class="form-control" id="penulis" required>
                     </div>
                     <div class="form-group">
-                        <label for="role">kategori_id</label>
+                        <label for="role">Kategori Berita</label>
                         <select name="kategori_id" class="form-control" id="kategori_id" required>
-                            <option value="1">User</option>
-                            <option value="2">Admin</option>
+                            <option value="1">BERITA DESA</option>
+                            <option value="2">INFO KEMENTERIAN</option>
+                            <option value="3">INFO PEMERINTAH KABUPATEN</option>
+                            <option value="4">INFO PEMERINTAH PROVINSI</option>
                         </select>
                     </div>
                     <div class="form-group">

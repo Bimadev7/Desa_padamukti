@@ -2,23 +2,21 @@
 
 @section('content')
 <!-- Main content -->
-<section class="content">
-  <div class="container-fluid">
-    <!-- SELECT2 EXAMPLE -->
-    <div class="card card-default">
-      <div class="card-header">
-        <div class="d-flex justify-content-between align-items-center">
-          <h3 class="card-title">Edit Profil Struktur Organisasi</h3>
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse">
-              <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove">
-              <i class="fas fa-times"></i>
-            </button>
-          </div>
-        </div>
-      </div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card mt-5">
+                <div class="card-header">
+                    <h3 class="card-title">Detail berita</h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
       <!-- /.card-header -->
       <div class="card-body">
         @if(session('success'))

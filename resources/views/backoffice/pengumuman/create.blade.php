@@ -27,10 +27,13 @@
                     </div>
                     <div class="form-group">
                         <label for="deskripsi_singkat">Deskripsi Singkat</label>
-                        <input type="text" name="deskripsi_singkat" class="form-control" id="editor3" required>
+                        {{-- <input type="text" name="deskripsi_singkat" class="form-control" id="deskripsi_singkat" required> --}}
+                        <textarea name="deskripsi_singkat" class="form-control" id="editor" required></textarea>
+
                     </div>
+                    
                     <div class="form-group">
-                        <label for="deskripsi">Deskripsi</label>
+                        <label for="deskripsi">Deskripsi Detail</label>
                         <textarea name="deskripsi" class="form-control" id="editor2" required></textarea>
                     </div>
                     <div class="form-group">

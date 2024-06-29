@@ -131,13 +131,13 @@
         </div>
         @endforeach
 
-        <div class="text-end">
+        {{-- <div class="text-end">
           <a href="{{ route('berita-desa') }}" class="btn btn-success">
             Lihat Semua Berita 
             <i class="bi bi-arrow-right"></i>
           </a>
         </div>
-      </div>
+      </div> --}}
       <hr class="mt-5">
 
       <div class="section-title mt-5">

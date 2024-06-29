@@ -1,106 +1,96 @@
 @extends('layouts.main')
 
 @section('content')
-<!-- Main content -->
-<section class="content">
-  <div class="container-fluid">
-    <!-- SELECT2 EXAMPLE -->
-    <div class="card card-default">
-      <div class="card-header">
-        <h3 class="card-title">Dashboard User</h3>
 
-        <div class="card-tools">
-          <button type="button" class="btn btn-tool" data-card-widget="collapse">
-            <i class="fas fa-minus"></i>
-          </button>
-          <button type="button" class="btn btn-tool" data-card-widget="remove">
-            <i class="fas fa-times"></i>
-          </button>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card mt-5">
+                <div class="card-header">
+                    <h3 class="card-title">Detail berita</h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="#">
+                        @csrf
+                        @method('PUT')
+
+                        <div class="form-group">
+                            <label for="judul">Angka Kelahiran</label>
+                            <input type="text" class="form-control" id="judul" name="judul" value="{{ $demografidesa->angka_kelahiran }}" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="penulis">Angka Kematian</label>
+                            <input type="text" class="form-control" id="penulis" name="penulis" value="{{ $demografidesa->angka_kematian }}" readonly>
+                        </div>
+
+
+                      
+
+                        <div class="form-group">
+                            <label for="caption_capture">Jumlah Penduduk</label>
+                            <input type="text" class="form-control" id="caption_capture" name="caption_capture" value="{{ $demografidesa->jumlah_penduduk }}" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="image">Gambar</label><br>
+                            <img src="{{ asset('images/' . $berita->image) }}" alt="Gambar berita" width="250" height="250">
+                        </div>
+
+                    </form>
+                </div>
+                <div class="card-footer">
+                    Details lembagadesa
+                </div>
+            </div>
         </div>
-      </div>
-      <!-- /.card-header -->
-      <div class="card-body">
-        @if(session('success'))
-          <script>
-            Swal.fire({
-              icon: 'success',
-              title: 'Success!',
-              text: '{{ session('success') }}',
-            });
-          </script>
-        @endif
-
-        <form class="card" action="{{ route('berita.update', $berita->id) }}" method="POST" enctype="multipart/form-data">
-          @csrf
-          @method('PUT')
-
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group ml-4">
-                <label for="username">Username</label>
-                <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="Username" value="{{ $berita->judul }}" readonly>
-                @error('username')
-                  <span class="invalid-feedback">{{ $message }}</span>
-                @enderror
-              </div>
-
-              <div class="form-group ml-4">
-                <label for="email">Email address</label>
-                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Email address" value="{{ $berita->penulis }}" readonly>
-                @error('email')
-                  <span class="invalid-feedback">{{ $message }}</span>
-                @enderror
-              </div>
-            </div>
-
-            <div class="form-group ml-4">
-                <label for="email">Email address</label>
-                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Email address" value="{{ $berita->deskripsi_singkat }}" readonly>
-                @error('email')
-                  <span class="invalid-feedback">{{ $message }}</span>
-                @enderror
-              </div>
-            </div>
-
-          
-
-              
-            <!-- /.col -->
-          </div>
-          <!-- /.row -->
-
-          <div class="row">
-            <div class="col-12 text-right">
-              <button type="submit" class="btn btn-primary mr-5 mb-4">Update</button>
-            </div>
-          </div>
-        </form>
-      </div>
-      <!-- /.card-body -->
-      <div class="card-footer">
-        Dashboard
-      </div>
     </div>
-    <!-- /.card -->
-  </div>
-  <!-- /.container-fluid -->
-</section>
-<!-- /.content -->
+</div>
 
-<style>
-  .short-select {
-    width: auto !important;
-    min-width: 150px;
-  }
-</style>
+<div class="modal fade" id="readMoreDeskripsiModal" tabindex="-1" aria-labelledby="readMoreDeskripsiModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="readMoreDeskripsiModalLabel">Deskripsi berita</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="max-height: 400px; overflow-y: auto; text-align: justify;">
+                {!! $berita->deskripsi !!}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="readMoreDeskripsiSingkatModal" tabindex="-1" aria-labelledby="readMoreDeskripsiSingkatModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="readMoreDeskripsiSingkatModalLabel">Deskripsi Singkat berita</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="max-height: 400px; overflow-y: auto; text-align: justify;">
+                {!! $berita->deskripsi_singkat !!}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection
-
-@push('scripts')
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
-@endpush

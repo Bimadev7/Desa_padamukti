@@ -20,6 +20,16 @@ use App\Http\Controllers\Lembaga_desaController;
 use App\Http\Controllers\ProfilDesaVisiController;
 use App\Http\Controllers\ProfilDesaMisiController;
 
+Route::get('/backoffice/profildesa_visi/index_sejarah_desa', [ProfilDesaVisiController::class, 'index_sejarah_desa'])->name('pengumuman.index_sejarah_desa');
+Route::get('/backoffice/profildesa_visi/geografis', [ProfilDesaVisiController::class, 'geografis'])->name('pengumuman.geografis');
+Route::get('/backoffice/profildesa_visi/tentang_desa', [ProfilDesaVisiController::class, 'tentang_desa'])->name('pengumuman.tentang_desa');
+// Route::get('/backoffice/profildesa_visi/index_misi', [ProfilDesaVisiController::class, 'index_misi'])->name('pengumuman.index_misi');
+// Route::get('/backoffice/profildesa_visi/index_misi', [ProfilDesaVisiController::class, 'index_misi'])->name('pengumuman.index_misi');
+
+Route::get('/backoffice/profildesa_visi/index_misi', [ProfilDesaVisiController::class, 'index_misi'])->name('pengumuman.index_misi');
+Route::get('/backoffice/profildesa_visi/index_visi', [ProfilDesaVisiController::class, 'index_visi'])->name('pengumuman.index_visi');
+
+
 
 Route::get('/backoffice/profildesa_visi/visi/edit', [ProfilDesaVisiController::class, 'edit']);
 Route::get('/backoffice/edit2/edit/{id}', [ProfilDesaVisiController::class, 'edit2']);
@@ -43,8 +53,8 @@ Route::get('/backoffice/profildesa', 'ProfilDesaController@index')->name('profil
 Route::delete('/backoffice/pengumuman/{id}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
 
 // Berita
-// Route::get('/public/berita', [DasboardPublicController::class, 'indexBerita'])->name('berita-desa');
-// Route::get('/public/berita/{id}', [DasboardPublicController::class, 'detailBerita'])->name('berita.detailBerita');
+Route::get('/public/berita', [DasboardPublicController::class, 'indexBerita'])->name('berita-desa');
+Route::get('/public/berita/{id}', [DasboardPublicController::class, 'detailBerita'])->name('berita.detailBerita');
 
 // Route Public createn 
 // Route::get('/backoffice/users', [UserController::class, 'index'])->name('backoffice.user.index');
@@ -169,6 +179,7 @@ Route::middleware(['isAdmin'])->group(function () {
         return view('public.pengumuman1');
     })->name('detail-pengumuman');
 
+    
 
     Route::get('/public/pengumuman', [DasboardPublicController::class, 'indexPengumuman'])->name('pengumuman');
     Route::get('/public/pengumuman/{id}', [DasboardPublicController::class, 'detailPengumuman'])->name('pengumuman.detailPengumuman');

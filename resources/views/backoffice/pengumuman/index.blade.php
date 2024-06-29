@@ -38,7 +38,7 @@
                         <th>Judul Pengumuman</th>
                         <th>Caption Capture</th>
                         <th>Deskripsi Singkat</th>
-                        <th>Deskripsi Singkat</th>
+                        {{-- <th>Deskripsi Singkat</th> --}}
                         <th width="200px">Action</th>
                     </tr>
                 </thead>
@@ -114,7 +114,7 @@ $(function () {
             },
             {data: 'judul', name: 'judul'},
             {data: 'caption_capture', name: 'caption_capture'},
-            {data: 'deskripsi_singkat', name: 'deskripsi_singkat'},
+            {{-- {data: 'deskripsi_singkat', name: 'deskripsi_singkat'}, --}}
             {data: 'penulis', name: 'penulis'},
             
 

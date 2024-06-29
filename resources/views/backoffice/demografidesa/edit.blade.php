@@ -1,19 +1,25 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="content">
-    <div class="container-fluid">
-        <div class="card card-default">
-            <div class="card-header">
-                <h3 class="card-title">Edit Data Demografi Desa</h3>
-
-                <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                        <i class="fas fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn btn-tool" data-card-widget="remove">
-                        <i class="fas fa-times"></i>
-                    </button>
+<div class="container">
+    <div class="card mt-5">
+        @if(session('alert-type') && session('message'))
+        <script>
+            Swal.fire({
+                icon: '{{ session('alert-type') }}',
+                title: 'Success!',
+                text: '{{ session('message') }}',
+            });
+        </script>
+        @endif
+        <h3 class="card-header p-3">Data Berita</h3>
+        <div class="card-body">
+            <div class="d-flex align-items-center">
+                <h3 class="card-title"></h3>
+                <div class="card-tools ml-auto mr-0">
+                   <a href="{{ route('berita.create') }}" class="btn btn-primary btn-sm mb-4">
+                    <i class="fas fa-plus mr-1"></i> Tambah Baru
+                </a>
                 </div>
             </div>
             <!-- /.card-header -->
@@ -92,15 +98,15 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
-                                <label for="jumlah_dewasa">Jumlah Dewasa</label>
-                                <input type="number" name="jumlah_dewasa"
-                                    class="form-control @error('jumlah_dewasa') is-invalid @enderror" id="jumlah_dewasa"
-                                    placeholder="Jumlah Dewasa" value="{{ $demografidesa->jumlah_dewasa }}" required>
-                                @error('jumlah_dewasa')
+                            {{-- <div class="form-group">
+                                <label for="jumlah_remaja">Jumlah Remaja</label>
+                                <input type="number" name="jumlah_remaja"
+                                    class="form-control @error('jumlah_remaja') is-invalid @enderror" id="jumlah_remaja"
+                                    placeholder="Jumlah Dewasa" value="{{ $demografidesa->jumlah_remaja }}" required>
+                                @error('jumlah_remaja')
                                 <span class="invalid-feedback">{{ $message }}</span>
                                 @enderror
-                            </div>
+                            </div> --}}
 
                             <div class="form-group">
                                 <label for="jumlah_lansia">Jumlah Lansia</label>
