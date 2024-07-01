@@ -190,19 +190,12 @@
    
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-light-primary elevation-4">
+  <aside class="main-sidebar sidebar-light-primary elevation-4" >
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
      <span class="brand-text font-weight-light">Desa Padamukti</span>
-  {{-- <img src="{{ asset('green/assets/img/logo-padamukti.png')}}" rel="icon"> --}}
-
      <img src="{{ asset('green/assets/img/logo-padamukti.png')}}" alt="AdminLTE Logo" class="brand-image img-circle " style="max-width: 100px; margin-right: 8px;">
     </a>
-
-
-
-
-
       <!-- SidebarSearch Form -->
       <div class="form-inline">
         <div class="input-group" >
@@ -271,20 +264,20 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/backoffice/profildesa_visi/1/edit" class="nav-link">
-                        <i class="nav-icon fas fa-volume-up"></i>
+                    <a href="/backoffice/profildesa_visi" class="nav-link">
+                        <i class="nav-icon fas fa-id-card"></i>
                         <p>Profil Desa</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="/backoffice/demografidesa" class="nav-link">
-                        <i class="nav-icon fas fa-volume-up"></i>
+                        <i class="nav-icon fas fa-poll-h"></i>
                         <p>Demografi Desa</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="/backoffice/strukturorganisasi" class="nav-link">
-                        <i class="nav-icon fas fa-volume-up"></i>
+                        <i class="nav-icon fas fa-users"></i>
                         <p>Struktur Organisasi</p>
                     </a>
                 </li>
@@ -296,7 +289,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="/backoffice/slider" class="nav-link">
-                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <i class="nav-icon far fa-images"></i>
                         <p>Slider</p>
                     </a>
                 </li>
