@@ -279,17 +279,6 @@
               </p>
             </a>
           
-         
-
-
-          {{-- <li class="nav-item">
-            <a href="/backoffice/profildesa/1/edit" class="nav-link">
-              <i class="nav-icon fas fa-columns"></i>
-              <p>
-                profildesa Desa
-              </p>
-            </a>
-          </li> --}}
 
           <li class="nav-item">
             <a href="/backoffice/lembagadesa" class="nav-link">

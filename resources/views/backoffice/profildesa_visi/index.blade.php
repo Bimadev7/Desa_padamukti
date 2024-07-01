@@ -2,6 +2,27 @@
 
 @section('content')
 <div class="container">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card mt-5">
+                <div class="card-header">
+                    <h3 class="card-title">Profil Desa</h3>
+                </div>
+
+                {{-- <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card mt-5">
+                <div class="card-header">
+                    <h3 class="card-title">Profil Desa</h3>
+                </div>
+                <!-- Isi konten card di sini -->
+            </div>
+        </div>
+    </div>
+</div> --}}
+
 
     {{-- Tabel untuk Tentang Desa --}}
     <table class="table">
@@ -119,6 +140,12 @@
             @endforeach
         </tbody>
     </table>
+
+    @if($profildesa_visi->isEmpty() || !$profildesa_visi->first()->misi)
+<div class="text-right mb-3">
+    <a href="{{ route('profildesa_visi.create') }}" class="btn btn-primary">Tambah misi</a>
+</div>
+@endif
 
     {{-- Tabel untuk Sejarah Desa --}}
     <table class="table">
