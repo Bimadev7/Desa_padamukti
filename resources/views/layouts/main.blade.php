@@ -211,6 +211,7 @@
           </div>
         </div>
       </div>
+
  <!-- Sidebar -->
  <div class="sidebar">
         <!-- Sidebar Menu -->
@@ -314,6 +315,7 @@
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
+
     </div>
     <!-- /.sidebar -->
 </aside>
