@@ -179,7 +179,9 @@ Route::middleware(['isAdmin'])->group(function () {
         return view('public.pengumuman1');
     })->name('detail-pengumuman');
 
-    
+    Route::get('/backoffice/userguide', function () {
+        return view('backoffice.userguide.userguide'); // Sesuaikan dengan struktur folder Anda
+    });
 
     Route::get('/public/pengumuman', [DasboardPublicController::class, 'indexPengumuman'])->name('pengumuman');
     Route::get('/public/pengumuman/{id}', [DasboardPublicController::class, 'detailPengumuman'])->name('pengumuman.detailPengumuman');

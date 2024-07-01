@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 
 class DasboardPublicController extends Controller
 {
-   
+
     // Homepage
     public function indexdes()
     {
