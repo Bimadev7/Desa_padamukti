@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="fixed">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -94,12 +94,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navbar Fixed</title>
     <style>
+       body, html {
+      overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+       .content-wrapper {
+      margin-left: 0; /* Remove margin from left */
+    }
+    .container-fluid {
+      padding: 0; /* Remove padding from container */
+    }
+    
         .main-header {
             position: fixed;
             width: 100%;
             z-index: 1000;
             top: 0;
             background-color: #ffffff;
+            overflow: hidden;
         }
         .main-sidebar {
     position: fixed;
@@ -109,7 +120,8 @@
     width: 260px; /* Adjust width as needed */
     padding-top: 0px; /* Adjust to align with your header */
     background-color: #ffffff; /* Dark background */
-    overflow-y: auto;
+    overflow-y: hidden;
+    overflow: hidden;
 }
 
 .nav-sidebar .nav-link {
@@ -122,7 +134,7 @@
 }
 
 .nav-sidebar .nav-icon {
-    margin-right: 10px; /* Space between icon and text */
+    margin-right: 20px; /* Space between icon and text */
 }
 
 .nav-treeview {
@@ -160,7 +172,7 @@
 
   
     <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-fixed">
       <!-- Navbar Search -->
       <li class="nav-item">
         {{-- <a class="nav-link" data-widget="navbar-search" href="#" role="button"> --}}
@@ -192,7 +204,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-light-primary elevation-4" >
     <!-- Brand Logo -->
-    <a href="#" class="brand-link">
+    <a href="" class="brand-link">
      <span class="brand-text font-weight-light">Desa Padamukti</span>
      <img src="{{ asset('green/assets/img/logo-padamukti.png')}}" alt="AdminLTE Logo" class="brand-image img-circle " style="max-width: 100px; margin-right: 8px;">
     </a>
@@ -204,7 +216,6 @@
           </div>
         </div>
       </div>
-
  <!-- Sidebar -->
  <div class="sidebar">
         <!-- Sidebar Menu -->
@@ -308,7 +319,6 @@
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
-
     </div>
     <!-- /.sidebar -->
 </aside>

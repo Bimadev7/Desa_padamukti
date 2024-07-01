@@ -29,7 +29,7 @@
         margin-bottom: 1rem;
     }
     summary {
-        background: #379777;
+        background: #378CE7;
         color: #FFFFFF;
         padding: 1rem;
         cursor: pointer;
@@ -39,7 +39,7 @@
         outline: none;
     }
     details[open] summary {
-        background: #379777;
+        background: #4B70F5;
     }
     .details-content {
         padding: 1rem;
