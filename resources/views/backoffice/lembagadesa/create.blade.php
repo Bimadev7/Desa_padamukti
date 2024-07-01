@@ -57,15 +57,15 @@
 
                     <div class="row">
                         <div class="col-12 text-right">
-                            <button type="submit" class="btn btn-primary mr-5 mb-4">Tambah Berita</button>
+                            <button type="submit" class="btn btn-primary mr-5 mb-4">Tambah Lembaga</button>
                         </div>
                     </div>
                 </form>
             </div>
             <!-- /.card-body -->
-            <div class="card-footer">
-                Tambah Berita
-            </div>
+            {{-- <div class="card-footer">
+                Tambah Lembaga Desa
+            </div> --}}
         </div>
         <!-- /.card -->
     </div>

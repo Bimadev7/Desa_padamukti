@@ -2,6 +2,27 @@
 
 @section('content')
 <div class="container">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card mt-5">
+                <div class="card-header">
+                    <h3 class="card-title">Profil Desa</h3>
+                </div>
+
+                {{-- <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card mt-5">
+                <div class="card-header">
+                    <h3 class="card-title">Profil Desa</h3>
+                </div>
+                <!-- Isi konten card di sini -->
+            </div>
+        </div>
+    </div>
+</div> --}}
+
 
     {{-- Tabel untuk Tentang Desa --}}
     <table class="table">
@@ -34,11 +55,10 @@
     
 
     {{-- Tabel untuk Visi --}}
-    <table class="table">
+    {{-- <table class="table">
         <thead>
             <tr>
                 <th class="text-center">Visi</th>
-                {{-- <th class="text-center"></th> Kolom untuk tombol edit --}}
             </tr>
         </thead>
         <tbody>
@@ -54,13 +74,43 @@
                         </div>
                     </div>
                 </td>
-                {{-- <td class="text-right"> 
-                    <a href="{{ route('profildesa_visi.edit', $item->id) }}" class="btn btn-primary">Edit Visi</a>
-                </td> --}}
+               
             </tr>
             @endforeach
         </tbody>
-    </table>
+    </table> --}}
+
+    <table class="table">
+    <thead>
+        <tr>
+            <th class="text-center">Visi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($profildesa_visi as $item)
+        <tr>
+            <td>
+                <div class="form-group">
+                    <div>
+                        {!! (strlen($item->visi) > 200) ? substr($item->visi, 0, 300) . '...' : $item->visi !!}
+                        @if (strlen($item->visi) > 200)
+                            <a href="#" class="btn btn-link" data-toggle="modal" data-target="#readMoreModal{{ $item->id }}">Baca Selengkapnya</a>
+                        @endif
+                    </div>
+                </div>
+            </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+
+<!-- Cek jika tidak ada data pada $item->visi -->
+@if($profildesa_visi->isEmpty() || !$profildesa_visi->first()->visi)
+<div class="text-right mb-3">
+    <a href="{{ route('profildesa_visi.create') }}" class="btn btn-primary">Tambah Visi</a>
+</div>
+@endif
+
 
     {{-- Tabel untuk Misi --}}
     <table class="table">
@@ -90,6 +140,12 @@
             @endforeach
         </tbody>
     </table>
+
+    @if($profildesa_visi->isEmpty() || !$profildesa_visi->first()->misi)
+<div class="text-right mb-3">
+    <a href="{{ route('profildesa_visi.create') }}" class="btn btn-primary">Tambah misi</a>
+</div>
+@endif
 
     {{-- Tabel untuk Sejarah Desa --}}
     <table class="table">

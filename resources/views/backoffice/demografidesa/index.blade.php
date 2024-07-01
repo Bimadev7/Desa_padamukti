@@ -123,7 +123,7 @@ $(function () {
                 render: function (data) {
                     return '<a href="/backoffice/demografidesa/' + data + '" class="btn btn-info btn-sm">Show</a>' +
                            '<a href="/backoffice/demografidesa/' + data + '/edit" class="btn btn-primary btn-sm mx-1">Edit</a>' +
-                           '<button class="btn btn-danger btn-sm mx-1" onclick="confirmDelete(' + data + ')">Delete</button>';
+                           '';
                 }
             },
          ]
