@@ -49,17 +49,17 @@
                                     <span class="invalid-feedback">{{ $message }}</span>
                                     @enderror
                                 </div>
-                            </div>
 
-                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Password">
-                                    @error('password')
+                                    <label for="current_password">Current Password</label>
+                                    <input type="password" name="current_password" class="form-control @error('current_password') is-invalid @enderror" id="current_password" placeholder="Current Password" required>
+                                    @error('current_password')
                                     <span class="invalid-feedback">{{ $message }}</span>
                                     @enderror
                                 </div>
+                            </div>
 
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="role">User Role</label>
                                     <select class="form-control select2 short-select" name="role" style="width: 100%;">
@@ -67,8 +67,20 @@
                                         <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>Admin</option>
                                     </select>
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="new_password">New Password</label>
+                                    <input type="password" name="new_password" class="form-control @error('new_password') is-invalid @enderror" id="new_password" placeholder="New Password">
+                                    @error('new_password')
+                                    <span class="invalid-feedback">{{ $message }}</span>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="new_password_confirmation">Confirm New Password</label>
+                                    <input type="password" name="new_password_confirmation" class="form-control" id="new_password_confirmation" placeholder="Confirm New Password">
+                                </div>
                             </div>
-                            <!-- /.col -->
                         </div>
                         <!-- /.row -->
 
@@ -80,7 +92,6 @@
                     </form>
                 </div>
                 <!-- /.card-body -->
-               
             </div>
         </div>
     </div>
