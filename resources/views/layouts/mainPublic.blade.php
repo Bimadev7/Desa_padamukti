@@ -95,7 +95,7 @@
                 <li class="dropdown">
                     <a href="/"><span>Pemerintahan</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li><a class="nav-link scrollto active" href="{{ route('struktur-desa') }}">Struktur Desa</a></li>
+                        <li><a class="nav-link" href="{{ route('struktur-desa') }}">Struktur Desa</a></li>
                         {{-- <li><a href="{{ route('perangkat-desa') }}">Perangkat Desa</a></li> --}}
                         <li><a href="{{ route('lembaga-desa') }}">Lembaga Desa</a></li>
                     </ul>
