@@ -8,12 +8,14 @@
 
 
   {{-- script --}}
-
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
 
 
 
@@ -99,6 +101,51 @@
             top: 0;
             background-color: #ffffff;
         }
+        .main-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 260px; /* Adjust width as needed */
+    padding-top: 0px; /* Adjust to align with your header */
+    background-color: #ffffff; /* Dark background */
+    overflow-y: auto;
+}
+
+.nav-sidebar .nav-link {
+    color: #c2c7d0; /* Light grey text color */
+}
+
+.nav-sidebar .nav-link.active {
+    background-color: #007bff; /* Active link background color */
+    color: white; /* Active link text color */
+}
+
+.nav-sidebar .nav-icon {
+    margin-right: 10px; /* Space between icon and text */
+}
+
+.nav-treeview {
+    display: none;
+}
+
+.nav-item.menu-open > .nav-treeview {
+    display: block;
+}
+
+.brand-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    background-color: #FCF8F3;
+}
+
+.brand-link .brand-image {
+    height: 35px;
+    width: 35px;
+    margin-right: 10px;
+}
     </style>
 </head>
 <body>
@@ -145,7 +192,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="#" class="brand-link">
      <span class="brand-text font-weight-light">Desa Padamukti</span>
   {{-- <img src="{{ asset('green/assets/img/logo-padamukti.png')}}" rel="icon"> --}}
 
@@ -165,135 +212,113 @@
         </div>
       </div>
 
-      
-<!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        
-        <li class="nav-item dropdown">
-  <a href="#" class="nav-link active">
-    <i class="nav-icon fas fa-tachometer-alt"></i>
-    <p>
-      Profil Desa
-      <i class="right fas fa-angle-left"></i>
-    </p>
-  </a>
-  <ul class="nav nav-treeview">
-    <li class="nav-item">
-      {{-- <a href="./index.html" class="nav-link active"> --}}
-     <a href="/backoffice/profildesa_visi/index_visi" class="nav-link active">
-        <i class="far fa-circle nav-icon"></i>
-        <p>Visi</p>
-      </a>
-    </li>
-     <li class="nav-item">
-      <a href="/backoffice/profildesa_visi/index_misi" class="nav-link">
-        <i class="far fa-circle nav-icon"></i>
-        <p>Misi</p>
-      </a>
-    </li>
-      <li class="nav-item">
-      <a href="/backoffice/profildesa_visi/geografis" class="nav-link">
-        <i class="far fa-circle nav-icon"></i>
-        <p>Geografis</p>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a href="/backoffice/profildesa_visi/index_sejarah_desa" class="nav-link">
-        <i class="far fa-circle nav-icon"></i>
-        <p>Sejarah Desa</p>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a href="/backoffice/profildesa_visi/tentang_desa" class="nav-link">
-        <i class="far fa-circle nav-icon"></i>
-        <p>Tentang Desa</p>
-      </a>
-    </li>
-   
-    
-  </ul>
-</li>
+ <!-- Sidebar -->
+ <div class="sidebar">
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Profil Desa
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/backoffice/profildesa_visi/index_visi" class="nav-link active">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Visi</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/backoffice/profildesa_visi/index_misi" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Misi</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/backoffice/profildesa_visi/geografis" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Geografis</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/backoffice/profildesa_visi/index_sejarah_desa" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Sejarah Desa</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/backoffice/profildesa_visi/tentang_desa" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Tentang Desa</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="/backoffice/berita" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>Berita</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/backoffice/pengumuman" class="nav-link">
+                        <i class="nav-icon fas fa-volume-up"></i>
+                        <p>Pengumuman</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/backoffice/profildesa_visi/1/edit" class="nav-link">
+                        <i class="nav-icon fas fa-volume-up"></i>
+                        <p>Profil Desa</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/backoffice/demografidesa" class="nav-link">
+                        <i class="nav-icon fas fa-volume-up"></i>
+                        <p>Demografi Desa</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/backoffice/strukturorganisasi" class="nav-link">
+                        <i class="nav-icon fas fa-volume-up"></i>
+                        <p>Struktur Organisasi</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/backoffice/user" class="nav-link">
+                        <i class="nav-icon fas fa-user-circle"></i>
+                        <p>Users</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/backoffice/slider" class="nav-link">
+                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <p>Slider</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/backoffice/lembagadesa" class="nav-link">
+                        <i class="nav-icon fas fa-columns"></i>
+                        <p>Lembaga Desa</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/backoffice/userguide" class="nav-link">
+                        <i class="nav-icon fas fa-user-circle"></i>
+                        <p>User Guide</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
 
-          
-          <li class="nav-item">
-            <a href="/backoffice/berita" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Berita
-              </p>
-            </a>
-          </li>
-            <li class="nav-item">
-            <a href="/backoffice/pengumuman" class="nav-link">
-              <i class="nav-icon fas fa-volume-up"></i>
-              <p>
-                Pengumuman
-              </p>
-            </a>
-          </li>
-          </li>
-
-            <li class="nav-item">
-            <a href="/backoffice/profildesa_visi" class="nav-link">
-              <i class="nav-icon fas fa-volume-up"></i>
-              <p>
-                Profil Desa
-              </p>
-            </a>
-          </li>
-          </li>
-           <li class="nav-item">
-            <a href="/backoffice/demografidesa" class="nav-link">
-              <i class="nav-icon fas fa-volume-up"></i>
-              <p>
-                Demografi Desa
-              </p>
-            </a>
-          </li>
-          </li>
-          <li class="nav-item">
-            <a href="/backoffice/strukturorganisasi" class="nav-link">
-              <i class="nav-icon fas fa-volume-up"></i>
-              <p>
-                Struktur Organisasi
-              </p>
-            </a>
-          </li>
-          </li>
-          <li class="nav-item">
-            <a href="/backoffice/user" class="nav-link">
-              <i class="nav-icon fas fa-user-circle"></i>
-              {{-- <i class="nav-icon far fa-image"></i> --}}
-              <p>
-                Users
-              </p>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="/backoffice/slider" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
-              <p>
-                Slider
-              </p>
-            </a>
-          
-
-          <li class="nav-item">
-            <a href="/backoffice/lembagadesa" class="nav-link">
-              <i class="nav-icon fas fa-columns"></i>
-              <p>
-                Lembaga Desa
-              </p>
-            </a>
-          </li>
-
-      <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
-  </aside>
-
+</aside>
 
   
 
