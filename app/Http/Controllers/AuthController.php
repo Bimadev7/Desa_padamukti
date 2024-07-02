@@ -51,7 +51,7 @@ class AuthController extends Controller
         }
 
         // Authentication failed, redirect back to login with error
-        return redirect()->route('login')->with('error', 'tidak valid');
+        return redirect()->route('register')->with('error', 'tidak valid');
     }
 
    
