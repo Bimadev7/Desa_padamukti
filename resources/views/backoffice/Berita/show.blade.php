@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-11">
             <div class="card mt-5">
                 <div class="card-header">
                     <h3 class="card-title">Detail berita</h3>
@@ -23,22 +23,31 @@
                         @method('PUT')
 
                         <div class="form-group">
-                            <label for="judul">Angka Kelahiran</label>
-                            <input type="text" class="form-control" id="judul" name="judul" value="{{ $demografidesa->angka_kelahiran }}" readonly>
+                            <label for="judul">Judul</label>
+                            <input type="text" class="form-control" id="judul" name="judul" value="{{ $berita->judul }}" readonly>
                         </div>
 
                         <div class="form-group">
-                            <label for="penulis">Angka Kematian</label>
-                            <input type="text" class="form-control" id="penulis" name="penulis" value="{{ $demografidesa->angka_kematian }}" readonly>
+                            <label for="penulis">Caption Capture</label>
+                            <input type="text" class="form-control"  value="{{ $berita->caption_capture }}" readonly>
+                        </div>
+
+                                <div class="form-group">
+                            <label for="deskripsi">Deskripsi</label>
+                            <div>
+                                {!! (strlen($berita->deskripsi_singkat) > 80) ? substr($berita->deskripsi_singkat, 0, 300) . '...' : $berita->deskripsi_singkat !!}
+                                @if (strlen($berita->deskripsi_singkat) > 80)
+                                    <a href="#" class="btn btn-link" data-toggle="modal" data-target="#readMoreDeskripsiModal">Baca Selengkapnya</a>
+                                @endif
+                            </div>
+                        </div>
+
+                          <div class="form-group">
+                            <label for="judul">Penulis</label>
+                            <input type="text" class="form-control" id="judul" name="judul" value="{{ $berita->penulis }}" readonly>
                         </div>
 
 
-                      
-
-                        <div class="form-group">
-                            <label for="caption_capture">Jumlah Penduduk</label>
-                            <input type="text" class="form-control" id="caption_capture" name="caption_capture" value="{{ $demografidesa->jumlah_penduduk }}" readonly>
-                        </div>
 
                         <div class="form-group">
                             <label for="image">Gambar</label><br>
@@ -64,6 +73,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+
             <div class="modal-body" style="max-height: 400px; overflow-y: auto; text-align: justify;">
                 {!! $berita->deskripsi !!}
             </div>
