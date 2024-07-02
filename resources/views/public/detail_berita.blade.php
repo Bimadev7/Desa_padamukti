@@ -26,12 +26,10 @@
                         <article class="blog-post">
                             <p class="blog-post-meta text-center">{{ $berita->created_at->format('d M Y') }} by <a href="#">{{ $berita->penulis }}</a></p>
                             <img src="{{ asset('images/' . $berita->image) }}" text="ro" alt="Berita" width="200" height="150">
+                            <h6 style="margin-top: 10px;">{{ $berita->caption_capture }}</h6>
+                            
 
-                            <h6>{{ $berita->caption_capture }}</h6>
-                            <hr>
-
-                            <p>{{ $berita->deskripsi }}</p>
-                            <p>{!! $berita->deskripsi !!}</p>
+                            <p>{!! $berita->deskripsi_singkat !!}</p>
 
                         </article>
                     </div>
@@ -43,18 +41,6 @@
             <!-- Sidebar Section -->
             <div class="position-sticky" style="top: 2rem;">
                 <!-- Categories Section -->
-                <div class="p-4 mb-3 bg-light rounded">
-                    <h4 class="fst-italic">Kategori Berita</h4>
-                    <ul class="mb-0">
-
-                        <li><a href="#">Berita Desa</a></li>
-                        <li><a href="#">Berita Kementrian</a></li>
-                        <li><a href="#">Berita Pemerintahan Kabupaten</a></li>
-                        <li><a href="#">Berita Pemerintahan Provinsi</a></li>
-                        {{-- <li><a href="#">Info Pemerintahan Provinsi</a></li> --}}
-
-                    </ul>
-                </div>
                 <div class="p-4">
                     <h4 class="fst-italic">Berita Terakhir</h4>
                     <ol class="list-unstyled mb-0">
