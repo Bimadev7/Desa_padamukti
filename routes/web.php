@@ -119,6 +119,7 @@ Route::middleware(['isAdmin'])->group(function () {
     //     Route::post('/berita', [BeritaController::class, 'store'])->name('backoffice.berita.store');
     //     Route::get('/berita', [BeritaController::class, 'index'])->name('backoffice.berita.index');
 
+    Route::post('/login', [LoginController::class, 'login'])->name('login');
 
     // });
     Route::middleware(['auth'])->group(function () {
