@@ -31,7 +31,6 @@
                 <div>
                     {!! (strlen($item->deskripsi) > 200) ? substr($item->deskripsi, 0, 300) . '...' : $item->deskripsi !!}
                     @if (strlen($item->deskripsi) > 200)
-                        <a href="#" class="btn btn-link" data-toggle="modal" data-target="#readMoreModal">Baca Selengkapnya</a>
                     @endif
                 </div>
                             <a href="{{ route('pengumuman.detailPengumuman', $item->id) }}" class="icon-link gap-1 icon-link-hover stretched-link">Lanjutkan Membaca
@@ -55,16 +54,6 @@
             <!-- Sidebar Section -->
             <div class="position-sticky" style="top: 2rem;">
                 <!-- Categories Section -->
-                <div class="p-4 mb-3 bg-light rounded">
-                    <h4 class="fst-italic">Berita Kategori</h4>
-                    <ul class="mb-0">
-                        <li><a href="#">Berita Desa</a></li>
-                        <li><a href="#">Berita Kementrian</a></li>
-                        <li><a href="#">Berita Pemerintah Kabupaten</a></li>
-                        <li><a href="#">Berita Pemerintah Provinsi</a></li>
-                        {{-- <li><a href="#">Berita 5</a></li> --}}
-                    </ul>
-                </div>
                 <div class="p-4">
                     <h4 class="fst-italic">Pengumuman Terakhir</h4>
                     <ol class="list-unstyled mb-0">
