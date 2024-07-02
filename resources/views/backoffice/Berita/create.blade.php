@@ -27,7 +27,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="deskripsi_singkat">Deskripsi Singkat </label>
+                        <label for="deskripsi_singkat">Deskripsi</label>
                         <textarea name="deskripsi_singkat" class="form-control" id="editor" required></textarea>
                     </div>
                     <div class="form-group">

@@ -43,18 +43,6 @@
             <!-- Sidebar Section -->
             <div class="position-sticky" style="top: 2rem;">
                 <!-- Categories Section -->
-                <div class="p-4 mb-3 bg-light rounded">
-                    <h4 class="fst-italic">Kategori Berita</h4>
-                    <ul class="mb-0">
-
-                        <li><a href="#">Berita Desa</a></li>
-                        <li><a href="#">Berita Kementrian</a></li>
-                        <li><a href="#">Berita Pemerintahan Kabupaten</a></li>
-                        <li><a href="#">Berita Pemerintahan Provinsi</a></li>
-                        {{-- <li><a href="#">Info Pemerintahan Provinsi</a></li> --}}
-
-                    </ul>
-                </div>
                 <div class="p-4">
                     <h4 class="fst-italic">Berita Terakhir</h4>
                     <ol class="list-unstyled mb-0">
