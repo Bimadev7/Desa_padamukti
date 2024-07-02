@@ -181,7 +181,7 @@
                                                 <tr>
                                                     <th>Nama Pejabat</th>
                                                     <td>:</td>
-                                                    <td>${data.nama_pejabat}</td>
+                                                    <td>${data.nama}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>NIPD</th>

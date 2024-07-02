@@ -26,12 +26,10 @@
                         <article class="blog-post">
                             <p class="blog-post-meta text-center">{{ $berita->created_at->format('d M Y') }} by <a href="#">{{ $berita->penulis }}</a></p>
                             <img src="{{ asset('images/' . $berita->image) }}" text="ro" alt="Berita" width="200" height="150">
+                            <h6 style="margin-top: 10px;">{{ $berita->caption_capture }}</h6>
+                            
 
-                            <h6>{{ $berita->caption_capture }}</h6>
-                            <hr>
-
-                            <p>{{ $berita->deskripsi }}</p>
-                            <p>{!! $berita->deskripsi !!}</p>
+                            <p>{!! $berita->deskripsi_singkat !!}</p>
 
                         </article>
                     </div>
