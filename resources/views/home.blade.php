@@ -1,5 +1,5 @@
 @extends('layouts.mainPublic')
-
+{{-- azmi --}}
 @section('title', 'Welcome')
 
 @section('content')
