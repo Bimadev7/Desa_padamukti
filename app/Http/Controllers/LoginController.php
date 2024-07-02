@@ -8,12 +8,29 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    
+    // public function login(Request $request)
+    // {
+    //     $credentials = $request->validate([
+    //         'email' => 'required|email',
+    //         'password' => 'required',
+    //     ]);
+
+    //     if (Auth::attempt($credentials)) {
+    //         // Jika autentikasi berhasil
+    //         return redirect()->intended('/dashboard');
+    //     }
+
+    //     // Jika autentikasi gagal
+    //     return back()->withErrors([
+    //         'email' => 'Email atau password salah.',
+    //     ]);
+    // }
     // akan redirect ke sini jika belum login
 
     public function showLoginForm()
     {
-        return view('home');
+        return view('auth.register');
+        
     }
 
     /**
