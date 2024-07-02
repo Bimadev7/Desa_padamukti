@@ -50,13 +50,13 @@
                                     @enderror
                                 </div>
 
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="current_password">Current Password</label>
                                     <input type="password" name="current_password" class="form-control @error('current_password') is-invalid @enderror" id="current_password" placeholder="Current Password" required>
                                     @error('current_password')
                                     <span class="invalid-feedback">{{ $message }}</span>
                                     @enderror
-                                </div>
+                                </div> --}}
                             </div>
 
                             <div class="col-md-6">

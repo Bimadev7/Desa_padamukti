@@ -7,7 +7,7 @@
         <div class="col-md-11">
             <div class="card mt-5">
                 <div class="card-header">
-                    <h3 class="card-title">Detail berita</h3>
+                    <h3 class="card-title">Detail User</h3>
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse">
                             <i class="fas fa-minus"></i>

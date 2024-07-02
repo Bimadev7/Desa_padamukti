@@ -17,18 +17,40 @@
                         </button>
                     </div>
                 </div>
-            <div class="card-body">
-                <div class="form-group text-center">
-                    <label for="image">Gambar</label><br>
-                    <img src="{{ asset('images/' . $slider->slider1) }}" alt="Gambar Pengumuman" width="200" height="250">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group text-center">
+                                <label for="image">Gambar 1</label><br>
+                                <img src="{{ asset('images/' . $slider->slider1) }}" alt="Gambar 1" width="200" height="250">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group text-center">
+                                <label for="image">Gambar 2</label><br>
+                                <img src="{{ asset('images/' . $slider->slider2) }}" alt="Gambar 2" width="200" height="250">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group text-center">
+                                <label for="image">Gambar 3</label><br>
+                                <img src="{{ asset('images/' . $slider->slider3) }}" alt="Gambar 3" width="200" height="250">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group text-center">
+                                <label for="image">Gambar 4</label><br>
+                                <img src="{{ asset('images/' . $slider->slider4) }}" alt="Gambar 4" width="200" height="250">
+                            </div>
+                        </div>
+                    </div>
+                    {{-- Additional content related to slider details --}}
                 </div>
-                {{-- Additional content related to slider details --}}
             </div>
         </div>
     </div>
-
-    <!-- Additional columns or content can be added here -->
-
 </div>
 
 <!-- Modal for additional description -->

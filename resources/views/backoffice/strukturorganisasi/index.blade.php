@@ -35,8 +35,8 @@
                 <thead>
                     <tr>
                         <th>No</th>
+                        <th>Nama</th>
                         <th>Jabatan</th>
-                        <th>Deskripsi</th>
                         <th width="200px">Action</th>
                     </tr>
                 </thead>
@@ -116,8 +116,8 @@
                         return meta.row + 1;
                     }
                 },
+                {data: 'nama', name: 'nama'},
                 {data: 'jabatan', name: 'jabatan'},
-                {data: 'deskripsi', name: 'deskripsi'},
                 {
                     data: 'id',
                     name: 'action',

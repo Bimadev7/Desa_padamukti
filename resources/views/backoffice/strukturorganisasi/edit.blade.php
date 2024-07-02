@@ -44,6 +44,14 @@
               </div>
 
               <div class="form-group ml-4">
+                <label for="deskripsi">Deskripsi</label>
+                <input type="text" name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" placeholder="deskripsi" value="{{ $strukturorganisasi->deskripsi }}" required>
+                @error('deskripsi')
+                  <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+              </div>
+
+              <div class="form-group ml-4">
                 <label for="jabatan">Jabatan</label>
                 <input type="text" name="jabatan" class="form-control @error('jabatan') is-invalid @enderror" id="jabatan" placeholder="Jabatan" value="{{ $strukturorganisasi->jabatan }}" required>
                 @error('jabatan')

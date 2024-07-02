@@ -36,8 +36,9 @@
                     <tr>
                         <th>No</th>
                         <th>slider1</th>
-                        {{-- <th>slider2</th>
-                        <th>slider3</th> --}}
+                      <th>slider2</th>
+                        <th>slider3</th> 
+                        <th>slider4</th> 
                         <th width="200px">Action</th>
                     </tr>
                 </thead>
@@ -113,27 +114,40 @@ $(function () {
         processing: true,
         serverSide: true,
         ajax: "{{ route('slider.index') }}",
-        columns: [
-            {data: 'id', name: 'id'},
-            {{-- {data: 'slider1', name: 'slider1'}, --}}
-            {{-- {data: 'slider2', name: 'slider2'},
-            {data: 'slider3', name: 'slider3'}, --}}
-          
+       columns: [
+            // Custom index column
+            {
+                data: null,
+                name: 'index',
+                searchable: false,
+                orderable: false,
+                render: function (data, type, row, meta) {
+                    // Calculate row index
+                    return meta.row + 1;
+                }
+            },
             {data: 'slider1', name: 'slider1',
                     render: function(data, type, full, meta) {
                         return '<img src="/images/' + data + '" style="max-width: 100px">';
                     }
                 },
-                {{-- {data: 'slider2', name: 'slider2',
+                {data: 'slider2', name: 'slider2',
                     render: function(data, type, full, meta) {
                         return '<img src="/images/' + data + '" style="max-width: 100px">';
                     }
                 },
-                {data: 'slider3', name: 'slider3',
+                {
+                    data: 'slider3', name: 'slider3',
                     render: function(data, type, full, meta) {
                         return '<img src="/images/' + data + '" style="max-width: 100px">';
                     }
-                }, --}}
+                },
+                {
+                    data: 'slider4', name: 'slider4',
+                    render: function(data, type, full, meta) {
+                        return '<img src="/images/' + data + '" style="max-width: 100px">';
+                    }
+                },
 
             {
                 data: 'id',

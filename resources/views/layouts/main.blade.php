@@ -281,7 +281,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/backoffice/demografidesa" class="nav-link">
+                    <a href="/backoffice/demografidesa/1/edit" class="nav-link">
                         <i class="nav-icon fas fa-poll-h"></i>
                         <p>Demografi Desa</p>
                     </a>
