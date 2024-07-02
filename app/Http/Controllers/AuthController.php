@@ -40,7 +40,7 @@ class AuthController extends Controller
                     return redirect()->route('backoffice.user.index');
                     break;
                 case 'admin':
-                    return redirect()->route('backoffice.berita.index');
+                    return redirect()->route('berita.index');
                 case 'draft':
                         return redirect()->route('/welcome');
                     break;
