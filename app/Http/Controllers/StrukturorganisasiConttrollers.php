@@ -51,7 +51,7 @@ class StrukturorganisasiConttrollers extends Controller
     $data = new StrukturOrganisasi([
         'nama' => $request->get('nama'),
         'jabatan' => $request->get('jabatan'),
-        'deskripsi_singkat' => $request->get('deskripsi_singkat'),
+        // 'deskripsi' => $request->get('deskripsi'),
         'nip' => $request->get('nip'),
         'image' => $imageName, 
         'deskripsi' => $request->get('deskripsi'),
@@ -95,6 +95,7 @@ class StrukturorganisasiConttrollers extends Controller
         $strukturorganisasi->nama = $request->nama;
         $strukturorganisasi->jabatan = $request->jabatan;
         $strukturorganisasi->nip = $request->nip;
+        $strukturorganisasi->deskripsi = $request->deskripsi;
 
         // Upload dan simpan gambar jika ada
         if ($request->hasFile('image')) {
