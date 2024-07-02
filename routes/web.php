@@ -122,37 +122,37 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::post('/login', [LoginController::class, 'login'])->name('login');
 
     // });
-    Route::middleware(['auth'])->group(function () {
-        Route::resource('/backoffice/user', UserController::class);
-        Route::resource('/backoffice/berita', BeritaController::class);
-        Route::resource('/backoffice/pengumuman', PengumumanController::class);
-        Route::resource('/backoffice/demografi_desa', Demografi_desaControllers::class);
-        Route::resource('/backoffice/slider', SliderConttrollers::class);
-        Route::resource('/backoffice/strukturorganisasi', StrukturorganisasiConttrollers::class);
-        Route::resource('/backoffice/demografidesa', DemografidesaController::class);
-        Route::resource('/backoffice/profildesa', ProfilDesaController::class);
-        Route::resource('/backoffice/lembagadesa', Lembaga_desaController::class);
-        Route::resource('/backoffice/profildesa_visi', ProfilDesaVisiController::class);
-        Route::resource('/backoffice/profildesa_misi', ProfilDesaMisiController::class);
-    });
+    // Route::middleware(['auth'])->group(function () {
+    //     Route::resource('/backoffice/user', UserController::class);
+    //     Route::resource('/backoffice/berita', BeritaController::class);
+    //     Route::resource('/backoffice/pengumuman', PengumumanController::class);
+    //     Route::resource('/backoffice/demografi_desa', Demografi_desaControllers::class);
+    //     Route::resource('/backoffice/slider', SliderConttrollers::class);
+    //     Route::resource('/backoffice/strukturorganisasi', StrukturorganisasiConttrollers::class);
+    //     Route::resource('/backoffice/demografidesa', DemografidesaController::class);
+    //     Route::resource('/backoffice/profildesa', ProfilDesaController::class);
+    //     Route::resource('/backoffice/lembagadesa', Lembaga_desaController::class);
+    //     Route::resource('/backoffice/profildesa_visi', ProfilDesaVisiController::class);
+    //     Route::resource('/backoffice/profildesa_misi', ProfilDesaMisiController::class);
+    // });
     
 
 
-    // // CRUD User
-    // Route::resource('/backoffice/user', UserController::class);
+    // CRUD User
+    Route::resource('/backoffice/user', UserController::class);
 
-    // // CRUD Berita
-    // // Route::resource('/backoffice/berita', BeritaController::class);
+    // CRUD Berita
     // Route::resource('/backoffice/berita', BeritaController::class);
-    // Route::resource('/backoffice/pengumuman', PengumumanController::class);
-    // Route::resource('/backoffice/demografi_desa', Demografi_desaControllers::class);
-    // Route::resource('/backoffice/slider', SliderConttrollers::class);
-    // Route::resource('/backoffice/strukturorganisasi', StrukturorganisasiConttrollers::class);
-    // Route::resource('/backoffice/demografidesa', DemografidesaController::class);
-    // Route::resource('/backoffice/profildesa', ProfilDesaController::class);
-    // Route::resource('/backoffice/lembagadesa', Lembaga_desaController::class);
-    // Route::resource('/backoffice/profildesa_visi', ProfilDesaVisiController::class);
-    // Route::resource('/backoffice/profildesa_misi', ProfilDesaMisiController::class);
+    Route::resource('/backoffice/berita', BeritaController::class);
+    Route::resource('/backoffice/pengumuman', PengumumanController::class);
+    Route::resource('/backoffice/demografi_desa', Demografi_desaControllers::class);
+    Route::resource('/backoffice/slider', SliderConttrollers::class);
+    Route::resource('/backoffice/strukturorganisasi', StrukturorganisasiConttrollers::class);
+    Route::resource('/backoffice/demografidesa', DemografidesaController::class);
+    Route::resource('/backoffice/profildesa', ProfilDesaController::class);
+    Route::resource('/backoffice/lembagadesa', Lembaga_desaController::class);
+    Route::resource('/backoffice/profildesa_visi', ProfilDesaVisiController::class);
+    Route::resource('/backoffice/profildesa_misi', ProfilDesaMisiController::class);
     
 });
 
