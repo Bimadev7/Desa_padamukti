@@ -24,8 +24,11 @@
                 <div class="row g-5 justify-content-center">
                     <div class="col-md-8 ps-3 ms-auto">
                         <article class="blog-post">
+                        <div class="section-title mt-5">
+                                <h3 class="text-dark">{{ $berita->judul }}</h3>
+                            </div>
                             <p class="blog-post-meta text-center">{{ $berita->created_at->format('d M Y') }} by <a href="#">{{ $berita->penulis }}</a></p>
-                            <img src="{{ asset('images/' . $berita->image) }}" text="ro" alt="Berita" width="200" height="150">
+                            <img src="{{ asset('images/' . $berita->image) }}" text="ro" alt="Berita" style="max-width: 100%; height: auto;">
                             <h6 style="margin-top: 10px;">{{ $berita->caption_capture }}</h6>
                             
 

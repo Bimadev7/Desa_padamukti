@@ -83,7 +83,7 @@
         </div>
     </div>
 </div>
-
+<!-- 
 <div class="container pt-2 pb-4">
     <div class="row">
         <div class="col">
@@ -108,5 +108,5 @@
             </table>
         </div>
     </div>
-</div>
+</div> -->
 @endsection

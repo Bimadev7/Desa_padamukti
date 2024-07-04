@@ -204,7 +204,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-light-primary elevation-4" >
     <!-- Brand Logo -->
-    <a href="" class="brand-link">
+    <a href="/" class="brand-link">
       <span class="brand-text font-weight-light">Desa Padamukti</span>
     <img src="{{ asset('green/assets/img/logo-padamukti.png')}}" alt="AdminLTE Logo" class="brand-image img-circle " style="max-width: 100px; margin-right: 8px;">
     </a>
@@ -310,12 +310,12 @@
                         <p>Lembaga Desa</p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="/backoffice/userguide" class="nav-link">
                         <i class="nav-icon fas fa-user-circle"></i>
                         <p>User Guide</p>
                     </a>
-                </li>
+                </li> -->
                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
             @csrf
             <button type="submit" class="nav-link btn btn-link">

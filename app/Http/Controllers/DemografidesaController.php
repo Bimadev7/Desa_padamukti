@@ -70,6 +70,8 @@ class DemografidesaController extends Controller
         $demografidesa->angka_kelahiran = $request->angka_kelahiran;
         $demografidesa->angka_kematian = $request->angka_kematian;
         $demografidesa->jumlah_penduduk = $request->jumlah_penduduk;
+        $demografidesa->jumlah_pria = $request->jumlah_pria;
+        $demografidesa->jumlah_perempuan = $request->jumlah_perempuan;
 
         // Upload dan simpan gambar jika ada
         // if ($request->hasFile('image')) {

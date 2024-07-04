@@ -49,7 +49,7 @@
                 @endforeach
             </div>
         </div>
- 
+
         <div class="col-md-4">
             <!-- Sidebar Section -->
             <div class="position-sticky" style="top: 2rem;">
@@ -65,6 +65,4 @@
             </div>
         </div>
     </div>
-</div>
-
-@endsection
+    @endsection
