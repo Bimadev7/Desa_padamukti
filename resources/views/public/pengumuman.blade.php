@@ -19,50 +19,44 @@
     <div class="row">
         <div class="col-md-8">
             <!-- Cards Section -->
-            <div class="row mb-2">
-                @foreach($pengumuman as $item)
-                <div class="col-md-12 ps-3">
-                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                        <div class="col p-4 d-flex flex-column position-static text-start">
-                            <h3 class="mb-0">{{ $item->judul }}</h3>
-                            
-                            {{-- <div class="mb-1 text-body-secondary">{{ $item->created_at->format('d F Y') }}</div> --}}
-                            {{-- <p class="card-text mb-auto">{{ $item->deskripsi }}</p> --}}
-                <div>
-                    {!! (strlen($item->deskripsi) > 200) ? substr($item->deskripsi, 0, 300) . '...' : $item->deskripsi !!}
-                    @if (strlen($item->deskripsi) > 200)
-                    @endif
-                </div>
-                            <a href="{{ route('pengumuman.detailPengumuman', $item->id) }}" class="icon-link gap-1 icon-link-hover stretched-link">Lanjutkan Membaca
-                                <svg class="bi">
-                                    <use xlink:href="#chevron-right"></use>
-                                </svg>
-                            </a>
-                        </div>
-                        <div class="col-auto d-none d-lg-block">  
-                            <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="250" height="250">
-
-                            {{-- <img src="#" alt="Pengumuman 1" width="200" height="250"> --}}
+            @foreach($pengumuman as $item)
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <div class="card mb-4 border-0 shadow">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="{{ asset('images/' . $item->image) }}" alt="Pengumuman" class="img-fluid rounded-start">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $item->judul }}</h5>
+                                    <p class="card-text">{!! (strlen($item->deskripsi) > 200) ? substr($item->deskripsi, 0, 200) . '...' : $item->deskripsi !!}</p>
+                                    <p class="card-text"><small class="text-muted">{{ $item->created_at->format('d F Y') }}</small></p>
+                                    <a href="{{ route('pengumuman.detailPengumuman', $item->id) }}" class="icon-link gap-1 icon-link-hover stretched-link">Lanjutkan Membaca</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                @endforeach
             </div>
+            @endforeach
         </div>
 
         <div class="col-md-4">
             <!-- Sidebar Section -->
             <div class="position-sticky" style="top: 2rem;">
                 <!-- Categories Section -->
-                <div class="p-4">
+                <div class="p-4 bg-light">
                     <h4 class="fst-italic">Pengumuman Terakhir</h4>
                     <ol class="list-unstyled mb-0">
                         @foreach($news as $new)
-                        <li class="bg-light rounded mt-2 p-3"><a href="{{ route('pengumuman.detailPengumuman', $new->id) }}">{{ $new->judul }}</a></li>
+                        <li class="rounded mt-2 p-3"><a href="{{ route('pengumuman.detailPengumuman', $new->id) }}">{{ $new->judul }}</a></li>
                         @endforeach
                     </ol>
                 </div>
             </div>
         </div>
     </div>
-    @endsection
+</div>
+
+@endsection
