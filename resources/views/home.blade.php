@@ -48,7 +48,8 @@
             <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
         </a>
     </div>
-  </section><!-- End Hero -->
+  </section>
+  
 
 
   <section id="featured-services" class="featured-services section-bg">
@@ -107,42 +108,45 @@
         </div>
       </div>
       <hr>
-      <div id="berita" class="berita">
-      <div class="section-title mt-5">
-        <h2 class="text-dark">Berita Desa</h2>
-      </div>
-
-      <div class="row">
-    @foreach($berita as $key => $item)
-        <div class="col-md-6 mb-4">
-            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                @if($key % 2 == 0)
-                    <div class="col p-4 d-flex flex-column position-static text-start">
-                        <h3 class="mb-0" style="font-size: 1.5em; font-weight: bold; color: #000;">{{ $item->judul }}</h3>
-                        <div class="mb-1 text-body-secondary">
-                            {{ optional($item->created_at)->format('M Y') }}
-                        </div>
-                        <p class="card-text mb-auto">{{ $item->deskripsi }}</p>
-                    </div>
-                    <div class="col-auto d-none d-lg-block">
-                        <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="250" height="250">
-                    </div>
-                @else
-                    <div class="col-auto d-none d-lg-block">
-                        <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="250" height="250">
-                    </div>
-                    <div class="col p-4 d-flex flex-column position-static text-start">
-                        <h3 class="mb-0" style="font-size: 1.5em; font-weight: bold; color: #000;">{{ $item->judul }}</h3>
-                        <div class="mb-1 text-body-secondary">
-                            {{ optional($item->created_at)->format('M Y') }}
-                        </div>
-                        <p class="card-text mb-auto">{{ $item->deskripsi }}</p>
-                    </div>
-                @endif
-            </div>
+        <div id="berita" class="berita">
+        <div class="section-title mt-5">
+          <h2 class="text-dark">Berita Desa</h2>
         </div>
-    @endforeach
+
+        <div class="row">
+      @foreach($berita as $key => $item)
+          <div class="col-md-6 mb-4">
+              <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                  @if($key % 2 == 0)
+                      <div class="col p-4 d-flex flex-column position-static text-start">
+                          <h3 class="mb-0" style="font-size: 1.5em; font-weight: bold; color: #000;">{{ $item->judul }}</h3>
+                          <div class="mb-1 text-body-secondary">
+                              {{ optional($item->created_at)->format('M Y') }}
+                          </div>
+                          <p class="card-text mb-auto">{{ $item->deskripsi }}</p>
+                          <a href="{{ route('berita.detailBerita', $item->id) }}" class="icon-link gap-1 icon-link-hover stretched-link">Lanjutkan Membaca</a>
+                      </div>
+                      <div class="col-auto d-none d-lg-block">
+                          <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="250" height="250" class="img-fluid rounded-start">
+                      </div>
+                  @else
+                      <div class="col-auto d-none d-lg-block">
+                          <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="250" height="250" class="img-fluid rounded-start">
+                      </div>
+                      <div class="col p-4 d-flex flex-column position-static text-start">
+                          <h3 class="mb-0" style="font-size: 1.5em; font-weight: bold; color: #000;">{{ $item->judul }}</h3>
+                          <div class="mb-1 text-body-secondary">
+                              {{ optional($item->created_at)->format('M Y') }}
+                          </div>
+                          <p class="card-text mb-auto">{{ $item->deskripsi }}</p>
+                          <a href="{{ route('berita.detailBerita', $item->id) }}" class="icon-link gap-1 icon-link-hover stretched-link">Lanjutkan Membaca</a>
+                      </div>
+                  @endif
+              </div>
+          </div>
+      @endforeach
 </div>
+
 
 
         {{-- <div class="text-end">
