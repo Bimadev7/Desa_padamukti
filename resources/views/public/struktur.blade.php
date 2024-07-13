@@ -111,12 +111,13 @@
         </div>
 
         <div class="content" id="content">
-            <h3>Struktur Desa</h3>
-            <p>Selamat datang di menu struktur desa! Di sini, Anda dapat mengeksplorasi informasi mendetail tentang bagaimana Desa Padamukti diatur dan berkembang. Mulai dari pemerintahan desa yang bertanggung jawab mengelola kebijakan dan menyediakan layanan publik yang berkualitas.</p>
-            <div class="col-lg-12 text-center mb-5 mx-auto">
-                <img src="{{ asset('images/strukturdesa.jpg') }}" alt="Tentang Desa" class="img-fluid" style="max-width: 1500px; height: auto;">
-            </div>
-        </div>
+    <h3>Struktur Desa</h3>
+    <p>Selamat datang di menu struktur desa! Di sini, Anda dapat mengeksplorasi informasi mendetail tentang bagaimana Desa Padamukti diatur dan berkembang. Mulai dari pemerintahan desa yang bertanggung jawab mengelola kebijakan dan menyediakan layanan publik yang berkualitas.</p>
+    <div class="col-lg-12 text-center mb-5 mx-auto">
+        <img src="{{ asset('images/strukturdesa.jpg') }}" alt="Tentang Desa" class="img-fluid" style="max-width: 100%; height: auto;">
+    </div>
+</div>
+
 
         <div class="content" id="content">
             <div class="carousel-item active" style="background-image: url({{ asset('images/' . $slider1) }})">
