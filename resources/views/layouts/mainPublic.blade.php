@@ -5,21 +5,23 @@
 /* Navbar styling */
 /* Navbar styling */
 .navbar {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0; /* Mengurangi padding di atas dan bawah */
+    margin: 0; /* Menghilangkan margin untuk memastikan tidak ada jarak ekstra */
     border-bottom: 1px solid #e0e0e0;
     background: transparent;
 }
-
+.navbar-collapse {
+    justify-content: flex-start; /* Mengatur konten di dalam navbar agar mepet ke kiri */
+}
 .navbar-light .navbar-nav .nav-link {
     color: #333;
     padding: 0.75rem 1rem;
     font-size: 0.875rem;
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    transition: color 0.3s ease; /* Transisi smooth untuk efek hover */
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
-    color: #fff;
-    background-color: #28a745; /* Green background on hover */
+    color: #28a745; /* Warna hijau ketika di-hover */
 }
 
 .navbar-light .dropdown-menu {
@@ -55,7 +57,7 @@
 /* Ensuring no horizontal scrollbars */
 body {
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: auto;
 }
 
 /* Top bar styling */
@@ -138,6 +140,11 @@ body {
     .navbar-collapse .login-button {
         justify-content: flex-end;
         width: auto;
+        .navbar {
+        margin-right: auto; /* Navbar akan mepet ke kiri */
+        margin-left: auto; /* Navbar akan mepet ke kiri */
+        width: 100%; /* Memastikan navbar memanjang di layar */
+    }
     }
 }
 
@@ -147,13 +154,17 @@ body {
     font-size: 1rem; /* Adjust font size if needed */
 }
 
-.navbar-nav .nav-link {
-    margin-left: 0.5rem; /* Adjusting space between navbar items */
-}
-
 .navbar-nav .nav-item {
-    margin-right: 0.5rem; /* Adjusting space between navbar items */
-}
+        margin-right: 1rem; /* Menambah margin antara item navbar */
+    }
+
+    .navbar-nav .nav-link {
+        padding: 1rem; /* Menambah padding agar lebih nyaman digunakan */
+    }
+
+    .navbar-nav .login-button {
+        margin-left: 10rem; /* Menambah margin kiri pada tombol login */
+    }
 
 </style>
 <meta charset="utf-8">
