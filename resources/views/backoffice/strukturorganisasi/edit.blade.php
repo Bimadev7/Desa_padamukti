@@ -62,7 +62,7 @@
 
             <div class="col-md-6">
               <div class="form-group ml-4">
-                <label for="nip">NIP</label>
+                <label for="nip">NIPD</label>
                 <textarea name="nip" class="form-control @error('nip') is-invalid @enderror" id="nip" placeholder="NIP" required>{{ $strukturorganisasi->nip }}</textarea>
                 @error('nip')
                   <span class="invalid-feedback">{{ $message }}</span>

@@ -29,13 +29,13 @@
                     </div>
                 </div>
             </div>
-            <div class="carousel-item" style="background-image: url({{ asset('images/' . $slider3) }})">
+            <div class="carousel-item" style="background-image: url({{ asset('images/' . $slider2) }})">
                 <div class="carousel-container">
                     <div class="container">
                         <div class="carousel-content">
                             <h2 class="animate__animated animate__zoomIn">Berita Desa</h2>
                             <p class="animate__animated animate__fadeInUp">Tinjau berita terbaru dari Desa Padamukti.</p>
-                            <a href="#about" class="btn-get-started animate__animated animate__jackInTheBox scrollto">Lihat Berita</a>
+                            <a href="#berita" class="btn-get-started animate__animated animate__jackInTheBox scrollto">Lihat Berita</a>
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,8 @@
             <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
         </a>
     </div>
-  </section><!-- End Hero -->
+  </section>
+  
 
 
   <section id="featured-services" class="featured-services section-bg">
@@ -107,29 +108,46 @@
         </div>
       </div>
       <hr>
-
-      <div class="section-title mt-5">
-        <h2 class="text-dark">Berita Desa</h2>
-      </div>
-
-      <div class="row">
-        @foreach($berita as $item)
-        <div class="col-md-6 mb-4">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-            <div class="col p-4 d-flex flex-column position-static text-start">
-              <h3 class="mb-0" style="font-size: 1.5em; font-weight: bold; color: #000;">{{ $item->judul }}</h3>
-              <div class="mb-1 text-body-secondary">
-                {{ optional($item->created_at)->format('M Y') }}
-              </div>
-              <p class="card-text mb-auto">{{ $item->deskripsi }}</p>
-             
-            </div>
-            <div class="col-auto d-none d-lg-block">
-              <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="250" height="250">
-            </div>
-          </div>
+        <div id="berita" class="berita">
+        <div class="section-title mt-5">
+          <h2 class="text-dark">Berita Desa</h2>
         </div>
-        @endforeach
+
+        <div class="row">
+      @foreach($berita as $key => $item)
+          <div class="col-md-6 mb-4">
+              <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                  @if($key % 2 == 0)
+                      <div class="col p-4 d-flex flex-column position-static text-start">
+                          <h3 class="mb-0" style="font-size: 1.5em; font-weight: bold; color: #000;">{{ $item->judul }}</h3>
+                          <div class="mb-1 text-body-secondary">
+                              {{ optional($item->created_at)->format('M Y') }}
+                          </div>
+                          <p class="card-text mb-auto">{{ $item->deskripsi }}</p>
+                          <a href="{{ route('berita.detailBerita', $item->id) }}" class="icon-link gap-1 icon-link-hover stretched-link">Lanjutkan Membaca</a>
+                      </div>
+                      <div class="col-auto d-none d-lg-block">
+                          <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="250" height="250" class="img-fluid rounded-start">
+                      </div>
+                  @else
+                      <div class="col-auto d-none d-lg-block">
+                          <img src="{{ asset('images/' . $item->image) }}" alt="Berita" width="250" height="250" class="img-fluid rounded-start">
+                      </div>
+                      <div class="col p-4 d-flex flex-column position-static text-start">
+                          <h3 class="mb-0" style="font-size: 1.5em; font-weight: bold; color: #000;">{{ $item->judul }}</h3>
+                          <div class="mb-1 text-body-secondary">
+                              {{ optional($item->created_at)->format('M Y') }}
+                          </div>
+                          <p class="card-text mb-auto">{{ $item->deskripsi }}</p>
+                          <a href="{{ route('berita.detailBerita', $item->id) }}" class="icon-link gap-1 icon-link-hover stretched-link">Lanjutkan Membaca</a>
+                      </div>
+                  @endif
+              </div>
+          </div>
+      @endforeach
+</div>
+
+
 
         {{-- <div class="text-end">
           <a href="{{ route('berita-desa') }}" class="btn btn-success">
@@ -150,7 +168,7 @@
           <h5 class="card-title" style="font-size: 1.5em; font-weight: bold; color: #000;">
             <a href="{{ route('pengumuman.detailPengumuman', $item->id) }}" class="mb-0">{{ $item->judul }}</a>
           </h5>
-                    <img src="{{ asset('images/' . $item->image) }}" alt="Gambar Pengumuman" width="400" height="200">
+                    <img src="{{ asset('images/' . $item->image) }}" alt="Gambar Pengumuman" width="250" height="200">
 
             <p class="card-text mb-auto">{!! (strlen($item->deskripsi) > 200) ? substr($item->deskripsi, 0, 200) . '...' : $item->deskripsi !!}</p>
           {{-- <p class="card-text">{{ $item->deskripsi }}</p> --}}
@@ -201,27 +219,6 @@
     </div>
   </div> --}}
   <!-- End Modal Login -->
-
-  <form method="POST" action="{{ route('login') }}">
-    @csrf
-    <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" name="email" required>
-        @error('email')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
-    </div>
-    <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" name="password" required>
-        @error('password')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
-    </div>
-    <button type="submit" class="btn btn-primary">Masuk</button>
-</form>
-
-
   <!-- Tombol Login -->
   <!-- End Tombol Login -->
 

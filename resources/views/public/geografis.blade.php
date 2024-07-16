@@ -34,12 +34,12 @@
                     </ul>
 
                     <li><strong>Potensi dan Industri:</strong></li>
-                    <ul>
-                        <li><strong>Pertanian:</strong> Sawah, kebun sayuran (mentimun, tomat, ubi jalar, singkong)</li>
+                    <ul style="text-align: justify;">
+                        Diwilayah Desa Padamukti ada beberapa potensi untuk dikembangkan, seperti pemanfaatan keragaman produksi UMKM dan pemanfaatan limbah hasil alam menjadi kerajinan bernilai ekonomis untuk yang lainya masih dalam pemetaan lebih lanjut. Semua ini tentunya menjadi perhatian untuk ditata supaya dapat berkembang dan berkelanjutan, potensi ini juga dikemudian hari akan dikolaborasikan dengan berbagai pihak terkait.
+                        Pemanfaatan sampah plastic menjadi ecobrick dan pemanfaatan popok bayi menjadi pupuk dan pot masih dalam pengerjaan oleh Patriot Desa Jawa Barat
                         {{-- <li><strong>Industri:</strong> Home Industri (pengrajin kerudung, pengrajin ciput)</li>
                         <li><strong>Pariwisata:</strong> Villa Kancil</li> --}}
                     </ul>
-
                 </ul>
             </article>
         </div>

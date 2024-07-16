@@ -17,9 +17,7 @@
             <div class="d-flex align-items-center">
                 <h3 class="card-title"></h3>
                 <div class="card-tools ml-auto mr-0">
-                   {{-- <a href="{{ route('berita.create') }}" class="btn btn-primary btn-sm mb-4">
-                    <i class="fas fa-plus mr-1"></i> Tambah Baru
-                </a> --}}
+                  
                 </div>
             </div>
             <!-- /.card-header -->

@@ -75,9 +75,7 @@
         </form>
     </div>
     <!-- /.card-body -->
-    <div class="card-footer">
-        Tambah Berita
-    </div>
+  
 </div>
 <!-- /.card -->
 </div>
